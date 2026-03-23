@@ -57,15 +57,6 @@ export function FeaturedProjectsSection({ recruiterMode }: Props) {
                     </div>
                   </div>
 
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    whileHover={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.25 }}
-                    className="pointer-events-none absolute inset-x-4 top-1/2 z-10 -translate-y-1/2 text-center text-xs tracking-[0.2em] text-slate-200"
-                  >
-                    {project.dataFlow}
-                  </motion.div>
-
                   <div className="absolute inset-x-5 bottom-5 flex items-center justify-between">
                     <Badge className="rounded-full border border-white/15 bg-black/30 text-[10px] uppercase tracking-[0.3em] text-slate-200">
                       {project.type}
@@ -86,6 +77,10 @@ export function FeaturedProjectsSection({ recruiterMode }: Props) {
                         {metric}
                       </span>
                     ))}
+                  </div>
+
+                  <div className="mt-3 rounded-2xl border border-white/8 bg-black/20 px-3 py-2 text-xs leading-6 text-slate-400">
+                    {project.dataFlow}
                   </div>
 
                   <p className="mt-3 text-sm leading-7 text-slate-300">
@@ -165,7 +160,9 @@ export function FeaturedProjectsSection({ recruiterMode }: Props) {
                 </div>
 
                 <p className="mt-3 text-sm leading-7 text-slate-300">
-                  Open the full projects page to explore the complete project archive, deeper case studies, and additional engineering work beyond the featured flagship builds.
+                  Open the full projects page to explore the complete project
+                  archive, deeper case studies, and additional engineering work
+                  beyond the featured flagship builds.
                 </p>
 
                 <div className="mt-5 flex flex-wrap gap-2">

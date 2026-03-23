@@ -4,7 +4,7 @@ import { ArrowLeft, ExternalLink, Layers3 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { layerAProjects } from "@/data/projects";
+import { layerAProjects, layerBProjects } from "@/data/projects";
 
 export default async function ProjectDetailPage({
   params,
@@ -12,7 +12,9 @@ export default async function ProjectDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const project = layerAProjects.find((item) => item.slug === slug);
+  const project = [...layerAProjects, ...layerBProjects].find(
+    (item) => item.slug === slug,
+  );
 
   if (!project) {
     notFound();
@@ -23,10 +25,10 @@ export default async function ProjectDetailPage({
       <div className="mx-auto max-w-7xl">
         <div className="mb-8">
           <Link
-            href="/"
+            href="/projects"
             className="inline-flex items-center gap-2 text-sm text-slate-400 transition hover:text-white"
           >
-            <ArrowLeft className="h-4 w-4" /> Back to portfolio
+            <ArrowLeft className="h-4 w-4" /> Back to projects
           </Link>
         </div>
 
@@ -48,6 +50,15 @@ export default async function ProjectDetailPage({
                   {metric}
                 </span>
               ))}
+            </div>
+
+            <div className="mt-6 rounded-2xl border border-white/8 bg-black/20 p-5">
+              <p className="text-[11px] uppercase tracking-[0.25em] text-slate-500">
+                Recruiter Summary
+              </p>
+              <p className="mt-3 text-sm leading-7 text-slate-300">
+                {project.recruiterSummary}
+              </p>
             </div>
 
             <p className="mt-6 max-w-3xl text-base leading-8 text-slate-300">
@@ -99,6 +110,26 @@ export default async function ProjectDetailPage({
                 <Layers3 className="h-5 w-5 text-sky-200" />
               </div>
             </div>
+          </Card>
+        </div>
+
+        <div className="mt-14 grid gap-8 lg:grid-cols-2">
+          <Card className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
+            <CardContent className="p-8">
+              <h2 className="text-2xl font-semibold text-white">Problem</h2>
+              <div className="mt-6 rounded-2xl border border-white/8 bg-black/20 p-4 text-sm leading-7 text-slate-300">
+                {project.problem}
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
+            <CardContent className="p-8">
+              <h2 className="text-2xl font-semibold text-white">Solution</h2>
+              <div className="mt-6 rounded-2xl border border-white/8 bg-black/20 p-4 text-sm leading-7 text-slate-300">
+                {project.solution}
+              </div>
+            </CardContent>
           </Card>
         </div>
 
@@ -253,7 +284,7 @@ export default async function ProjectDetailPage({
                 <div className="relative h-64 bg-[linear-gradient(135deg,rgba(56,189,248,0.18),rgba(124,58,237,0.14),rgba(15,23,42,0.8))]">
                   <div className="absolute inset-0 opacity-50 [background-image:linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] [background-size:22px_22px]" />
                   <div className="absolute inset-6 rounded-[1.5rem] border border-dashed border-white/20 bg-black/20 p-4 text-sm text-slate-300">
-                    Placeholder screenshot:
+                    Project visual coming soon
                     <div className="mt-2 break-all text-slate-400">{shot}</div>
                   </div>
                 </div>

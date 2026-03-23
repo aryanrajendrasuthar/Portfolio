@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Briefcase } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -14,6 +14,21 @@ export function ExperienceSection() {
         title="Engineering experience shaped by real systems"
         description="A case-study style timeline focused on architecture, scalability, delivery, and production-minded engineering."
       />
+
+      <div className="mt-6 mb-10 flex justify-center">
+        <Link
+          href="/resume"
+          className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-sky-300 transition hover:bg-white/10 hover:text-sky-200"
+        >
+          <span className="relative">
+            View full experience
+            <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-sky-300 transition-all duration-300 group-hover:w-full" />
+          </span>
+          <span className="transition-transform duration-300 group-hover:translate-x-1">
+            →
+          </span>
+        </Link>
+      </div>
 
       <div className="grid gap-6 md:grid-cols-2">
         {experience.map((item, idx) => (

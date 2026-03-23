@@ -195,6 +195,10 @@ export function ArchitectureSection({
                 <h3 className="mt-1 text-2xl font-semibold text-white">
                   Event-driven systems flow
                 </h3>
+                <p className="mt-2 text-sm leading-6 text-slate-400">
+                  A simplified view of the kind of backend architecture used in
+                  scalable, production-minded systems.
+                </p>
               </div>
 
               <Badge className="rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.3em] text-slate-300">
@@ -208,39 +212,32 @@ export function ArchitectureSection({
 
         <Card className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
           <CardContent className="p-8">
-            <p className="text-sm text-violet-300">Why this section matters</p>
+            <p className="text-sm text-violet-300">Why this architecture matters</p>
             <h3 className="mt-1 text-2xl font-semibold text-white">
-              Big Tech-facing storytelling
+              Backend engineering depth, made visible
             </h3>
 
             <div className="mt-6 space-y-4 text-sm leading-7 text-slate-300">
-              {recruiterMode ? (
-                <>
-                  <div className="rounded-2xl border border-white/8 bg-black/20 p-4">
-                    Highlights backend architecture and distributed systems
-                    thinking quickly.
-                  </div>
-                  <div className="rounded-2xl border border-white/8 bg-black/20 p-4">
-                    Reinforces experience with Kafka, workers, Redis, APIs, and
-                    scalable system design.
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div className="rounded-2xl border border-white/8 bg-black/20 p-4">
-                    It immediately communicates system design thinking instead of
-                    a generic portfolio layout.
-                  </div>
-                  <div className="rounded-2xl border border-white/8 bg-black/20 p-4">
-                    It visually reinforces your strengths in APIs, Kafka,
-                    workers, caching, and scalable backend systems.
-                  </div>
-                  <div className="rounded-2xl border border-white/8 bg-black/20 p-4">
-                    Later, each Layer A project can reuse this pattern with its
-                    own customized architecture flow.
-                  </div>
-                </>
-              )}
+              <div className="rounded-2xl border border-white/8 bg-black/20 p-4">
+                Communicates real backend system design thinking beyond CRUD
+                applications by showing ingestion, asynchronous processing,
+                caching, and persistence as separate concerns.
+              </div>
+              <div className="rounded-2xl border border-white/8 bg-black/20 p-4">
+                Highlights event-driven architecture using Kafka-style pipelines,
+                worker-based execution, and durable storage patterns commonly
+                used in scalable systems.
+              </div>
+              <div className="rounded-2xl border border-white/8 bg-black/20 p-4">
+                Demonstrates production-oriented engineering choices such as
+                decoupling, performance optimization, and fault-tolerant service
+                boundaries.
+              </div>
+              <div className="rounded-2xl border border-white/8 bg-black/20 p-4">
+                This same systems thinking carries across flagship projects like
+                the I Simulation Platform, AI Knowledge Assistant,
+                and SmartQuote ERP workflow automation.
+              </div>
             </div>
           </CardContent>
         </Card>

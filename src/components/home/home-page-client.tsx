@@ -54,7 +54,10 @@ export function HomePageClient({ githubSection }: Props) {
         />
 
         <main className="relative z-10">
-          <HeroSection recruiterMode={recruiterMode} />
+          <HeroSection
+            recruiterMode={recruiterMode}
+            setRecruiterMode={setRecruiterMode}
+          />
           <ExperienceSection />
           <FeaturedProjectsSection recruiterMode={recruiterMode} />
           <ArchitectureSection recruiterMode={recruiterMode} />

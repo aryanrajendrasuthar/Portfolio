@@ -33,8 +33,8 @@ export const assistantKnowledge = {
   },
 
   projects: {
-    distributed:
-      "The Distributed AI Simulation Platform focuses on microservices, Kafka, Redis, Docker, Kubernetes, and gRPC for scalable event-driven workloads.",
+    realTimeAISimulationTool:
+      "The Real Time AI Simulation Tool focuses on microservices, Kafka, Redis, Docker, Kubernetes, and gRPC for scalable event-driven workloads.",
     physio:
       "The Physio App is an AI-powered rehabilitation platform using Node.js, FastAPI, React, Next.js, Redis, and MySQL.",
     smartquote:

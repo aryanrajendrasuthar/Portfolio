@@ -3,6 +3,15 @@ import { Card, CardContent } from "@/components/ui/card";
 import { SectionTitle } from "@/components/layout/section-title";
 import { tutoringSkills } from "@/data/skills";
 
+const engineeringStrengths = [
+  "Backend API design, service decomposition, and scalable system architecture",
+  "Distributed systems thinking using event-driven and asynchronous workflows",
+  "RAG pipelines, AI workflows, and production-oriented ML integration",
+  "Authentication, authorization, and secure backend application design",
+  "Database modeling, caching strategies, and performance optimization",
+  "Cloud deployment and real-world business workflow automation",
+];
+
 export function SupportingSkillsSection({
   recruiterMode,
 }: {
@@ -16,7 +25,7 @@ export function SupportingSkillsSection({
         description={
           recruiterMode
             ? "Professional strengths that support communication, collaboration, mentorship, and technical clarity."
-            : "Your tutoring and collaborative experience can be presented as people-facing strengths that complement the engineering depth shown elsewhere."
+            : "People-facing strengths and engineering depth that reinforce your ability to build, explain, and deliver real systems."
         }
       />
 
@@ -26,7 +35,7 @@ export function SupportingSkillsSection({
             <div className="mb-6 flex items-center gap-3">
               <GraduationCap className="h-6 w-6 text-sky-300" />
               <div>
-                <p className="text-sm text-sky-300">ASU Supporting Section</p>
+                <p className="text-sm text-sky-300">ASU Academic Support Network</p>
                 <h3 className="text-2xl font-semibold text-white">
                   Subject Area Tutor
                 </h3>
@@ -34,10 +43,12 @@ export function SupportingSkillsSection({
             </div>
 
             <p className="text-sm leading-7 text-slate-300">
-              This section highlights your communication, mentorship, clarity of
-              thought, and ability to break down complex ideas, giving
-              recruiters a stronger view of your professional maturity beyond
-              purely technical execution.
+              Mentored students in mathematics, statistics, and programming by
+              breaking down complex topics into structured, step-by-step
+              explanations. This strengthened my ability to communicate
+              technical concepts clearly, debug collaboratively, and guide
+              problem-solving in real time — skills that directly support backend
+              engineering, system design discussions, and team collaboration.
             </p>
 
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
@@ -58,42 +69,22 @@ export function SupportingSkillsSection({
             <div className="mb-6 flex items-center gap-3">
               <Shield className="h-6 w-6 text-violet-300" />
               <div>
-                <p className="text-sm text-violet-300">
-                  {recruiterMode ? "Recruiter View" : "Milestone 1 Scope"}
-                </p>
+                <p className="text-sm text-violet-300">Engineering Strengths</p>
                 <h3 className="text-2xl font-semibold text-white">
-                  {recruiterMode ? "Why this strengthens your profile" : "What comes next"}
+                  Why this strengthens my profile
                 </h3>
               </div>
             </div>
 
             <div className="space-y-4 text-sm leading-7 text-slate-300">
-              {recruiterMode ? (
-                <>
-                  <div className="rounded-2xl border border-white/8 bg-black/20 p-4">
-                    Communicates mentoring ability, communication strength, and
-                    professional maturity.
-                  </div>
-                  <div className="rounded-2xl border border-white/8 bg-black/20 p-4">
-                    Helps balance the portfolio by showing soft skills alongside
-                    deep technical work.
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div className="rounded-2xl border border-white/8 bg-black/20 p-4">
-                    Project descriptions will be refined later.
-                  </div>
-                  <div className="rounded-2xl border border-white/8 bg-black/20 p-4">
-                    Project screenshots are already structured with named
-                    placeholders for later replacement.
-                  </div>
-                  <div className="rounded-2xl border border-white/8 bg-black/20 p-4">
-                    Next milestones will add certificates, notes, recruiter mode
-                    logic, AI assistant backend, and contact form service.
-                  </div>
-                </>
-              )}
+              {engineeringStrengths.map((item) => (
+                <div
+                  key={item}
+                  className="rounded-2xl border border-white/8 bg-black/20 p-4"
+                >
+                  {item}
+                </div>
+              ))}
             </div>
           </CardContent>
         </Card>

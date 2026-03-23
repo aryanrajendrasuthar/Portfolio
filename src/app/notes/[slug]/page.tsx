@@ -1,56 +1,9 @@
-import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
-
-const noteContent: Record<
-  string,
-  {
-    title: string;
-    content: string[];
-  }
-> = {
-  "distributed-systems-fundamentals": {
-    title: "Distributed Systems Fundamentals",
-    content: [
-      "Distributed systems are made of multiple independent services or nodes working together to deliver a larger application capability.",
-      "The main goals are scalability, fault tolerance, flexibility, and separation of concerns.",
-      "Key challenges include network failure, partial failure, consistency, latency, retry behavior, and observability.",
-      "A good distributed system design minimizes coupling, supports graceful failure, and makes each component easier to evolve independently.",
-    ],
-  },
-  "kafka-event-driven-architecture": {
-    title: "Kafka & Event-Driven Architecture",
-    content: [
-      "Kafka enables asynchronous communication between services using event streams rather than direct request/response dependencies.",
-      "This improves scalability and resilience by decoupling producers from consumers.",
-      "Event-driven systems are useful when workloads need buffering, replayability, or multiple downstream consumers.",
-    ],
-  },
-  "caching-with-redis": {
-    title: "Caching with Redis",
-    content: [
-      "Redis is commonly used to reduce repeated computation and lower database load.",
-      "Caching works best when reads are frequent and source data is expensive to fetch or compute.",
-      "Teams should define cache invalidation and expiration strategies carefully to avoid stale results.",
-    ],
-  },
-  "microservices-api-design": {
-    title: "Microservices & API Design",
-    content: [
-      "Microservices split systems into focused services with defined responsibilities.",
-      "API design should emphasize consistency, versioning strategy, clear contracts, and service boundaries.",
-      "REST is often simpler for broad compatibility, while gRPC can be better for high-performance internal communication.",
-    ],
-  },
-  "security-in-backend-systems": {
-    title: "Security in Backend Systems",
-    content: [
-      "Backend security includes authentication, authorization, encryption, input validation, and secure transport.",
-      "JWT and RBAC are often used for identity and permissions in distributed systems.",
-      "TLS, secrets management, and least-privilege access are critical in production environments.",
-    ],
-  },
-};
+import { ArrowLeft, Layers3 } from "lucide-react";
+import { notFound } from "next/navigation";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { notes } from "@/data/notes";
 
 export default async function NoteDetailPage({
   params,
@@ -58,7 +11,7 @@ export default async function NoteDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const note = noteContent[slug];
+  const note = notes.find((item) => item.slug === slug);
 
   if (!note) {
     notFound();
@@ -75,20 +28,107 @@ export default async function NoteDetailPage({
             <ArrowLeft className="h-4 w-4" /> Back to main page
           </Link>
         </div>
-        <p className="mb-3 text-xs uppercase tracking-[0.4em] text-slate-400">
-          System Design Note
-        </p>
-        <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
-          {note.title}
-        </h1>
 
-        <div className="mt-10 space-y-6 rounded-[2rem] border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
-          {note.content.map((paragraph, index) => (
-            <p key={index} className="text-base leading-8 text-slate-300">
-              {paragraph}
-            </p>
-          ))}
+        <div className="mb-10">
+          <p className="mb-3 text-xs uppercase tracking-[0.4em] text-slate-400">
+            Engineering Note
+          </p>
+
+          <div className="flex flex-wrap items-center gap-3">
+            <Badge className="rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.25em] text-slate-300">
+              {note.category}
+            </Badge>
+            <Badge className="rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.25em] text-slate-300">
+              {note.level}
+            </Badge>
+            <Badge className="rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.25em] text-slate-300">
+              {note.readTime}
+            </Badge>
+          </div>
+
+          <h1 className="mt-5 text-4xl font-semibold tracking-tight md:text-5xl">
+            {note.title}
+          </h1>
+
+          <p className="mt-5 text-base leading-8 text-slate-300">
+            {note.description}
+          </p>
         </div>
+
+        <Card className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
+          <CardContent className="p-8">
+            <div className="mb-8 rounded-2xl border border-white/8 bg-black/20 p-5">
+              <p className="text-[11px] uppercase tracking-[0.25em] text-slate-500">
+                Related Project
+              </p>
+              <Link
+                href={`/projects/${note.relatedProjectSlug}`}
+                className="mt-3 inline-flex items-center gap-2 text-sm text-sky-300 hover:text-sky-200"
+              >
+                <Layers3 className="h-4 w-4" />
+                {note.relatedProject}
+              </Link>
+            </div>
+
+            <div className="space-y-6">
+              {note.content.map((paragraph, index) => (
+                <p
+                  key={`${note.slug}-paragraph-${index}`}
+                  className="text-base leading-8 text-slate-300"
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+
+            <div className="mt-10">
+              <h3 className="text-lg font-semibold text-white">
+                Where I Used This
+              </h3>
+              <p className="mt-3 leading-7 text-slate-300">{note.whereUsed}</p>
+            </div>
+
+            <div className="mt-10">
+              <h3 className="text-lg font-semibold text-white">Tradeoffs</h3>
+              <ul className="mt-3 space-y-2 text-slate-300">
+                {note.tradeoffs.map((item, i) => (
+                  <li key={`${note.slug}-tradeoff-${i}`}>• {item}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-10">
+              <h3 className="text-lg font-semibold text-white">When to Use</h3>
+              <ul className="mt-3 space-y-2 text-slate-300">
+                {note.useWhen.map((item, i) => (
+                  <li key={`${note.slug}-use-${i}`}>• {item}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-10">
+              <h3 className="text-lg font-semibold text-white">
+                When to Avoid
+              </h3>
+              <ul className="mt-3 space-y-2 text-slate-300">
+                {note.avoidWhen.map((item, i) => (
+                  <li key={`${note.slug}-avoid-${i}`}>• {item}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-10 flex flex-wrap gap-2">
+              {note.bullets.map((bullet, index) => (
+                <Badge
+                  key={`${note.slug}-tag-${index}`}
+                  className="rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.2em] text-slate-300"
+                >
+                  {bullet}
+                </Badge>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

@@ -5,11 +5,7 @@ import { Github, Linkedin, Mail, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { profile } from "@/data/profile";
 
-export function ContactSection({
-  recruiterMode,
-}: {
-  recruiterMode: boolean;
-}) {
+export function ContactSection({ recruiterMode }: { recruiterMode: boolean }) {
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -135,7 +131,15 @@ export function ContactSection({
                   GitHub: aryanrajendrasuthar
                 </div>
                 <div className="rounded-2xl border border-white/8 bg-white/[0.03] p-4">
-                  Resume: Aryan R Suthar - Resume.pdf
+                  Resume:{" "}
+                  <a
+                    href={profile.resume}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-sky-300 hover:text-sky-200"
+                  >
+                    Open PDF
+                  </a>
                 </div>
               </div>
             </div>

@@ -12,7 +12,13 @@ import {
 import { Button } from "@/components/ui/button";
 import { profile } from "@/data/profile";
 
-export function HeroSection({ recruiterMode }: { recruiterMode: boolean }) {
+export function HeroSection({
+  recruiterMode,
+  setRecruiterMode,
+}: {
+  recruiterMode: boolean;
+  setRecruiterMode: (value: boolean) => void;
+}) {
   return (
     <section
       id="home"
@@ -26,6 +32,7 @@ export function HeroSection({ recruiterMode }: { recruiterMode: boolean }) {
         <div className="mb-6 inline-flex rounded-full border border-sky-400/20 bg-sky-400/10 px-4 py-2 text-[10px] uppercase tracking-[0.35em] text-sky-200">
           3 Years of Engineering Experience
         </div>
+
         {recruiterMode && (
           <div className="mb-6 inline-flex rounded-full border border-green-500/30 bg-green-500/10 px-4 py-2 text-[10px] uppercase tracking-[0.35em] text-green-300 shadow-[0_0_20px_rgba(34,197,94,0.25)]">
             Recruiter Mode Active
@@ -47,8 +54,9 @@ export function HeroSection({ recruiterMode }: { recruiterMode: boolean }) {
         <p className="mt-8 max-w-3xl text-base leading-8 text-slate-300 md:text-lg">
           {recruiterMode
             ? "Backend engineer specializing in distributed systems, cloud-native microservices, and event-driven architectures."
-            : "Software engineer with 3 years of experience across backend systems, distributed architecture, cloud-native engineering, and AI-powered applications."}
+            : "Software engineer with 3 years of experience across backend systems, architecture, cloud-native engineering, and AI-powered applications."}
         </p>
+
         {recruiterMode && (
           <div className="mt-6 flex flex-wrap gap-3">
             <span className="rounded-full border border-green-500/30 bg-green-500/10 px-4 py-2 text-xs text-green-300">
@@ -77,15 +85,34 @@ export function HeroSection({ recruiterMode }: { recruiterMode: boolean }) {
             </Button>
           </a>
 
-          <Button
-            variant="outline"
-            className="rounded-full border-white/15 bg-white/5 px-6 text-white hover:bg-white/10"
-          >
-            {recruiterMode ? "Open Resume" : "View Experience"}
-          </Button>
+          {recruiterMode ? (
+            <a
+              href="/resume/Aryan R Suthar - Resume.pdf"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Button
+                variant="outline"
+                className="rounded-full border-white/15 bg-white/5 px-6 text-white hover:bg-white/10"
+              >
+                Open Resume
+              </Button>
+            </a>
+          ) : (
+            <a href="#experience">
+              <Button
+                variant="outline"
+                className="rounded-full border-white/15 bg-white/5 px-6 text-white hover:bg-white/10"
+              >
+                View Experience
+              </Button>
+            </a>
+          )}
 
           {!recruiterMode && (
             <Button
+              type="button"
+              onClick={() => setRecruiterMode(true)}
               variant="outline"
               className="rounded-full border-sky-400/20 bg-sky-400/10 px-6 text-sky-100 hover:bg-sky-400/20"
             >
@@ -93,30 +120,44 @@ export function HeroSection({ recruiterMode }: { recruiterMode: boolean }) {
             </Button>
           )}
 
-          <Button
-            variant="outline"
-            className="rounded-full border-white/15 bg-white/5 px-6 text-white hover:bg-white/10"
+          <a
+            href="/resume/Aryan R Suthar - Resume.pdf"
+            download
+            target="_blank"
+            rel="noreferrer"
           >
-            <Download className="mr-2 h-4 w-4" /> Download Resume
-          </Button>
+            <Button
+              variant="outline"
+              className="rounded-full border-white/15 bg-white/5 px-6 text-white hover:bg-white/10"
+            >
+              <Download className="mr-2 h-4 w-4" /> Download Resume
+            </Button>
+          </a>
         </div>
 
         <div className="mt-10 flex flex-wrap items-center gap-6 text-sm text-slate-400">
           <div className="flex items-center gap-2">
             <MapPin className="h-4 w-4" /> {profile.location}
           </div>
+
           <a
             href={profile.linkedin}
+            target="_blank"
+            rel="noreferrer"
             className="flex items-center gap-2 hover:text-white"
           >
             <Linkedin className="h-4 w-4" /> LinkedIn
           </a>
+
           <a
             href={profile.github}
+            target="_blank"
+            rel="noreferrer"
             className="flex items-center gap-2 hover:text-white"
           >
             <Github className="h-4 w-4" /> GitHub
           </a>
+
           <a
             href={`mailto:${profile.email}`}
             className="flex items-center gap-2 hover:text-white"
