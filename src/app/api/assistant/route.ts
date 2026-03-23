@@ -39,7 +39,7 @@ function getAssistantReply(message: string) {
     text.includes("distributed") ||
     text.includes("microservices")
   ) {
-    return `${assistantKnowledge.projects.distributed} He also has professional experience with Kafka and distributed microservices from Ignite Infosys.`;
+    return `${assistantKnowledge.projects.realTimeAISimulationTool} He also has professional experience with Kafka and distributed microservices from Ignite Infosys.`;
   }
 
   if (
