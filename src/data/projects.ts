@@ -1,6 +1,6 @@
 export const layerAProjects = [
   {
-    slug: "Real Time AI Simulation Tool",
+    slug: "Real-Time-AI-Simulation-Tool",
     title: "Real Time AI Simulation Tool",
     type: "Layer A",
     tagline:
