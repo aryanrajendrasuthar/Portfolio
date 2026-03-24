@@ -235,7 +235,7 @@ export function ArchitectureSection({
               </div>
               <div className="rounded-2xl border border-white/8 bg-black/20 p-4">
                 This same systems thinking carries across flagship projects like
-                the I Simulation Platform, AI Knowledge Assistant,
+                the AI Simulation Platform, AI Knowledge Assistant,
                 and SmartQuote ERP workflow automation.
               </div>
             </div>
