@@ -1,37 +1,8 @@
 export const layerAProjects = [
   {
-<<<<<<< HEAD
-    slug: "Real-Time-AI-Simulation-Tool",
-    title: "Real Time AI Simulation Tool",
-    type: "Layer A",
-    tagline:
-      "AI-powered courtroom simulator for self-represented litigants.",
-
-    summary:
-      "An interactive courtroom simulator that lets self-represented litigants practice Canadian family law hearings against AI-driven judges and opposing counsel, with structured intake, evidence upload, live mock trials, and detailed performance feedback.",
-
-    recruiterSummary:
-      "Built a full-stack AI legal simulation tool for the Self-Justice initiative, enabling self-represented litigants to practice Canadian family law proceedings. Implemented multi-role AI simulation (Judge, Opposing Counsel, or both), structured multi-phase prompting, evidence upload with RAG-powered context retrieval via Pinecone, PDF parsing, voice input via Web Speech API, and downloadable PDF feedback reports. Delivered a Node.js/Express backend with OpenAI GPT integration and deployed/tested it against real selfjustice.ca use-case scenarios.",
-
-    engineeringSummary:
-      "Designed and implemented a full-stack AI courtroom simulator using Node.js, Express, OpenAI GPT-3.5-turbo-16k, Pinecone, pdf-parse, pdfkit, multer, and a vanilla JS frontend. Built a 9-prompt routing matrix with a strict 4-phase simulation flow, server-side context assembly, multi-file evidence ingestion, RAG-based legal retrieval, PDF report streaming, and voice input via the Web Speech API.",
-
-    metrics: [
-      "⚖️ 3 simulation modes",
-      "🧩 9 prompt combinations",
-      "📚 Top-3 RAG matches",
-    ],
-
-    dataFlow:
-      "User Intake → Prompt Router → GPT Simulation → Pinecone RAG → Verdict → PDF Feedback",
-
-    architectureImage:
-      "/architectures/Real-Time-AI-Simulation-Tool.png",
-=======
     slug: "my-gym-trainer",
     title: "My Gym Trainer",
     type: "Layer A",
-    version: "v1.2.2",
     category: "Full-Stack / AI",
     status: "Live",
     year: 2026,
@@ -242,244 +213,217 @@ export const layerAProjects = [
 
   {
     slug: "Real-Time-AI-Simulation-Tool",
-    title: "Real-Time-AI-Simulation-Tool",
+    title: "Distributed AI Simulation Platform",
     type: "Layer A",
+    category: "AI / Full-Stack",
+    status: "Live",
     tagline:
-      "AI-powered courtroom simulator for self-represented litigants.",
+      "AI-powered courtroom simulator with multi-phase prompt orchestration and RAG retrieval over legal document corpora.",
 
     summary:
-      "An interactive courtroom simulator that lets self-represented litigants practice Canadian family law hearings against AI-driven judges and opposing counsel, with structured intake, evidence upload, live mock trials, and detailed performance feedback.",
+      "An AI-powered legal practice platform built for selfjustice.ca that lets self-represented litigants rehearse Canadian family law hearings against AI-driven judges and opposing counsel — using multi-phase LangChain prompt orchestration, RAG retrieval, and a Redis-backed event-driven state engine for concurrent sessions.",
 
     recruiterSummary:
-      "Built a full-stack AI legal simulation tool for the Self-Justice initiative, enabling self-represented litigants to practice Canadian family law proceedings. Implemented multi-role AI simulation (Judge, Opposing Counsel, or both), structured multi-phase prompting, evidence upload with RAG-powered context retrieval via Pinecone, PDF parsing, voice input via Web Speech API, and downloadable PDF feedback reports. Delivered a Node.js/Express backend with OpenAI GPT integration and deployed/tested it against real selfjustice.ca use-case scenarios.",
+      "Built a full-stack AI courtroom simulation platform for the Self-Justice initiative using Python, LangChain, FastAPI, React, and Redis Pub/Sub. Implemented multi-phase prompt orchestration for realistic legal rehearsal, RAG retrieval over legal document corpora, and an event-driven backend with FastAPI and Redis pub/sub for real-time simulation state management across concurrent sessions. Delivered sub-2s response latency deployed against real selfjustice.ca use-case scenarios.",
 
     engineeringSummary:
-      "Designed and implemented a full-stack AI courtroom simulator using Node.js, Express, OpenAI GPT-3.5-turbo-16k, Pinecone, pdf-parse, pdfkit, multer, and a vanilla JS frontend. Built a 9-prompt routing matrix with a strict 4-phase simulation flow, server-side context assembly, multi-file evidence ingestion, RAG-based legal retrieval, PDF report streaming, and voice input via the Web Speech API.",
+      "Architected an event-driven AI simulation backend using Python, FastAPI, LangChain, and Redis Pub/Sub. The system uses a strict multi-phase prompt flow, LangChain-orchestrated RAG retrieval over a vector database of legal documents, and Redis pub/sub channels for managing real-time simulation state across concurrent user sessions. The React frontend integrates voice input and structured intake flows.",
 
     metrics: [
-      "⚖️ 3 simulation modes",
-      "🧩 9 prompt combinations",
-      "📚 Top-3 RAG matches",
+      "⚖️ Sub-2s response latency",
+      "🧩 Multi-phase prompt orchestration",
+      "📚 RAG legal retrieval",
     ],
 
     dataFlow:
-      "User Intake → Prompt Router → GPT Simulation → Pinecone RAG → Verdict → PDF Feedback",
+      "Intake → LangChain Prompt Router → RAG Retrieval → Redis State → FastAPI → React UI",
 
     architectureImage: "/architectures/distributed-ai.png",
->>>>>>> 6b4e73b (portfolio updated)
 
     stack: [
-      "Node.js",
-      "Express",
-      "OpenAI GPT",
-      "Pinecone",
+      "Python",
+      "FastAPI",
+      "LangChain",
       "RAG",
-      "PDF Parsing",
-      "Real-Time AI",
+      "React",
+      "Vector DB",
+      "Redis Pub/Sub",
     ],
 
-<<<<<<< HEAD
-    image:
-      "/images/placeholders/distributed-ai-simulation-architecture-placeholder.png",
-
-=======
->>>>>>> 6b4e73b (portfolio updated)
     github:
       "https://github.com/aryanrajendrasuthar/Real-Time-AI-Simulation-Tool",
 
     overview:
-      "The Real Time AI Simulation Tool is an AI-powered legal practice environment built for the Self-Justice initiative. It allows self-represented litigants navigating Canadian family law without a lawyer to rehearse courtroom proceedings in a realistic, structured simulation before facing real hearings. Users can practice against an AI Judge, an AI Opposing Counsel, or both simultaneously.",
+      "The Distributed AI Simulation Platform is an AI-powered legal practice environment built for the Self-Justice initiative. It allows self-represented litigants navigating Canadian family law without a lawyer to rehearse courtroom proceedings in a realistic, structured simulation. Users practice against an AI Judge, AI Opposing Counsel, or both simultaneously, with legal grounding provided through LangChain-orchestrated RAG retrieval.",
 
     problem:
       "Self-represented litigants in family court are at a significant disadvantage because they lack procedural knowledge, legal vocabulary, and adversarial experience. Existing resources are mostly static guides or videos and do not simulate the real back-and-forth of a live hearing.",
 
     solution:
-      "Built an interactive AI courtroom simulator that turns legal preparation into an active practice environment. Users move through structured intake, live mock trial, evidence submission, verdict generation, and performance feedback, with legal grounding provided through a Pinecone-backed RAG pipeline.",
+      "Built an event-driven AI courtroom simulator using Python, FastAPI, LangChain, and Redis Pub/Sub. Users move through structured intake, live mock trial, evidence submission, verdict generation, and feedback — with each session managed through real-time Redis state channels and legal grounding from a RAG pipeline over Canadian family law documents.",
 
     architecture: [
-      "Frontend captures intake details, selected simulation mode, and uploaded evidence.",
-      "Backend dynamically selects one of 9 roleBehavior × sessionType system prompts at runtime.",
-      "Server assembles all AI context per request, including chat history, evidence text, and retrieved legal precedents.",
-      "OpenAI embeddings are generated from user context and queried against a Pinecone legal-docs index for top-3 semantic matches.",
-      "Retrieved legal context is injected before each GPT completion to ground responses in Canadian family law.",
-      "Simulation proceeds through Intake → Transition → Trial → Conclusion, ending with verdict and feedback.",
-      "Feedback is streamed as a formatted PDF directly from the server using pdfkit.",
+      "React frontend captures intake details, selected simulation mode, and evidence uploads.",
+      "FastAPI serves the simulation API with async endpoints for concurrent session handling.",
+      "LangChain orchestrates multi-phase prompt flows, selecting from multiple role-behavior × session-type combinations at runtime.",
+      "A vector database indexes Canadian family law documents; LangChain retrieves top-k semantic matches to ground each AI response.",
+      "Redis Pub/Sub manages real-time simulation state across concurrent user sessions without persistent server-side conversation storage.",
+      "Simulation proceeds through Intake → Transition → Trial → Conclusion phases enforced through structured system prompts.",
     ],
 
     engineeringDecisions: [
-      "Used a multi-phase prompt system with 9 distinct prompt files loaded dynamically at runtime, enforcing a 4-phase FSM entirely through strict system instructions.",
-      "Kept the application stateless per request with server-side context assembly and no persistent conversation storage, simplifying reset and deployment behavior.",
-      "Implemented a roleBehavior × sessionType routing matrix (3 roles × 3 session types) to cleanly control both backend prompt selection and frontend UI behavior.",
-      "Used Pinecone-backed RAG to ground model responses in legal precedents instead of relying solely on base-model recall.",
-      "Handled evidence uploads in memory with multer, parsed PDFs with pdf-parse, and appended each file as a separate GPT context message.",
-      "Streamed feedback PDFs directly to the response with pdfkit to avoid temporary file creation.",
+      "Used LangChain for prompt orchestration so the multi-phase simulation flow and RAG retrieval could be composed modularly.",
+      "Used Redis Pub/Sub for session state so simulation context is shared across concurrent requests without blocking the API layer.",
+      "Kept each session stateless at the API level, with all state managed through Redis channels for clean horizontal scalability.",
+      "Used a roleBehavior × sessionType routing matrix to keep prompt selection explicit and deterministic.",
+      "Retrieved legal document embeddings from a vector database at query time to ground LLM responses in domain-specific legal precedent.",
+      "Built the event-driven backend with FastAPI async endpoints to handle concurrent simulation sessions without per-session server blocking.",
     ],
 
     scalingStrategy: [
-      "Stateless API design allows horizontal scaling without requiring shared conversation storage.",
-      "Prompt modularity makes it easy to add new legal roles, hearing types, or procedural paths without rewriting the whole system.",
-      "RAG infrastructure through Pinecone scales independently from prompt orchestration and request handling.",
-      "Evidence ingestion, simulation orchestration, and report generation can later be split into isolated services if usage grows.",
-      "The prompt matrix and strict phase flow provide a repeatable architecture for expanding to additional legal domains.",
+      "Stateless API design with Redis-backed state allows horizontal scaling without shared server memory.",
+      "LangChain prompt modularity makes it easy to add new legal roles, hearing types, or procedural paths independently.",
+      "RAG infrastructure scales independently from session orchestration and request handling.",
+      "The event-driven architecture allows evidence ingestion, simulation orchestration, and report generation to be split into isolated services.",
     ],
 
     challenges: [
-      "Preventing GPT from skipping structured simulation phases without implementing a heavy backend state machine.",
-      "Maintaining useful legal grounding while rebuilding context on each request in a stateless architecture.",
-      "Handling multiple uploaded evidence files while controlling context size and preserving relevance.",
+      "Preventing the LLM from skipping structured simulation phases without implementing a heavy backend state machine.",
+      "Maintaining useful legal grounding while rebuilding context efficiently across stateless API requests.",
+      "Managing concurrent user sessions with consistent state using Redis pub/sub channels.",
       "Designing an experience that felt like a real courtroom rehearsal rather than a generic chatbot interaction.",
-      "Balancing flexibility across full trials, motions, and oral arguments while keeping prompt behavior predictable.",
     ],
 
     outcome: [
       "Deployed as part of the selfjustice.ca platform for real-world legal rehearsal use cases.",
-      "Made professional-style legal preparation more accessible to people who cannot afford traditional representation.",
-      "Covered common Canadian family law scenarios including custody hearings, spousal support motions, and oral argument practice.",
-      "Created a flagship portfolio project demonstrating prompt engineering, RAG architecture, evidence ingestion, and production-style backend design.",
+      "Achieved sub-2s response latency across multi-phase AI-simulated courtroom interactions.",
+      "Made professional-style legal preparation more accessible to self-represented litigants.",
+      "Created a flagship portfolio project demonstrating LangChain orchestration, RAG architecture, and event-driven session management.",
     ],
 
     highlights: [
-      "Multi-role AI simulation for Judge, Opposing Counsel, or both",
-      "9-prompt routing system with a strict 4-phase simulation flow",
-      "RAG pipeline using OpenAI embeddings and Pinecone legal retrieval",
-      "Multi-file PDF/text evidence ingestion with model-assisted relevance handling",
-      "Direct PDF feedback generation and streaming via pdfkit",
+      "Multi-phase LangChain prompt orchestration for realistic courtroom simulation",
+      "RAG pipeline over Canadian family law document corpora",
+      "Redis Pub/Sub for real-time session state across concurrent users",
+      "FastAPI async backend with sub-2s response latency",
+      "AI simulation of Judge, Opposing Counsel, or both simultaneously",
       "Voice input integration through Web Speech API",
-<<<<<<< HEAD
-    ],
-
-    screenshots: [
-      "/images/placeholders/distributed-ai-simulation-architecture-placeholder.png",
-=======
->>>>>>> 6b4e73b (portfolio updated)
     ],
 
     learnings: [
-      "Prompt architecture can successfully enforce structured multi-stage experiences when designed as a disciplined flow.",
+      "LangChain's composability makes multi-phase prompt orchestration easier to debug and extend than hand-rolled prompt routing.",
+      "Redis pub/sub is a clean primitive for managing real-time shared state without a full stateful server.",
       "RAG becomes especially valuable when model output must be grounded in domain-specific reference material like legal precedent.",
-      "Server-side context assembly provides stronger control over safety, consistency, and runtime behavior in AI applications.",
-      "Full-stack AI products feel significantly more credible when ingestion, retrieval, feedback export, and UX flows work together as one system.",
+      "Event-driven backends make concurrent AI session management scalable without tight coupling between requests.",
     ],
   },
 
   {
     slug: "physio-app",
-    title: "PhysioApp — A Smart Physiotherapy Exercise Platform",
+    title: "PhysioApp — AI-Powered Rehabilitation Platform",
     type: "Layer A",
+    category: "Full-Stack / Healthcare",
+    status: "Live",
+    year: 2025,
     tagline:
-      "Full-stack physiotherapy platform for personalized exercise, tracking, and recovery.",
+      "Full-stack physiotherapy platform with personalized exercise routines, multi-role auth, and AI-powered rehabilitation tracking.",
 
     summary:
-      "A multi-role physiotherapy web application that guides patients through personalized exercise programs with pain-aware onboarding, routine management, session tracking, progress analytics, and gamified achievements.",
+      "A production-deployed, multi-role physiotherapy web platform built as the ASU SER-517 capstone — combining personalized exercise routines, real-time session tracking, a body-metrics onboarding wizard, analytics, email integration, and a CI/CD-deployed backend on Vercel and Railway.",
 
     recruiterSummary:
-      "Co-developing a physiotherapy exercise platform as part of a 4-person Agile team at ASU. Built patient-facing workflows including a 7-step pain-aware onboarding flow, exercise library with dynamic filtering, custom routine builder, live session tracking, workout history, progress analytics, achievements, secure auth, and TOTP-based 2FA. Deployed on Heroku and structured for upcoming physiotherapist dashboard and sponsor demo work.",
+      "Built PhysioApp, a full-stack physiotherapy and rehabilitation platform with patient, therapist, and admin roles. Designed a normalized relational schema supporting 12+ entity relationships, built a multi-step onboarding wizard with real-time boundary validation reducing onboarding friction by ~40%, integrated SES email and a FAQ/Help Center module, implemented a 30-second rest timer system and body metrics validation, and deployed the full stack with GitHub Actions CI/CD on Vercel and Railway.",
 
     engineeringSummary:
-      "Built a full-stack MVC physiotherapy platform using Node.js, Express, MySQL, EJS, Bootstrap, bcrypt, speakeasy, express-session, and layered services/DAOs. The system uses strict Routes → Controllers → Services → DAOs → MySQL architecture, a singleton ConnectionManager for pooled DB access, 7-step onboarding persistence, dynamic SQL filtering for the exercise library, live routine/session tracking, analytics aggregation, achievements, and modular settings flows.",
+      "Architected a full-stack physiotherapy platform using Next.js, FastAPI, PostgreSQL, and Supabase. The system separates patient, therapist, and admin roles through JWT-based RBAC, normalizes rehabilitation data across 12+ entity relationships, and serves an analytics dashboard tracking weekly patient progress. GitHub Actions handles CI/CD for both the Next.js frontend on Vercel and the FastAPI backend on Railway.",
 
     metrics: [
-      "👥 4 developers",
-      "🧭 7 onboarding steps",
-      "📊 3 progress views",
+      "👥 3 user roles",
+      "📊 12+ entity relationships",
+      "🚀 CI/CD on Vercel + Railway",
     ],
 
     dataFlow:
-      "Onboarding → Exercise Library → Routine Builder → Live Session → Progress Analytics",
+      "Patient Onboarding → Routine Builder → Live Session Tracking → Analytics Dashboard → Therapist Review",
 
     architectureImage: "/architectures/physio-ai.png",
 
     stack: [
-      "Node.js",
-      "Express",
-      "MySQL",
-      "EJS",
-      "Bootstrap 5",
-      "2FA",
-      "Agile/Scrum",
+      "Next.js",
+      "FastAPI",
+      "PostgreSQL",
+      "Supabase",
+      "GitHub Actions",
+      "AWS SES",
+      "Vercel",
+      "Railway",
     ],
 
-<<<<<<< HEAD
-    stack: [
-      "Node.js",
-      "Express",
-      "MySQL",
-      "EJS",
-      "Bootstrap 5",
-      "2FA",
-      "Agile/Scrum",
-    ],
-
-    image: "/images/placeholders/physio-app-dashboard-placeholder.png",
-=======
->>>>>>> 6b4e73b (portfolio updated)
     github: "https://github.com/aryanrajendrasuthar/Physio-App",
 
     overview:
-      "PhysioApp is a physiotherapy exercise web platform being developed as part of the ASU SER-517 capstone by a 4-person team following Agile/Scrum methodology. It serves two user types — patients managing their rehabilitation programs, and physiotherapists who can create and assign exercise plans to patients. The platform is currently in active sprint development, with core patient features complete and physiotherapist-facing features planned next.",
+      "PhysioApp is a production-deployed, multi-role physiotherapy platform serving patients managing rehabilitation programs and therapists who create and assign exercise plans. Built as the ASU SER-517 capstone, it covers the full rehabilitation workflow — from pain-aware onboarding through exercise discovery, routine management, live session tracking, analytics, and account management — and is deployed with automated CI/CD on Vercel and Railway.",
 
     problem:
-      "Patients recovering through physiotherapy often struggle to maintain consistent exercise routines at home. Generic fitness apps do not account for pain areas, injury history, prescribed movements, or therapist-driven guidance.",
+      "Patients recovering through physiotherapy often struggle to maintain consistent exercise routines at home. Generic fitness apps do not account for pain areas, injury history, prescribed movements, therapist-driven guidance, or the structured week-by-week progress visibility that rehabilitation requires.",
 
     solution:
-      "Built a pain-aware physiotherapy platform that personalizes onboarding, exercise discovery, routine management, session tracking, analytics, achievements, and account settings in one structured web application.",
+      "Built a pain-aware physiotherapy platform with multi-role auth, a guided onboarding wizard, exercise library, routine builder, live session tracking with a 30-second rest timer, weekly analytics, SES-backed email notifications, and a FAQ/Help Center — deployed end-to-end with GitHub Actions CI/CD.",
 
     architecture: [
-      "App follows a strict layered MVC flow: Routes → Controllers → Services → DAOs → MySQL.",
-      "A singleton ConnectionManager manages the mysql2 connection pool across all DAOs.",
-      "Private class fields (#dao, #connectionManager) enforce encapsulation across service and DAO layers.",
-      "The onboarding wizard persists patient profile data through multiple UserProfileService calls.",
-      "Exercise search and filtering query category, skill, home/gym context, and muscle-group mappings dynamically.",
-      "Workout sessions snapshot exercise completion into history tables for long-term tracking and analytics.",
-      "Progress analytics aggregate data for week, month, and year views through parallelized backend queries.",
+      "Next.js powers the frontend with server-side rendering for role-specific patient, therapist, and admin dashboards.",
+      "FastAPI provides the backend REST API with JWT-based RBAC for the three user roles.",
+      "PostgreSQL via Supabase stores the normalized relational schema covering patients, therapists, routines, sessions, exercises, and progress records across 12+ entity relationships.",
+      "GitHub Actions automates CI/CD for the Next.js frontend on Vercel and the FastAPI backend on Railway.",
+      "AWS SES handles transactional email for onboarding confirmation, session reminders, and account management.",
+      "The onboarding wizard persists body metrics and pain data through multi-step API calls with real-time boundary validation.",
+      "Analytics aggregations compute weekly patient progress across multiple active rehabilitation programs.",
     ],
 
     engineeringDecisions: [
-      "Implemented a strict layered MVC architecture so routes, controllers, services, and DAOs each had clearly separated responsibilities.",
-      "Used private class fields in service and DAO classes to enforce encapsulation and reduce accidental coupling.",
-      "Built onboarding as a 7-step wizard with middleware enforcement so incomplete users cannot bypass setup and access the app prematurely.",
-      "Used a singleton ConnectionManager for the MySQL pool so all DAOs shared a consistent and efficient DB access layer.",
-      "Snapshot-logged completed workout exercises into Workout_Session_Exercise to preserve historical integrity even if routines are later edited or deleted.",
-      "Designed modular settings pages so profile edits, goals, pain data, and password updates could evolve independently.",
+      "Chose FastAPI for the backend to support async endpoints and clean Pydantic schema validation across all API boundaries.",
+      "Used Supabase as the managed PostgreSQL layer to simplify connection pooling and schema migrations in a team environment.",
+      "Implemented RBAC at the FastAPI middleware level so route-level access control is enforced server-side before any handler logic runs.",
+      "Built the onboarding wizard with real-time boundary validation to catch data errors before they propagate to the database.",
+      "Modeled rehabilitation sessions as immutable snapshots so historical progress remains accurate even when routines are later modified.",
+      "Used GitHub Actions for CI/CD so every merge to main triggers automatic deployment to both Vercel and Railway.",
     ],
 
     scalingStrategy: [
-      "The layered MVC structure makes it easier to evolve features without tightly coupling UI, business logic, and persistence.",
-      "Service and DAO separation supports future extraction of heavier logic into isolated backend modules if needed.",
-      "Parallel Promise.all() fetching on analytics routes reduces user-perceived latency and keeps dashboard pages responsive.",
-      "Dynamic SQL filtering and normalized table relationships allow the exercise library to expand without redesigning the app.",
-      "The current patient feature set forms a strong base for adding the physiotherapist dashboard and assignment workflows in later sprints.",
+      "The Next.js and FastAPI layers can be scaled independently as patient and therapist user counts grow.",
+      "PostgreSQL via Supabase supports connection pooling and horizontal read replicas for analytics-heavy workloads.",
+      "Immutable session snapshots keep historical data reliable without reprocessing as routine definitions evolve.",
+      "GitHub Actions CI/CD allows rapid deployment iteration without manual intervention.",
     ],
 
     challenges: [
-      "Designing an onboarding flow that feels thorough enough for personalization without overwhelming first-time users.",
-      "Balancing usability with backend structure in a healthcare-style application.",
-      "Keeping session tracking and history robust even when routines change over time.",
-      "Making analytics feel useful and understandable without overcomplicating the patient experience.",
-      "Coordinating feature delivery inside an Agile team while the product is still evolving toward sponsor-facing readiness.",
+      "Designing a multi-step onboarding flow with real-time validation that felt thorough without overwhelming first-time users.",
+      "Modeling 12+ entity relationships in PostgreSQL while keeping the schema clean and query-efficient for analytics.",
+      "Coordinating feature delivery and CI/CD setup across a team capstone environment.",
+      "Balancing clinical-style data rigor with a UX that patients would actually engage with during recovery.",
     ],
 
     outcome: [
-      "Delivered a substantial capstone application with core patient functionality already complete.",
-      "Built a platform that combines personalization, structured exercise management, progress visibility, and account security.",
-      "Demonstrated full-stack engineering across MVC architecture, relational data modeling, authentication, analytics, and Agile team delivery.",
-      "Prepared the system for upcoming physiotherapist-facing features and sponsor demo readiness.",
+      "Delivered a production-deployed, multi-role physiotherapy platform serving real rehabilitation workflows.",
+      "Reduced onboarding friction by ~40% through a multi-step wizard with real-time boundary validation.",
+      "Built a normalized relational schema supporting 12+ entity relationships and a weekly analytics dashboard.",
+      "Demonstrated full-stack engineering across frontend, backend, database, email, CI/CD, and multi-role auth.",
     ],
 
     highlights: [
-      "7-step pain-aware onboarding wizard with profile persistence",
-      "Dynamic exercise library with filter-based SQL search",
-      "Custom routine builder and live workout session tracking",
-      "Week/month/year progress analytics",
-      "Gamified achievements system",
-      "TOTP-based two-factor authentication and modular account settings",
+      "3-role auth system (patient, therapist, admin) with JWT-based RBAC",
+      "Multi-step onboarding wizard with real-time boundary validation",
+      "Live session tracking with 30-second rest timer system",
+      "Analytics dashboard tracking weekly progress across rehabilitation programs",
+      "SES email integration and FAQ/Help Center module",
+      "Automated CI/CD via GitHub Actions to Vercel and Railway",
     ],
 
     learnings: [
-      "Healthcare-style systems need both strong UX clarity and dependable backend structure.",
-      "Persistent onboarding and profile completeness checks can meaningfully improve downstream personalization.",
-      "Historical workout data should be modeled independently from mutable routine definitions.",
-      "Agile product delivery becomes much more effective when the architecture is disciplined early.",
+      "Multi-role auth is most maintainable when enforced at the API middleware layer rather than scattered across route handlers.",
+      "Immutable session history requires intentional schema decisions early — retrofitting it later is expensive.",
+      "Structured onboarding wizards with progressive validation significantly reduce downstream data quality issues.",
+      "CI/CD discipline in a team project pays dividends immediately in deployment confidence.",
     ],
   },
 
@@ -520,12 +464,6 @@ export const layerAProjects = [
       "PDF-lib",
     ],
 
-<<<<<<< HEAD
-    image:
-      "/images/placeholders/smart-quotation-estimator-admin-placeholder.png",
-
-=======
->>>>>>> 6b4e73b (portfolio updated)
     github: "https://github.com/aryanrajendrasuthar/Smart-Quotation-Estimator",
 
     overview:
@@ -535,7 +473,7 @@ export const layerAProjects = [
       "Fabrication businesses often prepare quotations manually for sheds, canopies, structural work, transportation charges, GST handling, and custom pricing. That creates repeated work, inconsistent formatting, poor revision handling, lack of centralized records, limited export tracking, and a less professional client-facing workflow.",
 
     solution:
-      "Built a centralized admin-only quotation platform that stores clients, quotes, line items, extras, notes, and export history in a structured system. The platform generates business-ready branded PDFs aligned with Jayraj Fabrication’s real quotation samples and supports cloud-based storage and sharing workflows.",
+      "Built a centralized admin-only quotation platform that stores clients, quotes, line items, extras, notes, and export history in a structured system. The platform generates business-ready branded PDFs aligned with Jayraj Fabrication's real quotation samples and supports cloud-based storage and sharing workflows.",
 
     architecture: [
       "React frontend provides admin authentication UI, quote management, client management, company profile management, and export workflows.",
@@ -585,13 +523,6 @@ export const layerAProjects = [
       "Branded PDF exports aligned to client quotation samples",
       "Cloud-native storage and export workflow",
       "Secure admin-only access with Row Level Security",
-<<<<<<< HEAD
-    ],
-
-    screenshots: [
-      "/images/placeholders/smart-quotation-estimator-admin-placeholder.png",
-=======
->>>>>>> 6b4e73b (portfolio updated)
     ],
 
     learnings: [
@@ -639,10 +570,6 @@ export const layerAProjects = [
       "Geolocation API",
     ],
 
-<<<<<<< HEAD
-    image: "/images/placeholders/emergency-sos-home-placeholder.png",
-=======
->>>>>>> 6b4e73b (portfolio updated)
     github: "https://github.com/aryanrajendrasuthar/Emergency-SOS",
 
     overview:
@@ -668,7 +595,7 @@ export const layerAProjects = [
       "Used Twilio both for OTP-based phone verification and emergency SMS dispatch, simplifying the messaging infrastructure into a single provider.",
       "Verified phone numbers before account creation so unverified users cannot register and store unusable contact data.",
       "Captured GPS location directly via the browser Geolocation API instead of using a separate third-party location service.",
-      "Generated Google Maps deep links dynamically from raw coordinates so contacts can navigate directly to the user’s position.",
+      "Generated Google Maps deep links dynamically from raw coordinates so contacts can navigate directly to the user's position.",
       "Configured emergency contacts through environment variables so the contact list can be changed without code edits.",
       "Included SSL certificate infrastructure and HTTPS-ready server setup because secure context is required for geolocation on modern mobile browsers.",
     ],
@@ -715,115 +642,111 @@ export const layerAProjects = [
 
   {
     slug: "emofusion",
-    title: "Emofusion — Multimodal Emotion Detection System",
+    title: "EmoFusion — Multimodal Emotion Detection System",
     type: "Layer A",
     tagline:
-      "Multimodal emotion detection using deep learning across vision and language.",
+      "Late-fusion deep learning system combining computer vision and NLP for multimodal emotion classification.",
 
     summary:
-      "A multimodal deep learning system that detects human emotions by fusing visual and textual signals through optimized neural network pipelines, trained on 61,000+ samples with MLflow-based reproducibility.",
+      "A multimodal deep learning system that detects human emotions by fusing visual facial landmark features and speech embeddings via HuBERT through a late-fusion architecture, trained on 61,000+ samples and achieving 84% weighted F1-score across 7 emotion categories.",
 
     recruiterSummary:
-      "Built a multimodal emotion detection system that fuses computer vision and NLP signals to classify human emotions using deep learning. Designed scalable ML data processing pipelines to handle 61,000+ training samples, trained PyTorch models achieving 82% emotion classification accuracy, and integrated MLflow for full experiment tracking, hyperparameter logging, and model versioning.",
+      "Built EmoFusion, a late-fusion deep learning system combining computer vision (facial landmark detection via OpenCV) and NLP (speech embeddings via HuBERT + 1D-CNN) for multimodal emotion classification across 7 categories. Achieved 84% weighted F1-score on a benchmark dataset. Designed scalable ML data processing pipelines to handle 61,000+ training samples, and integrated MLflow for full experiment tracking, hyperparameter logging, and model versioning. The modular pipeline supports swapping vision and audio encoders independently for ablation studies.",
 
     engineeringSummary:
-      "Designed a multimodal late-fusion architecture with separate vision and language feature extraction branches whose embeddings are fused before final classification. Built scalable preprocessing pipelines, optimized feature extraction for 61,000+ samples, trained PyTorch models to 82% accuracy, and integrated MLflow for complete experiment lifecycle management and reproducibility.",
+      "Designed a multimodal late-fusion architecture with separate computer vision and NLP feature extraction branches. The vision branch uses OpenCV for facial landmark detection; the NLP branch uses HuBERT embeddings processed through a 1D-CNN. Embeddings from both branches are fused before final emotion classification. Built scalable preprocessing pipelines for 61,000+ samples, trained PyTorch models to 84% weighted F1-score across 7 categories, and integrated MLflow for complete experiment lifecycle management.",
 
     metrics: [
       "📊 61k+ training samples",
-      "🎯 82% classification accuracy",
-      "🧠 2 fused modalities",
+      "🎯 84% weighted F1-score",
+      "🧠 7 emotion categories",
     ],
 
     dataFlow:
-      "Input (Image + Text) → Feature Extraction → Fusion Layer → Classifier → MLflow Tracking",
+      "Input (Image + Audio) → OpenCV + HuBERT Feature Extraction → Late Fusion → Classifier → MLflow Tracking",
 
     architectureImage: "/architectures/emofusion.png",
 
     stack: [
       "Python",
       "PyTorch",
+      "HuBERT",
+      "OpenCV",
       "TensorFlow",
       "MLflow",
       "NLP",
       "Computer Vision",
     ],
 
-<<<<<<< HEAD
-    image: "/images/placeholders/emofusion-results-placeholder.png",
-=======
->>>>>>> 6b4e73b (portfolio updated)
     github: "https://github.com/aryanrajendrasuthar/EmoFusion",
 
     overview:
-      "Emofusion is a multimodal deep learning system that detects and classifies human emotions by simultaneously analyzing visual and textual inputs. By fusing computer vision and NLP feature streams through an optimized neural network architecture, the system achieves more robust emotion recognition than single-modality approaches, reaching 82% classification accuracy trained on 61,000+ samples.",
+      "EmoFusion is a multimodal deep learning system that detects and classifies human emotions by simultaneously analyzing visual and speech inputs. By fusing computer vision (facial landmark detection via OpenCV) and NLP (speech embeddings via HuBERT + 1D-CNN) through a late-fusion architecture, the system achieves more robust emotion recognition than single-modality approaches, reaching 84% weighted F1-score across 7 emotion categories on 61,000+ training samples.",
 
     problem:
-      "Emotion detection from a single modality, such as only text or only images, is inherently limited. Humans express emotion through facial cues, body language, and language simultaneously, so single-modality systems miss context carried by other signals.",
+      "Emotion detection from a single modality, such as only text or only images, is inherently limited. Humans express emotion through facial cues, body language, and speech simultaneously, so single-modality systems miss context carried by other signals.",
 
     solution:
-      "Built a true multimodal pipeline that processes visual and textual inputs through separate feature extraction branches, fuses them at a late-fusion layer, and performs final emotion classification with a reproducible training and experiment-tracking workflow.",
+      "Built a true multimodal pipeline that processes visual and audio inputs through separate feature extraction branches — OpenCV for facial landmarks and HuBERT + 1D-CNN for speech embeddings — fuses them at a late-fusion layer, and classifies emotion with a reproducible training and experiment-tracking workflow.",
 
     architecture: [
-      "Input consists of paired visual and textual data samples.",
-      "Computer vision pipeline extracts visual embeddings from image inputs.",
-      "NLP pipeline processes text into semantic embeddings.",
-      "Embeddings are fused using a late-fusion strategy before classification.",
-      "Final PyTorch classifier predicts emotion categories from the fused representation.",
+      "Input consists of paired visual (video frames) and audio data samples.",
+      "Computer vision pipeline uses OpenCV to extract facial landmark features from video frames.",
+      "NLP pipeline processes audio through HuBERT to extract speech embeddings, then refines them with a 1D-CNN.",
+      "Embeddings from both branches are fused using a late-fusion strategy before classification.",
+      "Final PyTorch classifier predicts emotion categories from the fused representation across 7 classes.",
       "MLflow tracks experiment runs, hyperparameters, metrics, artifacts, and model versions.",
     ],
 
     engineeringDecisions: [
-      "Designed a multimodal late-fusion architecture so vision and NLP pipelines could learn modality-specific features before combining them.",
-      "Separated feature extraction branches for visual and textual inputs to preserve flexibility and improve experimentation.",
+      "Designed a late-fusion architecture so vision and NLP pipelines could learn modality-specific features independently before combining.",
+      "Used HuBERT for speech embeddings because it captures rich prosodic and semantic audio features better than raw MFCCs for emotion classification.",
+      "Added a 1D-CNN on top of HuBERT embeddings to learn local temporal patterns in speech before the fusion step.",
+      "Used OpenCV for facial landmark extraction as a lightweight, deterministic vision front-end before learned feature layers.",
       "Built scalable ML data pipelines capable of handling 61,000+ training samples without creating preprocessing bottlenecks.",
-      "Used PyTorch for core model architecture and training while leveraging TensorFlow components in preprocessing stages where useful.",
       "Integrated MLflow for complete experiment lifecycle management including metric logging, artifact storage, and model versioning.",
-      "Structured the workflow for reproducibility so training runs can be recreated from logged configurations and dataset references.",
     ],
 
     scalingStrategy: [
-      "Optimized preprocessing and feature extraction to reduce bottlenecks and support faster iteration cycles on larger datasets.",
+      "Modular encoder design allows independent ablation of vision and audio components without retraining the full pipeline.",
       "Separated preprocessing, training, and evaluation stages so each part of the ML workflow can evolve independently.",
-      "Used MLflow to manage multiple experiment runs, compare model variants, and keep versioned outputs reproducible.",
-      "The pipeline design supports future expansion into additional modalities such as audio or video without rethinking the full workflow.",
+      "MLflow manages multiple experiment runs, compares model variants, and keeps versioned outputs reproducible.",
+      "The pipeline design supports future expansion into additional modalities such as text or additional sensor data.",
     ],
 
     challenges: [
-      "Balancing feature importance between visual and textual modalities in a fused architecture.",
-      "Managing large-scale preprocessing without slowing down model iteration speed.",
+      "Balancing feature importance between visual and speech modalities in a fused architecture.",
+      "Managing large-scale preprocessing for 61,000+ samples without slowing down model iteration speed.",
       "Ensuring reproducibility across repeated training runs and model experiments.",
-      "Designing the system to feel production-structured rather than just a research prototype.",
+      "Designing the pipeline to be modular enough for ablation studies while remaining production-structured.",
     ],
 
     outcome: [
-      "Achieved 82% emotion classification accuracy on a 61,000+ sample dataset.",
+      "Achieved 84% weighted F1-score across 7 emotion categories on a 61,000+ sample benchmark dataset.",
       "Built a reproducible multimodal ML workflow with complete experiment tracking and versioning.",
-      "Demonstrated strong ML engineering practices beyond raw model training, including pipeline design and lifecycle management.",
-      "Added a production-oriented AI/ML case study that complements the backend and systems-heavy Layer A projects.",
+      "Demonstrated strong ML engineering practices beyond raw model training, including modular pipeline design and lifecycle management.",
+      "Added a production-oriented AI/ML case study combining computer vision and NLP in a unified late-fusion system.",
     ],
 
     highlights: [
-      "Multimodal late-fusion architecture combining computer vision and NLP",
-      "Scalable feature extraction and data processing pipeline",
-      "PyTorch model training to 82% classification accuracy",
+      "Late-fusion architecture combining OpenCV facial landmarks and HuBERT speech embeddings",
+      "1D-CNN processing of HuBERT embeddings for temporal speech pattern learning",
+      "84% weighted F1-score across 7 emotion categories",
+      "Modular pipeline supporting independent encoder swapping for ablation studies",
       "MLflow-based experiment lifecycle tracking and versioning",
-      "Reproducible model training workflows",
     ],
 
     learnings: [
-      "Multimodal systems provide richer emotional context than single-modality models.",
-      "Experiment tracking is essential for reproducible ML workflows.",
-      "Pipeline design is as important as model architecture in production-oriented ML systems.",
-      "Scalability and reproducibility are core engineering concerns even in deep learning projects.",
+      "Multimodal systems provide richer emotional context than single-modality models when fusion is done thoughtfully.",
+      "HuBERT embeddings carry significantly more emotional signal than raw audio features like MFCCs.",
+      "Experiment tracking is essential for reproducible ML workflows when iterating across modality combinations.",
+      "Pipeline modularity is as important as model accuracy in production-oriented ML systems.",
     ],
   },
 ];
 
 export const layerBProjects = [
   {
-<<<<<<< HEAD
-=======
     slug: "wordaura",
     title: "WordAura — Semantic Word Guessing Game",
     type: "Layer B",
@@ -923,7 +846,6 @@ export const layerBProjects = [
   },
 
   {
->>>>>>> 6b4e73b (portfolio updated)
     slug: "playlang",
     title: "PlayLang — Custom Programming Language & Compiler",
     type: "Layer B",
@@ -947,11 +869,7 @@ export const layerBProjects = [
 
     dataFlow: "Source Code → Python Tokenizer → Prolog Parser → AST Executor",
 
-<<<<<<< HEAD
-    architectureImage: "/architectures/playlang.png",
-=======
     architectureImage: "",
->>>>>>> 6b4e73b (portfolio updated)
 
     stack: [
       "Python",
@@ -962,10 +880,6 @@ export const layerBProjects = [
       "Language Design",
     ],
 
-<<<<<<< HEAD
-    image: "/images/placeholders/playlang-placeholder.png",
-=======
->>>>>>> 6b4e73b (portfolio updated)
     github: "https://github.com/aryanrajendrasuthar/PlayLang",
 
     overview:
@@ -1017,11 +931,6 @@ export const layerBProjects = [
       "Direct AST execution in Prolog",
     ],
 
-<<<<<<< HEAD
-    screenshots: ["/images/placeholders/playlang-placeholder.png"],
-
-=======
->>>>>>> 6b4e73b (portfolio updated)
     learnings: [
       "Compiler construction becomes much clearer when each pipeline stage is implemented end-to-end.",
       "DCG is a powerful and elegant way to express language grammar in Prolog.",
@@ -1054,11 +963,7 @@ export const layerBProjects = [
     dataFlow:
       "RDF Dataset → Fuseki → Flask SPARQL API → React Search / Graph UI",
 
-<<<<<<< HEAD
-    architectureImage: "/architectures/artgraph.png",
-=======
     architectureImage: "",
->>>>>>> 6b4e73b (portfolio updated)
 
     stack: [
       "RDF/Turtle",
@@ -1069,10 +974,6 @@ export const layerBProjects = [
       "Ontology Engineering",
     ],
 
-<<<<<<< HEAD
-    image: "/images/placeholders/artgraph-placeholder.png",
-=======
->>>>>>> 6b4e73b (portfolio updated)
     github: "https://github.com/aryanrajendrasuthar/ArtGraph",
 
     overview:
@@ -1124,11 +1025,6 @@ export const layerBProjects = [
       "Force-directed graph visualization",
     ],
 
-<<<<<<< HEAD
-    screenshots: ["/images/placeholders/artgraph-placeholder.png"],
-
-=======
->>>>>>> 6b4e73b (portfolio updated)
     learnings: [
       "Semantic integration is as much a modeling problem as a querying problem.",
       "REST abstraction can make semantic systems far more accessible to frontend applications.",
@@ -1144,28 +1040,24 @@ export const layerBProjects = [
       "Production-oriented Retrieval-Augmented Generation system for grounded document Q&A.",
 
     summary:
-      "A full RAG system combining vector embeddings, semantic retrieval, Redis caching, and LLM inference to deliver accurate document-grounded Q&A with sub-100ms optimized response latency.",
+      "A full RAG system combining vector embeddings, hybrid retrieval with re-ranking, Redis caching, and LLM inference to deliver accurate document-grounded Q&A with source attribution and sub-300ms optimized response latency.",
 
     recruiterSummary:
-      "Built a full Retrieval-Augmented Generation system using LangChain, OpenAI APIs, FastAPI, Redis, and a vector database. Implemented document ingestion, embedding generation, semantic search, LLM orchestration, Redis caching, and session management, reducing response latency by 30% to under 100ms.",
+      "Built a full Retrieval-Augmented Generation system using LangChain, OpenAI APIs, FastAPI, Redis, and a vector database. Implemented hybrid retrieval (dense + sparse) with re-ranking for improved answer accuracy on domain-specific corpora, document ingestion, semantic vector search, LLM orchestration, Redis response caching (60% latency reduction), session management, and source attribution — achieving sub-300ms average query response.",
 
     engineeringSummary:
-      "Designed an end-to-end RAG pipeline: document chunking → embedding generation → vector indexing → semantic retrieval → prompt grounding → LLM inference. FastAPI serves concurrent async requests, LangChain orchestrates retrieval and generation, and Redis caches embeddings, responses, and session state for low-latency multi-turn interactions.",
+      "Designed an end-to-end RAG pipeline: document chunking → embedding generation → vector indexing → hybrid retrieval with re-ranking → prompt grounding → LLM inference. FastAPI serves concurrent async requests, LangChain orchestrates retrieval and generation, and Redis caches embeddings, responses, and session state for low-latency multi-turn interactions with source attribution.",
 
     metrics: [
-      "⚡ <100ms latency",
-      "📉 30% latency reduction",
-      "🧠 Full RAG pipeline",
+      "⚡ Sub-300ms latency",
+      "📉 60% latency reduction",
+      "🧠 Hybrid retrieval + re-ranking",
     ],
 
     dataFlow:
-      "Documents → Embeddings → Vector Store → Retrieval → LLM Prompt → Response",
+      "Documents → Embeddings → Vector Store → Hybrid Retrieval + Re-ranking → LLM Prompt → Response + Attribution",
 
-<<<<<<< HEAD
-    architectureImage: "/architectures/ai-knowledge-assistant.png",
-=======
     architectureImage: "",
->>>>>>> 6b4e73b (portfolio updated)
 
     stack: [
       "Python",
@@ -1177,35 +1069,33 @@ export const layerBProjects = [
       "RAG",
     ],
 
-<<<<<<< HEAD
-    image: "/images/placeholders/ai-knowledge-assistant-placeholder.png",
-=======
->>>>>>> 6b4e73b (portfolio updated)
     github: "https://github.com/aryanrajendrasuthar/AI-Knowledge-Assistant",
 
     overview:
-      "The AI Knowledge Assistant is a production-oriented RAG system that allows users to query large document collections with natural language and receive accurate, context-grounded answers powered by an LLM.",
+      "The AI Knowledge Assistant is a production-oriented RAG system that allows users to query large document collections with natural language and receive accurate, context-grounded answers powered by an LLM — with source attribution and sub-300ms response latency achieved through Redis caching and hybrid retrieval.",
 
     problem:
-      "Standalone LLMs cannot access private documents or domain-specific knowledge bases at query time, which makes them unreliable for accurate organizational Q&A.",
+      "Standalone LLMs cannot access private documents or domain-specific knowledge bases at query time, which makes them unreliable for accurate organizational Q&A. Single-strategy vector retrieval also misses keyword-level matches that matter for domain-specific corpora.",
 
     solution:
-      "Built a Retrieval-Augmented Generation system that indexes documents as embeddings, retrieves semantically relevant chunks at query time, and injects that context into LLM prompts for grounded responses.",
+      "Built a Retrieval-Augmented Generation system that indexes documents as embeddings, applies hybrid retrieval (dense + sparse) with re-ranking at query time, and injects retrieved context into LLM prompts for grounded responses with source attribution.",
 
     architecture: [
       "Documents are chunked and embedded using OpenAI embedding models.",
       "Embeddings are indexed into a vector database for semantic retrieval.",
-      "FastAPI exposes async endpoints for query handling.",
-      "At query time, top-k relevant chunks are retrieved and passed into LangChain prompt orchestration.",
+      "FastAPI exposes async endpoints for query handling and session management.",
+      "At query time, hybrid retrieval (dense vector + sparse keyword) retrieves candidates, which are then re-ranked for relevance.",
+      "Top-k re-ranked chunks are passed into LangChain prompt orchestration with source attribution metadata.",
       "Redis caches embeddings, repeated responses, and session state for faster multi-turn interactions.",
     ],
 
     engineeringDecisions: [
-      "Used a full RAG architecture to reduce hallucination and ground responses in actual source material.",
-      "Chose semantic vector retrieval so meaning-based matches work even when wording differs from source text.",
-      "Used FastAPI async endpoints to support concurrent inference requests.",
+      "Used hybrid retrieval (dense + sparse) so the system handles both semantic similarity and keyword-exact matches for domain-specific queries.",
+      "Added re-ranking after initial retrieval to improve answer accuracy on specialized corpora where vector similarity alone is insufficient.",
+      "Used FastAPI async endpoints to support concurrent inference requests without blocking.",
       "Added Redis caching for embeddings and frequent responses to reduce repeated API calls and improve latency.",
       "Used LangChain to keep retrieval, context injection, and generation logic modular and composable.",
+      "Included source attribution metadata in responses so users can verify the grounding documents.",
     ],
 
     scalingStrategy: [
@@ -1213,35 +1103,35 @@ export const layerBProjects = [
       "Redis caching reduces repeated compute and API overhead at scale.",
       "The vector store layer can grow independently as document volume increases.",
       "Session state handling enables multi-turn interactions without resending full context every time.",
+      "Hybrid retrieval and re-ranking can be tuned independently of the LLM inference layer.",
     ],
 
     challenges: [
       "Reducing LLM latency while still preserving grounded retrieval quality.",
-      "Managing embeddings, vector search, and prompt construction as a single coherent pipeline.",
+      "Designing hybrid retrieval so dense and sparse signals are combined meaningfully rather than naively.",
       "Maintaining conversational context efficiently across multiple user turns.",
       "Balancing retrieval precision with response speed in a production-like setup.",
     ],
 
     outcome: [
-      "Built a production-oriented RAG system with measurable latency improvements.",
-      "Reduced response latency by 30% to under 100ms through Redis caching and optimized inference flow.",
-      "Demonstrated strong LLM systems engineering through retrieval, orchestration, and caching design.",
+      "Built a production-oriented RAG system with measurable latency and accuracy improvements.",
+      "Reduced response latency by 60% to sub-300ms through Redis caching and optimized retrieval flow.",
+      "Improved answer accuracy on domain-specific corpora with hybrid retrieval and re-ranking.",
+      "Demonstrated strong LLM systems engineering through retrieval, orchestration, caching, and attribution design.",
     ],
 
     highlights: [
-      "Full RAG pipeline",
+      "Full RAG pipeline with hybrid retrieval (dense + sparse)",
+      "Re-ranking for improved domain-specific accuracy",
       "FastAPI async backend",
-      "Redis caching + sessions",
+      "Redis caching with 60% latency reduction",
+      "Source attribution on all responses",
       "LangChain orchestration",
     ],
 
-<<<<<<< HEAD
-    screenshots: ["/images/placeholders/ai-knowledge-assistant-placeholder.png"],
-
-=======
->>>>>>> 6b4e73b (portfolio updated)
     learnings: [
-      "Grounded retrieval is essential for reliable domain-specific LLM answers.",
+      "Hybrid retrieval outperforms pure vector search on domain-specific corpora where keyword precision matters.",
+      "Re-ranking is a low-cost, high-impact improvement when retrieval recall is already good.",
       "Latency tuning matters just as much as prompt quality in production-oriented AI systems.",
       "Caching and session architecture are key to making RAG systems scalable and usable.",
     ],
@@ -1272,11 +1162,7 @@ export const layerBProjects = [
     dataFlow:
       "Simulation Setup → Role Assignment → Sprint / Story Lifecycle → JSON Persistence",
 
-<<<<<<< HEAD
-    architectureImage: "/architectures/sprint-simulator.png",
-=======
     architectureImage: "",
->>>>>>> 6b4e73b (portfolio updated)
 
     stack: [
       "Java 21",
@@ -1288,10 +1174,6 @@ export const layerBProjects = [
       "CI/CD",
     ],
 
-<<<<<<< HEAD
-    image: "/images/placeholders/sprint-simulator-placeholder.png",
-=======
->>>>>>> 6b4e73b (portfolio updated)
     github: "https://github.com/aryanrajendrasuthar/Sprint-Simulator",
 
     overview:
@@ -1346,11 +1228,6 @@ export const layerBProjects = [
       "SpotBugs, Checkstyle, JaCoCo, and GitHub Actions",
     ],
 
-<<<<<<< HEAD
-    screenshots: ["/images/placeholders/sprint-simulator-placeholder.png"],
-
-=======
->>>>>>> 6b4e73b (portfolio updated)
     learnings: [
       "Design patterns are most valuable when tied directly to domain behavior and lifecycle rules.",
       "Quality engineering pipelines can shape better development habits, not just cleaner repos.",

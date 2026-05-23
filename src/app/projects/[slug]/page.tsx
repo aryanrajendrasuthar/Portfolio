@@ -40,13 +40,35 @@ export default async function ProjectDetailPage({
           </Link>
         </div>
 
-        <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+        {/* Header */}
+        <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
           <div>
-            <Badge className="rounded-full border border-sky-400/20 bg-sky-400/10 px-4 py-2 text-[10px] uppercase tracking-[0.35em] text-sky-200">
-              {project.type}
-            </Badge>
+            <div className="flex flex-wrap items-center gap-3">
+              <Badge className="rounded-full border border-sky-400/20 bg-sky-400/10 px-4 py-2 text-[10px] uppercase tracking-[0.35em] text-sky-200">
+                {project.type}
+              </Badge>
+              {projectMeta.category && (
+                <Badge className="rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.2em] text-slate-300">
+                  {projectMeta.category}
+                </Badge>
+              )}
+              {projectMeta.status && (
+                <Badge className={`rounded-full border text-[10px] uppercase tracking-[0.2em] ${
+                  projectMeta.status === "Live"
+                    ? "border-green-500/30 bg-green-500/10 text-green-300"
+                    : "border-white/10 bg-white/5 text-slate-300"
+                }`}>
+                  {projectMeta.status}
+                </Badge>
+              )}
+              {projectMeta.year && (
+                <Badge className="rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.2em] text-slate-300">
+                  {projectMeta.year}
+                </Badge>
+              )}
+            </div>
 
-            <h1 className="mt-6 break-words text-3xl font-semibold tracking-tight md:text-6xl">
+            <h1 className="mt-6 break-words text-3xl font-semibold tracking-tight md:text-5xl">
               {project.title}
             </h1>
 
@@ -60,35 +82,9 @@ export default async function ProjectDetailPage({
               ))}
             </div>
 
-<<<<<<< HEAD
-=======
-            <div className="mt-4 flex flex-wrap gap-2">
-              {projectMeta.version && (
-                <Badge className="rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.2em] text-slate-300">
-                  {projectMeta.version}
-                </Badge>
-              )}
-              {projectMeta.category && (
-                <Badge className="rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.2em] text-slate-300">
-                  {projectMeta.category}
-                </Badge>
-              )}
-              {projectMeta.status && (
-                <Badge className="rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.2em] text-slate-300">
-                  {projectMeta.status}
-                </Badge>
-              )}
-              {projectMeta.year && (
-                <Badge className="rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.2em] text-slate-300">
-                  {projectMeta.year}
-                </Badge>
-              )}
-            </div>
-
->>>>>>> 6b4e73b (portfolio updated)
             <div className="mt-6 rounded-2xl border border-white/8 bg-black/20 p-5">
               <p className="text-[11px] uppercase tracking-[0.25em] text-slate-500">
-                Recruiter Summary
+                Summary
               </p>
               <p className="mt-3 text-sm leading-7 text-slate-300">
                 {project.recruiterSummary}
@@ -103,7 +99,7 @@ export default async function ProjectDetailPage({
               {project.stack.map((tech, idx) => (
                 <Badge
                   key={`${project.slug}-stack-${tech}-${idx}`}
-                  className="rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.2em] text-slate-300 transition hover:bg-sky-500/20 hover:border-sky-400"
+                  className="rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.2em] text-slate-300"
                 >
                   {tech}
                 </Badge>
@@ -145,6 +141,7 @@ export default async function ProjectDetailPage({
             </div>
           </div>
 
+          {/* System flow card */}
           <Card className="overflow-hidden rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
             <CardContent className="p-8">
               <div className="mb-4 flex items-center justify-between gap-4">
@@ -159,10 +156,26 @@ export default async function ProjectDetailPage({
               <p className="mt-3 text-sm leading-7 text-slate-300">
                 {project.dataFlow}
               </p>
+
+              {project.architectureImage && (
+                <div className="mt-6">
+                  <p className="text-[11px] uppercase tracking-[0.25em] text-slate-500">
+                    Architecture Diagram
+                  </p>
+                  <div className="mt-3 overflow-hidden rounded-2xl border border-white/8 bg-black/30">
+                    <img
+                      src={project.architectureImage}
+                      alt={`${project.title} architecture diagram`}
+                      className="w-full object-contain"
+                    />
+                  </div>
+                </div>
+              )}
             </CardContent>
           </Card>
         </div>
 
+        {/* Problem / Solution */}
         <div className="mt-14 grid gap-8 lg:grid-cols-2">
           <Card className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
             <CardContent className="p-8">
@@ -183,26 +196,7 @@ export default async function ProjectDetailPage({
           </Card>
         </div>
 
-        <div className="mt-14 grid gap-8 lg:grid-cols-2">
-          <Card className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
-            <CardContent className="p-8">
-              <h2 className="text-2xl font-semibold text-white">Problem</h2>
-              <div className="mt-6 rounded-2xl border border-white/8 bg-black/20 p-4 text-sm leading-7 text-slate-300">
-                {project.problem}
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
-            <CardContent className="p-8">
-              <h2 className="text-2xl font-semibold text-white">Solution</h2>
-              <div className="mt-6 rounded-2xl border border-white/8 bg-black/20 p-4 text-sm leading-7 text-slate-300">
-                {project.solution}
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
+        {/* Architecture + Highlights/Learnings */}
         <div className="mt-14 grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
           <Card className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
             <CardContent className="p-8">
@@ -269,6 +263,7 @@ export default async function ProjectDetailPage({
           </div>
         </div>
 
+        {/* Engineering Decisions / Scaling */}
         <div className="mt-14 grid gap-8 lg:grid-cols-2">
           <Card className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
             <CardContent className="p-8">
@@ -307,6 +302,7 @@ export default async function ProjectDetailPage({
           </Card>
         </div>
 
+        {/* Challenges / Outcome */}
         <div className="mt-14 grid gap-8 lg:grid-cols-2">
           <Card className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
             <CardContent className="p-8">
@@ -342,43 +338,6 @@ export default async function ProjectDetailPage({
             </CardContent>
           </Card>
         </div>
-
-<<<<<<< HEAD
-        <div className="mt-14">
-          <h2 className="text-2xl font-semibold text-white">Screenshots</h2>
-          <div className="mt-6 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {project.screenshots.map((shot, index) => (
-              <Card
-                key={`${project.slug}-screenshot-${index}`}
-                className="overflow-hidden rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl"
-              >
-                <div className="relative h-64 bg-[linear-gradient(135deg,rgba(56,189,248,0.18),rgba(124,58,237,0.14),rgba(15,23,42,0.8))]">
-                  <div className="absolute inset-0 opacity-50 [background-image:linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] [background-size:22px_22px]" />
-                  <div className="absolute inset-6 rounded-[1.5rem] border border-dashed border-white/20 bg-black/20 p-4 text-sm text-slate-300">
-                    Project visual coming soon
-                    <div className="mt-2 break-all text-slate-400">{shot}</div>
-                  </div>
-                </div>
-              </Card>
-            ))}
-=======
-        {project.architectureImage && (
-          <div className="mt-14">
-            <h2 className="text-2xl font-semibold text-white">
-              Architecture Diagram
-            </h2>
-            <Card className="mt-6 overflow-hidden rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
-              <div className="relative min-h-[28rem] bg-black p-6">
-                <img
-                  src={project.architectureImage}
-                  alt={`${project.title} architecture diagram`}
-                  className="h-full max-h-[42rem] w-full object-contain"
-                />
-              </div>
-            </Card>
->>>>>>> 6b4e73b (portfolio updated)
-          </div>
-        )}
       </div>
     </div>
   );

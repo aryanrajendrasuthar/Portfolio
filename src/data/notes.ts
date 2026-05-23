@@ -23,7 +23,7 @@ export const notes: Note[] = [
     level: "Intermediate",
     readTime: "6 min read",
     relatedProject: "Real-Time-AI-Simulation-Tool",
-    relatedProjectSlug: "real-time-ai-simulation-tool",
+    relatedProjectSlug: "Real-Time-AI-Simulation-Tool",
     description:
       "Core ideas behind building scalable, fault-tolerant systems using distributed services.",
     content: [
@@ -61,7 +61,7 @@ export const notes: Note[] = [
     level: "Intermediate",
     readTime: "5 min read",
     relatedProject: "Real-Time-AI-Simulation-Tool",
-    relatedProjectSlug: "real-time-ai-simulation-tool",
+    relatedProjectSlug: "Real-Time-AI-Simulation-Tool",
     description:
       "Using Kafka to build decoupled, scalable, asynchronous systems.",
     content: [
@@ -99,7 +99,7 @@ export const notes: Note[] = [
     level: "Intermediate",
     readTime: "4 min read",
     relatedProject: "Real-Time-AI-Simulation-Tool",
-    relatedProjectSlug: "real-time-ai-simulation-tool",
+    relatedProjectSlug: "Real-Time-AI-Simulation-Tool",
     description:
       "Improving performance using in-memory caching to reduce repeated computation.",
     content: [

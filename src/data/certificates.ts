@@ -7,7 +7,7 @@ export const certificates = [
     file: "/certificates/AWS Services fundamentals.pdf",
   },
   {
-    title: "Azure Course",
+    title: "Microsoft Azure Fundamentals",
     provider: "Great Learning",
     category: "Cloud",
     issueDate: "2025-06-06",
@@ -35,34 +35,6 @@ export const certificates = [
     file: "/certificates/CertificateOfCompletion_DevOps Professional Certificate by PagerDuty and LinkedIn.pdf",
   },
 
-  {
-    title: "Introduction to Career Skills in Software Development",
-    provider: "LinkedIn Learning",
-    category: "Career",
-    issueDate: "2025-07-11",
-    file: "/certificates/CertificateOfCompletion_Introduction to Career Skills in Software Development (1).pdf",
-  },
-  {
-    title: "Introduction to Career Skills in Software Development",
-    provider: "LinkedIn Learning",
-    category: "Career",
-    issueDate: "2025-07-11",
-    file: "/certificates/CertificateOfCompletion_Introduction to Career Skills in Software Development (2).pdf",
-  },
-  {
-    title: "Introduction to Career Skills in Software Development",
-    provider: "LinkedIn Learning",
-    category: "Career",
-    issueDate: "2025-07-11",
-    file: "/certificates/CertificateOfCompletion_Introduction to Career Skills in Software Development (3).pdf",
-  },
-  {
-    title: "Introduction to Career Skills in Software Development",
-    provider: "LinkedIn Learning",
-    category: "Career",
-    issueDate: "2025-07-11",
-    file: "/certificates/CertificateOfCompletion_Introduction to Career Skills in Software Development (4).pdf",
-  },
   {
     title: "Introduction to Career Skills in Software Development",
     provider: "LinkedIn Learning",

@@ -21,17 +21,14 @@ function getAssistantReply(message: string) {
     return `Aryan works with ${assistantKnowledge.skills.join(", ")}.`;
   }
 
-  if (
-    text.includes("jayraj") ||
-    text.includes("fabrication")
-  ) {
-    return assistantKnowledge.experience.jayraj;
+  if (text.includes("avnet")) {
+    return assistantKnowledge.experience.avnet;
   }
 
   if (
-    text.includes("ignite")
+    text.includes("orion")
   ) {
-    return assistantKnowledge.experience.ignite;
+    return assistantKnowledge.experience.orion;
   }
 
   if (
@@ -39,12 +36,18 @@ function getAssistantReply(message: string) {
     text.includes("distributed") ||
     text.includes("microservices")
   ) {
-    return `${assistantKnowledge.projects.realTimeAISimulationTool} He also has professional experience with Kafka and distributed microservices from Ignite Infosys.`;
+    return `${assistantKnowledge.experience.avnet} He also has deeper distributed systems work in the AI Simulation Platform: ${assistantKnowledge.projects.distributedAISimulation}`;
   }
 
-  if (
-    text.includes("physio")
-  ) {
+  if (text.includes("simulation") || text.includes("selfjustice") || text.includes("courtroom")) {
+    return assistantKnowledge.projects.distributedAISimulation;
+  }
+
+  if (text.includes("gym") || text.includes("trainer") || text.includes("fitness")) {
+    return assistantKnowledge.projects.myGymTrainer;
+  }
+
+  if (text.includes("physio")) {
     return assistantKnowledge.projects.physio;
   }
 
@@ -56,26 +59,28 @@ function getAssistantReply(message: string) {
     return assistantKnowledge.projects.smartquote;
   }
 
-  if (
-    text.includes("emergency") ||
-    text.includes("sos")
-  ) {
-    return assistantKnowledge.projects.emergency;
+  if (text.includes("emergency") || text.includes("sos")) {
+    return assistantKnowledge.projects.emergencySOS;
   }
 
   if (
     text.includes("emotion") ||
     text.includes("emofusion") ||
-    text.includes("ml") ||
-    text.includes("ai project")
+    text.includes("hubert") ||
+    text.includes("multimodal")
   ) {
     return assistantKnowledge.projects.emofusion;
   }
 
   if (
-    text.includes("certificate") ||
-    text.includes("certification")
+    text.includes("rag") ||
+    text.includes("knowledge assistant") ||
+    text.includes("retrieval")
   ) {
+    return assistantKnowledge.projects.aiKnowledgeAssistant;
+  }
+
+  if (text.includes("certificate") || text.includes("certification")) {
     return assistantKnowledge.certifications;
   }
 
@@ -88,7 +93,7 @@ function getAssistantReply(message: string) {
     return assistantKnowledge.contact;
   }
 
-  return "I can help with Aryan’s experience, projects, tech stack, certifications, and contact details. Try asking about Kafka, Jayraj Fabrication, Physio, Emofusion, or his backend skills.";
+  return "I can help with Aryan's experience, projects, tech stack, certifications, and contact details. Try asking about Avnet, distributed systems, PhysioApp, EmoFusion, the AI Simulation Platform, or his backend skills.";
 }
 
 export async function POST(req: NextRequest) {

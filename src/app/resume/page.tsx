@@ -10,51 +10,52 @@ import {
   Linkedin,
   Mail,
   Layers3,
+  Zap,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-<<<<<<< HEAD
-=======
 import { profile } from "@/data/profile";
->>>>>>> 6b4e73b (portfolio updated)
 
 const highlightCards = [
   {
     icon: Briefcase,
-    title: "Backend & Full-Stack Engineering",
-    text: "Built production-style systems across Node.js, Express, FastAPI, React, TypeScript, PostgreSQL, MySQL, MongoDB, and Supabase.",
+    title: "Backend & Distributed Systems",
+    text: "4+ years building high-throughput microservices at Avnet and Orion — Java, Spring Boot, Python, FastAPI, Kafka, Kubernetes, and event-driven pipelines processing 2M+ daily transactions.",
   },
   {
     icon: Cloud,
-    title: "Distributed & Cloud-Native Systems",
-    text: "Designed architectures involving async workflows, RAG pipelines, vector retrieval, cloud storage, auth layers, and scalable service boundaries.",
+    title: "Cloud-Native Engineering",
+    text: "Production deployments across AWS (EC2, Lambda, S3, SNS, SES) and Azure (AKS, Service Bus, Cognitive Search) with Kubernetes autoscaling, CI/CD pipelines, and 99.98% uptime.",
   },
   {
     icon: BrainCircuit,
-    title: "AI / ML / RAG Engineering",
-    text: "Worked on LLM systems, multimodal ML pipelines, retrieval-augmented generation, experiment tracking, and AI-powered product flows.",
+    title: "AI / ML & RAG Systems",
+    text: "Shipped production RAG search pipelines using LangChain, vector embeddings, and Azure Cognitive Search. Built multimodal ML systems, experiment tracking with MLflow, and LLM-integrated product features.",
   },
 ];
 
 const resumeSignals = [
-  "Real Time AI Simulation Tool for Self-Justice legal rehearsal",
-  "PhysioApp capstone with MVC architecture, onboarding, analytics, and 2FA",
-  "SmartQuote ERP production-style quotation workflow for Jayraj Fabrication",
-  "Emergency SOS real-time GPS + SMS alerting system using Twilio",
-  "Emofusion multimodal ML system with 61k+ training samples and MLflow",
+  "2M+ daily transactions on Kubernetes at Avnet — 45% scalability improvement under peak load",
+  "27% infrastructure cost reduction and 38% API latency improvement across AWS and Azure",
+  "Production RAG pipeline with LangChain and Azure Cognitive Search — 33% query relevance improvement",
+  "PhysioApp — multi-role rehabilitation platform with 12+ entity relationships, deployed Vercel + Railway",
+  "Distributed AI Simulation Platform — sub-2s response, LangChain + Redis pub/sub, selfjustice.ca",
+  "EmoFusion — 84% weighted F1-score multimodal emotion detection with HuBERT + OpenCV",
 ];
 
 const strengthBadges = [
   "Backend Systems",
   "Distributed Systems",
-  "Full-Stack Development",
-  "RAG / LLM Systems",
   "Cloud Architecture",
+  "Event-Driven Design",
+  "RAG / LLM Systems",
   "API Design",
-  "Authentication",
+  "Authentication & RBAC",
   "Database Modeling",
-  "Performance Thinking",
+  "Performance Optimization",
   "System Design",
+  "CI/CD Pipelines",
+  "Full-Stack Development",
 ];
 
 export default function ResumePage() {
@@ -81,9 +82,10 @@ export default function ResumePage() {
             </h1>
 
             <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-300">
-              Software engineer focused on backend systems, distributed
-              architecture, AI-powered applications, and full-stack product
-              development.
+              Backend and distributed systems engineer with 4+ years delivering
+              high-throughput microservices platforms — specializing in
+              event-driven architecture, cloud-native deployments, and
+              AI-integrated search pipelines.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
@@ -98,26 +100,14 @@ export default function ResumePage() {
             </div>
 
             <div className="mt-8 flex flex-wrap gap-4">
-              <a
-<<<<<<< HEAD
-                href="/resume/Aryan R Suthar - Resume.pdf"
-=======
-                href={profile.resume}
->>>>>>> 6b4e73b (portfolio updated)
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a href={profile.resume} target="_blank" rel="noreferrer">
                 <Button className="rounded-full bg-white px-6 text-slate-950 hover:bg-slate-200">
                   <FileText className="mr-2 h-4 w-4" />
                   Open Resume
                 </Button>
               </a>
 
-<<<<<<< HEAD
-              <a href="/resume/Aryan R Suthar - Resume.pdf" download>
-=======
               <a href={profile.resume} download>
->>>>>>> 6b4e73b (portfolio updated)
                 <Button
                   variant="outline"
                   className="rounded-full border-white/15 bg-white/5 px-6 text-white hover:bg-white/10"
@@ -154,9 +144,12 @@ export default function ResumePage() {
 
             <Card className="mt-8 rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
               <CardContent className="p-8">
-                <p className="text-sm text-violet-300">Recruiter Snapshot</p>
-                <h2 className="mt-2 text-2xl font-semibold text-white">
-                  Why this resume is worth opening
+                <div className="mb-2 flex items-center gap-2">
+                  <Zap className="h-4 w-4 text-violet-300" />
+                  <p className="text-sm text-violet-300">Recruiter Snapshot</p>
+                </div>
+                <h2 className="mt-1 text-2xl font-semibold text-white">
+                  Why this resume stands out
                 </h2>
                 <div className="mt-6 space-y-4">
                   {resumeSignals.map((item, index) => (
@@ -181,26 +174,14 @@ export default function ResumePage() {
                 </h2>
 
                 <div className="mt-6 space-y-3">
-                  <a
-<<<<<<< HEAD
-                    href="/resume/Aryan R Suthar - Resume.pdf"
-=======
-                    href={profile.resume}
->>>>>>> 6b4e73b (portfolio updated)
-                    target="_blank"
-                    rel="noreferrer"
-                  >
+                  <a href={profile.resume} target="_blank" rel="noreferrer">
                     <Button className="w-full rounded-full bg-white text-slate-950 hover:bg-slate-200">
                       <FileText className="mr-2 h-4 w-4" />
                       Open Resume
                     </Button>
                   </a>
 
-<<<<<<< HEAD
-                  <a href="/resume/Aryan R Suthar - Resume.pdf" download>
-=======
                   <a href={profile.resume} download>
->>>>>>> 6b4e73b (portfolio updated)
                     <Button
                       variant="outline"
                       className="w-full rounded-full border-white/15 bg-white/5 text-white hover:bg-white/10"
@@ -210,7 +191,7 @@ export default function ResumePage() {
                     </Button>
                   </a>
 
-                  <a href="mailto:aryanrajendrasuthar@gmail.com">
+                  <a href={`mailto:${profile.email}`}>
                     <Button
                       variant="outline"
                       className="w-full rounded-full border-white/15 bg-white/5 text-white hover:bg-white/10"
@@ -220,11 +201,7 @@ export default function ResumePage() {
                     </Button>
                   </a>
 
-                  <a
-                    href="https://www.linkedin.com/in/aryansuthar53/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
+                  <a href={profile.linkedin} target="_blank" rel="noreferrer">
                     <Button
                       variant="outline"
                       className="w-full rounded-full border-white/15 bg-white/5 text-white hover:bg-white/10"
@@ -234,11 +211,7 @@ export default function ResumePage() {
                     </Button>
                   </a>
 
-                  <a
-                    href="https://github.com/aryanrajendrasuthar"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
+                  <a href={profile.github} target="_blank" rel="noreferrer">
                     <Button
                       variant="outline"
                       className="w-full rounded-full border-white/15 bg-white/5 text-white hover:bg-white/10"

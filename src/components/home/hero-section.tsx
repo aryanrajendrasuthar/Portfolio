@@ -31,7 +31,7 @@ export function HeroSection({
         transition={{ duration: 0.6 }}
       >
         <div className="mb-6 inline-flex rounded-full border border-sky-400/20 bg-sky-400/10 px-4 py-2 text-[10px] uppercase tracking-[0.35em] text-sky-200">
-          3 Years of Engineering Experience
+          4+ Years of Engineering Experience
         </div>
 
         {recruiterMode && (
@@ -54,27 +54,20 @@ export function HeroSection({
 
         <p className="mt-8 max-w-3xl text-base leading-8 text-slate-300 md:text-lg">
           {recruiterMode
-            ? "Backend engineer specializing in distributed systems, cloud-native microservices, and event-driven architectures."
-            : "Software engineer with 3 years of experience across backend systems, architecture, cloud-native engineering, and AI-powered applications."}
+            ? "Backend engineer specializing in distributed systems, cloud-native microservices, event-driven architectures, and AI-integrated search pipelines. Currently processing 2M+ daily transactions at Avnet."
+            : "Software engineer with 4+ years of experience across distributed systems, cloud-native microservices, event-driven architectures, and AI/ML applications."}
         </p>
 
         {recruiterMode && (
           <div className="mt-6 flex flex-wrap gap-3">
-            <span className="rounded-full border border-green-500/30 bg-green-500/10 px-4 py-2 text-xs text-green-300">
-              Java
-            </span>
-            <span className="rounded-full border border-green-500/30 bg-green-500/10 px-4 py-2 text-xs text-green-300">
-              Spring Boot
-            </span>
-            <span className="rounded-full border border-green-500/30 bg-green-500/10 px-4 py-2 text-xs text-green-300">
-              AWS
-            </span>
-            <span className="rounded-full border border-green-500/30 bg-green-500/10 px-4 py-2 text-xs text-green-300">
-              Kafka
-            </span>
-            <span className="rounded-full border border-green-500/30 bg-green-500/10 px-4 py-2 text-xs text-green-300">
-              Distributed Systems
-            </span>
+            {["Java", "Spring Boot", "AWS", "Azure", "Kafka", "Kubernetes", "LangChain"].map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full border border-green-500/30 bg-green-500/10 px-4 py-2 text-xs text-green-300"
+              >
+                {tag}
+              </span>
+            ))}
           </div>
         )}
 
@@ -87,15 +80,7 @@ export function HeroSection({
           </Link>
 
           {recruiterMode ? (
-            <a
-<<<<<<< HEAD
-              href="/resume/Aryan R Suthar - Resume.pdf"
-=======
-              href={profile.resume}
->>>>>>> 6b4e73b (portfolio updated)
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href={profile.resume} target="_blank" rel="noreferrer">
               <Button
                 variant="outline"
                 className="rounded-full border-white/15 bg-white/5 px-6 text-white hover:bg-white/10"
@@ -125,16 +110,7 @@ export function HeroSection({
             </Button>
           )}
 
-          <a
-<<<<<<< HEAD
-            href="/resume/Aryan R Suthar - Resume.pdf"
-=======
-            href={profile.resume}
->>>>>>> 6b4e73b (portfolio updated)
-            download
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href={profile.resume} download target="_blank" rel="noreferrer">
             <Button
               variant="outline"
               className="rounded-full border-white/15 bg-white/5 px-6 text-white hover:bg-white/10"

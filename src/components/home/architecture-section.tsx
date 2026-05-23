@@ -182,7 +182,7 @@ export function ArchitectureSection({
         description={
           recruiterMode
             ? "A recruiter-friendly systems snapshot showing backend, event-driven, and scalable architecture thinking."
-            : "A visual systems flow that reinforces your backend, cloud-native, and event-driven engineering identity for recruiters and hiring managers."
+            : "A visual systems flow that reinforces backend, cloud-native, and event-driven engineering depth."
         }
       />
 
@@ -235,11 +235,7 @@ export function ArchitectureSection({
               </div>
               <div className="rounded-2xl border border-white/8 bg-black/20 p-4">
                 This same systems thinking carries across flagship projects like
-<<<<<<< HEAD
                 the AI Simulation Platform, AI Knowledge Assistant,
-=======
-                the I Simulation Platform, AI Knowledge Assistant,
->>>>>>> 6b4e73b (portfolio updated)
                 and SmartQuote ERP workflow automation.
               </div>
             </div>

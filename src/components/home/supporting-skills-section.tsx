@@ -4,12 +4,12 @@ import { SectionTitle } from "@/components/layout/section-title";
 import { tutoringSkills } from "@/data/skills";
 
 const engineeringStrengths = [
-  "Backend API design, service decomposition, and scalable system architecture",
-  "Distributed systems thinking using event-driven and asynchronous workflows",
-  "RAG pipelines, AI workflows, and production-oriented ML integration",
-  "Authentication, authorization, and secure backend application design",
-  "Database modeling, caching strategies, and performance optimization",
-  "Cloud deployment and real-world business workflow automation",
+  "Event-driven backend architecture using Kafka, Redis pub/sub, and asynchronous pipeline design",
+  "Cloud-native deployments across AWS and Azure with Kubernetes, autoscaling, and CI/CD",
+  "RAG pipelines, LLM orchestration, and production-oriented AI/ML integration",
+  "Authentication, RBAC, and secure API design with OAuth2, JWT, and enterprise SSO",
+  "Database modeling, query optimization, caching strategies, and performance tuning",
+  "Full-stack product delivery from system design through deployment with measurable outcomes",
 ];
 
 export function SupportingSkillsSection({
@@ -25,7 +25,7 @@ export function SupportingSkillsSection({
         description={
           recruiterMode
             ? "Professional strengths that support communication, collaboration, mentorship, and technical clarity."
-            : "People-facing strengths and engineering depth that reinforce your ability to build, explain, and deliver real systems."
+            : "People-facing strengths and engineering depth that reinforce the ability to build, explain, and deliver real systems."
         }
       />
 
@@ -43,12 +43,13 @@ export function SupportingSkillsSection({
             </div>
 
             <p className="text-sm leading-7 text-slate-300">
-              Mentored students in mathematics, statistics, and programming by
-              breaking down complex topics into structured, step-by-step
-              explanations. This strengthened my ability to communicate
-              technical concepts clearly, debug collaboratively, and guide
-              problem-solving in real time — skills that directly support backend
-              engineering, system design discussions, and team collaboration.
+              Mentored students at ASU in mathematics, statistics, and
+              programming by breaking down complex topics into structured,
+              step-by-step explanations. This reinforced my ability to
+              communicate technical concepts clearly, debug collaboratively, and
+              guide problem-solving in real time — skills that directly support
+              backend engineering, system design discussions, and team
+              collaboration in fast-moving engineering environments.
             </p>
 
             <div className="mt-6 grid gap-3 sm:grid-cols-2">

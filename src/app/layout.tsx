@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Aryan Suthar — Software Engineer",
   description:
-    "Full-stack software engineer specializing in scalable backend systems, AI/ML applications, and cloud-native architecture.",
+    "Backend and distributed systems engineer with 4+ years building high-throughput microservices, cloud-native deployments, and AI-integrated search pipelines.",
 };
 
 export default function RootLayout({
