@@ -65,5 +65,5 @@ export const assistantKnowledge = {
     "Aryan holds certifications in AWS Services Fundamentals (Simplilearn), Microsoft Azure AI Essentials, DevOps Professional (PagerDuty + LinkedIn Learning), Atlassian Agile Project Management, and is pursuing AWS Certified Solutions Architect – Associate.",
 
   contact:
-    "You can contact Aryan through LinkedIn (linkedin.com/in/aryansuthar53), GitHub (github.com/aryanrajendrasuthar), or email at aryansuthar6701@gmail.com.",
+    "You can contact Aryan through LinkedIn (linkedin.com/in/aryanrajendrasuthar), GitHub (github.com/aryanrajendrasuthar), or email at aryansuthar6701@gmail.com.",
 };

@@ -6,7 +6,7 @@ export const profile = {
   location: "Arizona, USA (Open to Relocation)",
   phone: "813-279-8780",
   email: "aryansuthar6701@gmail.com",
-  linkedin: "https://www.linkedin.com/in/aryansuthar53/",
+  linkedin: "https://www.linkedin.com/in/aryanrajendrasuthar/",
   github: "https://github.com/aryanrajendrasuthar",
   resume: "/resume/ARYAN R Suthar - RESUME.pdf",
   heroImage: "/images/profile/aryan-profile-themed.png",

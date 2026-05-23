@@ -429,7 +429,7 @@ export const layerAProjects = [
 
   {
     slug: "smart-quotation-estimator",
-    title: "SmartQuote ERP / Jayraj Fabrication Quotation System",
+    title: "SmartQuote ERP — Cloud Quotation Management System",
     type: "Layer A",
     tagline:
       "Cloud-based quotation management system for fabrication and contracting workflows.",
@@ -743,6 +743,111 @@ export const layerAProjects = [
       "Pipeline modularity is as important as model accuracy in production-oriented ML systems.",
     ],
   },
+
+  {
+    slug: "ai-knowledge-assistant",
+    title: "AI Knowledge Assistant — RAG-Powered Q&A System",
+    type: "Layer A",
+    tagline:
+      "Production-oriented Retrieval-Augmented Generation system for grounded document Q&A.",
+
+    summary:
+      "A full RAG system combining vector embeddings, hybrid retrieval with re-ranking, Redis caching, and LLM inference to deliver accurate document-grounded Q&A with source attribution and sub-300ms optimized response latency.",
+
+    recruiterSummary:
+      "Built a full Retrieval-Augmented Generation system using LangChain, OpenAI APIs, FastAPI, Redis, and a vector database. Implemented hybrid retrieval (dense + sparse) with re-ranking for improved answer accuracy on domain-specific corpora, document ingestion, semantic vector search, LLM orchestration, Redis response caching (60% latency reduction), session management, and source attribution — achieving sub-300ms average query response.",
+
+    engineeringSummary:
+      "Designed an end-to-end RAG pipeline: document chunking → embedding generation → vector indexing → hybrid retrieval with re-ranking → prompt grounding → LLM inference. FastAPI serves concurrent async requests, LangChain orchestrates retrieval and generation, and Redis caches embeddings, responses, and session state for low-latency multi-turn interactions with source attribution.",
+
+    metrics: [
+      "⚡ Sub-300ms latency",
+      "📉 60% latency reduction",
+      "🧠 Hybrid retrieval + re-ranking",
+    ],
+
+    dataFlow:
+      "Documents → Embeddings → Vector Store → Hybrid Retrieval + Re-ranking → LLM Prompt → Response + Attribution",
+
+    architectureImage: "",
+
+    stack: [
+      "Python",
+      "FastAPI",
+      "LangChain",
+      "OpenAI API",
+      "Redis",
+      "Vector Database",
+      "RAG",
+    ],
+
+    github: "https://github.com/aryanrajendrasuthar/AI-Knowledge-Assistant",
+
+    overview:
+      "The AI Knowledge Assistant is a production-oriented RAG system that allows users to query large document collections with natural language and receive accurate, context-grounded answers powered by an LLM — with source attribution and sub-300ms response latency achieved through Redis caching and hybrid retrieval.",
+
+    problem:
+      "Standalone LLMs cannot access private documents or domain-specific knowledge bases at query time, which makes them unreliable for accurate organizational Q&A. Single-strategy vector retrieval also misses keyword-level matches that matter for domain-specific corpora.",
+
+    solution:
+      "Built a Retrieval-Augmented Generation system that indexes documents as embeddings, applies hybrid retrieval (dense + sparse) with re-ranking at query time, and injects retrieved context into LLM prompts for grounded responses with source attribution.",
+
+    architecture: [
+      "Documents are chunked and embedded using OpenAI embedding models.",
+      "Embeddings are indexed into a vector database for semantic retrieval.",
+      "FastAPI exposes async endpoints for query handling and session management.",
+      "At query time, hybrid retrieval (dense vector + sparse keyword) retrieves candidates, which are then re-ranked for relevance.",
+      "Top-k re-ranked chunks are passed into LangChain prompt orchestration with source attribution metadata.",
+      "Redis caches embeddings, repeated responses, and session state for faster multi-turn interactions.",
+    ],
+
+    engineeringDecisions: [
+      "Used hybrid retrieval (dense + sparse) so the system handles both semantic similarity and keyword-exact matches for domain-specific queries.",
+      "Added re-ranking after initial retrieval to improve answer accuracy on specialized corpora where vector similarity alone is insufficient.",
+      "Used FastAPI async endpoints to support concurrent inference requests without blocking.",
+      "Added Redis caching for embeddings and frequent responses to reduce repeated API calls and improve latency.",
+      "Used LangChain to keep retrieval, context injection, and generation logic modular and composable.",
+      "Included source attribution metadata in responses so users can verify the grounding documents.",
+    ],
+
+    scalingStrategy: [
+      "FastAPI async design supports concurrent inference workloads.",
+      "Redis caching reduces repeated compute and API overhead at scale.",
+      "The vector store layer can grow independently as document volume increases.",
+      "Session state handling enables multi-turn interactions without resending full context every time.",
+      "Hybrid retrieval and re-ranking can be tuned independently of the LLM inference layer.",
+    ],
+
+    challenges: [
+      "Reducing LLM latency while still preserving grounded retrieval quality.",
+      "Designing hybrid retrieval so dense and sparse signals are combined meaningfully rather than naively.",
+      "Maintaining conversational context efficiently across multiple user turns.",
+      "Balancing retrieval precision with response speed in a production-like setup.",
+    ],
+
+    outcome: [
+      "Built a production-oriented RAG system with measurable latency and accuracy improvements.",
+      "Reduced response latency by 60% to sub-300ms through Redis caching and optimized retrieval flow.",
+      "Improved answer accuracy on domain-specific corpora with hybrid retrieval and re-ranking.",
+      "Demonstrated strong LLM systems engineering through retrieval, orchestration, caching, and attribution design.",
+    ],
+
+    highlights: [
+      "Full RAG pipeline with hybrid retrieval (dense + sparse)",
+      "Re-ranking for improved domain-specific accuracy",
+      "FastAPI async backend",
+      "Redis caching with 60% latency reduction",
+      "Source attribution on all responses",
+      "LangChain orchestration",
+    ],
+
+    learnings: [
+      "Hybrid retrieval outperforms pure vector search on domain-specific corpora where keyword precision matters.",
+      "Re-ranking is a low-cost, high-impact improvement when retrieval recall is already good.",
+      "Latency tuning matters just as much as prompt quality in production-oriented AI systems.",
+      "Caching and session architecture are key to making RAG systems scalable and usable.",
+    ],
+  },
 ];
 
 export const layerBProjects = [
@@ -1029,111 +1134,6 @@ export const layerBProjects = [
       "Semantic integration is as much a modeling problem as a querying problem.",
       "REST abstraction can make semantic systems far more accessible to frontend applications.",
       "Lightweight ontology design can dramatically improve developer ergonomics and performance.",
-    ],
-  },
-
-  {
-    slug: "ai-knowledge-assistant",
-    title: "AI Knowledge Assistant — RAG-Powered Q&A System",
-    type: "Layer B",
-    tagline:
-      "Production-oriented Retrieval-Augmented Generation system for grounded document Q&A.",
-
-    summary:
-      "A full RAG system combining vector embeddings, hybrid retrieval with re-ranking, Redis caching, and LLM inference to deliver accurate document-grounded Q&A with source attribution and sub-300ms optimized response latency.",
-
-    recruiterSummary:
-      "Built a full Retrieval-Augmented Generation system using LangChain, OpenAI APIs, FastAPI, Redis, and a vector database. Implemented hybrid retrieval (dense + sparse) with re-ranking for improved answer accuracy on domain-specific corpora, document ingestion, semantic vector search, LLM orchestration, Redis response caching (60% latency reduction), session management, and source attribution — achieving sub-300ms average query response.",
-
-    engineeringSummary:
-      "Designed an end-to-end RAG pipeline: document chunking → embedding generation → vector indexing → hybrid retrieval with re-ranking → prompt grounding → LLM inference. FastAPI serves concurrent async requests, LangChain orchestrates retrieval and generation, and Redis caches embeddings, responses, and session state for low-latency multi-turn interactions with source attribution.",
-
-    metrics: [
-      "⚡ Sub-300ms latency",
-      "📉 60% latency reduction",
-      "🧠 Hybrid retrieval + re-ranking",
-    ],
-
-    dataFlow:
-      "Documents → Embeddings → Vector Store → Hybrid Retrieval + Re-ranking → LLM Prompt → Response + Attribution",
-
-    architectureImage: "",
-
-    stack: [
-      "Python",
-      "FastAPI",
-      "LangChain",
-      "OpenAI API",
-      "Redis",
-      "Vector Database",
-      "RAG",
-    ],
-
-    github: "https://github.com/aryanrajendrasuthar/AI-Knowledge-Assistant",
-
-    overview:
-      "The AI Knowledge Assistant is a production-oriented RAG system that allows users to query large document collections with natural language and receive accurate, context-grounded answers powered by an LLM — with source attribution and sub-300ms response latency achieved through Redis caching and hybrid retrieval.",
-
-    problem:
-      "Standalone LLMs cannot access private documents or domain-specific knowledge bases at query time, which makes them unreliable for accurate organizational Q&A. Single-strategy vector retrieval also misses keyword-level matches that matter for domain-specific corpora.",
-
-    solution:
-      "Built a Retrieval-Augmented Generation system that indexes documents as embeddings, applies hybrid retrieval (dense + sparse) with re-ranking at query time, and injects retrieved context into LLM prompts for grounded responses with source attribution.",
-
-    architecture: [
-      "Documents are chunked and embedded using OpenAI embedding models.",
-      "Embeddings are indexed into a vector database for semantic retrieval.",
-      "FastAPI exposes async endpoints for query handling and session management.",
-      "At query time, hybrid retrieval (dense vector + sparse keyword) retrieves candidates, which are then re-ranked for relevance.",
-      "Top-k re-ranked chunks are passed into LangChain prompt orchestration with source attribution metadata.",
-      "Redis caches embeddings, repeated responses, and session state for faster multi-turn interactions.",
-    ],
-
-    engineeringDecisions: [
-      "Used hybrid retrieval (dense + sparse) so the system handles both semantic similarity and keyword-exact matches for domain-specific queries.",
-      "Added re-ranking after initial retrieval to improve answer accuracy on specialized corpora where vector similarity alone is insufficient.",
-      "Used FastAPI async endpoints to support concurrent inference requests without blocking.",
-      "Added Redis caching for embeddings and frequent responses to reduce repeated API calls and improve latency.",
-      "Used LangChain to keep retrieval, context injection, and generation logic modular and composable.",
-      "Included source attribution metadata in responses so users can verify the grounding documents.",
-    ],
-
-    scalingStrategy: [
-      "FastAPI async design supports concurrent inference workloads.",
-      "Redis caching reduces repeated compute and API overhead at scale.",
-      "The vector store layer can grow independently as document volume increases.",
-      "Session state handling enables multi-turn interactions without resending full context every time.",
-      "Hybrid retrieval and re-ranking can be tuned independently of the LLM inference layer.",
-    ],
-
-    challenges: [
-      "Reducing LLM latency while still preserving grounded retrieval quality.",
-      "Designing hybrid retrieval so dense and sparse signals are combined meaningfully rather than naively.",
-      "Maintaining conversational context efficiently across multiple user turns.",
-      "Balancing retrieval precision with response speed in a production-like setup.",
-    ],
-
-    outcome: [
-      "Built a production-oriented RAG system with measurable latency and accuracy improvements.",
-      "Reduced response latency by 60% to sub-300ms through Redis caching and optimized retrieval flow.",
-      "Improved answer accuracy on domain-specific corpora with hybrid retrieval and re-ranking.",
-      "Demonstrated strong LLM systems engineering through retrieval, orchestration, caching, and attribution design.",
-    ],
-
-    highlights: [
-      "Full RAG pipeline with hybrid retrieval (dense + sparse)",
-      "Re-ranking for improved domain-specific accuracy",
-      "FastAPI async backend",
-      "Redis caching with 60% latency reduction",
-      "Source attribution on all responses",
-      "LangChain orchestration",
-    ],
-
-    learnings: [
-      "Hybrid retrieval outperforms pure vector search on domain-specific corpora where keyword precision matters.",
-      "Re-ranking is a low-cost, high-impact improvement when retrieval recall is already good.",
-      "Latency tuning matters just as much as prompt quality in production-oriented AI systems.",
-      "Caching and session architecture are key to making RAG systems scalable and usable.",
     ],
   },
 

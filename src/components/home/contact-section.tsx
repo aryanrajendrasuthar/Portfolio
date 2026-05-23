@@ -125,7 +125,7 @@ export function ContactSection({ recruiterMode }: { recruiterMode: boolean }) {
                   Email: {profile.email}
                 </div>
                 <div className="rounded-2xl border border-white/8 bg-white/[0.03] p-4">
-                  LinkedIn: aryansuthar53
+                  LinkedIn: aryanrajendrasuthar
                 </div>
                 <div className="rounded-2xl border border-white/8 bg-white/[0.03] p-4">
                   GitHub: aryanrajendrasuthar
