@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Github, Linkedin, Mail, FileText, BookOpen } from "lucide-react";
 import { profile } from "@/data/profile";
 
@@ -13,16 +14,16 @@ export function Footer() {
         </div>
 
         <div className="flex flex-wrap items-center justify-center gap-5 text-xs text-slate-400">
-          <a href="/resume" className="transition hover:scale-110 hover:text-white">
+          <Link href="/resume" className="transition hover:text-white">
             <span className="inline-flex items-center gap-2">
               <FileText className="h-4 w-4" /> Resume
             </span>
-          </a>
-          <a href="/notes" className="transition hover:scale-110 hover:text-white">
+          </Link>
+          <Link href="/notes" className="transition hover:text-white">
             <span className="inline-flex items-center gap-2">
               <BookOpen className="h-4 w-4" /> Notes
             </span>
-          </a>
+          </Link>
           <a
             href={profile.github}
             target="_blank"

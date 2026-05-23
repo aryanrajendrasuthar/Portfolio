@@ -34,7 +34,11 @@ export default function NotesPage() {
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {notes.map((note) => (
             <Link key={note.slug} href={`/notes/${note.slug}`}>
+<<<<<<< HEAD
               <Card className="group h-full rounded-[2rem] border-white/10 bg-white/5 transition duration-300 hover:-translate-y-1 hover:border-sky-400/30 hover:bg-white/[0.07] backdrop-blur-xl">
+=======
+              <Card className="h-full rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
+>>>>>>> 6b4e73b (portfolio updated)
                 <CardContent className="flex h-full flex-col p-6">
                   <div className="mb-5 flex items-start justify-between gap-4">
                     <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-sky-400/20 bg-sky-400/10">

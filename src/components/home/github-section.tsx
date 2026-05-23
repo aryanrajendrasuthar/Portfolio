@@ -19,7 +19,7 @@ export async function GitHubSection() {
 
   try {
     repos = await getGitHubRepos();
-  } catch (error) {
+  } catch {
     repos = [];
   }
 

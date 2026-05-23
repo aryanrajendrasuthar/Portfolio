@@ -7,6 +7,6 @@ export const profile = {
   email: "aryanrajendrasuthar@gmail.com",
   linkedin: "https://www.linkedin.com/in/aryansuthar53/",
   github: "https://github.com/aryanrajendrasuthar",
-  resume: "/resume/Aryan R Suthar - Resume.pdf",
+  resume: "/resume/ARYAN R Suthar - RESUME.pdf",
   heroImage: "/images/profile/aryan-profile-themed.png",
 };

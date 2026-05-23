@@ -4,12 +4,21 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { layerAProjects, layerBProjects } from "@/data/projects";
+<<<<<<< HEAD
 import { TiltCard } from "@/components/ui/tilt-card";
+=======
+
+function getProjectMeta(project: (typeof layerAProjects)[number]) {
+  return project as typeof project & {
+    liveUrl?: string;
+  };
+}
+>>>>>>> 6b4e73b (portfolio updated)
 
 export default function ProjectsPage() {
   return (
-    <div className="min-h-screen bg-[#030712] px-6 py-16 text-white">
-      <div className="mx-auto max-w-7xl">
+    <div className="min-h-screen overflow-x-hidden bg-[#030712] px-6 py-16 text-white">
+      <div className="mx-auto w-full max-w-[calc(100vw-3rem)] min-w-0 md:max-w-7xl">
         <div className="mb-8">
           <Link
             href="/"
@@ -23,7 +32,11 @@ export default function ProjectsPage() {
           <p className="mb-3 text-xs uppercase tracking-[0.4em] text-slate-400">
             Projects
           </p>
+<<<<<<< HEAD
           <h1 className="text-4xl font-semibold tracking-tight md:text-6xl">
+=======
+          <h1 className="mx-auto max-w-[18rem] break-words text-3xl font-semibold tracking-tight sm:max-w-none md:text-6xl">
+>>>>>>> 6b4e73b (portfolio updated)
             Engineering Project Archive
           </h1>
           <p className="mx-auto mt-4 max-w-3xl text-sm leading-7 text-slate-300 md:text-base">
@@ -49,6 +62,7 @@ export default function ProjectsPage() {
             </div>
           </div>
 
+<<<<<<< HEAD
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {layerAProjects.map((project) => (
               <TiltCard key={project.slug} className="h-full">
@@ -74,6 +88,19 @@ export default function ProjectsPage() {
                       <Layers3 className="h-5 w-5 text-sky-200" />
                     </div>
                   </div>
+=======
+          <div className="grid min-w-0 grid-cols-[minmax(0,1fr)] gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {layerAProjects.map((project) => {
+              const projectMeta = getProjectMeta(project);
+
+              return (
+                <Card
+                  key={project.slug}
+                  className="relative h-full w-[calc(100vw-3rem)] max-w-full min-w-0 overflow-hidden rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl md:w-full"
+                >
+                <div className="relative h-28 overflow-hidden border-b border-white/10 bg-[linear-gradient(135deg,rgba(56,189,248,0.18),rgba(124,58,237,0.14),rgba(15,23,42,0.8))]">
+                  <div className="absolute inset-0 opacity-60 [background-image:radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.15),transparent_20%),linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] [background-size:auto,22px_22px,22px_22px]" />
+>>>>>>> 6b4e73b (portfolio updated)
 
                   <CardContent className="relative z-10 flex flex-col p-6">
                     <h2 className="text-xl font-semibold text-white">
@@ -165,6 +192,125 @@ export default function ProjectsPage() {
                     {project.title}
                   </h3>
 
+<<<<<<< HEAD
+                  <p className="mt-2 text-sm text-slate-400">
+                    {project.tagline}
+                  </p>
+
+                  <div className="mt-3 flex flex-wrap gap-3 text-xs text-slate-400">
+=======
+                  <div className="mt-2 flex min-w-0 flex-wrap gap-3 text-sm text-slate-400">
+>>>>>>> 6b4e73b (portfolio updated)
+                    {project.metrics?.map((metric, idx) => (
+                      <span key={`${project.slug}-metric-${idx}`}>{metric}</span>
+                    ))}
+                  </div>
+
+<<<<<<< HEAD
+                  <p className="mt-4 text-sm leading-7 text-slate-300">
+                    {project.recruiterSummary}
+                  </p>
+
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {project.stack.slice(0, 6).map((tech, idx) => (
+                      <Badge
+                        key={`${project.slug}-${tech}-${idx}`}
+                        className="rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.2em] text-slate-300 transition hover:border-violet-400 hover:bg-violet-500/20"
+=======
+                  <p className="mt-3 break-words text-sm leading-7 text-slate-300">
+                    {project.engineeringSummary}
+                  </p>
+
+                  <div className="mt-5 flex min-w-0 flex-wrap gap-2">
+                    {project.stack.slice(0, 4).map((tech, idx) => (
+                      <Badge
+                        key={`${project.slug}-${tech}-${idx}`}
+                        className="rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.2em] text-slate-300"
+>>>>>>> 6b4e73b (portfolio updated)
+                      >
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    <Link href={`/projects/${project.slug}`}>
+<<<<<<< HEAD
+                      <Button className="rounded-full bg-white text-slate-950 hover:bg-slate-200">
+                        View Details
+=======
+                      <Button className="min-h-11 rounded-full bg-white text-slate-950 hover:bg-slate-200">
+                        View Case Study
+>>>>>>> 6b4e73b (portfolio updated)
+                      </Button>
+                    </Link>
+
+                    {projectMeta.liveUrl && (
+                      <a href={projectMeta.liveUrl} target="_blank" rel="noreferrer">
+                        <Button
+                          variant="outline"
+                          className="min-h-11 rounded-full border-white/15 bg-white/5 text-white hover:bg-white/10"
+                        >
+                          Live
+                        </Button>
+                      </a>
+                    )}
+
+                    <a href={project.github} target="_blank" rel="noreferrer">
+                      <Button
+                        variant="outline"
+                        className="min-h-11 rounded-full border-white/15 bg-white/5 text-white hover:bg-white/10"
+                      >
+                        <ExternalLink className="mr-2 h-4 w-4" />
+                        GitHub
+                      </Button>
+                    </a>
+                  </div>
+                </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </section>
+
+        <section className="mt-20">
+          <div className="mb-8 flex items-end justify-between gap-4">
+            <div>
+              <p className="text-xs uppercase tracking-[0.35em] text-violet-300">
+                Layer B
+              </p>
+              <h2 className="mt-2 text-3xl font-semibold text-white">
+                Additional Engineering Work
+              </h2>
+              <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-300">
+                Supporting projects that demonstrate breadth across compilers,
+                semantic web, RAG systems, Java desktop applications, and software
+                engineering foundations.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid min-w-0 grid-cols-[minmax(0,1fr)] gap-6 md:grid-cols-2 xl:grid-cols-2">
+            {layerBProjects.map((project) => (
+              <Card
+                key={project.slug}
+                className="h-full w-[calc(100vw-3rem)] max-w-full min-w-0 rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl md:w-full"
+              >
+                <CardContent className="p-6">
+                  <div className="mb-5 flex items-start justify-between gap-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-violet-400/20 bg-violet-400/10">
+                      <FolderKanban className="h-5 w-5 text-violet-300" />
+                    </div>
+
+                    <Badge className="rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.25em] text-slate-300">
+                      {project.type}
+                    </Badge>
+                  </div>
+
+                  <h3 className="text-xl font-semibold text-white">
+                    {project.title}
+                  </h3>
+
                   <p className="mt-2 text-sm text-slate-400">
                     {project.tagline}
                   </p>
@@ -175,7 +321,7 @@ export default function ProjectsPage() {
                     ))}
                   </div>
 
-                  <p className="mt-4 text-sm leading-7 text-slate-300">
+                  <p className="mt-4 break-words text-sm leading-7 text-slate-300">
                     {project.recruiterSummary}
                   </p>
 
@@ -183,16 +329,16 @@ export default function ProjectsPage() {
                     {project.stack.slice(0, 6).map((tech, idx) => (
                       <Badge
                         key={`${project.slug}-${tech}-${idx}`}
-                        className="rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.2em] text-slate-300 transition hover:border-violet-400 hover:bg-violet-500/20"
+                        className="rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.2em] text-slate-300"
                       >
                         {tech}
                       </Badge>
                     ))}
                   </div>
 
-                  <div className="mt-6 flex gap-3">
+                  <div className="mt-6 flex flex-wrap gap-3">
                     <Link href={`/projects/${project.slug}`}>
-                      <Button className="rounded-full bg-white text-slate-950 hover:bg-slate-200">
+                      <Button className="min-h-11 rounded-full bg-white text-slate-950 hover:bg-slate-200">
                         View Details
                       </Button>
                     </Link>
@@ -200,7 +346,7 @@ export default function ProjectsPage() {
                     <a href={project.github} target="_blank" rel="noreferrer">
                       <Button
                         variant="outline"
-                        className="rounded-full border-white/15 bg-white/5 text-white hover:bg-white/10"
+                        className="min-h-11 rounded-full border-white/15 bg-white/5 text-white hover:bg-white/10"
                       >
                         <ExternalLink className="mr-2 h-4 w-4" />
                         GitHub

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import {
   Download,
   ArrowRight,
@@ -78,16 +79,20 @@ export function HeroSection({
         )}
 
         <div className="mt-10 flex flex-wrap gap-4">
-          <a href="/projects">
+          <Link href="/projects">
             <Button className="rounded-full bg-white px-6 text-slate-950 hover:bg-slate-200">
               {recruiterMode ? "View Top Projects" : "Explore Projects"}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-          </a>
+          </Link>
 
           {recruiterMode ? (
             <a
+<<<<<<< HEAD
               href="/resume/Aryan R Suthar - Resume.pdf"
+=======
+              href={profile.resume}
+>>>>>>> 6b4e73b (portfolio updated)
               target="_blank"
               rel="noreferrer"
             >
@@ -121,7 +126,11 @@ export function HeroSection({
           )}
 
           <a
+<<<<<<< HEAD
             href="/resume/Aryan R Suthar - Resume.pdf"
+=======
+            href={profile.resume}
+>>>>>>> 6b4e73b (portfolio updated)
             download
             target="_blank"
             rel="noreferrer"

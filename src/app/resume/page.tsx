@@ -13,6 +13,10 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+<<<<<<< HEAD
+=======
+import { profile } from "@/data/profile";
+>>>>>>> 6b4e73b (portfolio updated)
 
 const highlightCards = [
   {
@@ -95,7 +99,11 @@ export default function ResumePage() {
 
             <div className="mt-8 flex flex-wrap gap-4">
               <a
+<<<<<<< HEAD
                 href="/resume/Aryan R Suthar - Resume.pdf"
+=======
+                href={profile.resume}
+>>>>>>> 6b4e73b (portfolio updated)
                 target="_blank"
                 rel="noreferrer"
               >
@@ -105,7 +113,11 @@ export default function ResumePage() {
                 </Button>
               </a>
 
+<<<<<<< HEAD
               <a href="/resume/Aryan R Suthar - Resume.pdf" download>
+=======
+              <a href={profile.resume} download>
+>>>>>>> 6b4e73b (portfolio updated)
                 <Button
                   variant="outline"
                   className="rounded-full border-white/15 bg-white/5 px-6 text-white hover:bg-white/10"
@@ -170,7 +182,11 @@ export default function ResumePage() {
 
                 <div className="mt-6 space-y-3">
                   <a
+<<<<<<< HEAD
                     href="/resume/Aryan R Suthar - Resume.pdf"
+=======
+                    href={profile.resume}
+>>>>>>> 6b4e73b (portfolio updated)
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -180,7 +196,11 @@ export default function ResumePage() {
                     </Button>
                   </a>
 
+<<<<<<< HEAD
                   <a href="/resume/Aryan R Suthar - Resume.pdf" download>
+=======
+                  <a href={profile.resume} download>
+>>>>>>> 6b4e73b (portfolio updated)
                     <Button
                       variant="outline"
                       className="w-full rounded-full border-white/15 bg-white/5 text-white hover:bg-white/10"

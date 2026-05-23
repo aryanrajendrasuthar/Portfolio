@@ -20,9 +20,17 @@ export default async function ProjectDetailPage({
     notFound();
   }
 
+  const projectMeta = project as typeof project & {
+    version?: string;
+    category?: string;
+    status?: string;
+    year?: number;
+    liveUrl?: string;
+  };
+
   return (
-    <div className="min-h-screen bg-[#030712] px-6 py-16 text-white">
-      <div className="mx-auto max-w-7xl">
+    <div className="min-h-screen overflow-x-hidden bg-[#030712] px-6 py-16 text-white">
+      <div className="mx-auto w-full max-w-[calc(100vw-3rem)] min-w-0 md:max-w-7xl">
         <div className="mb-8">
           <Link
             href="/projects"
@@ -38,7 +46,7 @@ export default async function ProjectDetailPage({
               {project.type}
             </Badge>
 
-            <h1 className="mt-6 text-4xl font-semibold tracking-tight md:text-6xl">
+            <h1 className="mt-6 break-words text-3xl font-semibold tracking-tight md:text-6xl">
               {project.title}
             </h1>
 
@@ -52,6 +60,32 @@ export default async function ProjectDetailPage({
               ))}
             </div>
 
+<<<<<<< HEAD
+=======
+            <div className="mt-4 flex flex-wrap gap-2">
+              {projectMeta.version && (
+                <Badge className="rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.2em] text-slate-300">
+                  {projectMeta.version}
+                </Badge>
+              )}
+              {projectMeta.category && (
+                <Badge className="rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.2em] text-slate-300">
+                  {projectMeta.category}
+                </Badge>
+              )}
+              {projectMeta.status && (
+                <Badge className="rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.2em] text-slate-300">
+                  {projectMeta.status}
+                </Badge>
+              )}
+              {projectMeta.year && (
+                <Badge className="rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.2em] text-slate-300">
+                  {projectMeta.year}
+                </Badge>
+              )}
+            </div>
+
+>>>>>>> 6b4e73b (portfolio updated)
             <div className="mt-6 rounded-2xl border border-white/8 bg-black/20 p-5">
               <p className="text-[11px] uppercase tracking-[0.25em] text-slate-500">
                 Recruiter Summary
@@ -77,8 +111,24 @@ export default async function ProjectDetailPage({
             </div>
 
             <div className="mt-8 flex flex-wrap gap-4">
+              {projectMeta.liveUrl && (
+                <a href={projectMeta.liveUrl} target="_blank" rel="noreferrer">
+                  <Button className="min-h-11 rounded-full bg-white px-6 text-slate-950 hover:bg-slate-200">
+                    <ExternalLink className="mr-2 h-4 w-4" />
+                    Open Live App
+                  </Button>
+                </a>
+              )}
+
               <a href={project.github} target="_blank" rel="noreferrer">
-                <Button className="rounded-full bg-white px-6 text-slate-950 hover:bg-slate-200">
+                <Button
+                  className={`min-h-11 rounded-full px-6 ${
+                    projectMeta.liveUrl
+                      ? "border-white/15 bg-white/5 text-white hover:bg-white/10"
+                      : "bg-white text-slate-950 hover:bg-slate-200"
+                  }`}
+                  variant={projectMeta.liveUrl ? "outline" : "default"}
+                >
                   <ExternalLink className="mr-2 h-4 w-4" />
                   Open GitHub
                 </Button>
@@ -87,7 +137,7 @@ export default async function ProjectDetailPage({
               <Link href="/notes">
                 <Button
                   variant="outline"
-                  className="rounded-full border-white/15 bg-white/5 px-6 text-white hover:bg-white/10"
+                  className="min-h-11 rounded-full border-white/15 bg-white/5 px-6 text-white hover:bg-white/10"
                 >
                   Related Notes
                 </Button>
@@ -96,20 +146,40 @@ export default async function ProjectDetailPage({
           </div>
 
           <Card className="overflow-hidden rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
-            <div className="relative h-[24rem] overflow-hidden bg-black">
-              <img
-                src={project.architectureImage}
-                alt={`${project.title} architecture`}
-                className="absolute inset-0 h-full w-full object-contain"
-              />
-
-              <div className="absolute inset-x-6 bottom-6 flex items-center justify-between">
+            <CardContent className="p-8">
+              <div className="mb-4 flex items-center justify-between gap-4">
                 <Badge className="rounded-full border border-white/15 bg-black/40 text-[10px] uppercase tracking-[0.3em] text-slate-200">
                   Case Study
                 </Badge>
                 <Layers3 className="h-5 w-5 text-sky-200" />
               </div>
-            </div>
+              <p className="text-[11px] uppercase tracking-[0.25em] text-slate-500">
+                System Flow
+              </p>
+              <p className="mt-3 text-sm leading-7 text-slate-300">
+                {project.dataFlow}
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+
+        <div className="mt-14 grid gap-8 lg:grid-cols-2">
+          <Card className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
+            <CardContent className="p-8">
+              <h2 className="text-2xl font-semibold text-white">Problem</h2>
+              <div className="mt-6 rounded-2xl border border-white/8 bg-black/20 p-4 text-sm leading-7 text-slate-300">
+                {project.problem}
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
+            <CardContent className="p-8">
+              <h2 className="text-2xl font-semibold text-white">Solution</h2>
+              <div className="mt-6 rounded-2xl border border-white/8 bg-black/20 p-4 text-sm leading-7 text-slate-300">
+                {project.solution}
+              </div>
+            </CardContent>
           </Card>
         </div>
 
@@ -273,6 +343,7 @@ export default async function ProjectDetailPage({
           </Card>
         </div>
 
+<<<<<<< HEAD
         <div className="mt-14">
           <h2 className="text-2xl font-semibold text-white">Screenshots</h2>
           <div className="mt-6 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -290,8 +361,24 @@ export default async function ProjectDetailPage({
                 </div>
               </Card>
             ))}
+=======
+        {project.architectureImage && (
+          <div className="mt-14">
+            <h2 className="text-2xl font-semibold text-white">
+              Architecture Diagram
+            </h2>
+            <Card className="mt-6 overflow-hidden rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
+              <div className="relative min-h-[28rem] bg-black p-6">
+                <img
+                  src={project.architectureImage}
+                  alt={`${project.title} architecture diagram`}
+                  className="h-full max-h-[42rem] w-full object-contain"
+                />
+              </div>
+            </Card>
+>>>>>>> 6b4e73b (portfolio updated)
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

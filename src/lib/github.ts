@@ -1,4 +1,4 @@
-import { githubConfig } from "@/data/github";
+import { githubConfig, githubDescriptionOverrides } from "@/data/github";
 
 export type GitHubRepo = {
   id: number;
@@ -10,6 +10,14 @@ export type GitHubRepo = {
   fork: boolean;
   updated_at: string;
 };
+
+function humanizeRepoName(name: string) {
+  return name
+    .replace(/[-_]+/g, " ")
+    .replace(/([a-z])([A-Z])/g, "$1 $2")
+    .replace(/\s+/g, " ")
+    .trim();
+}
 
 export async function getGitHubRepos(): Promise<GitHubRepo[]> {
   const res = await fetch(
@@ -27,6 +35,13 @@ export async function getGitHubRepos(): Promise<GitHubRepo[]> {
 
   return repos
     .filter((repo) => !repo.fork)
+    .map((repo) => ({
+      ...repo,
+      description:
+        repo.description ??
+        githubDescriptionOverrides[repo.name] ??
+        `A software project repository for ${humanizeRepoName(repo.name)}.`,
+    }))
     .sort((a, b) => {
       if (b.stargazers_count !== a.stargazers_count) {
         return b.stargazers_count - a.stargazers_count;

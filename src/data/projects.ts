@@ -1,5 +1,6 @@
 export const layerAProjects = [
   {
+<<<<<<< HEAD
     slug: "Real-Time-AI-Simulation-Tool",
     title: "Real Time AI Simulation Tool",
     type: "Layer A",
@@ -26,6 +27,246 @@ export const layerAProjects = [
 
     architectureImage:
       "/architectures/Real-Time-AI-Simulation-Tool.png",
+=======
+    slug: "my-gym-trainer",
+    title: "My Gym Trainer",
+    type: "Layer A",
+    version: "v1.2.2",
+    category: "Full-Stack / AI",
+    status: "Live",
+    year: 2026,
+    tagline: "Your personal trainer. Always ready. Always personalized.",
+
+    summary:
+      "A production-grade, offline-first fitness and physiotherapy web app with smart workout splits, AI coaching, rehab protocols, nutrition planning, achievements, and IndexedDB-backed persistence.",
+
+    recruiterSummary:
+      "Built My Gym Trainer v1.2.2, a production-ready offline-first fitness and physiotherapy web app. It combines 200+ evidence-based exercises, AI coaching with Llama 3.3 70B via Groq, phase-gated rehab protocols for 24 physiotherapy conditions, progressive overload tracking, TDEE/macro nutrition calculations, achievements, PWA installability, and IndexedDB persistence across 17 Zustand stores.",
+
+    engineeringSummary:
+      "Designed an offline-first Next.js 14 and TypeScript fitness platform where Zustand is the single source of truth, all 17 stores persist to IndexedDB, and API calls are fire-and-forget so the UI never blocks on network state. The system includes Supabase/PostgreSQL persistence, Express-backed services, Groq AI coaching, Framer Motion interactions, PWA support, and GitHub Actions TypeScript checks on every push.",
+
+    metrics: [
+      "🏋️ 200+ exercises",
+      "🩺 24 rehab conditions",
+      "🧠 17 Zustand stores",
+    ],
+
+    dataFlow:
+      "Zustand State → IndexedDB Persistence → Fire-and-Forget API Sync → Supabase/PostgreSQL → AI Coach",
+
+    architectureImage: "",
+
+    stack: [
+      "Next.js 14",
+      "TypeScript",
+      "Supabase",
+      "PostgreSQL",
+      "Express",
+      "Framer Motion",
+      "Zustand",
+      "Groq AI",
+      "PWA",
+      "Vercel",
+    ],
+
+    github: "https://github.com/aryanrajendrasuthar/GymTrainer",
+    liveUrl: "https://gym-trainer-nskt.vercel.app",
+
+    overview:
+      "My Gym Trainer is a production-grade fitness and physiotherapy web app built around personalized training, evidence-based exercise guidance, offline-first persistence, and AI-assisted coaching. Version v1.2.2 is deployed and production-ready.",
+
+    problem:
+      "Most fitness apps either focus on generic workout tracking or simple exercise libraries. They often fail when offline, separate rehab from training, and lack a dependable local-first state model for real workout sessions.",
+
+    solution:
+      "Built a unified app for workouts, physiotherapy, AI coaching, nutrition, achievements, and session recovery. The app keeps Zustand as the source of truth, persists all stores to IndexedDB, and syncs server state without blocking the user interface.",
+
+    architecture: [
+      "Next.js 14 and TypeScript power the frontend experience and production deployment.",
+      "Zustand owns application state across 17 persisted stores.",
+      "IndexedDB persistence makes workouts, rehab flows, nutrition state, achievements, and pending sessions available offline.",
+      "API calls are fire-and-forget so the UI remains responsive even when network conditions are poor.",
+      "Supabase and PostgreSQL provide backend persistence for cloud-backed data.",
+      "Groq AI runs Llama 3.3 70B coaching flows for context-aware chat and weekly summaries.",
+      "PWA support makes the app installable on iOS and Android.",
+    ],
+
+    engineeringDecisions: [
+      "Used Zustand as the single source of truth to avoid conflicting local, server, and component state.",
+      "Persisted all 17 Zustand stores to IndexedDB so the core app continues working offline.",
+      "Made server writes fire-and-forget because workouts should not freeze when connectivity is unreliable.",
+      "Modeled physiotherapy as phase-gated protocols so users progress from acute to maintenance stages safely.",
+      "Used the Mifflin-St Jeor equation for TDEE and macro calculations with automatic recalculation on goal changes.",
+      "Added GitHub Actions TypeScript checks on every push to protect production readiness.",
+    ],
+
+    scalingStrategy: [
+      "The local-first state model keeps perceived performance stable as feature count grows.",
+      "Supabase/PostgreSQL can evolve independently from the offline-first client state layer.",
+      "Store-level separation allows workouts, rehab, nutrition, achievements, and AI features to expand independently.",
+      "The AI coaching layer can swap providers while preserving the app-level coaching context contract.",
+    ],
+
+    challenges: [
+      "Keeping 17 persisted stores consistent without making the UI depend on network completion.",
+      "Combining general fitness training and physiotherapy protocols in one coherent product.",
+      "Designing session splitting so workouts can be divided into Now and Later with pending session recovery.",
+      "Balancing AI coaching usefulness with deterministic training and rehab rules.",
+    ],
+
+    outcome: [
+      "Delivered a live, production-ready fitness and physiotherapy application.",
+      "Implemented 200+ exercises with muscle diagrams, form cues, and video links.",
+      "Added phase-gated physiotherapy support for 24 conditions.",
+      "Built offline-first persistence, PWA installability, and production CI checks.",
+    ],
+
+    highlights: [
+      "AI Coach with context-aware chat and weekly summaries using Llama 3.3 70B via Groq",
+      "Live workout tracker with RPE, rest timers, e1RM calculator, and progressive overload suggestions",
+      "Session splitting into Now and Later with pending session recovery",
+      "64+ glossary terms and achievement tracking",
+      "TypeScript 98.3% codebase with 57 commits",
+    ],
+
+    learnings: [
+      "Offline-first architecture needs explicit state ownership before features scale.",
+      "Fitness apps become more useful when workout, rehab, nutrition, and coaching context work together.",
+      "Fire-and-forget API design can make user workflows feel dramatically more reliable.",
+    ],
+  },
+
+  {
+    slug: "worksafe",
+    title: "WorkSafe",
+    type: "Layer A",
+    category: "Enterprise / Full-Stack",
+    status: "In Development",
+    year: 2026,
+    tagline: "Enterprise Occupational Health Intelligence Platform",
+
+    summary:
+      "Enterprise-grade SaaS platform that shifts workplace safety from reactive injury management to proactive prevention with RBAC, SSO, MFA, predictive risk scoring, OSHA reporting, background jobs, and real-time worker health monitoring.",
+
+    recruiterSummary:
+      "Building WorkSafe, an enterprise occupational health intelligence platform for proactive workplace safety. The platform includes 5 user roles with RBAC, SAML 2.0 SSO, TOTP MFA, predictive risk scoring, BullMQ background job processing, OSHA compliance reporting, and real-time worker health monitoring.",
+
+    engineeringSummary:
+      "Designed an enterprise full-stack architecture using React, NestJS, TypeScript, PostgreSQL, Redis, BullMQ, SAML SSO, and TOTP MFA. The system separates role-based access, health monitoring, risk scoring, compliance workflows, and asynchronous background processing into production-oriented service boundaries.",
+
+    metrics: [
+      "👥 5 user roles",
+      "🔐 SAML SSO + TOTP MFA",
+      "📋 OSHA reporting",
+    ],
+
+    dataFlow:
+      "Worker Health Data → Risk Scoring → BullMQ Jobs → Compliance Reports → Role-Based Dashboards",
+
+    architectureImage: "",
+
+    stack: [
+      "React",
+      "NestJS",
+      "TypeScript",
+      "PostgreSQL",
+      "Redis",
+      "BullMQ",
+      "SAML SSO",
+      "TOTP MFA",
+    ],
+
+    github: "https://github.com/aryanrajendrasuthar/WorkSafe",
+
+    overview:
+      "WorkSafe is an enterprise SaaS platform focused on occupational health intelligence. It is designed to help organizations move from reactive injury management toward proactive prevention through role-aware workflows, predictive health signals, and compliance automation.",
+
+    problem:
+      "Workplace safety systems are often fragmented across manual reports, delayed incident response, and disconnected health data. That makes it difficult to identify risk early or maintain compliance consistently.",
+
+    solution:
+      "Built an enterprise platform with secure identity, role-based access, worker health monitoring, predictive risk scoring, asynchronous processing, and compliance reporting in one operational workflow.",
+
+    architecture: [
+      "React provides role-specific dashboards and operational workflows.",
+      "NestJS exposes backend APIs with clear module boundaries for auth, users, health data, risk scoring, and reporting.",
+      "PostgreSQL stores normalized enterprise and worker health data.",
+      "Redis and BullMQ process background jobs for scoring, reporting, and operational tasks.",
+      "SAML 2.0 SSO and TOTP MFA support enterprise-grade authentication.",
+      "RBAC controls access across 5 user roles.",
+    ],
+
+    engineeringDecisions: [
+      "Used NestJS to keep enterprise backend modules explicit and testable.",
+      "Added SAML 2.0 SSO and TOTP MFA because occupational health platforms need enterprise identity controls.",
+      "Used BullMQ for background processing so risk scoring and reporting do not block user workflows.",
+      "Modeled access around 5 roles to support realistic workplace safety operations.",
+      "Used PostgreSQL for relational compliance, user, and health-monitoring data.",
+    ],
+
+    scalingStrategy: [
+      "Background workers can scale independently from the API layer.",
+      "Redis-backed queues isolate heavier reporting and scoring tasks from request latency.",
+      "Role and organization boundaries prepare the system for multi-team enterprise use.",
+      "Modular NestJS services allow health monitoring, compliance, and risk scoring to evolve independently.",
+    ],
+
+    challenges: [
+      "Balancing enterprise security requirements with usable operational workflows.",
+      "Designing predictive risk scoring so it supports prevention rather than only post-incident reporting.",
+      "Keeping compliance reporting auditable while still practical for day-to-day users.",
+    ],
+
+    outcome: [
+      "Created an enterprise-focused safety platform architecture in active development.",
+      "Implemented a stronger SaaS portfolio project around auth, RBAC, queues, reporting, and predictive workflows.",
+      "Demonstrated full-stack enterprise engineering across frontend, backend, database, identity, and background processing.",
+    ],
+
+    highlights: [
+      "5 user roles with RBAC",
+      "SAML 2.0 SSO and TOTP MFA",
+      "Predictive risk scoring engine",
+      "BullMQ background job processing",
+      "OSHA compliance reporting",
+      "Real-time worker health monitoring",
+    ],
+
+    learnings: [
+      "Enterprise systems need auth, reporting, and background processing designed from the start.",
+      "Operational health platforms are most valuable when they help prevent issues before incidents happen.",
+      "Queue-backed workflows make compliance and analytics features easier to scale.",
+    ],
+  },
+
+  {
+    slug: "Real-Time-AI-Simulation-Tool",
+    title: "Real-Time-AI-Simulation-Tool",
+    type: "Layer A",
+    tagline:
+      "AI-powered courtroom simulator for self-represented litigants.",
+
+    summary:
+      "An interactive courtroom simulator that lets self-represented litigants practice Canadian family law hearings against AI-driven judges and opposing counsel, with structured intake, evidence upload, live mock trials, and detailed performance feedback.",
+
+    recruiterSummary:
+      "Built a full-stack AI legal simulation tool for the Self-Justice initiative, enabling self-represented litigants to practice Canadian family law proceedings. Implemented multi-role AI simulation (Judge, Opposing Counsel, or both), structured multi-phase prompting, evidence upload with RAG-powered context retrieval via Pinecone, PDF parsing, voice input via Web Speech API, and downloadable PDF feedback reports. Delivered a Node.js/Express backend with OpenAI GPT integration and deployed/tested it against real selfjustice.ca use-case scenarios.",
+
+    engineeringSummary:
+      "Designed and implemented a full-stack AI courtroom simulator using Node.js, Express, OpenAI GPT-3.5-turbo-16k, Pinecone, pdf-parse, pdfkit, multer, and a vanilla JS frontend. Built a 9-prompt routing matrix with a strict 4-phase simulation flow, server-side context assembly, multi-file evidence ingestion, RAG-based legal retrieval, PDF report streaming, and voice input via the Web Speech API.",
+
+    metrics: [
+      "⚖️ 3 simulation modes",
+      "🧩 9 prompt combinations",
+      "📚 Top-3 RAG matches",
+    ],
+
+    dataFlow:
+      "User Intake → Prompt Router → GPT Simulation → Pinecone RAG → Verdict → PDF Feedback",
+
+    architectureImage: "/architectures/distributed-ai.png",
+>>>>>>> 6b4e73b (portfolio updated)
 
     stack: [
       "Node.js",
@@ -37,9 +278,12 @@ export const layerAProjects = [
       "Real-Time AI",
     ],
 
+<<<<<<< HEAD
     image:
       "/images/placeholders/distributed-ai-simulation-architecture-placeholder.png",
 
+=======
+>>>>>>> 6b4e73b (portfolio updated)
     github:
       "https://github.com/aryanrajendrasuthar/Real-Time-AI-Simulation-Tool",
 
@@ -101,10 +345,13 @@ export const layerAProjects = [
       "Multi-file PDF/text evidence ingestion with model-assisted relevance handling",
       "Direct PDF feedback generation and streaming via pdfkit",
       "Voice input integration through Web Speech API",
+<<<<<<< HEAD
     ],
 
     screenshots: [
       "/images/placeholders/distributed-ai-simulation-architecture-placeholder.png",
+=======
+>>>>>>> 6b4e73b (portfolio updated)
     ],
 
     learnings: [
@@ -140,7 +387,7 @@ export const layerAProjects = [
     dataFlow:
       "Onboarding → Exercise Library → Routine Builder → Live Session → Progress Analytics",
 
-    architectureImage: "/architectures/physio-app.png",
+    architectureImage: "/architectures/physio-ai.png",
 
     stack: [
       "Node.js",
@@ -152,7 +399,20 @@ export const layerAProjects = [
       "Agile/Scrum",
     ],
 
+<<<<<<< HEAD
+    stack: [
+      "Node.js",
+      "Express",
+      "MySQL",
+      "EJS",
+      "Bootstrap 5",
+      "2FA",
+      "Agile/Scrum",
+    ],
+
     image: "/images/placeholders/physio-app-dashboard-placeholder.png",
+=======
+>>>>>>> 6b4e73b (portfolio updated)
     github: "https://github.com/aryanrajendrasuthar/Physio-App",
 
     overview:
@@ -215,8 +475,6 @@ export const layerAProjects = [
       "TOTP-based two-factor authentication and modular account settings",
     ],
 
-    screenshots: ["/images/placeholders/physio-app-dashboard-placeholder.png"],
-
     learnings: [
       "Healthcare-style systems need both strong UX clarity and dependable backend structure.",
       "Persistent onboarding and profile completeness checks can meaningfully improve downstream personalization.",
@@ -250,7 +508,7 @@ export const layerAProjects = [
     dataFlow:
       "Admin Login → Client / Quote Entry → Line Items & Extras → PDF Export → Storage → Share",
 
-    architectureImage: "/architectures/smart-quotation-estimator.png",
+    architectureImage: "/architectures/quotation-system.png",
 
     stack: [
       "React",
@@ -262,9 +520,12 @@ export const layerAProjects = [
       "PDF-lib",
     ],
 
+<<<<<<< HEAD
     image:
       "/images/placeholders/smart-quotation-estimator-admin-placeholder.png",
 
+=======
+>>>>>>> 6b4e73b (portfolio updated)
     github: "https://github.com/aryanrajendrasuthar/Smart-Quotation-Estimator",
 
     overview:
@@ -324,10 +585,13 @@ export const layerAProjects = [
       "Branded PDF exports aligned to client quotation samples",
       "Cloud-native storage and export workflow",
       "Secure admin-only access with Row Level Security",
+<<<<<<< HEAD
     ],
 
     screenshots: [
       "/images/placeholders/smart-quotation-estimator-admin-placeholder.png",
+=======
+>>>>>>> 6b4e73b (portfolio updated)
     ],
 
     learnings: [
@@ -375,7 +639,10 @@ export const layerAProjects = [
       "Geolocation API",
     ],
 
+<<<<<<< HEAD
     image: "/images/placeholders/emergency-sos-home-placeholder.png",
+=======
+>>>>>>> 6b4e73b (portfolio updated)
     github: "https://github.com/aryanrajendrasuthar/Emergency-SOS",
 
     overview:
@@ -438,8 +705,6 @@ export const layerAProjects = [
       "Session-based authentication and protected routes",
     ],
 
-    screenshots: ["/images/placeholders/emergency-sos-home-placeholder.png"],
-
     learnings: [
       "Emergency workflows must optimize for speed and clarity above everything else.",
       "Browser security constraints like HTTPS can directly shape product architecture when geolocation is involved.",
@@ -484,7 +749,10 @@ export const layerAProjects = [
       "Computer Vision",
     ],
 
+<<<<<<< HEAD
     image: "/images/placeholders/emofusion-results-placeholder.png",
+=======
+>>>>>>> 6b4e73b (portfolio updated)
     github: "https://github.com/aryanrajendrasuthar/EmoFusion",
 
     overview:
@@ -543,8 +811,6 @@ export const layerAProjects = [
       "Reproducible model training workflows",
     ],
 
-    screenshots: ["/images/placeholders/emofusion-results-placeholder.png"],
-
     learnings: [
       "Multimodal systems provide richer emotional context than single-modality models.",
       "Experiment tracking is essential for reproducible ML workflows.",
@@ -556,6 +822,108 @@ export const layerAProjects = [
 
 export const layerBProjects = [
   {
+<<<<<<< HEAD
+=======
+    slug: "wordaura",
+    title: "WordAura — Semantic Word Guessing Game",
+    type: "Layer B",
+    category: "AI / Full-Stack",
+    status: "Complete",
+    year: 2026,
+    tagline: "Semantic Word Guessing Game",
+
+    summary:
+      "A Wordle-inspired semantic word-guessing game powered by HuggingFace sentence-transformer embeddings, daily challenges, hints, leaderboards, share cards, embedding cache, and rate limiting.",
+
+    recruiterSummary:
+      "Built WordAura, a Wordle-inspired semantic word-guessing game using TypeScript, React, Express, HuggingFace, sentence-transformer embeddings, Vite, and Tailwind CSS. Players guess a secret word using 0-100% similarity scores from the all-MiniLM-L6-v2 model, with Daily Challenge mode, hints, leaderboard, share button, server-side embedding cache, and rate limiting.",
+
+    engineeringSummary:
+      "Designed a full-stack semantic game architecture where a React/Vite frontend submits guesses to an Express backend, the backend computes similarity with HuggingFace sentence-transformer embeddings, caches embeddings server-side, enforces rate limits, and returns interpretable 0-100% semantic scores.",
+
+    metrics: [
+      "🧠 all-MiniLM-L6-v2",
+      "📈 0-100% similarity",
+      "🗓️ Daily Challenge",
+    ],
+
+    dataFlow:
+      "Guess → Express API → Embedding Cache → HuggingFace Similarity → Score / Hint / Share",
+
+    architectureImage: "",
+
+    stack: [
+      "TypeScript",
+      "React",
+      "Express",
+      "HuggingFace",
+      "Sentence Transformers",
+      "Vite",
+      "Tailwind CSS",
+    ],
+
+    github: "https://github.com/aryanrajendrasuthar/RandomWordGuess",
+
+    overview:
+      "WordAura is a semantic word guessing game inspired by Wordle. Instead of exact letter-position clues, players receive semantic similarity scores that indicate how close each guess is to the secret word.",
+
+    problem:
+      "Traditional word guessing games test spelling and vocabulary, but they rarely explore semantic closeness. A game based on meaning needs embeddings, caching, and clear feedback to feel fast and understandable.",
+
+    solution:
+      "Built a full-stack semantic guessing game that calculates similarity using HuggingFace sentence-transformer embeddings and presents feedback as intuitive 0-100% scores with hints, leaderboard, and shareable results.",
+
+    architecture: [
+      "React and Vite render the guessing interface, history, hints, and share interactions.",
+      "Express handles guess validation, scoring requests, leaderboard operations, and rate limiting.",
+      "The all-MiniLM-L6-v2 sentence-transformer model powers semantic similarity scoring.",
+      "Server-side embedding cache avoids repeated embedding work for common guesses.",
+      "Daily Challenge mode uses a stable secret word rotation for repeatable daily play.",
+    ],
+
+    engineeringDecisions: [
+      "Used semantic embeddings instead of string matching so guesses are scored by meaning.",
+      "Returned 0-100% similarity scores to make ML output understandable to players.",
+      "Added a server-side embedding cache to reduce repeated model calls and improve latency.",
+      "Implemented rate limiting to protect backend resources.",
+      "Built a Wordle-style share button so game results can spread without revealing the answer.",
+    ],
+
+    scalingStrategy: [
+      "Embedding caching reduces compute pressure as repeated words appear across users.",
+      "Rate limiting protects the scoring endpoint from abuse.",
+      "The backend scoring API can later swap embedding providers without rewriting the frontend.",
+    ],
+
+    challenges: [
+      "Making semantic similarity feel fair and intuitive in a game setting.",
+      "Balancing hint usefulness without making the secret word too easy.",
+      "Keeping embedding-backed scoring responsive enough for repeated guesses.",
+    ],
+
+    outcome: [
+      "Delivered a complete AI-powered word game with daily challenge, hints, leaderboard, and share flow.",
+      "Demonstrated practical use of sentence-transformer embeddings outside a standard chatbot or RAG interface.",
+      "Added a compact full-stack AI project to the portfolio archive.",
+    ],
+
+    highlights: [
+      "HuggingFace all-MiniLM-L6-v2 semantic similarity scoring",
+      "Daily Challenge mode",
+      "Hint system and leaderboard",
+      "Wordle-style share button",
+      "Server-side embedding cache and rate limiting",
+    ],
+
+    learnings: [
+      "Embedding similarity can create playful interactions when translated into clear scoring.",
+      "Caching is important even for small AI features when guesses repeat frequently.",
+      "AI product UX needs feedback that makes model behavior legible to users.",
+    ],
+  },
+
+  {
+>>>>>>> 6b4e73b (portfolio updated)
     slug: "playlang",
     title: "PlayLang — Custom Programming Language & Compiler",
     type: "Layer B",
@@ -579,7 +947,11 @@ export const layerBProjects = [
 
     dataFlow: "Source Code → Python Tokenizer → Prolog Parser → AST Executor",
 
+<<<<<<< HEAD
     architectureImage: "/architectures/playlang.png",
+=======
+    architectureImage: "",
+>>>>>>> 6b4e73b (portfolio updated)
 
     stack: [
       "Python",
@@ -590,7 +962,10 @@ export const layerBProjects = [
       "Language Design",
     ],
 
+<<<<<<< HEAD
     image: "/images/placeholders/playlang-placeholder.png",
+=======
+>>>>>>> 6b4e73b (portfolio updated)
     github: "https://github.com/aryanrajendrasuthar/PlayLang",
 
     overview:
@@ -642,8 +1017,11 @@ export const layerBProjects = [
       "Direct AST execution in Prolog",
     ],
 
+<<<<<<< HEAD
     screenshots: ["/images/placeholders/playlang-placeholder.png"],
 
+=======
+>>>>>>> 6b4e73b (portfolio updated)
     learnings: [
       "Compiler construction becomes much clearer when each pipeline stage is implemented end-to-end.",
       "DCG is a powerful and elegant way to express language grammar in Prolog.",
@@ -676,7 +1054,11 @@ export const layerBProjects = [
     dataFlow:
       "RDF Dataset → Fuseki → Flask SPARQL API → React Search / Graph UI",
 
+<<<<<<< HEAD
     architectureImage: "/architectures/artgraph.png",
+=======
+    architectureImage: "",
+>>>>>>> 6b4e73b (portfolio updated)
 
     stack: [
       "RDF/Turtle",
@@ -687,7 +1069,10 @@ export const layerBProjects = [
       "Ontology Engineering",
     ],
 
+<<<<<<< HEAD
     image: "/images/placeholders/artgraph-placeholder.png",
+=======
+>>>>>>> 6b4e73b (portfolio updated)
     github: "https://github.com/aryanrajendrasuthar/ArtGraph",
 
     overview:
@@ -739,8 +1124,11 @@ export const layerBProjects = [
       "Force-directed graph visualization",
     ],
 
+<<<<<<< HEAD
     screenshots: ["/images/placeholders/artgraph-placeholder.png"],
 
+=======
+>>>>>>> 6b4e73b (portfolio updated)
     learnings: [
       "Semantic integration is as much a modeling problem as a querying problem.",
       "REST abstraction can make semantic systems far more accessible to frontend applications.",
@@ -773,7 +1161,11 @@ export const layerBProjects = [
     dataFlow:
       "Documents → Embeddings → Vector Store → Retrieval → LLM Prompt → Response",
 
+<<<<<<< HEAD
     architectureImage: "/architectures/ai-knowledge-assistant.png",
+=======
+    architectureImage: "",
+>>>>>>> 6b4e73b (portfolio updated)
 
     stack: [
       "Python",
@@ -785,7 +1177,10 @@ export const layerBProjects = [
       "RAG",
     ],
 
+<<<<<<< HEAD
     image: "/images/placeholders/ai-knowledge-assistant-placeholder.png",
+=======
+>>>>>>> 6b4e73b (portfolio updated)
     github: "https://github.com/aryanrajendrasuthar/AI-Knowledge-Assistant",
 
     overview:
@@ -840,8 +1235,11 @@ export const layerBProjects = [
       "LangChain orchestration",
     ],
 
+<<<<<<< HEAD
     screenshots: ["/images/placeholders/ai-knowledge-assistant-placeholder.png"],
 
+=======
+>>>>>>> 6b4e73b (portfolio updated)
     learnings: [
       "Grounded retrieval is essential for reliable domain-specific LLM answers.",
       "Latency tuning matters just as much as prompt quality in production-oriented AI systems.",
@@ -874,7 +1272,11 @@ export const layerBProjects = [
     dataFlow:
       "Simulation Setup → Role Assignment → Sprint / Story Lifecycle → JSON Persistence",
 
+<<<<<<< HEAD
     architectureImage: "/architectures/sprint-simulator.png",
+=======
+    architectureImage: "",
+>>>>>>> 6b4e73b (portfolio updated)
 
     stack: [
       "Java 21",
@@ -886,7 +1288,10 @@ export const layerBProjects = [
       "CI/CD",
     ],
 
+<<<<<<< HEAD
     image: "/images/placeholders/sprint-simulator-placeholder.png",
+=======
+>>>>>>> 6b4e73b (portfolio updated)
     github: "https://github.com/aryanrajendrasuthar/Sprint-Simulator",
 
     overview:
@@ -941,8 +1346,11 @@ export const layerBProjects = [
       "SpotBugs, Checkstyle, JaCoCo, and GitHub Actions",
     ],
 
+<<<<<<< HEAD
     screenshots: ["/images/placeholders/sprint-simulator-placeholder.png"],
 
+=======
+>>>>>>> 6b4e73b (portfolio updated)
     learnings: [
       "Design patterns are most valuable when tied directly to domain behavior and lifecycle rules.",
       "Quality engineering pipelines can shape better development habits, not just cleaner repos.",
