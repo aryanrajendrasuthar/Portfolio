@@ -59,6 +59,8 @@ export const assistantKnowledge = {
       "SmartQuote ERP is a cloud-based quotation management system for Jayraj Fabrication built with React, Supabase, PostgreSQL, and pdf-lib. It generates branded PDF quotations, manages clients, and uses Supabase Edge Functions for secure server-side workflows.",
     emergencySOS:
       "Emergency SOS is a real-time safety app using Node.js, Express, MongoDB Atlas, and Twilio. Users trigger one-click SOS alerts with live GPS location links sent via SMS to emergency contacts.",
+    heyyHP:
+      "Heyy-HP is a JARVIS-inspired voice-activated AI assistant for Windows built in Python. It uses wake-word detection, SpeechRecognition, and OpenAI API for LLM-powered Q&A, pywhatkit for YouTube control, real-time Apple Reminders sync via iCloud, and subprocess-based Windows system automation — all routed through a modular intent dispatcher.",
   },
 
   certifications:

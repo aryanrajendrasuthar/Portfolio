@@ -848,6 +848,111 @@ export const layerAProjects = [
       "Caching and session architecture are key to making RAG systems scalable and usable.",
     ],
   },
+
+  {
+    slug: "heyy-hp",
+    title: "Heyy-HP — Voice-Activated AI Assistant",
+    type: "Layer A",
+    tagline:
+      "JARVIS-inspired voice AI for Windows with LLM Q&A, YouTube control, real-time Reminders sync, and system automation.",
+
+    summary:
+      "A fully voice-driven personal AI assistant built in Python for Windows. Combines wake-word detection, LLM-powered Q&A, YouTube automation via pywhatkit, real-time Apple Reminders sync, and OS-level system control — all through a single spoken interface.",
+
+    recruiterSummary:
+      "Built a production-grade voice AI assistant in Python combining speech recognition, LLM inference (OpenAI API), YouTube playback automation, real-time Apple Reminders integration, and Windows system control. Demonstrates LLM orchestration, multi-service integration, threaded event handling, and end-to-end voice pipeline design.",
+
+    engineeringSummary:
+      "Implemented a modular voice pipeline: wake-word detection → speech-to-text → intent classification → LLM inference or direct handler dispatch → text-to-speech response. Threaded background workers handle real-time Reminders sync and system event monitoring independently of the main speech loop.",
+
+    metrics: [
+      "🎤 Wake-word activated",
+      "🤖 LLM-powered Q&A",
+      "🔄 Real-time Reminders sync",
+    ],
+
+    dataFlow:
+      "Wake Word → STT → Intent Router → LLM / YouTube / Reminders / System → TTS Response",
+
+    architectureImage: "",
+
+    stack: [
+      "Python",
+      "OpenAI API",
+      "SpeechRecognition",
+      "pyttsx3",
+      "pywhatkit",
+      "Apple Reminders API",
+      "Threading",
+      "Windows Automation",
+    ],
+
+    github: "https://github.com/aryanrajendrasuthar/Heyy-HP",
+
+    overview:
+      "Heyy-HP is a JARVIS-inspired voice-activated personal AI assistant for Windows. It listens for a wake word, transcribes commands via speech recognition, routes intent to the appropriate handler — LLM inference for general Q&A, pywhatkit for YouTube control, iCloud/Apple Reminders for task sync, or subprocess calls for OS automation — and responds via text-to-speech.",
+
+    problem:
+      "Existing voice assistants are either cloud-locked, lack developer extensibility, or treat each capability as a siloed app. Building a single cohesive spoken interface that routes intent across LLM inference, media control, task management, and OS automation requires a custom orchestration layer.",
+
+    solution:
+      "Designed a modular intent-routing architecture in Python with a central speech pipeline (wake word → STT → router → handler → TTS). Each capability — LLM Q&A, YouTube, Reminders, system control — is a pluggable handler module dispatched from the router, keeping the pipeline extensible and testable.",
+
+    architecture: [
+      "Microphone input is continuously monitored; wake word triggers active listening mode.",
+      "SpeechRecognition transcribes audio to text using Google Speech API.",
+      "Intent classifier routes the command to the appropriate handler module.",
+      "LLM handler sends the query to OpenAI API and reads back the response via pyttsx3 TTS.",
+      "YouTube handler uses pywhatkit to search and play videos in the browser.",
+      "Reminders handler runs a background thread syncing Apple Reminders via iCloud API in real time.",
+      "System handler executes OS-level commands via subprocess for app launches, volume, and shutdown.",
+    ],
+
+    engineeringDecisions: [
+      "Used a central intent router so each capability module is independently developed and swappable without modifying the main speech loop.",
+      "Ran Reminders sync in a background thread to prevent blocking the primary voice pipeline.",
+      "Used pyttsx3 for offline TTS to avoid latency and API dependency on the response path.",
+      "Chose pywhatkit for YouTube automation to avoid OAuth complexity for a local-use tool.",
+      "Designed each handler as a standalone function so new capabilities can be added by registering a new intent pattern.",
+    ],
+
+    scalingStrategy: [
+      "Intent routing is pattern-based and can be extended with new handlers without touching the core pipeline.",
+      "Threading design isolates background tasks (Reminders sync) from voice response latency.",
+      "LLM handler is model-agnostic — switching from OpenAI to a local model requires only a one-line config change.",
+      "New platform integrations (calendar, email, smart home) can be plugged in as handler modules.",
+    ],
+
+    challenges: [
+      "Coordinating speech recognition, LLM inference, and background sync threads without race conditions.",
+      "Handling Apple Reminders sync across platforms via iCloud API with reliable real-time updates.",
+      "Keeping TTS response latency low while LLM inference completes asynchronously.",
+      "Distinguishing intent reliably from short voice commands without a fine-tuned NLU model.",
+    ],
+
+    outcome: [
+      "Built a fully functional JARVIS-style voice assistant covering four distinct capability domains.",
+      "Achieved seamless integration across LLM inference, YouTube automation, Reminders sync, and OS control through a single voice interface.",
+      "Demonstrated end-to-end AI pipeline design: voice input → intent routing → LLM orchestration → spoken output.",
+      "Extensible architecture allows new capabilities to be added as handler modules with no changes to the core pipeline.",
+    ],
+
+    highlights: [
+      "Wake-word activated voice pipeline",
+      "LLM Q&A via OpenAI API",
+      "YouTube playback automation",
+      "Real-time Apple Reminders sync",
+      "Windows system automation",
+      "Modular intent-routing architecture",
+    ],
+
+    learnings: [
+      "Threading discipline is critical when multiple I/O-bound tasks (mic, LLM, sync) run concurrently.",
+      "Intent routing without NLU requires careful pattern design — ambiguous commands need explicit fallback handling.",
+      "Offline TTS libraries like pyttsx3 eliminate response latency vs cloud TTS at the cost of voice naturalness.",
+      "Modular handler design pays off immediately when adding new capabilities — each integration is isolated.",
+    ],
+  },
 ];
 
 export const layerBProjects = [

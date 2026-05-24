@@ -64,6 +64,15 @@ function getAssistantReply(message: string) {
   }
 
   if (
+    text.includes("heyy") ||
+    text.includes("jarvis") ||
+    text.includes("voice assistant") ||
+    text.includes("heyy-hp")
+  ) {
+    return assistantKnowledge.projects.heyyHP;
+  }
+
+  if (
     text.includes("emotion") ||
     text.includes("emofusion") ||
     text.includes("hubert") ||
