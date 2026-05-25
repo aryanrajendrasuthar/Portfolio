@@ -22,10 +22,10 @@ export default async function NoteDetailPage({
       <div className="mx-auto max-w-4xl">
         <div className="mb-8">
           <Link
-            href="/"
+            href="/notes"
             className="inline-flex items-center gap-2 text-sm text-slate-400 transition hover:text-white"
           >
-            <ArrowLeft className="h-4 w-4" /> Back to main page
+            <ArrowLeft className="h-4 w-4" /> Back to notes
           </Link>
         </div>
 

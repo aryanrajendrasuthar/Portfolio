@@ -61,6 +61,10 @@ export const assistantKnowledge = {
       "Emergency SOS is a real-time safety app using Node.js, Express, MongoDB Atlas, and Twilio. Users trigger one-click SOS alerts with live GPS location links sent via SMS to emergency contacts.",
     heyyHP:
       "Heyy-HP is a JARVIS-inspired voice-activated AI assistant for Windows built in Python. It uses wake-word detection, SpeechRecognition, and OpenAI API for LLM-powered Q&A, pywhatkit for YouTube control, real-time Apple Reminders sync via iCloud, and subprocess-based Windows system automation — all routed through a modular intent dispatcher.",
+    neuralOps:
+      "NeuralOps is an enterprise AI agent observability platform built with Python, FastAPI, Apache Kafka, PostgreSQL, Redis, and React. It ingests real-time execution traces from distributed LLM workloads via Kafka, runs anomaly detection, tracks inference cost analytics, and surfaces p99 latency monitoring across agent pipelines.",
+    contextEngine:
+      "ContextEngine is an enterprise institutional memory platform built with Python, FastAPI, Neo4j, LangChain, Slack API, GitHub API, and Jira API. It ingests organizational knowledge from Slack, GitHub, and Jira, builds a Neo4j knowledge graph with entity and relationship extraction, and answers natural language queries with full source attribution via hybrid retrieval (graph traversal + vector similarity).",
   },
 
   certifications:

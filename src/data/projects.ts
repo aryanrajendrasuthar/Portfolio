@@ -953,6 +953,217 @@ export const layerAProjects = [
       "Modular handler design pays off immediately when adding new capabilities — each integration is isolated.",
     ],
   },
+
+  {
+    slug: "neural-ops",
+    title: "NeuralOps — AI Agent Observability Platform",
+    type: "Layer A",
+    tagline:
+      "Enterprise observability platform for distributed LLM workloads with Kafka-powered trace ingestion, anomaly detection, and cost analytics.",
+
+    summary:
+      "An enterprise-grade AI agent observability platform that ingests real-time execution traces from distributed LLM workloads via Apache Kafka, detects anomalies, tracks cost per inference, and surfaces p99 latency metrics across agent pipelines.",
+
+    recruiterSummary:
+      "Built NeuralOps, an enterprise AI agent observability platform using Apache Kafka for real-time trace ingestion, Python/FastAPI for the backend, PostgreSQL for metric storage, and React for dashboards. Features include anomaly detection on LLM agent executions, cost analytics per model/endpoint, and p99 latency monitoring for distributed LLM workloads.",
+
+    engineeringSummary:
+      "Designed a streaming observability pipeline: LLM agents emit structured traces → Kafka ingests at scale → a FastAPI consumer processes, aggregates, and stores metrics in PostgreSQL → a React dashboard surfaces anomaly alerts, cost breakdowns, and latency percentiles in real time.",
+
+    metrics: [
+      "📡 Real-time Kafka trace ingestion",
+      "🔍 Anomaly detection on LLM agents",
+      "💰 Cost & p99 latency analytics",
+    ],
+
+    dataFlow:
+      "LLM Agent Traces → Kafka → FastAPI Consumer → PostgreSQL → React Dashboard",
+
+    architectureImage: "",
+
+    stack: [
+      "Python",
+      "FastAPI",
+      "Apache Kafka",
+      "PostgreSQL",
+      "Redis",
+      "React",
+      "TypeScript",
+      "Docker",
+    ],
+
+    github: "https://github.com/aryanrajendrasuthar/NeuralOps",
+
+    overview:
+      "NeuralOps is an enterprise AI agent observability platform built to give engineering teams deep visibility into distributed LLM workload behavior. It streams execution traces from AI agents into Kafka, processes them in real time, stores structured metrics in PostgreSQL, and surfaces anomaly alerts, inference cost breakdowns, and p99 latency dashboards through a React frontend.",
+
+    problem:
+      "As AI agents proliferate across enterprise systems, teams lose visibility into cost, latency, and failure modes. Standard APM tools are not designed for LLM trace structures — they miss token usage, model routing decisions, prompt costs, and the multi-hop execution graphs that define modern agent behavior.",
+
+    solution:
+      "Built a Kafka-backed streaming pipeline purpose-built for LLM trace ingestion. A FastAPI consumer processes traces in real time, extracts cost and latency signals, runs anomaly detection logic, and stores structured results in PostgreSQL. A React dashboard gives teams a live view of agent health across cost, latency, and anomaly dimensions.",
+
+    architecture: [
+      "LLM agents emit structured JSON traces (model, tokens, latency, cost, status) to a Kafka topic on each execution.",
+      "A FastAPI Kafka consumer reads traces, validates schemas, and extracts cost and performance metrics.",
+      "Anomaly detection logic flags executions that exceed latency thresholds or cost budgets.",
+      "Aggregated metrics are stored in PostgreSQL with time-series indexing for efficient dashboard queries.",
+      "Redis caches dashboard queries and recent anomaly state to reduce database load on the read path.",
+      "React frontend polls the FastAPI API to render real-time cost breakdowns, p99 latency charts, and anomaly alerts.",
+    ],
+
+    engineeringDecisions: [
+      "Used Kafka as the trace ingestion layer so the platform scales with agent execution volume without coupling agents to the observability backend.",
+      "Separated trace ingestion (Kafka consumer) from metric storage (PostgreSQL) so each layer scales independently.",
+      "Ran anomaly detection inline in the consumer rather than as a separate service to reduce operational complexity at current scale.",
+      "Used PostgreSQL with time-series indexing for metrics rather than a dedicated TSDB to keep the stack lean.",
+      "Added Redis caching for dashboard queries to prevent PostgreSQL from becoming a bottleneck under frequent polling.",
+    ],
+
+    scalingStrategy: [
+      "Kafka consumer group scaling allows parallel processing as trace volume grows.",
+      "PostgreSQL time-series partitioning enables efficient retention and archiving of historical traces.",
+      "Redis caching reduces dashboard read pressure as user count grows.",
+      "Anomaly detection logic is stateless and can be distributed across consumer instances.",
+    ],
+
+    challenges: [
+      "Designing a trace schema flexible enough to represent diverse LLM agent execution patterns.",
+      "Keeping anomaly detection low-latency while processing high-throughput Kafka streams.",
+      "Balancing real-time freshness with dashboard query performance under high polling frequency.",
+      "Handling schema evolution in Kafka traces as agent implementations change.",
+    ],
+
+    outcome: [
+      "Built a full observability pipeline from LLM agent execution to real-time cost and latency dashboards.",
+      "Demonstrated end-to-end Kafka stream processing applied to the AI/ML observability domain.",
+      "Delivered anomaly detection, cost analytics, and p99 latency monitoring in a single integrated platform.",
+      "Applied the same Kafka and PostgreSQL patterns used at Avnet to the AI systems observability space.",
+    ],
+
+    highlights: [
+      "Real-time Kafka trace ingestion from distributed LLM agents",
+      "Anomaly detection on execution latency and cost",
+      "Cost analytics per model and endpoint",
+      "p99 latency monitoring dashboard",
+      "Redis-cached dashboard queries",
+      "PostgreSQL time-series metric storage",
+    ],
+
+    learnings: [
+      "LLM trace schemas need to be designed with schema evolution in mind — agent implementations change rapidly.",
+      "Kafka consumer group design is the key scaling lever for streaming observability pipelines.",
+      "Inline anomaly detection works at moderate scale but needs to move to a dedicated service as volume grows.",
+      "Cost observability for LLM workloads is as important as latency — token budgets and model routing decisions drive real spend.",
+    ],
+  },
+
+  {
+    slug: "context-engine",
+    title: "ContextEngine — Enterprise Knowledge Graph Platform",
+    type: "Layer A",
+    tagline:
+      "Enterprise institutional memory platform ingesting Slack, GitHub, and Jira into a Neo4j knowledge graph with natural language Q&A.",
+
+    summary:
+      "An enterprise knowledge management platform that ingests organizational knowledge from Slack, GitHub, and Jira, builds a structured Neo4j knowledge graph with entity relationships, and answers natural language queries with full source attribution using LangChain-orchestrated RAG.",
+
+    recruiterSummary:
+      "Built ContextEngine, an enterprise institutional memory platform using Python, FastAPI, Neo4j, LangChain, and React. Ingests data from Slack, GitHub, and Jira APIs, constructs a knowledge graph of entities and relationships, and serves natural language queries via a RAG pipeline with source attribution — giving teams answers grounded in their actual organizational context.",
+
+    engineeringSummary:
+      "Designed a multi-source ingestion pipeline (Slack, GitHub, Jira) → entity extraction and relationship mapping → Neo4j knowledge graph → hybrid retrieval (graph traversal + vector similarity) → LangChain prompt orchestration → attributed natural language response. FastAPI serves queries; React renders the interactive knowledge explorer.",
+
+    metrics: [
+      "🔗 Neo4j knowledge graph",
+      "🔍 Multi-source ingestion",
+      "💬 NL Q&A with attribution",
+    ],
+
+    dataFlow:
+      "Slack / GitHub / Jira → Ingestion → Neo4j Graph + Vector Store → Hybrid Retrieval → LangChain → Attributed Response",
+
+    architectureImage: "",
+
+    stack: [
+      "Python",
+      "FastAPI",
+      "Neo4j",
+      "LangChain",
+      "Slack API",
+      "GitHub API",
+      "Jira API",
+      "React",
+      "TypeScript",
+      "PostgreSQL",
+    ],
+
+    github: "https://github.com/aryanrajendrasuthar/ContextEngine",
+
+    overview:
+      "ContextEngine is an enterprise institutional memory platform that solves organizational knowledge fragmentation. It ingests knowledge from Slack conversations, GitHub repositories, and Jira tickets, builds a structured Neo4j knowledge graph with entity and relationship extraction, and serves natural language queries through a RAG pipeline with full source attribution — giving teams answers grounded in their actual organizational context.",
+
+    problem:
+      "Enterprise knowledge is fragmented across Slack threads, GitHub issues, Jira tickets, and internal docs. Finding the right context for a question requires manually searching multiple tools, often missing relevant history. Standard search tools match keywords but do not understand relationships between people, projects, decisions, and outcomes.",
+
+    solution:
+      "Built a multi-source ingestion pipeline that extracts entities and relationships from Slack, GitHub, and Jira, and stores them in a Neo4j knowledge graph. At query time, hybrid retrieval combines graph traversal (for relationship-aware context) with vector similarity search, and LangChain orchestrates grounded, attributed responses.",
+
+    architecture: [
+      "Slack, GitHub, and Jira connectors poll APIs and normalize messages, commits, PRs, and tickets into a common event schema.",
+      "Entity extraction identifies people, projects, decisions, and outcomes from normalized content.",
+      "Entities and relationships are stored in Neo4j with typed edges (authored, referenced, resolved, blocked-by).",
+      "Content is also embedded and stored in a vector database for semantic similarity retrieval.",
+      "At query time, hybrid retrieval combines Neo4j graph traversal with vector similarity to maximize relevant context recall.",
+      "LangChain orchestrates prompt construction with retrieved context and generates attributed natural language responses.",
+      "FastAPI exposes the query API; React renders the knowledge explorer and response view.",
+    ],
+
+    engineeringDecisions: [
+      "Used Neo4j for the knowledge graph because graph traversal naturally captures relationship-aware context that vector search alone cannot express.",
+      "Combined graph traversal with vector similarity retrieval so the system handles both relationship queries ('who worked on X with Y?') and semantic queries ('what decisions were made about caching?').",
+      "Used LangChain to keep retrieval, context injection, and generation logic modular and swappable.",
+      "Normalized all source schemas (Slack, GitHub, Jira) into a common event format before graph ingestion to isolate source-specific logic.",
+      "Added source attribution metadata to every response so users can verify the grounding documents and trace answers back to original context.",
+    ],
+
+    scalingStrategy: [
+      "Connector polling can be replaced with webhook-driven ingestion for real-time graph updates at scale.",
+      "Neo4j's sharding and read replica capabilities support growing graph size and query volume.",
+      "The vector store layer scales independently from the graph layer.",
+      "New data sources (Confluence, Notion, email) can be added as connector modules without modifying the core graph or retrieval logic.",
+    ],
+
+    challenges: [
+      "Designing a graph schema flexible enough to represent diverse organizational knowledge structures across multiple source systems.",
+      "Entity resolution — merging references to the same person, project, or concept across Slack, GitHub, and Jira without a shared identifier.",
+      "Combining graph traversal and vector retrieval into a coherent ranking strategy for hybrid results.",
+      "Keeping ingestion pipelines resilient to API rate limits and schema changes across the three source platforms.",
+    ],
+
+    outcome: [
+      "Built an end-to-end enterprise knowledge graph platform from multi-source ingestion to natural language Q&A.",
+      "Demonstrated graph database engineering (Neo4j) applied to organizational knowledge management.",
+      "Combined graph traversal and vector retrieval in a hybrid retrieval architecture for richer context than pure vector RAG.",
+      "Delivered source-attributed responses grounding answers in real Slack, GitHub, and Jira content.",
+    ],
+
+    highlights: [
+      "Multi-source ingestion from Slack, GitHub, and Jira",
+      "Neo4j knowledge graph with entity and relationship extraction",
+      "Hybrid retrieval: graph traversal + vector similarity",
+      "LangChain-orchestrated RAG with source attribution",
+      "Natural language Q&A grounded in organizational context",
+      "Extensible connector architecture for new data sources",
+    ],
+
+    learnings: [
+      "Graph databases express relationship-aware queries that vector search fundamentally cannot — the two are complementary, not competing.",
+      "Entity resolution across multiple source systems is the hardest unsolved problem in enterprise knowledge graph construction.",
+      "Normalizing source schemas early into a common event format pays off heavily when adding new connectors.",
+      "Source attribution is not optional for enterprise use cases — users must be able to verify the basis of every answer.",
+    ],
+  },
 ];
 
 export const layerBProjects = [
@@ -1337,6 +1548,104 @@ export const layerBProjects = [
       "Design patterns are most valuable when tied directly to domain behavior and lifecycle rules.",
       "Quality engineering pipelines can shape better development habits, not just cleaner repos.",
       "Desktop applications still benefit strongly from layered architecture and disciplined state modeling.",
+    ],
+  },
+
+  {
+    slug: "real-time-chat-app",
+    title: "Real-Time Chat App",
+    type: "Layer B",
+    category: "Full-Stack",
+    status: "Complete",
+    year: 2025,
+    tagline: "WebSocket-powered real-time messaging with rooms, auth, and presence.",
+
+    summary:
+      "A real-time messaging application using WebSocket for live bi-directional communication, user authentication, chat rooms, message history, and online presence indicators.",
+
+    recruiterSummary:
+      "Built a real-time chat application using TypeScript, Node.js, WebSocket, Express, and React. Features include live messaging with WebSocket bi-directional communication, user authentication, named chat rooms, persisted message history, and online/offline presence indicators.",
+
+    engineeringSummary:
+      "Implemented a WebSocket server on Node.js/Express that manages rooms, broadcasts messages to room subscribers, and tracks online presence state. React client establishes a persistent WebSocket connection, handles reconnection, and renders live message streams with optimistic UI updates.",
+
+    metrics: [
+      "⚡ WebSocket real-time",
+      "🔐 Auth + rooms",
+      "👥 Presence indicators",
+    ],
+
+    dataFlow:
+      "Client → WebSocket → Node.js Room Manager → Broadcast to Room Subscribers → React UI",
+
+    architectureImage: "",
+
+    stack: [
+      "TypeScript",
+      "Node.js",
+      "WebSocket",
+      "Express",
+      "React",
+      "MongoDB",
+    ],
+
+    github: "https://github.com/aryanrajendrasuthar/Real-Time-Chat-App",
+
+    overview:
+      "A real-time messaging application demonstrating WebSocket engineering, room-based message broadcasting, user authentication, and online presence tracking. Built with Node.js/Express on the backend and React on the frontend.",
+
+    problem:
+      "HTTP request-response is fundamentally ill-suited for real-time messaging — polling creates latency and server overhead. WebSocket provides a persistent bi-directional channel that eliminates polling and enables true real-time communication.",
+
+    solution:
+      "Built a WebSocket server that maintains persistent connections, routes messages to the correct room subscribers, tracks presence state, and persists message history to MongoDB. The React client manages the WebSocket lifecycle including reconnection on disconnect.",
+
+    architecture: [
+      "Express serves the HTTP API for authentication and room management.",
+      "WebSocket server manages persistent connections and a room registry mapping users to rooms.",
+      "Incoming messages are validated, stored in MongoDB, and broadcast to all room subscribers.",
+      "Presence state (online/offline) is tracked per connection and broadcast on connect/disconnect events.",
+      "React client establishes a WebSocket connection on mount and handles reconnection with exponential backoff.",
+      "Message history is fetched via HTTP on room join; new messages arrive via WebSocket.",
+    ],
+
+    engineeringDecisions: [
+      "Used native WebSocket over Socket.io to understand the protocol directly without abstraction overhead.",
+      "Stored message history in MongoDB so chat is persistent across reconnects and page refreshes.",
+      "Separated HTTP (auth, room management) from WebSocket (real-time events) to keep concerns clean.",
+      "Tracked presence at the connection level rather than user level to handle multi-tab sessions correctly.",
+    ],
+
+    scalingStrategy: [
+      "WebSocket connections can be distributed across multiple server instances with a Redis pub/sub layer for cross-instance message broadcasting.",
+      "MongoDB Atlas handles horizontal scaling of message history storage.",
+      "Connection pooling and heartbeat timeouts prevent resource exhaustion under high connection counts.",
+    ],
+
+    challenges: [
+      "Handling WebSocket reconnection gracefully without losing messages or duplicating state.",
+      "Managing presence state correctly when users have multiple browser tabs open.",
+      "Keeping the room registry consistent under concurrent join/leave events.",
+    ],
+
+    outcome: [
+      "Delivered a functional real-time chat application with rooms, auth, history, and presence.",
+      "Demonstrated WebSocket engineering without relying on Socket.io abstractions.",
+      "Gained deep understanding of bi-directional connection lifecycle, reconnection, and broadcasting patterns.",
+    ],
+
+    highlights: [
+      "WebSocket bi-directional real-time messaging",
+      "Named chat rooms with isolated message streams",
+      "Persistent message history via MongoDB",
+      "Online presence indicators",
+      "User authentication",
+    ],
+
+    learnings: [
+      "WebSocket reconnection and session recovery require explicit design — the protocol does not handle it automatically.",
+      "Presence tracking at the connection level handles multi-tab correctly but requires careful cleanup on disconnect.",
+      "Redis pub/sub is the natural next step for scaling WebSocket broadcasts across multiple server instances.",
     ],
   },
 ];

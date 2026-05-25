@@ -73,6 +73,26 @@ function getAssistantReply(message: string) {
   }
 
   if (
+    text.includes("neuralops") ||
+    text.includes("neural ops") ||
+    text.includes("observability") ||
+    text.includes("llm monitoring") ||
+    text.includes("agent monitoring")
+  ) {
+    return assistantKnowledge.projects.neuralOps;
+  }
+
+  if (
+    text.includes("contextengine") ||
+    text.includes("context engine") ||
+    text.includes("knowledge graph") ||
+    text.includes("neo4j") ||
+    text.includes("institutional memory")
+  ) {
+    return assistantKnowledge.projects.contextEngine;
+  }
+
+  if (
     text.includes("emotion") ||
     text.includes("emofusion") ||
     text.includes("hubert") ||
