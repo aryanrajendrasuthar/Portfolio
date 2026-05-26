@@ -1,7 +1,7 @@
-import { GraduationCap, Shield } from "lucide-react";
+import { Code2, GraduationCap, Shield } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { SectionTitle } from "@/components/layout/section-title";
-import { tutoringSkills } from "@/data/skills";
+import { technicalSkillGroups, tutoringSkills } from "@/data/skills";
 
 const engineeringStrengths = [
   "Event-driven backend architecture using Kafka, Redis pub/sub, and asynchronous pipeline design",
@@ -90,6 +90,43 @@ export function SupportingSkillsSection({
           </CardContent>
         </Card>
       </div>
+
+      <Card className="mt-6 rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
+        <CardContent className="p-8">
+          <div className="mb-6 flex items-center gap-3">
+            <Code2 className="h-6 w-6 text-sky-300" />
+            <div>
+              <p className="text-sm text-sky-300">Technical Skills</p>
+              <h3 className="text-2xl font-semibold text-white">
+                Resume-aligned engineering stack
+              </h3>
+            </div>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {technicalSkillGroups.map((group) => (
+              <div
+                key={group.title}
+                className="rounded-2xl border border-white/8 bg-black/20 p-4"
+              >
+                <p className="text-sm font-semibold text-white">
+                  {group.title}
+                </p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {group.skills.map((skill) => (
+                    <span
+                      key={`${group.title}-${skill}`}
+                      className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[10px] uppercase tracking-[0.18em] text-slate-300"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
     </section>
   );
 }

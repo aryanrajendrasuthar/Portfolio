@@ -1,4 +1,4 @@
-export const layerAProjects = [
+const layerAProjectsUnordered = [
   {
     slug: "my-gym-trainer",
     title: "My Gym Trainer",
@@ -1164,6 +1164,24 @@ export const layerAProjects = [
       "Source attribution is not optional for enterprise use cases — users must be able to verify the basis of every answer.",
     ],
   },
+];
+
+const resumeFeaturedProjectSlugs = [
+  "physio-app",
+  "Real-Time-AI-Simulation-Tool",
+  "emofusion",
+  "ai-knowledge-assistant",
+];
+
+export const layerAProjects = [
+  ...resumeFeaturedProjectSlugs
+    .map((slug) => layerAProjectsUnordered.find((project) => project.slug === slug))
+    .filter((project): project is (typeof layerAProjectsUnordered)[number] =>
+      Boolean(project),
+    ),
+  ...layerAProjectsUnordered.filter(
+    (project) => !resumeFeaturedProjectSlugs.includes(project.slug),
+  ),
 ];
 
 export const layerBProjects = [

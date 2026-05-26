@@ -5,6 +5,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { HeroSection } from "@/components/home/hero-section";
 import { ExperienceSection } from "@/components/home/experience-section";
+import { EducationSection } from "@/components/home/education-section";
 import { FeaturedProjectsSection } from "@/components/home/featured-projects-section";
 import { ArchitectureSection } from "@/components/home/architecture-section";
 import { SupportingSkillsSection } from "@/components/home/supporting-skills-section";
@@ -59,6 +60,7 @@ export function HomePageClient({ githubSection }: Props) {
             setRecruiterMode={setRecruiterMode}
           />
           <ExperienceSection />
+          <EducationSection />
           <FeaturedProjectsSection recruiterMode={recruiterMode} />
           <ArchitectureSection recruiterMode={recruiterMode} />
           <SupportingSkillsSection recruiterMode={recruiterMode} />

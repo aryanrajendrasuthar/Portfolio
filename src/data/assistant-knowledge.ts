@@ -1,6 +1,6 @@
 export const assistantKnowledge = {
   intro:
-    "Aryan Suthar is a backend and distributed systems engineer with 4+ years of experience. He is currently a Software Engineer (Contract) at Avnet in Arizona, architecting high-throughput microservices processing 2M+ daily transactions, and is completing his MS in Software Engineering at Arizona State University (May 2026).",
+    "Aryan Suthar is a backend and distributed systems engineer with 4+ years of experience. He is currently a Software Engineer at Avnet in Arizona, architecting high-throughput microservices processing 2M+ daily transactions, and is completing his MS in Software Engineering at Arizona State University (May 2026).",
 
   skills: [
     "Java",
@@ -12,16 +12,23 @@ export const assistantKnowledge = {
     "TypeScript",
     "Next.js",
     "React",
+    "SQL",
+    "C#",
+    "Bash",
+    "Go",
     "AWS (EC2, Lambda, S3, SNS, SES)",
-    "Azure (AKS, Functions, Service Bus)",
+    "Azure (AKS, Functions, Service Bus, Blob Storage)",
     "Apache Kafka",
     "Kubernetes",
     "Docker",
+    "Terraform",
+    "Serverless",
     "Redis",
     "PostgreSQL",
     "MySQL",
     "MongoDB",
     "DynamoDB",
+    "Elasticsearch",
     "LangChain",
     "RAG Pipelines",
     "Vector Databases",
@@ -35,13 +42,22 @@ export const assistantKnowledge = {
     "GraphQL",
     "GitHub Actions",
     "CI/CD",
+    "Prometheus",
+    "Grafana",
+    "Datadog",
+    "OpenTelemetry",
+    "Distributed Tracing",
+    "JUnit",
+    "Pytest",
+    "Jest",
+    "TDD",
   ],
 
   experience: {
     avnet:
-      "At Avnet (Dec 2025 – Present), Aryan is a Software Engineer (Contract) architecting a high-throughput microservices platform using Java, Spring Boot, and Apache Kafka — processing 2M+ daily transactions across Kubernetes (AKS) clusters. He engineered low-latency RESTful and gRPC APIs, cut infrastructure spend by 27%, increased data ingestion throughput by 3.2×, and shipped a production RAG search pipeline using LangChain and Azure Cognitive Search that improved query relevance by 33%.",
+      "At Avnet (Dec 2025 – Present), Aryan is a Software Engineer architecting a high-throughput microservices platform using Java, Spring Boot, and Apache Kafka — processing 2M+ daily transactions across Kubernetes (AKS) clusters. He engineered low-latency RESTful and gRPC APIs, cut infrastructure spend by 27%, increased data ingestion throughput by 3.2×, improved PostgreSQL and MongoDB query performance by 41% through indexing, and shipped a production RAG search pipeline using LangChain and Azure Cognitive Search that improved query relevance by 33%.",
     orion:
-      "At Orion Techno lab (Jan 2021 – Jul 2024), Aryan developed scalable backend systems using Python, Django, and FastAPI handling 500K+ daily API requests, built frontend applications with React and Next.js, deployed containerized apps on Docker and Kubernetes with zero-downtime blue/green releases, strengthened API security with OAuth2/JWT, and integrated TensorFlow and MLflow ML pipelines into product features.",
+      "At Orion Techno Lab (Jan 2021 – Jul 2024), Aryan developed scalable backend systems using Python, Django, and FastAPI handling 500K+ daily API requests, built frontend applications with React and Next.js, deployed containerized apps on Docker and Kubernetes with zero-downtime blue/green releases, strengthened API security with OAuth2/JWT, mentored 2 junior engineers through code reviews and pair programming, and integrated TensorFlow and MLflow ML pipelines into product features.",
   },
 
   projects: {
