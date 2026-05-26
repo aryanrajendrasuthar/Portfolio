@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink, Layers3 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -163,10 +164,12 @@ export default async function ProjectDetailPage({
                     Architecture Diagram
                   </p>
                   <div className="mt-3 overflow-hidden rounded-2xl border border-white/8 bg-black/30">
-                    <img
+                    <Image
                       src={project.architectureImage}
                       alt={`${project.title} architecture diagram`}
-                      className="w-full object-contain"
+                      width={1200}
+                      height={800}
+                      className="h-auto w-full object-contain"
                     />
                   </div>
                 </div>

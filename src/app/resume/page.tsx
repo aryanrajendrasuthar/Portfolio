@@ -1,11 +1,14 @@
 import Link from "next/link";
 import {
   ArrowLeft,
+  Award,
+  Code2,
   Download,
   FileText,
   Briefcase,
   BrainCircuit,
   Cloud,
+  GraduationCap,
   Github,
   Linkedin,
   Mail,
@@ -15,6 +18,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { profile } from "@/data/profile";
+import { education } from "@/data/education";
+import { technicalSkillGroups } from "@/data/skills";
 
 const highlightCards = [
   {
@@ -56,6 +61,12 @@ const strengthBadges = [
   "System Design",
   "CI/CD Pipelines",
   "Full-Stack Development",
+];
+
+const achievements = [
+  "Lead Developer, PhysioApp Capstone (ASU SER 517, Industry Team 16) — delivered across 4 agile sprints with comprehensive technical documentation covering full system architecture, database schema, and feature modules.",
+  "Solved 500+ algorithm problems on LeetCode, building strong foundations in data structures, dynamic programming, graph algorithms, and system design.",
+  "Designed and maintained 10+ production-ready projects spanning AI/ML, distributed systems, and full-stack engineering, publicly documented through this portfolio.",
 ];
 
 export default function ResumePage() {
@@ -163,6 +174,41 @@ export default function ResumePage() {
                 </div>
               </CardContent>
             </Card>
+
+            <Card className="mt-8 rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
+              <CardContent className="p-8">
+                <div className="mb-2 flex items-center gap-2">
+                  <Code2 className="h-4 w-4 text-sky-300" />
+                  <p className="text-sm text-sky-300">Technical Skills</p>
+                </div>
+                <h2 className="mt-1 text-2xl font-semibold text-white">
+                  Resume stack coverage
+                </h2>
+
+                <div className="mt-6 grid gap-4 md:grid-cols-2">
+                  {technicalSkillGroups.map((group) => (
+                    <div
+                      key={group.title}
+                      className="rounded-2xl border border-white/8 bg-black/20 p-4"
+                    >
+                      <p className="text-sm font-semibold text-white">
+                        {group.title}
+                      </p>
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        {group.skills.map((skill) => (
+                          <span
+                            key={`${group.title}-${skill}`}
+                            className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[10px] uppercase tracking-[0.18em] text-slate-300"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
           </div>
 
           <div className="space-y-6">
@@ -220,6 +266,74 @@ export default function ResumePage() {
                       GitHub
                     </Button>
                   </a>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
+              <CardContent className="p-8">
+                <div className="mb-2 flex items-center gap-2">
+                  <GraduationCap className="h-4 w-4 text-sky-300" />
+                  <p className="text-sm text-sky-300">Education</p>
+                </div>
+                <h2 className="mt-2 text-2xl font-semibold text-white">
+                  Academic background
+                </h2>
+
+                <div className="mt-6 space-y-4">
+                  {education.map((item) => (
+                    <div
+                      key={`${item.school}-${item.degree}`}
+                      className="rounded-2xl border border-white/8 bg-black/20 p-4"
+                    >
+                      <p className="text-sm font-semibold text-white">
+                        {item.degree}
+                      </p>
+                      <p className="mt-2 text-sm leading-7 text-slate-300">
+                        {item.school}, {item.location}
+                      </p>
+                      <p className="mt-1 text-xs uppercase tracking-[0.22em] text-slate-500">
+                        {item.period} | GPA: {item.gpa}
+                      </p>
+                      <p className="mt-4 text-sm leading-7 text-slate-300">
+                        <span className="text-white">Capstone:</span>{" "}
+                        {item.capstone}
+                      </p>
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {item.coursework.map((course) => (
+                          <span
+                            key={course}
+                            className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[10px] uppercase tracking-[0.18em] text-slate-300"
+                          >
+                            {course}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
+              <CardContent className="p-8">
+                <div className="mb-2 flex items-center gap-2">
+                  <Award className="h-4 w-4 text-violet-300" />
+                  <p className="text-sm text-violet-300">Achievements</p>
+                </div>
+                <h2 className="mt-2 text-2xl font-semibold text-white">
+                  Resume achievements
+                </h2>
+
+                <div className="mt-6 space-y-4">
+                  {achievements.map((achievement) => (
+                    <div
+                      key={achievement}
+                      className="rounded-2xl border border-white/8 bg-black/20 p-4 text-sm leading-7 text-slate-300"
+                    >
+                      {achievement}
+                    </div>
+                  ))}
                 </div>
               </CardContent>
             </Card>

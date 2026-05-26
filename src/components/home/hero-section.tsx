@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import {
   Download,
@@ -161,9 +162,12 @@ export function HeroSection({
         <div className="absolute h-[28rem] w-[28rem] rounded-full border border-sky-400/15 bg-[radial-gradient(circle,rgba(56,189,248,0.22),rgba(99,102,241,0.1),rgba(0,0,0,0)_70%)] blur-2xl" />
         <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-3 shadow-[0_0_100px_rgba(56,189,248,0.12)] backdrop-blur-xl">
           <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(56,189,248,0.18),rgba(124,58,237,0.14),transparent)]" />
-          <img
+          <Image
             src={profile.heroImage}
             alt="Aryan Suthar"
+            width={640}
+            height={640}
+            priority
             className="relative z-10 h-[34rem] w-full rounded-[1.5rem] object-cover"
           />
         </div>
