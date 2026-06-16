@@ -105,7 +105,7 @@ export const notes: Note[] = [
     content: [
       "Redis is an in-memory data store used to cache frequently accessed data. It reduces latency and avoids repeated expensive operations such as LLM inference calls, database queries, and embedding generation.",
       "Caching works best when read operations are frequent and the underlying data is expensive to compute or fetch. Common strategies include cache-aside, write-through, and TTL-based expiration.",
-      "At Orion Techno lab, Redis distributed caching with TTL strategies decreased database load by 37% and improved P95 response time during high-concurrency spikes. In the AI Knowledge Assistant, Redis caching reduced response latency by 60% to sub-300ms.",
+      "At Orion Techno Lab, Redis distributed caching with TTL strategies decreased database load by 37% and improved P95 response time during high-concurrency spikes. In the AI Knowledge Assistant, Redis caching reduced response latency by 60% to sub-300ms.",
     ],
     bullets: [
       "Reduces latency",
@@ -113,7 +113,7 @@ export const notes: Note[] = [
       "Improves throughput",
     ],
     whereUsed:
-      "Applied in the AI Knowledge Assistant to cache embeddings, repeated LLM responses, and session state — achieving 60% latency reduction to sub-300ms. Also used at Orion Techno lab to decrease database load by 37% under high-concurrency traffic, and in the Distributed AI Simulation Platform for real-time session state management.",
+      "Applied in the AI Knowledge Assistant to cache embeddings, repeated LLM responses, and session state — achieving 60% latency reduction to sub-300ms. Also used at Orion Techno Lab to decrease database load by 37% under high-concurrency traffic, and in the Distributed AI Simulation Platform for real-time session state management.",
     tradeoffs: [
       "Cache invalidation complexity",
       "Stale data risk if not managed properly",
@@ -181,7 +181,7 @@ export const notes: Note[] = [
     content: [
       "Backend security includes authentication, authorization, encryption, and input validation. Authentication verifies identity, while authorization controls what authenticated users can access.",
       "HTTPS is essential for protecting user data and enabling browser APIs like geolocation. OAuth2 and JWT are the dominant standards for API authentication across modern distributed systems.",
-      "At Orion Techno lab, implementing OAuth2 and JWT-based authentication with RBAC reduced unauthorized access incidents by 60% and achieved SOC 2 alignment. Role-Based Access Control (RBAC) ensures users can only access the resources and operations appropriate to their role.",
+      "At Orion Techno Lab, implementing OAuth2 and JWT-based authentication with RBAC reduced unauthorized access incidents by 60% and achieved SOC 2 alignment. Role-Based Access Control (RBAC) ensures users can only access the resources and operations appropriate to their role.",
     ],
     bullets: [
       "Auth vs AuthZ",
@@ -189,7 +189,7 @@ export const notes: Note[] = [
       "Server-side validation",
     ],
     whereUsed:
-      "Implemented in Emergency SOS with session-based authentication and HTTPS support for secure geolocation access. Applied at Orion Techno lab with OAuth2/JWT and RBAC across production APIs — reducing unauthorized access incidents by 60%.",
+      "Implemented in Emergency SOS with session-based authentication and HTTPS support for secure geolocation access. Applied at Orion Techno Lab with OAuth2/JWT and RBAC across production APIs — reducing unauthorized access incidents by 60%.",
     tradeoffs: [
       "Additional complexity in auth flows",
       "Performance overhead from encryption",
@@ -292,7 +292,7 @@ export const notes: Note[] = [
       "Building automated pipelines for testing, building, and deploying software with zero-downtime strategies.",
     content: [
       "Continuous Integration (CI) automatically runs tests and quality checks on every code push, catching regressions before they reach production. Continuous Deployment (CD) automates the release process so that passing builds are deployed without manual intervention — reducing release risk and increasing deployment frequency.",
-      "GitHub Actions is the dominant CI/CD platform for modern projects. A typical pipeline runs type checking, unit tests, integration tests, linting, and security scanning in parallel, then builds a container image, pushes to a registry, and triggers a deployment on the target platform. At Orion Techno lab, GitHub Actions CI/CD pipelines improved deployment frequency by 2.5× and enabled zero-downtime blue/green releases.",
+      "GitHub Actions is the dominant CI/CD platform for modern projects. A typical pipeline runs type checking, unit tests, integration tests, linting, and security scanning in parallel, then builds a container image, pushes to a registry, and triggers a deployment on the target platform. At Orion Techno Lab, GitHub Actions CI/CD pipelines improved deployment frequency by 2.5× and enabled zero-downtime blue/green releases.",
       "Blue/green deployments maintain two identical environments — blue (current) and green (new). Traffic is switched from blue to green instantly after validation, allowing immediate rollback if issues appear. Kubernetes rolling updates and canary releases are complementary strategies that shift traffic gradually to reduce blast radius.",
     ],
     bullets: [
@@ -301,7 +301,7 @@ export const notes: Note[] = [
       "Fast feedback loops",
     ],
     whereUsed:
-      "Built GitHub Actions CI/CD pipelines for PhysioApp with type checking, automated tests, and deployment to Vercel and Railway. Applied blue/green release strategies at Orion Techno lab via Docker and Kubernetes — achieving zero-downtime releases and 2.5× deployment frequency improvement.",
+      "Built GitHub Actions CI/CD pipelines for PhysioApp with type checking, automated tests, and deployment to Vercel and Railway. Applied blue/green release strategies at Orion Techno Lab via Docker and Kubernetes — achieving zero-downtime releases and 2.5× deployment frequency improvement.",
     tradeoffs: [
       "Pipeline setup time is an upfront investment",
       "Complex pipelines can become bottlenecks if not parallelized",
@@ -368,7 +368,7 @@ export const notes: Note[] = [
     content: [
       "OAuth2 is the industry standard authorization framework for delegated access. It separates authentication (proving identity) from authorization (granting access to resources) via access tokens. The Authorization Code flow with PKCE is the secure standard for web applications. JWTs (JSON Web Tokens) are commonly used as the token format — self-contained, signed tokens that carry claims about the user without requiring a database lookup on every request.",
       "Role-Based Access Control (RBAC) assigns permissions to roles rather than individual users. Users are then assigned one or more roles. This makes permission management scalable — adding a new permission means updating the role definition, not every user. In PhysioApp, three distinct roles (patient, therapist, admin) controlled access to exercises, patient records, scheduling, and analytics with different permission sets.",
-      "In distributed microservices, JWTs enable stateless authentication — each service can verify the token signature independently without calling a central auth server. Token expiry and refresh flows (short-lived access tokens + longer-lived refresh tokens) balance security with user experience. At Orion Techno lab, OAuth2 and JWT with RBAC reduced unauthorized access incidents by 60% and achieved SOC 2 alignment.",
+      "In distributed microservices, JWTs enable stateless authentication — each service can verify the token signature independently without calling a central auth server. Token expiry and refresh flows (short-lived access tokens + longer-lived refresh tokens) balance security with user experience. At Orion Techno Lab, OAuth2 and JWT with RBAC reduced unauthorized access incidents by 60% and achieved SOC 2 alignment.",
     ],
     bullets: [
       "JWT for stateless auth",
@@ -376,7 +376,7 @@ export const notes: Note[] = [
       "Short-lived tokens + refresh",
     ],
     whereUsed:
-      "Implemented in PhysioApp with three RBAC roles (patient, therapist, admin) controlling access to all platform features. Applied at Orion Techno lab across production APIs using OAuth2 and JWT — reducing unauthorized access incidents by 60% and achieving SOC 2 alignment.",
+      "Implemented in PhysioApp with three RBAC roles (patient, therapist, admin) controlling access to all platform features. Applied at Orion Techno Lab across production APIs using OAuth2 and JWT — reducing unauthorized access incidents by 60% and achieving SOC 2 alignment.",
     tradeoffs: [
       "JWTs cannot be revoked before expiry without a blocklist",
       "RBAC can become rigid for fine-grained permission scenarios",
