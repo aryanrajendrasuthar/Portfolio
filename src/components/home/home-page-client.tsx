@@ -7,6 +7,7 @@ import { FeaturedProjectsSection } from "@/components/home/featured-projects-sec
 import { ArchitectureSection } from "@/components/home/architecture-section";
 import { SupportingSkillsSection } from "@/components/home/supporting-skills-section";
 import { CertificatesSection } from "@/components/home/certificates-section";
+import { NotesPreviewSection } from "@/components/home/notes-preview-section";
 import { ContactSection } from "@/components/home/contact-section";
 import { AIAssistant } from "@/components/home/ai-assistant";
 
@@ -28,6 +29,7 @@ export function HomePageClient({ githubSection }: Props) {
         <SupportingSkillsSection />
         <CertificatesSection />
         {githubSection}
+        <NotesPreviewSection />
         <ContactSection />
         <Footer />
       </main>
