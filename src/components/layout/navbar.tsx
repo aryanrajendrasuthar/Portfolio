@@ -25,6 +25,7 @@ export function Navbar() {
             src={profile.heroImage}
             alt={profile.name}
             fill
+            sizes="44px"
             className="object-cover"
           />
         </div>

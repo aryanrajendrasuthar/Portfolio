@@ -114,6 +114,7 @@ export function HeroSection() {
             width={640}
             height={640}
             priority
+            sizes="(max-width: 768px) 100vw, 576px"
             className="relative z-10 h-[34rem] w-full rounded-[1.5rem] object-cover"
           />
         </div>
