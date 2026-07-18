@@ -1,8 +1,6 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { Reveal } from "@/components/ui/reveal";
 import { SectionTitle } from "@/components/layout/section-title";
 
 const architectureNodes = [
@@ -61,29 +59,13 @@ function AnimatedArchitectureGraph() {
         />
       </svg>
 
-      <motion.div
-        className="absolute left-[12%] top-[62%] h-2 w-2 rounded-full bg-primary"
-        animate={{
-          x: [0, 120, 220, 330, 420],
-          y: [0, -86, 0, -86, 0],
-          opacity: [0, 0.9, 0.9, 0.9, 0],
-        }}
-        transition={{
-          duration: 4,
-          repeat: Infinity,
-          ease: "linear",
-        }}
-      />
-
       {architectureNodes.map((node, index) => (
-        <motion.div
+        <Reveal
           key={node.id}
           className="absolute"
           style={{ left: node.x, top: node.y }}
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.45, delay: index * 0.08 }}
+          scale={0.9}
+          delay={index * 80}
         >
           <div className="w-28 -translate-x-1/2 -translate-y-1/2 rounded-[1.1rem] border border-border bg-popover p-3">
             <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-[11px] font-semibold text-primary">
@@ -96,7 +78,7 @@ function AnimatedArchitectureGraph() {
               {node.subtitle}
             </p>
           </div>
-        </motion.div>
+        </Reveal>
       ))}
     </div>
   );

@@ -1,10 +1,8 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { ExternalLink, Layers3, FolderOpen, ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Reveal } from "@/components/ui/reveal";
 import { SectionTitle } from "@/components/layout/section-title";
 import { layerAProjects, homepageFeaturedSlugs } from "@/data/projects";
 import Link from "next/link";
@@ -31,12 +29,10 @@ export function FeaturedProjectsSection() {
 
       <div className="grid min-w-0 grid-cols-[minmax(0,1fr)] gap-8 md:grid-cols-2 xl:grid-cols-3">
         {featuredProjects.map((project, idx) => (
-          <motion.div
+          <Reveal
             key={project.slug}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.45, delay: idx * 0.08 }}
+            y={24}
+            delay={idx * 80}
             className="w-full"
           >
             <Card className="flex h-full w-[calc(100vw-3rem)] max-w-full min-w-0 flex-col rounded-[2rem] border-border bg-card md:w-full">
@@ -116,14 +112,12 @@ export function FeaturedProjectsSection() {
                 </div>
               </CardContent>
             </Card>
-          </motion.div>
+          </Reveal>
         ))}
 
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.45, delay: featuredProjects.length * 0.08 }}
+        <Reveal
+          y={24}
+          delay={featuredProjects.length * 80}
           className="w-full"
         >
           <Card className="flex h-full w-[calc(100vw-3rem)] max-w-full min-w-0 flex-col rounded-[2rem] border-border bg-card md:w-full">
@@ -152,7 +146,7 @@ export function FeaturedProjectsSection() {
               </div>
             </CardContent>
           </Card>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );

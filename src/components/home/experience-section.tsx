@@ -1,8 +1,7 @@
-"use client";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { Briefcase } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Reveal } from "@/components/ui/reveal";
 import { SectionTitle } from "@/components/layout/section-title";
 import { experience } from "@/data/experience";
 
@@ -32,13 +31,7 @@ export function ExperienceSection() {
 
       <div className="grid gap-6 md:grid-cols-2">
         {experience.map((item, idx) => (
-          <motion.div
-            key={item.company}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.45, delay: idx * 0.1 }}
-          >
+          <Reveal key={item.company} y={20} delay={idx * 100}>
             <Card className="h-full rounded-[2rem] border-border bg-card backdrop-blur-xl">
               <CardContent className="p-8">
                 <div className="mb-5 flex items-start justify-between gap-4">
@@ -67,7 +60,7 @@ export function ExperienceSection() {
                 </div>
               </CardContent>
             </Card>
-          </motion.div>
+          </Reveal>
         ))}
       </div>
     </section>

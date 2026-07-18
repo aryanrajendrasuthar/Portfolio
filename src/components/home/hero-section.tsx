@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -12,6 +9,7 @@ import {
   MapPin,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Reveal } from "@/components/ui/reveal";
 import { profile } from "@/data/profile";
 
 export function HeroSection() {
@@ -20,11 +18,7 @@ export function HeroSection() {
       id="home"
       className="mx-auto grid min-h-[88vh] max-w-7xl items-center gap-12 px-6 py-14 md:grid-cols-[1.1fr_0.9fr] md:py-24"
     >
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
+      <Reveal y={24} duration={600}>
         <div className="mb-6 inline-flex rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-[10px] uppercase tracking-[0.35em] text-primary">
           4+ Years of Engineering Experience
         </div>
@@ -98,12 +92,12 @@ export function HeroSection() {
             <Mail className="h-4 w-4" /> Email
           </a>
         </div>
-      </motion.div>
+      </Reveal>
 
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.7, delay: 0.1 }}
+      <Reveal
+        scale={0.95}
+        duration={700}
+        delay={100}
         className="relative mx-auto flex w-full max-w-xl items-center justify-center"
       >
         <div className="absolute h-96 w-96 rounded-full bg-primary/15 blur-3xl" />
@@ -118,7 +112,7 @@ export function HeroSection() {
             className="relative z-10 h-[34rem] w-full rounded-[1.5rem] object-cover"
           />
         </div>
-      </motion.div>
+      </Reveal>
     </section>
   );
 }
