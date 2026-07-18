@@ -4,7 +4,7 @@ export const education = [
     school: "Arizona State University",
     location: "Tempe, AZ",
     period: "Aug 2024 – May 2026",
-    gpa: "3.8 / 4.0",
+    gpa: "3.5 / 4.0",
     capstone:
       "PhysioApp — AI-Powered Physiotherapy Rehabilitation Platform (Industry Team 16, SER 517)",
     coursework: [
