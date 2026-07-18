@@ -59,23 +59,21 @@ export default function ProjectsPage() {
               return (
                 <Card
                   key={project.slug}
-                  className="relative h-full w-[calc(100vw-3rem)] max-w-full min-w-0 overflow-hidden rounded-[2rem] border-border bg-card md:w-full"
+                  className="h-full w-[calc(100vw-3rem)] max-w-full min-w-0 rounded-[2rem] border-border bg-card md:w-full"
                 >
-                  <div className="relative h-28 overflow-hidden border-b border-border bg-muted">
-                    <div className="absolute inset-x-5 bottom-5 flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        {"status" in project && project.status === "Live" && (
-                          <span className="flex items-center gap-1.5 rounded-full border border-success/30 bg-success/10 px-2.5 py-1 text-[9px] uppercase tracking-[0.25em] text-success">
-                            <span className="h-1.5 w-1.5 rounded-full bg-success" />
-                            Live
-                          </span>
-                        )}
+                  <CardContent className="flex flex-col p-6">
+                    <div className="mb-5 flex items-start justify-between gap-4">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10">
+                        <Layers3 className="h-5 w-5 text-primary" />
                       </div>
-                      <Layers3 className="h-5 w-5 text-primary" />
+                      {"status" in project && project.status === "Live" && (
+                        <span className="flex items-center gap-1.5 rounded-full border border-success/30 bg-success/10 px-2.5 py-1 text-[9px] uppercase tracking-[0.25em] text-success">
+                          <span className="h-1.5 w-1.5 rounded-full bg-success" />
+                          Live
+                        </span>
+                      )}
                     </div>
-                  </div>
 
-                  <CardContent className="relative z-10 flex flex-col p-6">
                     <h2 className="text-xl font-semibold text-foreground">
                       {project.title}
                     </h2>

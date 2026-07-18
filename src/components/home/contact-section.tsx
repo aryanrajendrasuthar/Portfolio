@@ -113,7 +113,9 @@ export function ContactSection() {
 
             <div className="mt-8 flex-1 rounded-[1.75rem] border border-border bg-muted p-6">
               <div className="mb-5 flex items-center gap-3">
-                <User className="h-5 w-5 text-primary" />
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10">
+                  <User className="h-5 w-5 text-primary" />
+                </div>
                 <h3 className="text-lg font-semibold text-foreground">
                   Quick Contact Card
                 </h3>

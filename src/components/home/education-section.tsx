@@ -22,7 +22,9 @@ export function EducationSection() {
               <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
                 <div>
                   <div className="mb-5 flex items-center gap-3">
-                    <GraduationCap className="h-6 w-6 text-primary" />
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10">
+                      <GraduationCap className="h-5 w-5 text-primary" />
+                    </div>
                     <div>
                       <p className="text-sm text-primary">{item.school}</p>
                       <h3 className="text-2xl font-semibold text-foreground">

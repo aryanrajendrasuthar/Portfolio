@@ -41,14 +41,16 @@ export function ExperienceSection() {
           >
             <Card className="h-full rounded-[2rem] border-border bg-card backdrop-blur-xl">
               <CardContent className="p-8">
-                <div className="mb-5 flex items-center justify-between gap-4">
+                <div className="mb-5 flex items-start justify-between gap-4">
                   <div>
                     <p className="text-sm text-primary">{item.role}</p>
                     <h3 className="mt-1 text-2xl font-semibold text-foreground">
                       {item.company}
                     </h3>
                   </div>
-                  <Briefcase className="h-6 w-6 text-muted-foreground" />
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10">
+                    <Briefcase className="h-5 w-5 text-primary" />
+                  </div>
                 </div>
                 <p className="mb-6 text-sm uppercase tracking-[0.25em] text-muted-foreground">
                   {item.period}

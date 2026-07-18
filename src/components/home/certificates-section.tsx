@@ -42,31 +42,19 @@ export function CertificatesSection() {
               </p>
 
               <p className="mt-3 text-sm text-muted-foreground">
-                {certificate.issueDate
-                  ? `Issued: ${certificate.issueDate}`
-                  : "Issue date to be updated"}
+                Issued: {certificate.issueDate}
               </p>
 
               <div className="mt-6">
-                {certificate.file !== "#" ? (
-                  <a href={certificate.file} target="_blank" rel="noreferrer">
-                    <Button
-                      variant="outline"
-                      className="rounded-full border-border bg-card text-foreground hover:bg-muted"
-                    >
-                      <ExternalLink className="mr-2 h-4 w-4" />
-                      View Certificate
-                    </Button>
-                  </a>
-                ) : (
+                <a href={certificate.file} target="_blank" rel="noreferrer">
                   <Button
                     variant="outline"
-                    disabled
-                    className="rounded-full border-border bg-card text-muted-foreground"
+                    className="rounded-full border-border bg-card text-foreground hover:bg-muted"
                   >
-                    Certificate Placeholder
+                    <ExternalLink className="mr-2 h-4 w-4" />
+                    View Certificate
                   </Button>
-                )}
+                </a>
               </div>
             </CardContent>
           </Card>

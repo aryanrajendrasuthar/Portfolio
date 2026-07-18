@@ -39,22 +39,20 @@ export function FeaturedProjectsSection() {
             transition={{ duration: 0.45, delay: idx * 0.08 }}
             className="w-full"
           >
-            <Card className="relative flex h-full w-[calc(100vw-3rem)] max-w-full min-w-0 flex-col overflow-hidden rounded-[2rem] border-border bg-card md:w-full">
-              <div className="relative h-32 overflow-hidden border-b border-border bg-muted">
-                <div className="absolute inset-x-5 bottom-5 flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    {"status" in project && project.status === "Live" && (
-                      <span className="flex items-center gap-1.5 rounded-full border border-success/30 bg-success/10 px-2.5 py-1 text-[9px] uppercase tracking-[0.25em] text-success">
-                        <span className="h-1.5 w-1.5 rounded-full bg-success" />
-                        Live
-                      </span>
-                    )}
+            <Card className="flex h-full w-[calc(100vw-3rem)] max-w-full min-w-0 flex-col rounded-[2rem] border-border bg-card md:w-full">
+              <CardContent className="flex flex-grow flex-col p-6">
+                <div className="mb-5 flex items-start justify-between gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10">
+                    <Layers3 className="h-5 w-5 text-primary" />
                   </div>
-                  <Layers3 className="h-5 w-5 text-primary" />
+                  {"status" in project && project.status === "Live" && (
+                    <span className="flex items-center gap-1.5 rounded-full border border-success/30 bg-success/10 px-2.5 py-1 text-[9px] uppercase tracking-[0.25em] text-success">
+                      <span className="h-1.5 w-1.5 rounded-full bg-success" />
+                      Live
+                    </span>
+                  )}
                 </div>
-              </div>
 
-              <CardContent className="relative z-10 flex flex-grow flex-col p-6">
                 <h3 className="text-xl font-semibold text-foreground">
                   {project.title}
                 </h3>
@@ -128,17 +126,12 @@ export function FeaturedProjectsSection() {
           transition={{ duration: 0.45, delay: featuredProjects.length * 0.08 }}
           className="w-full"
         >
-          <Card className="relative flex h-full w-[calc(100vw-3rem)] max-w-full min-w-0 flex-col overflow-hidden rounded-[2rem] border-border bg-card md:w-full">
-            <div className="relative h-32 overflow-hidden border-b border-border bg-muted">
-              <div className="absolute inset-x-5 bottom-5 flex items-center justify-between">
-                <Badge className="rounded-full border border-border bg-background/60 text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-                  More
-                </Badge>
+          <Card className="flex h-full w-[calc(100vw-3rem)] max-w-full min-w-0 flex-col rounded-[2rem] border-border bg-card md:w-full">
+            <CardContent className="flex flex-grow flex-col p-6">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10">
                 <FolderOpen className="h-5 w-5 text-primary" />
               </div>
-            </div>
 
-            <CardContent className="flex flex-grow flex-col p-6">
               <h3 className="text-xl font-semibold text-foreground">
                 Explore All Projects
               </h3>

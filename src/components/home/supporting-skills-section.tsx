@@ -25,7 +25,9 @@ export function SupportingSkillsSection() {
         <Card className="rounded-[2rem] border-border bg-card backdrop-blur-xl">
           <CardContent className="p-8">
             <div className="mb-6 flex items-center gap-3">
-              <GraduationCap className="h-6 w-6 text-primary" />
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10">
+                <GraduationCap className="h-5 w-5 text-primary" />
+              </div>
               <div>
                 <p className="text-sm text-primary">ASU Academic Support Network</p>
                 <h3 className="text-2xl font-semibold text-foreground">
@@ -60,7 +62,9 @@ export function SupportingSkillsSection() {
         <Card className="rounded-[2rem] border-border bg-card backdrop-blur-xl">
           <CardContent className="p-8">
             <div className="mb-6 flex items-center gap-3">
-              <Shield className="h-6 w-6 text-primary" />
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10">
+                <Shield className="h-5 w-5 text-primary" />
+              </div>
               <div>
                 <p className="text-sm text-primary">Engineering Strengths</p>
                 <h3 className="text-2xl font-semibold text-foreground">
@@ -86,7 +90,9 @@ export function SupportingSkillsSection() {
       <Card className="mt-6 rounded-[2rem] border-border bg-card backdrop-blur-xl">
         <CardContent className="p-8">
           <div className="mb-6 flex items-center gap-3">
-            <Code2 className="h-6 w-6 text-primary" />
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10">
+              <Code2 className="h-5 w-5 text-primary" />
+            </div>
             <div>
               <p className="text-sm text-primary">Technical Skills</p>
               <h3 className="text-2xl font-semibold text-foreground">
