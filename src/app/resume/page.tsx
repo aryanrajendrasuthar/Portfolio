@@ -24,25 +24,25 @@ import { technicalSkillGroups } from "@/data/skills";
 const highlightCards = [
   {
     icon: Briefcase,
-    title: "Backend & Distributed Systems",
-    text: "4+ years building high-throughput microservices at Avnet and Orion — Java, Spring Boot, Python, FastAPI, Kafka, Kubernetes, and event-driven pipelines processing 2M+ daily transactions.",
+    title: "Backend & Full-Stack Engineering",
+    text: "4+ years building microservices and APIs at Avnet and Orion Technolab — Python, Flask, Java, Spring Boot, GraphQL aggregation, and React/TypeScript frontends across SQL Server, MySQL, and MongoDB.",
   },
   {
     icon: Cloud,
     title: "Cloud-Native Engineering",
-    text: "Production deployments across AWS (EC2, Lambda, S3, SNS, SES) and Azure (AKS, Service Bus, Cognitive Search) with Kubernetes autoscaling, CI/CD pipelines, and 99.98% uptime.",
+    text: "Production deployments across AWS (SQS, S3, Lambda) and Azure (Virtual Machines, Blob Storage, Functions), with Docker containerization and CI/CD via Jenkins and GitHub Actions.",
   },
   {
     icon: BrainCircuit,
-    title: "AI / ML & RAG Systems",
-    text: "Shipped production RAG search pipelines using LangChain, vector embeddings, and Azure Cognitive Search. Built multimodal ML systems, experiment tracking with MLflow, and LLM-integrated product features.",
+    title: "AI / ML Applications",
+    text: "Shipped AI-assisted data validation and anomaly detection in production, plus RAG pipelines, vector search, and multimodal ML systems across personal projects with LangChain, PyTorch, and MLflow.",
   },
 ];
 
 const resumeSignals = [
-  "2M+ daily transactions on Kubernetes at Avnet — 45% scalability improvement under peak load",
-  "27% infrastructure cost reduction and 38% API latency improvement across AWS and Azure",
-  "Production RAG pipeline with LangChain and Azure Cognitive Search — 33% query relevance improvement",
+  "GraphQL aggregation layer at Avnet unifying SQL Server and MongoDB — 60% frontend page load reduction",
+  "25% infrastructure cost reduction migrating Orion Technolab to Azure, while cutting API response times by 50%",
+  "AI-assisted anomaly detection and data validation shipped in Avnet's production ingestion pipeline",
   "PhysioApp — multi-role rehabilitation platform with 12+ entity relationships, deployed Vercel + Railway",
   "Distributed AI Simulation Platform — sub-2s response, LangChain + Redis pub/sub, selfjustice.ca",
   "EmoFusion — 84% weighted F1-score multimodal emotion detection with HuBERT + OpenCV",

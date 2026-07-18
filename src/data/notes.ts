@@ -37,7 +37,7 @@ export const notes: Note[] = [
       "Network is unreliable",
     ],
     whereUsed:
-      "Used in the Distributed AI Simulation Platform to design an event-driven architecture where ingestion, processing, and caching layers are decoupled and independently scalable. Also applied at Avnet architecting microservices processing 2M+ daily transactions across AKS clusters.",
+      "Used in the Distributed AI Simulation Platform to design an event-driven architecture where ingestion, processing, and caching layers are decoupled and independently scalable. Also reflected in the Avnet supply-chain platform, where business logic is split across 7+ independently deployable microservices instead of one monolith.",
     tradeoffs: [
       "Increased system complexity compared to monolithic architecture",
       "Harder debugging due to distributed components",
@@ -60,14 +60,14 @@ export const notes: Note[] = [
     category: "Backend Architecture",
     level: "Intermediate",
     readTime: "5 min read",
-    relatedProject: "Distributed AI Simulation Platform",
-    relatedProjectSlug: "Real-Time-AI-Simulation-Tool",
+    relatedProject: "NeuralOps",
+    relatedProjectSlug: "neural-ops",
     description:
       "Using Kafka to build decoupled, scalable, asynchronous systems.",
     content: [
       "Kafka enables asynchronous communication between services using event streams. Producers publish events, and consumers process them independently without tight coupling.",
       "This allows systems to handle spikes in traffic by buffering events and processing them later. It also enables multiple consumers to react to the same event stream.",
-      "Event-driven systems are especially useful for pipelines, analytics, and distributed processing workloads. At Avnet, Kafka-backed data pipelines increased ingestion throughput by 3.2× and eliminated bottlenecks in real-time analytics workflows.",
+      "Event-driven systems are especially useful for pipelines, analytics, and distributed processing workloads. In NeuralOps, a Kafka-backed trace ingestion pipeline lets the observability platform scale with agent execution volume without coupling producers to consumers.",
     ],
     bullets: [
       "Decouples services",
@@ -75,7 +75,7 @@ export const notes: Note[] = [
       "Improves resilience",
     ],
     whereUsed:
-      "Used at Avnet to decouple event-driven data pipelines from downstream analytics consumers, increasing ingestion throughput by 3.2×. Also used in the Distributed AI Simulation Platform to decouple API ingestion from worker processing via Redis pub/sub.",
+      "Used in NeuralOps to decouple LLM trace ingestion from downstream anomaly-detection and cost-analytics consumers via a Kafka event stream. Also used in the Distributed AI Simulation Platform to decouple API ingestion from worker processing via Redis pub/sub.",
     tradeoffs: [
       "Harder debugging due to asynchronous flow",
       "Message ordering is not guaranteed without careful partitioning",
@@ -105,7 +105,7 @@ export const notes: Note[] = [
     content: [
       "Redis is an in-memory data store used to cache frequently accessed data. It reduces latency and avoids repeated expensive operations such as LLM inference calls, database queries, and embedding generation.",
       "Caching works best when read operations are frequent and the underlying data is expensive to compute or fetch. Common strategies include cache-aside, write-through, and TTL-based expiration.",
-      "At Orion Techno Lab, Redis distributed caching with TTL strategies decreased database load by 37% and improved P95 response time during high-concurrency spikes. In the AI Knowledge Assistant, Redis caching reduced response latency by 60% to sub-300ms.",
+      "In the AI Knowledge Assistant, Redis caching of embeddings and repeated LLM responses reduced response latency by 60% to sub-300ms. The Distributed AI Simulation Platform uses the same in-memory pattern with Redis pub/sub for real-time session state instead of request caching.",
     ],
     bullets: [
       "Reduces latency",
@@ -113,7 +113,7 @@ export const notes: Note[] = [
       "Improves throughput",
     ],
     whereUsed:
-      "Applied in the AI Knowledge Assistant to cache embeddings, repeated LLM responses, and session state — achieving 60% latency reduction to sub-300ms. Also used at Orion Techno Lab to decrease database load by 37% under high-concurrency traffic, and in the Distributed AI Simulation Platform for real-time session state management.",
+      "Applied in the AI Knowledge Assistant to cache embeddings, repeated LLM responses, and session state — achieving 60% latency reduction to sub-300ms. Also used in the Distributed AI Simulation Platform for real-time session state management via Redis pub/sub.",
     tradeoffs: [
       "Cache invalidation complexity",
       "Stale data risk if not managed properly",
@@ -142,8 +142,8 @@ export const notes: Note[] = [
       "Designing scalable backend services with clear boundaries and API contracts.",
     content: [
       "Microservices split applications into smaller, independent services with defined responsibilities. Each service owns its data and exposes APIs for communication.",
-      "Good API design ensures that services remain loosely coupled and independently deployable. RESTful and gRPC APIs both have roles — REST for external clients, gRPC for low-latency internal service-to-service calls.",
-      "At Avnet, low-latency RESTful and gRPC APIs across 10+ distributed microservices reduced average response time by 38%. The challenge is avoiding over-fragmentation and maintaining clear boundaries.",
+      "Good API design ensures that services remain loosely coupled and independently deployable. REST is the default for external clients, while an aggregation layer in front of several services can eliminate multiple round-trips for a single frontend view.",
+      "At Avnet, a GraphQL aggregation layer unifying several backend microservices (SQL Server, MongoDB) let frontend clients fetch complete datasets in one call instead of many REST round-trips, cutting page load times by 60%. The challenge is avoiding over-fragmentation and maintaining clear service boundaries.",
     ],
     bullets: [
       "Loose coupling",
@@ -151,7 +151,7 @@ export const notes: Note[] = [
       "Independent scaling",
     ],
     whereUsed:
-      "Applied in PhysioApp through separation of controllers, services, and data layers across patient, therapist, and admin roles. Also central to the Avnet microservices platform where gRPC APIs enabled seamless cross-service communication across 10+ distributed services.",
+      "Applied in PhysioApp through separation of controllers, services, and data layers across patient, therapist, and admin roles. Also central to the Avnet platform, where a GraphQL aggregation layer sits in front of 7+ backend microservices to give frontend clients a single query surface.",
     tradeoffs: [
       "Increased operational complexity",
       "Network overhead between services",
@@ -181,7 +181,7 @@ export const notes: Note[] = [
     content: [
       "Backend security includes authentication, authorization, encryption, and input validation. Authentication verifies identity, while authorization controls what authenticated users can access.",
       "HTTPS is essential for protecting user data and enabling browser APIs like geolocation. OAuth2 and JWT are the dominant standards for API authentication across modern distributed systems.",
-      "At Orion Techno Lab, implementing OAuth2 and JWT-based authentication with RBAC reduced unauthorized access incidents by 60% and achieved SOC 2 alignment. Role-Based Access Control (RBAC) ensures users can only access the resources and operations appropriate to their role.",
+      "Role-Based Access Control (RBAC) ensures users can only access the resources and operations appropriate to their role — implemented in PhysioApp with three distinct roles (patient, therapist, admin) enforced at the API layer.",
     ],
     bullets: [
       "Auth vs AuthZ",
@@ -189,7 +189,7 @@ export const notes: Note[] = [
       "Server-side validation",
     ],
     whereUsed:
-      "Implemented in Emergency SOS with session-based authentication and HTTPS support for secure geolocation access. Applied at Orion Techno Lab with OAuth2/JWT and RBAC across production APIs — reducing unauthorized access incidents by 60%.",
+      "Implemented in Emergency SOS with session-based authentication and HTTPS support for secure geolocation access. Also applied in PhysioApp with OAuth2/JWT and three-role RBAC (patient, therapist, admin) enforced across every protected API route.",
     tradeoffs: [
       "Additional complexity in auth flows",
       "Performance overhead from encryption",
@@ -223,7 +223,7 @@ export const notes: Note[] = [
       "Cache embeddings and responses",
     ],
     whereUsed:
-      "Used in the AI Knowledge Assistant with hybrid retrieval (dense + sparse), re-ranking, and Redis caching — achieving sub-300ms query response and 60% latency reduction. Also shipped a production RAG pipeline at Avnet using LangChain, vector embeddings, and Azure Cognitive Search, improving internal query relevance by 33%.",
+      "Used in the AI Knowledge Assistant with hybrid retrieval (dense + sparse), re-ranking, and Redis caching — achieving sub-300ms query response and 60% latency reduction. The same hybrid-retrieval pattern (FAISS/Qdrant benchmarked against an Elasticsearch/BM25 baseline) is evaluated in the RAG Incident Resolution research project.",
     tradeoffs: [
       "Retrieval quality directly limits answer quality — garbage in, garbage out",
       "Chunking strategy is non-obvious and significantly impacts recall",
@@ -253,7 +253,7 @@ export const notes: Note[] = [
       "Designing normalized schemas, applying indexing strategies, and tuning queries for high-throughput production systems.",
     content: [
       "Good database design begins with normalization — organizing data to eliminate redundancy and enforce data integrity through entity relationships. A well-normalized schema defines clear ownership boundaries between entities, which directly maps to maintainable service and API design.",
-      "Indexing is the most impactful query optimization lever. Composite indexes on frequently filtered columns, partial indexes on subsets of rows, and covering indexes that satisfy a query entirely from the index all significantly reduce query plan cost. At Avnet, advanced PostgreSQL and MongoDB indexing strategies improved query performance by 41% and reduced data retrieval latency for large-scale datasets.",
+      "Indexing is the most impactful query optimization lever. Composite indexes on frequently filtered columns, partial indexes on subsets of rows, and covering indexes that satisfy a query entirely from the index all significantly reduce query plan cost. At Avnet, transactional data lives in SQL Server with optimized queries and stored procedures, while MongoDB holds unstructured data — unified for frontend consumption through a GraphQL aggregation layer rather than exposing both databases directly to clients.",
       "Beyond indexing, query optimization involves understanding execution plans (EXPLAIN ANALYZE in PostgreSQL), avoiding N+1 query patterns, using connection pooling (PgBouncer), batching writes, and choosing between normalization and strategic denormalization based on access patterns.",
     ],
     bullets: [
@@ -262,7 +262,7 @@ export const notes: Note[] = [
       "Read EXPLAIN ANALYZE",
     ],
     whereUsed:
-      "Applied in PhysioApp designing a normalized schema supporting 12+ entity relationships across patients, therapists, admins, exercise routines, and analytics. Also used at Avnet designing advanced PostgreSQL and MongoDB schemas with optimized indexing strategies — improving query performance by 41%.",
+      "Applied in PhysioApp designing a normalized schema supporting 12+ entity relationships across patients, therapists, admins, exercise routines, and analytics. Also used at Avnet and Orion Technolab — writing optimized SQL Server stored procedures at Avnet, and redesigning MySQL schemas and indexing at Orion Technolab.",
     tradeoffs: [
       "Heavy normalization reduces write complexity but increases join complexity for reads",
       "Indexes speed up reads but slow down writes and consume storage",
@@ -292,7 +292,7 @@ export const notes: Note[] = [
       "Building automated pipelines for testing, building, and deploying software with zero-downtime strategies.",
     content: [
       "Continuous Integration (CI) automatically runs tests and quality checks on every code push, catching regressions before they reach production. Continuous Deployment (CD) automates the release process so that passing builds are deployed without manual intervention — reducing release risk and increasing deployment frequency.",
-      "GitHub Actions is the dominant CI/CD platform for modern projects. A typical pipeline runs type checking, unit tests, integration tests, linting, and security scanning in parallel, then builds a container image, pushes to a registry, and triggers a deployment on the target platform. At Orion Techno Lab, GitHub Actions CI/CD pipelines improved deployment frequency by 2.5× and enabled zero-downtime blue/green releases.",
+      "GitHub Actions is the dominant CI/CD platform for modern projects. A typical pipeline runs type checking, unit tests, integration tests, linting, and security scanning in parallel, then builds a container image, pushes to a registry, and triggers a deployment on the target platform. At Orion Technolab, standardized GitHub Actions pipelines reduced failed deployments and maintained 98%+ uptime for production releases; at Avnet, Jenkins pipelines automate builds, tests, and deployments across a Dockerized microservices platform.",
       "Blue/green deployments maintain two identical environments — blue (current) and green (new). Traffic is switched from blue to green instantly after validation, allowing immediate rollback if issues appear. Kubernetes rolling updates and canary releases are complementary strategies that shift traffic gradually to reduce blast radius.",
     ],
     bullets: [
@@ -301,7 +301,7 @@ export const notes: Note[] = [
       "Fast feedback loops",
     ],
     whereUsed:
-      "Built GitHub Actions CI/CD pipelines for PhysioApp with type checking, automated tests, and deployment to Vercel and Railway. Applied blue/green release strategies at Orion Techno Lab via Docker and Kubernetes — achieving zero-downtime releases and 2.5× deployment frequency improvement.",
+      "Built GitHub Actions CI/CD pipelines for PhysioApp with type checking, automated tests, and deployment to Vercel and Railway. Standardized similar GitHub Actions pipelines at Orion Technolab, and Jenkins pipelines at Avnet, for automated builds, tests, and deployments.",
     tradeoffs: [
       "Pipeline setup time is an upfront investment",
       "Complex pipelines can become bottlenecks if not parallelized",
@@ -329,7 +329,7 @@ export const notes: Note[] = [
       "Designing systems that fully exploit cloud platforms — autoscaling, managed services, cost optimization, and high availability.",
     content: [
       "Cloud-native architecture means designing systems to exploit cloud capabilities rather than simply lifting and shifting on-premise patterns. This includes using managed services (RDS, Lambda, AKS), horizontal autoscaling, infrastructure-as-code, and pay-per-use compute — rather than over-provisioning static servers.",
-      "AWS and Azure each have strong managed service ecosystems. On AWS: EC2 for compute, Lambda for serverless event processing, S3 for object storage, SNS/SQS for messaging, and SES for email. On Azure: AKS for managed Kubernetes, Service Bus for enterprise messaging, Blob Storage, Functions for serverless, and Cognitive Search for AI-powered search. At Avnet, combining AWS and Azure deployments with autoscaling policies cut monthly infrastructure spend by 27% while maintaining 99.98% uptime.",
+      "AWS and Azure each have strong managed service ecosystems. On AWS: EC2 for compute, Lambda for serverless event processing, S3 for object storage, SNS/SQS for messaging, and SES for email. On Azure: AKS for managed Kubernetes, Service Bus for enterprise messaging, Blob Storage, Functions for serverless, and Cognitive Search for AI-powered search. At Orion Technolab, migrating to Azure (Blob Storage, Virtual Machines, Azure Functions) cut monthly infrastructure spend by 25%; at Avnet, AWS SQS, S3, and Lambda handle messaging, storage, and serverless data validation.",
       "Kubernetes autoscaling is a core cloud-native primitive. Horizontal Pod Autoscaler (HPA) scales pod replicas based on CPU/memory or custom metrics. Combined with node autoscaling, this allows systems to handle 10× traffic spikes and scale back to baseline during off-peak hours — directly reducing infrastructure costs.",
     ],
     bullets: [
@@ -338,7 +338,7 @@ export const notes: Note[] = [
       "Design for multi-region failure",
     ],
     whereUsed:
-      "Applied at Avnet architecting Kubernetes (AKS) clusters across AWS and Azure — cutting infrastructure spend by 27% and maintaining 99.98% uptime while processing 2M+ daily transactions. Also used in WorkSafe for enterprise-grade cloud-native deployment with autoscaling and role-aware SaaS infrastructure.",
+      "Applied at Orion Technolab migrating infrastructure to Azure — cutting infrastructure spend by 25% while maintaining 98%+ production uptime. Also used in WorkSafe for enterprise-grade cloud-native deployment with autoscaling and role-aware SaaS infrastructure.",
     tradeoffs: [
       "Cloud-native systems are harder to run locally and test end-to-end",
       "Vendor lock-in risk when relying on proprietary managed services",
@@ -368,7 +368,7 @@ export const notes: Note[] = [
     content: [
       "OAuth2 is the industry standard authorization framework for delegated access. It separates authentication (proving identity) from authorization (granting access to resources) via access tokens. The Authorization Code flow with PKCE is the secure standard for web applications. JWTs (JSON Web Tokens) are commonly used as the token format — self-contained, signed tokens that carry claims about the user without requiring a database lookup on every request.",
       "Role-Based Access Control (RBAC) assigns permissions to roles rather than individual users. Users are then assigned one or more roles. This makes permission management scalable — adding a new permission means updating the role definition, not every user. In PhysioApp, three distinct roles (patient, therapist, admin) controlled access to exercises, patient records, scheduling, and analytics with different permission sets.",
-      "In distributed microservices, JWTs enable stateless authentication — each service can verify the token signature independently without calling a central auth server. Token expiry and refresh flows (short-lived access tokens + longer-lived refresh tokens) balance security with user experience. At Orion Techno Lab, OAuth2 and JWT with RBAC reduced unauthorized access incidents by 60% and achieved SOC 2 alignment.",
+      "In distributed microservices, JWTs enable stateless authentication — each service can verify the token signature independently without calling a central auth server. Token expiry and refresh flows (short-lived access tokens + longer-lived refresh tokens) balance security with user experience. In PhysioApp, JWT-based RBAC across three roles (patient, therapist, admin) enforces this at the middleware level before any handler logic runs.",
     ],
     bullets: [
       "JWT for stateless auth",
@@ -376,7 +376,7 @@ export const notes: Note[] = [
       "Short-lived tokens + refresh",
     ],
     whereUsed:
-      "Implemented in PhysioApp with three RBAC roles (patient, therapist, admin) controlling access to all platform features. Applied at Orion Techno Lab across production APIs using OAuth2 and JWT — reducing unauthorized access incidents by 60% and achieving SOC 2 alignment.",
+      "Implemented in PhysioApp with three RBAC roles (patient, therapist, admin) controlling access to all platform features, with JWT-based authentication enforced at the middleware level across every protected API route.",
     tradeoffs: [
       "JWTs cannot be revoked before expiry without a blocklist",
       "RBAC can become rigid for fine-grained permission scenarios",

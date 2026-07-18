@@ -958,7 +958,7 @@ const layerAProjectsUnordered = [
       "Built a full observability pipeline from LLM agent execution to real-time cost and latency dashboards.",
       "Demonstrated end-to-end Kafka stream processing applied to the AI/ML observability domain.",
       "Delivered anomaly detection, cost analytics, and p99 latency monitoring in a single integrated platform.",
-      "Applied the same Kafka and PostgreSQL patterns used at Avnet to the AI systems observability space.",
+      "Applied event-driven stream processing and relational data modeling patterns to the AI systems observability space.",
     ],
 
     highlights: [

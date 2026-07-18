@@ -1,6 +1,6 @@
 export const assistantKnowledge = {
   intro:
-    "Aryan Suthar is a backend and distributed systems engineer with 4+ years of experience. He is currently a Software Engineer at Avnet in Arizona, architecting high-throughput microservices processing 2M+ daily transactions, and is completing his MS in Software Engineering at Arizona State University (May 2026).",
+    "Aryan Suthar is a backend and full-stack software engineer with 4+ years of experience. He is currently a Software Engineer at Avnet in Arizona, building backend microservices and a GraphQL aggregation layer for a supply-chain data platform, and is completing his MS in Software Engineering at Arizona State University (May 2026).",
 
   skills: [
     "Java",
@@ -55,9 +55,9 @@ export const assistantKnowledge = {
 
   experience: {
     avnet:
-      "At Avnet (Dec 2025 – Present), Aryan is a Software Engineer architecting a high-throughput microservices platform using Java, Spring Boot, and Apache Kafka — processing 2M+ daily transactions across Kubernetes (AKS) clusters. He engineered low-latency RESTful and gRPC APIs, cut infrastructure spend by 27%, increased data ingestion throughput by 3.2×, improved PostgreSQL and MongoDB query performance by 41% through indexing, and shipped a production RAG search pipeline using LangChain and Azure Cognitive Search that improved query relevance by 33%.",
+      "At Avnet (Dec 2025 – Present), Aryan is a Software Engineer building backend microservices in Python and Flask across 7+ services for data ingestion and core business logic. He maintains transactional data in SQL Server, built a GraphQL aggregation layer unifying SQL Server and MongoDB that cut page load times by 60%, integrated AWS SQS/S3/Lambda for messaging, storage, and serverless data validation (processing ~20,000 records/day), added AI-powered anomaly detection to the data pipeline, wrote a comprehensive PyTest suite, and set up Docker/Jenkins CI/CD — while building internal Python automation scripts that save 3+ engineering hours per week.",
     orion:
-      "At Orion Techno Lab (Jan 2021 – Jul 2024), Aryan developed scalable backend systems using Python, Django, and FastAPI handling 500K+ daily API requests, built frontend applications with React and Next.js, deployed containerized apps on Docker and Kubernetes with zero-downtime blue/green releases, strengthened API security with OAuth2/JWT, mentored 2 junior engineers through code reviews and pair programming, and integrated TensorFlow and MLflow ML pipelines into product features.",
+      "At Orion Technolab (Jan 2021 – Jul 2024), Aryan built responsive single-page applications with React.js, TypeScript, and Redux, developed RESTful microservices with Java and Spring Boot that cut page load times by 30%, redesigned MySQL schemas and indexing for better query performance, migrated infrastructure to Azure (Blob Storage, Virtual Machines, Azure Functions) cutting infrastructure spend by 25%, standardized CI/CD with GitHub Actions maintaining 98%+ production uptime, and improved API response times by 50% through asynchronous processing and Azure Monitor observability.",
   },
 
   projects: {
