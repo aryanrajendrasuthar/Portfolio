@@ -11,6 +11,10 @@ export const experience = [
       "Designed advanced PostgreSQL and MongoDB schemas with optimized indexing strategies, improving query performance by 41% and reducing data retrieval latency for large-scale datasets.",
       "Shipped a production RAG search pipeline using LangChain, vector embeddings, and Azure Cognitive Search — enhancing internal query relevance by 33% and reducing manual lookup time for analyst teams.",
       "Collaborated with product and infrastructure teams to define API contracts and architecture standards across 3 cross-functional squads, accelerating feature delivery velocity by 20%.",
+      "Own and maintain a global supply-chain platform spanning suppliers, inventory, procurement, warehouses, and order management, processing roughly 20,000 supplier records per day — tens of thousands of rows per upload — across a catalog of hundreds of thousands of active SKUs.",
+      "Reduced frontend page load time by 60% by introducing a GraphQL aggregation layer, and cut deployment overhead by roughly 3 engineering hours per week through Jenkins-based deployment automation.",
+      "Improved system reliability through comprehensive automated test coverage (a stubbed/mocked PyTest suite built around test-driven development) and added AI-assisted anomaly detection and data validation to the ingestion pipeline.",
+      "Worked across SQL Server and MongoDB with stored procedures and query optimization, and used AWS SQS — with retry logic and a dead-letter queue after three failed attempts — alongside S3 for secure, event-driven data storage and validation.",
     ],
   },
   {
@@ -25,6 +29,9 @@ export const experience = [
       "Leveraged Redis distributed caching with TTL strategies, decreasing database load by 37% and improving P95 response time during high-concurrency traffic spikes.",
       "Spearheaded code reviews and pair-programming sessions with 2 junior engineers, improving team defect detection rate by 25% and reducing onboarding time by 30%.",
       "Integrated TensorFlow and MLflow ML pipelines into product features, increasing predictive model accuracy by 22% and enabling data-driven personalization at scale.",
+      "Delivered a Java Spring Boot enterprise platform (5+ microservices) covering CRM, inventory, orders, reporting, and product management for production customers, as part of a cross-functional team of roughly 12 engineers spanning frontend, backend, QA, DevOps, product, and design.",
+      "Migrated infrastructure to Azure (Virtual Machines, Blob Storage, Azure Functions), cutting infrastructure spend by 25% and adding observability via Azure Monitor and Application Insights, while maintaining 98%+ production uptime.",
+      "Worked across MySQL and MongoDB with schema redesign, indexing, and query optimization, and built responsive single-page frontends with React, Redux, and TypeScript.",
     ],
   },
 ];

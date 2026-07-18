@@ -1144,6 +1144,7 @@ const layerAProjectsUnordered = [
       "Each of the five services scales independently behind the API gateway based on its own load profile.",
       "MySQL and MongoDB scale on separate paths since transactional and unstructured workloads have different bottlenecks.",
       "New domains (e.g. shipping, returns) can be added as additional services without touching existing ones.",
+      "Architected for a multi-tenant deployment model with per-service horizontal scaling, targeting sub-150ms API latency and high-availability database replication as usage grows.",
     ],
 
     challenges: [
@@ -1240,6 +1241,7 @@ const layerAProjectsUnordered = [
       "SQS absorbs ingestion bursts so upstream services never block on downstream validation throughput.",
       "Each of the six services scales independently based on its own load.",
       "The AI validation worker can scale out horizontally as a queue consumer without touching the services producing the events.",
+      "Designed to handle multi-million-request daily traffic (target: 3M+ requests/day at sub-200ms average latency), with SQS absorbing ingestion bursts so upstream services never wait on downstream validation throughput.",
     ],
 
     challenges: [
@@ -1346,6 +1348,7 @@ const layerAProjectsUnordered = [
       "Each of the seven modules scales independently on Kubernetes based on its own load profile.",
       "TimescaleDB handles the growing time-series load from cost and observability data separately from Neo4j's graph queries.",
       "The dual-cloud (AWS primary / Azure secondary) setup supports failover and geographic scaling without a single-cloud ceiling.",
+      "Designed for horizontal scaling across all seven modules on Kubernetes, targeting sub-100ms average API latency with multi-region failover between the AWS-primary and Azure-secondary deployments.",
     ],
 
     challenges: [
@@ -1436,6 +1439,7 @@ const layerAProjectsUnordered = [
     scalingStrategy: [
       "The 8-layer architecture is designed to be Docker/Kubernetes-deployable so the research prototype can become a production copilot without a rewrite.",
       "Vector store choice (FAISS vs. Qdrant) is decided by the benchmark results, keeping the system tuned to measured performance rather than a fixed assumption.",
+      "Benchmarked retrieval latency under 50ms and end-to-end response generation under 2 seconds as the performance target for the production-deployable architecture.",
     ],
 
     challenges: [
