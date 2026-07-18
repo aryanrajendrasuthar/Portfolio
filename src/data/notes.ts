@@ -393,4 +393,78 @@ export const notes: Note[] = [
       "Situations where session-based auth is simpler and sufficient",
     ],
   },
+  {
+    slug: "testing-strategy-stubs-mocks-tdd",
+    title: "Testing Strategy: Stubs, Mocks & TDD",
+    category: "Testing & Quality",
+    level: "Intermediate",
+    readTime: "5 min read",
+    relatedProject: "CoreSuite",
+    relatedProjectSlug: "coresuite",
+    description:
+      "Building fast, deterministic test suites by isolating dependencies with stubs and mocks, and using TDD to clarify contracts before writing code.",
+    content: [
+      "Automated testing exists to catch regressions before they reach production, but the value depends entirely on what's actually being tested. Unit tests should isolate a single unit of logic; anything that reaches a database, network call, or external service needs to be stubbed or mocked so the test stays fast and deterministic.",
+      "Stubs return canned responses so a test can exercise a code path without depending on the real dependency being available. Mocks go further — they also assert that specific calls happened with specific arguments, which is useful for verifying a service correctly delegates work without duplicating the dependency's own test suite.",
+      "Test-Driven Development (TDD) writes the failing test first, then the minimum code to pass it, then refactors. The real benefit isn't the tests themselves — it's that TDD forces you to think through a function's contract and edge cases before implementation, which tends to produce cleaner interfaces. At Avnet, a comprehensive PyTest suite with stubbed and mocked service dependencies, built around TDD, improved overall system reliability across a 7+ service backend.",
+    ],
+    bullets: [
+      "Stub dependencies, don't skip tests",
+      "TDD clarifies contracts before code",
+      "Fast, deterministic tests catch regressions early",
+    ],
+    whereUsed:
+      "Applied at Avnet, where a comprehensive PyTest suite — with stubs and mocks isolating service components — supports test-driven development across the backend microservices platform. The same quality rigor (automated dependency and secret scanning via OWASP Dependency-Check, TruffleHog, and CodeQL) is built into CoreSuite's CI pipeline.",
+    tradeoffs: [
+      "Over-mocking can make tests pass while the real integration is broken — some integration-level coverage is still necessary",
+      "TDD has a learning curve and can feel slower initially, even though it usually pays off in fewer production bugs",
+      "Stub/mock setup adds boilerplate that needs to stay in sync with the real dependency's interface",
+    ],
+    useWhen: [
+      "Business logic with clear inputs and outputs",
+      "Code that calls external services, databases, or APIs",
+      "Any codebase where regressions are costly to catch late",
+    ],
+    avoidWhen: [
+      "Throwaway scripts or one-off prototypes",
+      "UI code where snapshot or visual testing is more effective than unit tests",
+    ],
+  },
+  {
+    slug: "aws-messaging-sqs-retries-dlq",
+    title: "Reliable Messaging with AWS SQS",
+    category: "Cloud Engineering",
+    level: "Intermediate",
+    readTime: "4 min read",
+    relatedProject: "SupplyForge",
+    relatedProjectSlug: "supplyforge",
+    description:
+      "Using AWS SQS to decouple services and handle failures gracefully with bounded retries and dead-letter queues.",
+    content: [
+      "SQS decouples producers from consumers — a service publishes a message and moves on, without waiting for whatever processes it downstream. This absorbs traffic spikes and means a slow or temporarily-down consumer doesn't block the producer.",
+      "Messages that fail processing shouldn't be silently dropped or retried forever. A retry policy with a bounded number of attempts, combined with a dead-letter queue (DLQ) that captures messages after repeated failures, keeps the main queue healthy while preserving failed messages for inspection instead of losing them.",
+      "At Avnet, SQS handles reliable message queuing between services, with a retry strategy and a dead-letter queue after three failed attempts. SupplyForge applies the same pattern for its async, AI-assisted ingestion pipeline, keeping validation off the request path entirely.",
+    ],
+    bullets: [
+      "Decouples producers from consumers",
+      "Bounded retries, not infinite ones",
+      "DLQ preserves failed messages for inspection",
+    ],
+    whereUsed:
+      "Used at Avnet for reliable inter-service messaging, with retry logic and a dead-letter queue after three failed attempts. Applied the same way in SupplyForge, where incoming records flow through SQS into an async pipeline instead of being validated synchronously on the request path.",
+    tradeoffs: [
+      "Asynchronous processing means the producer can't know immediately whether a message succeeded",
+      "DLQs need active monitoring — a growing DLQ is a silent failure if nobody's watching it",
+      "Message ordering isn't guaranteed with standard SQS queues; FIFO queues trade some throughput for ordering",
+    ],
+    useWhen: [
+      "Inter-service communication that doesn't need an immediate response",
+      "Ingestion pipelines that need to absorb traffic bursts",
+      "Any workflow where a failed operation should be retried rather than immediately surfaced as an error",
+    ],
+    avoidWhen: [
+      "Synchronous request/response flows where the caller needs an immediate result",
+      "Low-volume systems where the added infrastructure isn't justified",
+    ],
+  },
 ];
