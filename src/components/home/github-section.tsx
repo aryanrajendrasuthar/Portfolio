@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { SectionTitle } from "@/components/layout/section-title";
 import { getGitHubRepos, type GitHubRepo } from "@/lib/github";
-import { githubConfig } from "@/data/github";
+import { githubConfig, featuredRepoNames } from "@/data/github";
 
 function formatDate(dateString: string) {
   return new Date(dateString).toLocaleDateString("en-US", {
@@ -23,7 +23,9 @@ export async function GitHubSection() {
     repos = [];
   }
 
-  const topRepos = repos.slice(0, 6);
+  const topRepos = featuredRepoNames
+    .map((name) => repos.find((repo) => repo.name === name))
+    .filter((repo): repo is GitHubRepo => Boolean(repo));
 
   return (
     <section id="github" className="mx-auto max-w-7xl px-6 py-20">
