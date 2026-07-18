@@ -20,8 +20,6 @@ const layerAProjectsUnordered = [
     dataFlow:
       "Zustand State → IndexedDB Persistence → Fire-and-Forget API Sync → Supabase/PostgreSQL → AI Coach",
 
-    architectureImage: "",
-
     stack: [
       "Next.js 14",
       "TypeScript",
@@ -123,8 +121,6 @@ const layerAProjectsUnordered = [
     dataFlow:
       "Worker Health Data → Risk Scoring → BullMQ Jobs → Compliance Reports → Role-Based Dashboards",
 
-    architectureImage: "",
-
     stack: [
       "React",
       "NestJS",
@@ -219,8 +215,6 @@ const layerAProjectsUnordered = [
 
     dataFlow:
       "Intake → LangChain Prompt Router → RAG Retrieval → Redis State → FastAPI → React UI",
-
-    architectureImage: "/architectures/distributed-ai.png",
 
     stack: [
       "Python",
@@ -322,8 +316,6 @@ const layerAProjectsUnordered = [
     dataFlow:
       "Patient Onboarding → Routine Builder → Live Session Tracking → Analytics Dashboard → Therapist Review",
 
-    architectureImage: "/architectures/physio-ai.png",
-
     stack: [
       "Next.js",
       "FastAPI",
@@ -422,8 +414,6 @@ const layerAProjectsUnordered = [
     dataFlow:
       "Admin Login → Client / Quote Entry → Line Items & Extras → PDF Export → Storage → Share",
 
-    architectureImage: "/architectures/quotation-system.png",
-
     stack: [
       "React",
       "Vite",
@@ -521,8 +511,6 @@ const layerAProjectsUnordered = [
 
     dataFlow:
       "Signup → OTP Verify → Login → GPS Capture → SOS Trigger → Twilio SMS → Google Maps Link",
-
-    architectureImage: "/architectures/emergency-sos.png",
 
     stack: [
       "Node.js",
@@ -623,8 +611,6 @@ const layerAProjectsUnordered = [
     dataFlow:
       "Input (Image + Audio) → OpenCV + HuBERT Feature Extraction → Late Fusion → Classifier → MLflow Tracking",
 
-    architectureImage: "/architectures/emofusion.png",
-
     stack: [
       "Python",
       "PyTorch",
@@ -720,8 +706,6 @@ const layerAProjectsUnordered = [
 
     dataFlow:
       "Documents → Embeddings → Vector Store → Hybrid Retrieval + Re-ranking → LLM Prompt → Response + Attribution",
-
-    architectureImage: "",
 
     stack: [
       "Python",
@@ -820,8 +804,6 @@ const layerAProjectsUnordered = [
     dataFlow:
       "Wake Word → STT → Intent Router → LLM / YouTube / Reminders / System → TTS Response",
 
-    architectureImage: "",
-
     stack: [
       "Python",
       "OpenAI API",
@@ -919,8 +901,6 @@ const layerAProjectsUnordered = [
     dataFlow:
       "LLM Agent Traces → Kafka → FastAPI Consumer → PostgreSQL → React Dashboard",
 
-    architectureImage: "",
-
     stack: [
       "Python",
       "FastAPI",
@@ -1017,8 +997,6 @@ const layerAProjectsUnordered = [
     dataFlow:
       "Slack / GitHub / Jira → Ingestion → Neo4j Graph + Vector Store → Hybrid Retrieval → LangChain → Attributed Response",
 
-    architectureImage: "",
-
     stack: [
       "Python",
       "FastAPI",
@@ -1098,21 +1076,412 @@ const layerAProjectsUnordered = [
       "Source attribution is not optional for enterprise use cases — users must be able to verify the basis of every answer.",
     ],
   },
+
+  {
+    slug: "coresuite",
+    title: "CoreSuite — Enterprise Business Management Platform",
+    category: "Enterprise / Full-Stack",
+    status: "In Development",
+    year: 2026,
+    tagline:
+      "Clean-room enterprise platform unifying product catalog, CRM, inventory, and order operations behind one API gateway.",
+
+    engineeringSummary:
+      "Built a microservices platform in Java and Spring Boot — separate product, CRM, inventory, order, and reporting services behind a single API gateway — backed by MySQL for the transactional core and MongoDB for unstructured CRM and product data. Security is designed in from day one: Argon2id password hashing with TOTP 2FA, AES-256-GCM field-level encryption, and IDOR checks enforced on every mutation. React, TypeScript, and Redux drive the frontend; GitHub Actions CI runs OWASP Dependency-Check, TruffleHog secret scanning, and CodeQL on every push.",
+
+    metrics: [
+      "🧩 5 independently deployable services",
+      "🔐 Argon2id + TOTP 2FA",
+      "🔒 AES-256-GCM field-level encryption",
+    ],
+
+    dataFlow:
+      "Client (React/Redux) → API Gateway → Product / CRM / Inventory / Order / Reporting Services → MySQL (transactional) + MongoDB (unstructured)",
+
+    stack: [
+      "React",
+      "TypeScript",
+      "Redux",
+      "Java",
+      "Spring Boot",
+      "MySQL",
+      "MongoDB",
+      "Docker",
+      "GitHub Actions",
+      "OWASP Dependency-Check",
+      "TruffleHog",
+      "CodeQL",
+    ],
+
+    github: "https://github.com/aryanrajendrasuthar/CoreSuite",
+
+    overview:
+      "CoreSuite rebuilds the core of enterprise business management — product catalog, CRM, inventory control, order processing, and reporting — as a clean-room, IP-owned system. It's built to keep a mid-size business's product, customer, and fulfillment data in sync in real time across independently deployable services.",
+
+    problem:
+      "Mid-size businesses running product, customer, inventory, and order operations across disconnected tools end up with data that drifts out of sync — a sale isn't reflected in inventory, a CRM update doesn't reach fulfillment, and reporting lags behind what's actually happening in the business.",
+
+    solution:
+      "Designed five independently deployable Spring Boot microservices — product, CRM, inventory, order, and reporting — behind a single API gateway, with MySQL as the transactional core and MongoDB for unstructured CRM and product data, so every service can scale and deploy on its own schedule while staying consistent.",
+
+    architecture: [
+      "React, TypeScript, and Redux drive the frontend, talking to a single API gateway.",
+      "The API gateway routes requests to five independently deployable Spring Boot microservices: product, CRM, inventory, order, and reporting/analytics.",
+      "MySQL holds the transactional core (orders, inventory counts); MongoDB stores unstructured CRM and product data.",
+      "Every mutation runs through IDOR checks so a request can't act on data it doesn't own.",
+      "Argon2id password hashing with TOTP-based 2FA protects authentication; AES-256-GCM encrypts sensitive fields at rest.",
+      "Docker containerizes every service; GitHub Actions CI runs OWASP Dependency-Check, TruffleHog, and CodeQL on every push.",
+    ],
+
+    engineeringDecisions: [
+      "Split product, CRM, inventory, order, and reporting into independently deployable services instead of a monolith, so each domain can scale and ship on its own timeline.",
+      "Chose MySQL for transactional data and MongoDB for unstructured CRM/product data instead of forcing one database to fit both shapes.",
+      "Designed the security baseline — 2FA, field-level encryption, IDOR checks — in from the first commit instead of retrofitting it after the domain logic was built.",
+      "Put OWASP Dependency-Check, TruffleHog, and CodeQL directly in CI so dependency vulnerabilities and leaked secrets are caught before merge, not after.",
+    ],
+
+    scalingStrategy: [
+      "Each of the five services scales independently behind the API gateway based on its own load profile.",
+      "MySQL and MongoDB scale on separate paths since transactional and unstructured workloads have different bottlenecks.",
+      "New domains (e.g. shipping, returns) can be added as additional services without touching existing ones.",
+    ],
+
+    challenges: [
+      "Keeping product, inventory, and order data consistent in real time across five separately deployable services.",
+      "Designing field-level encryption and IDOR checks that don't add meaningful latency to every mutation.",
+      "Splitting a naturally interconnected business domain (product ↔ CRM ↔ inventory ↔ order) into service boundaries that don't create constant cross-service chatter.",
+    ],
+
+    outcome: [
+      "Delivered a 5-service microservices platform covering the full product-to-fulfillment domain behind one API gateway.",
+      "Built a full security baseline — Argon2id + TOTP 2FA, AES-256-GCM field-level encryption, IDOR checks on every mutation — from day one.",
+      "Wired OWASP Dependency-Check, TruffleHog, and CodeQL into CI so every push is scanned for vulnerable dependencies, leaked secrets, and code-level security issues.",
+    ],
+
+    highlights: [
+      "5 independently deployable Spring Boot microservices behind one API gateway",
+      "MySQL for transactional core, MongoDB for unstructured CRM/product data",
+      "Argon2id + TOTP 2FA authentication",
+      "AES-256-GCM field-level encryption on sensitive data",
+      "IDOR checks enforced on every mutation",
+      "CI-enforced security scanning: OWASP Dependency-Check, TruffleHog, CodeQL",
+    ],
+
+    learnings: [
+      "Designing the security baseline before the domain logic makes it a first-class constraint instead of an afterthought bolted on later.",
+      "Splitting a tightly-coupled business domain into services is as much about picking the right seams as it is about the code itself.",
+      "Running secret and dependency scanning in CI catches problems while they're still a one-line fix, not a production incident.",
+    ],
+  },
+
+  {
+    slug: "supplyforge",
+    title: "SupplyForge — Supply Chain & Inventory Management Platform",
+    category: "Backend / Distributed Systems",
+    status: "Live",
+    year: 2026,
+    tagline:
+      "Supply chain platform covering the full supplier lifecycle with an async, AI-assisted ingestion pipeline built for high-volume data.",
+
+    engineeringSummary:
+      "Built six Flask microservices — supplier, catalog, inventory, order, ingestion, and an AI validation worker — behind an Ariadne GraphQL gateway, with SQL Server and MongoDB as the data layer. Incoming records flow through AWS SQS into an async ingestion pipeline that runs AI-assisted anomaly detection without blocking the request path, and order/inventory sync uses the Saga pattern for eventual consistency instead of synchronous locking. Sentry and Grafana Cloud cover observability; the dashboard is React and TypeScript.",
+
+    metrics: [
+      "📦 6 services, full supplier lifecycle",
+      "⚡ Async AI validation queue",
+      "🔁 Saga-pattern order/inventory sync",
+    ],
+
+    dataFlow:
+      "Supplier/Catalog/Inventory/Order Services → Ariadne GraphQL Gateway → AWS SQS → Async Ingestion + AI Validation Worker → SQL Server + MongoDB",
+
+    stack: [
+      "Python 3.12",
+      "Flask",
+      "Ariadne GraphQL",
+      "SQL Server",
+      "MongoDB",
+      "AWS SQS",
+      "React",
+      "TypeScript",
+      "Sentry",
+      "Grafana Cloud",
+    ],
+
+    github: "https://github.com/aryanrajendrasuthar/SupplyForge",
+
+    overview:
+      "SupplyForge covers the full supplier lifecycle — onboarding, catalog, inventory, and order management — for supply chain operations that need to ingest high volumes of incoming data without incurring the latency cost of synchronous validation.",
+
+    problem:
+      "The system SupplyForge is modeled on validated incoming supplier and inventory records synchronously, so every request paid the cost of validation and anomaly checks on the request path — a latency problem at any real volume.",
+
+    solution:
+      "Moved data ingestion off the request path entirely: incoming records go through AWS SQS into an async pipeline where an AI validation worker runs anomaly detection, and order/inventory sync uses the Saga pattern for eventual consistency instead of holding synchronous locks across services.",
+
+    architecture: [
+      "React and TypeScript dashboard talks to an Ariadne GraphQL gateway.",
+      "The gateway routes to six Flask microservices: supplier, catalog, inventory, order, ingestion, and an AI validation worker.",
+      "Incoming supplier/catalog records are pushed to AWS SQS rather than validated synchronously on the request path.",
+      "The ingestion service consumes from SQS and runs AI-assisted anomaly detection asynchronously.",
+      "Order and inventory sync uses the Saga pattern — a sequence of local transactions with compensating actions — instead of distributed locking, trading strict consistency for throughput.",
+      "SQL Server holds structured transactional data; MongoDB stores unstructured supplier/catalog data.",
+      "Sentry tracks errors and Grafana Cloud covers metrics/observability across all six services.",
+    ],
+
+    engineeringDecisions: [
+      "Moved AI-assisted validation off the request path into an async SQS-driven pipeline specifically because the reference system's synchronous validation was the latency bottleneck.",
+      "Used the Saga pattern for order/inventory sync instead of two-phase commit or distributed locks, accepting eventual consistency in exchange for not blocking either service on the other.",
+      "Chose Ariadne for the GraphQL gateway to give the dashboard a single typed query surface across six independently owned services.",
+      "Split SQL Server (structured/transactional) from MongoDB (unstructured supplier/catalog data) instead of forcing one database to hold both shapes.",
+    ],
+
+    scalingStrategy: [
+      "SQS absorbs ingestion bursts so upstream services never block on downstream validation throughput.",
+      "Each of the six services scales independently based on its own load.",
+      "The AI validation worker can scale out horizontally as a queue consumer without touching the services producing the events.",
+    ],
+
+    challenges: [
+      "Redesigning a synchronous validation flow into an async, eventually-consistent pipeline without losing data integrity guarantees.",
+      "Implementing the Saga pattern's compensating transactions correctly across order and inventory services.",
+      "Tuning AI-assisted anomaly detection to run fast enough as an async worker without becoming the new bottleneck.",
+    ],
+
+    outcome: [
+      "Shipped a 6-service platform covering the full supplier-to-order lifecycle, in production.",
+      "Replaced synchronous request-path validation with an async SQS-driven pipeline and AI-assisted anomaly detection.",
+      "Implemented Saga-pattern order/inventory sync for eventual consistency at higher throughput than the synchronous approach it replaced.",
+    ],
+
+    highlights: [
+      "6 Flask microservices: supplier, catalog, inventory, order, ingestion, AI validation worker",
+      "Ariadne GraphQL gateway as the single dashboard query surface",
+      "Async, AI-assisted anomaly detection via AWS SQS — off the request path",
+      "Saga-pattern eventual consistency between order and inventory services",
+      "SQL Server + MongoDB split by data shape",
+      "Sentry + Grafana Cloud observability across all services",
+    ],
+
+    learnings: [
+      "Moving validation off the request path is often a bigger latency win than optimizing the validation logic itself.",
+      "The Saga pattern trades strict consistency for throughput — the right call when the alternative is blocking two services on each other.",
+      "Async AI-assisted validation still needs a throughput budget; it can become the new bottleneck if left unbounded.",
+    ],
+  },
+
+  {
+    slug: "opscortex",
+    title: "OpsCortex — Operational Intelligence Layer for Engineering Organizations",
+    category: "Platform / AI Observability",
+    status: "Live",
+    year: 2026,
+    tagline:
+      "Seven AI-powered modules sharing one intelligence graph, so a single signal surfaces the business decision, revenue at risk, and downstream pipelines behind it.",
+
+    engineeringSummary:
+      "Built seven AI-powered modules — API contract inference, cost-per-tenant intelligence, decision knowledge graphs, code-drift detection, self-healing data pipelines, zero-downtime DB migrations, and LLM token governance — sharing one intelligence graph across Python/FastAPI, Java/Spring Boot 3, and Node.js backends, with a Next.js 14 and TypeScript frontend. Data infrastructure spans PostgreSQL/TimescaleDB, Neo4j, Elasticsearch, Redis, and Kafka, deployed on Kubernetes across AWS (primary) and Azure (secondary) via Terraform and Helm. OpenAI and Claude 3.5 Sonnet power the AI layer.",
+
+    metrics: [
+      "🧠 7 modules on one shared intelligence graph",
+      "💵 Free → $1,999/mo Platform tier",
+      "🎯 Targeting 3+ paying customers, $3K+ MRR",
+    ],
+
+    dataFlow:
+      "Kafka Event Stream → 7 AI Modules (FastAPI/Spring Boot/Node.js) → Shared Intelligence Graph (Neo4j + TimescaleDB) → Next.js Dashboard",
+
+    stack: [
+      "Python",
+      "FastAPI",
+      "Java",
+      "Spring Boot 3",
+      "Node.js",
+      "Next.js 14",
+      "TypeScript",
+      "PostgreSQL",
+      "TimescaleDB",
+      "Neo4j",
+      "Elasticsearch",
+      "Redis",
+      "Apache Kafka",
+      "Kubernetes",
+      "Docker",
+      "Terraform",
+      "Helm",
+      "AWS",
+      "Azure",
+      "OpenAI",
+      "Claude 3.5 Sonnet",
+    ],
+
+    github: "https://github.com/aryanrajendrasuthar/OpsCortex",
+
+    overview:
+      "OpsCortex is an operational intelligence layer for engineering organizations. Seven AI-powered modules — API contract inference, cost-per-tenant intelligence, decision knowledge graphs, code-drift detection, self-healing data pipelines, zero-downtime DB migrations, and LLM token governance — all write into one shared intelligence graph, so a single signal like a breaking API change surfaces the business decision behind it, the revenue at risk, and the downstream pipelines that would fail.",
+
+    problem:
+      "Engineering organizations run cost monitoring, API contract tracking, migration tooling, and LLM cost governance as separate, disconnected tools. A breaking API change shows up in one dashboard, the revenue impact lives in another, and nobody sees the connection until something breaks in production.",
+
+    solution:
+      "Built seven purpose-specific modules that all write into one shared intelligence graph instead of operating as isolated tools, so a signal in any one module — like a breaking API contract — surfaces the connected business decision, the revenue at risk, and the downstream pipelines that depend on it.",
+
+    architecture: [
+      "Seven modules — API contract inference, cost-per-tenant intelligence, decision knowledge graphs, code-drift detection, self-healing data pipelines, zero-downtime DB migrations, and LLM token governance — run as services across Python/FastAPI, Java/Spring Boot 3, and Node.js.",
+      "Apache Kafka carries events between modules and into the shared intelligence graph.",
+      "Neo4j models the relationships between signals, decisions, revenue, and pipelines; PostgreSQL/TimescaleDB hold time-series and relational data; Elasticsearch powers search; Redis handles caching.",
+      "OpenAI and Claude 3.5 Sonnet power the AI layer across modules — contract inference, anomaly detection, and drift analysis.",
+      "Kubernetes runs the platform on AWS as primary with Azure as secondary, provisioned via Terraform and deployed with Helm.",
+      "A Next.js 14 and TypeScript frontend surfaces the shared graph as a single operational dashboard.",
+    ],
+
+    engineeringDecisions: [
+      "Built one shared intelligence graph across all seven modules instead of seven siloed tools, so a signal in one module (a breaking API change) automatically links to its business impact in another (revenue at risk).",
+      "Split backends across FastAPI, Spring Boot 3, and Node.js by module rather than forcing one stack, matching each module's workload to the runtime best suited for it.",
+      "Ran AWS as primary with Azure as secondary for multi-cloud resilience rather than single-cloud dependency.",
+      "Used Kafka as the event backbone connecting all seven modules to the shared graph in near real time.",
+    ],
+
+    scalingStrategy: [
+      "Each of the seven modules scales independently on Kubernetes based on its own load profile.",
+      "TimescaleDB handles the growing time-series load from cost and observability data separately from Neo4j's graph queries.",
+      "The dual-cloud (AWS primary / Azure secondary) setup supports failover and geographic scaling without a single-cloud ceiling.",
+    ],
+
+    challenges: [
+      "Designing a shared intelligence graph schema general enough to connect signals from seven functionally different modules.",
+      "Coordinating three different backend runtimes (FastAPI, Spring Boot 3, Node.js) around one consistent event contract over Kafka.",
+      "Balancing AI cost (OpenAI + Claude usage across modules) against the LLM token governance module's own job of controlling that same cost.",
+    ],
+
+    outcome: [
+      "Shipped a 7-module platform in production, all writing into one shared intelligence graph.",
+      "Built a tiered pricing model from free up to a $1,999/mo Platform tier.",
+      "Actively working toward 3+ paying customers and $3K+ MRR ahead of a YC W27 application.",
+    ],
+
+    highlights: [
+      "7 AI-powered modules on one shared intelligence graph",
+      "API contract inference, cost-per-tenant intelligence, decision knowledge graphs, code-drift detection, self-healing pipelines, zero-downtime migrations, LLM token governance",
+      "Multi-cloud: AWS primary, Azure secondary, via Terraform + Helm on Kubernetes",
+      "OpenAI + Claude 3.5 Sonnet powering the AI layer",
+      "Pricing from free to $1,999/mo Platform tier",
+      "Roadmap: 3+ paying customers and $3K+ MRR ahead of a YC W27 application",
+    ],
+
+    learnings: [
+      "A shared intelligence graph turns seven separate tools into one connected system — the value is in the links between signals, not any single module alone.",
+      "Matching each module's backend runtime to its workload is more maintainable long-term than forcing one stack across a diverse module set.",
+      "Building the AI cost-governance module while also being an AI cost center yourself forces genuinely disciplined usage decisions.",
+    ],
+  },
+
+  {
+    slug: "rag-incident-resolution",
+    title:
+      "RAG Incident Resolution — Cutting Cloud Incident MTTR with Retrieval-Augmented Generation",
+    category: "Research / AI",
+    status: "Live",
+    year: 2026,
+    tagline:
+      "Faculty-supervised research testing whether RAG retrieves more relevant incident data than keyword search, and measurably shortens cloud incident investigation time.",
+
+    engineeringSummary:
+      "Built a RAG pipeline with LangChain and FastAPI, benchmarking FAISS against Qdrant for vector retrieval head-to-head, with MLflow tracking experiments. Retrieval quality is evaluated against an Elasticsearch/BM25 keyword-search baseline using MRR, NDCG, Precision@k, ROUGE, and BERTScore, targeting an 8-layer, Docker/Kubernetes-deployable production system as an open-source RAG copilot for cloud and SRE teams.",
+
+    metrics: [
+      "📚 Co-authored ASU SCAI research",
+      "🔬 Benchmarked against Elasticsearch/BM25",
+      "🎯 Targeting IEEE ISSRE 2027 / IEEE Access",
+    ],
+
+    dataFlow:
+      "Incident Data → FAISS / Qdrant Retrieval (benchmarked) → LangChain RAG Pipeline → FastAPI → Evaluated vs. Elasticsearch/BM25 Baseline",
+
+    stack: [
+      "FAISS",
+      "Qdrant",
+      "LangChain",
+      "FastAPI",
+      "MLflow",
+      "Elasticsearch",
+      "BM25",
+    ],
+
+    github: "https://github.com/aryanrajendrasuthar/RAGIncidentResolution",
+
+    overview:
+      "RAG Incident Resolution is a faculty-supervised research project, co-authored with research collaborator Fahad under the supervision of Dr. Nouh Alhindawi (ASU School of Computing and Augmented Intelligence), testing whether retrieval-augmented generation retrieves more relevant incident data than traditional keyword search, and whether that measurably shortens cloud incident investigation time. It produces both open-source research findings and a working RAG copilot for cloud and SRE teams.",
+
+    problem:
+      "Cloud incident investigation relies heavily on keyword search over historical incident data, which misses relevant past incidents that don't share exact terminology — slowing down mean time to resolution (MTTR) during active incidents.",
+
+    solution:
+      "Built a RAG pipeline benchmarked head-to-head against an Elasticsearch/BM25 keyword-search baseline, evaluating whether retrieval-augmented generation surfaces more relevant incident context and shortens investigation time — measured with MRR, NDCG, Precision@k, ROUGE, and BERTScore rather than relying on qualitative impressions.",
+
+    architecture: [
+      "FAISS and Qdrant are benchmarked head-to-head as the vector retrieval layer.",
+      "LangChain orchestrates the RAG pipeline; FastAPI exposes it as a service.",
+      "MLflow tracks every experiment run across retrieval configurations.",
+      "Retrieval quality is evaluated against an Elasticsearch/BM25 keyword-search baseline using MRR, NDCG, and Precision@k.",
+      "Generation quality is evaluated using ROUGE and BERTScore against reference incident resolutions.",
+      "The target production system is an 8-layer, Docker/Kubernetes-deployable RAG copilot for cloud and SRE teams.",
+    ],
+
+    engineeringDecisions: [
+      "Benchmarked FAISS against Qdrant directly rather than picking one vector store on assumption, since retrieval quality is the core research question.",
+      "Used MLflow to track experiments so retrieval and generation configurations are comparable and reproducible across runs.",
+      "Evaluated against an Elasticsearch/BM25 baseline specifically to answer whether RAG is actually better than the keyword search most incident tooling already uses, not just whether RAG works in isolation.",
+      "Used a five-metric evaluation set (MRR, NDCG, Precision@k, ROUGE, BERTScore) covering both retrieval and generation quality instead of a single proxy metric.",
+    ],
+
+    scalingStrategy: [
+      "The 8-layer architecture is designed to be Docker/Kubernetes-deployable so the research prototype can become a production copilot without a rewrite.",
+      "Vector store choice (FAISS vs. Qdrant) is decided by the benchmark results, keeping the system tuned to measured performance rather than a fixed assumption.",
+    ],
+
+    challenges: [
+      "Designing a fair, reproducible benchmark between RAG and a keyword-search baseline that isolates retrieval quality from generation quality.",
+      "Choosing evaluation metrics that capture both retrieval relevance (MRR, NDCG, Precision@k) and generation quality (ROUGE, BERTScore) without over-indexing on one dimension.",
+      "Turning a research benchmark into an 8-layer, deployable system rather than a one-off notebook experiment.",
+    ],
+
+    outcome: [
+      "Built and published an open-source RAG pipeline benchmarked against an Elasticsearch/BM25 baseline for cloud incident investigation.",
+      "Produced research findings co-authored with a research collaborator under faculty supervision, targeting IEEE ISSRE 2027 or IEEE Access publication.",
+      "Designed the system as an 8-layer, Docker/Kubernetes-deployable production target, not just a research prototype.",
+    ],
+
+    highlights: [
+      "Head-to-head FAISS vs. Qdrant retrieval benchmark",
+      "RAG evaluated against Elasticsearch/BM25 keyword-search baseline",
+      "Five-metric evaluation: MRR, NDCG, Precision@k, ROUGE, BERTScore",
+      "MLflow experiment tracking across all runs",
+      "8-layer, Docker/Kubernetes-deployable target architecture",
+      "Co-authored with a research collaborator under Dr. Nouh Alhindawi (ASU School of Computing and Augmented Intelligence)",
+    ],
+
+    learnings: [
+      "Rigorous benchmarking against the incumbent approach (keyword search) is what turns 'RAG works' into a defensible research claim.",
+      "Retrieval and generation quality need separate metrics — a strong ROUGE score doesn't tell you if the right documents were retrieved in the first place.",
+      "Designing for production deployment from the start of a research project makes the eventual open-source release far less work.",
+    ],
+  },
 ];
 
 const resumeFeaturedProjectSlugs = [
-  "physio-app",
-  "Real-Time-AI-Simulation-Tool",
-  "emofusion",
-  "ai-knowledge-assistant",
+  "coresuite",
+  "supplyforge",
+  "opscortex",
+  "rag-incident-resolution",
 ];
 
 // Edit this list to change which projects appear in the homepage Featured Projects section.
 export const homepageFeaturedSlugs = [
-  "physio-app",
-  "Real-Time-AI-Simulation-Tool",
-  "emofusion",
-  "ai-knowledge-assistant",
+  "coresuite",
+  "supplyforge",
+  "opscortex",
+  "rag-incident-resolution",
 ];
 
 export const layerAProjects = [
@@ -1147,8 +1516,6 @@ export const layerBProjects = [
 
     dataFlow:
       "Guess → Express API → Embedding Cache → HuggingFace Similarity → Score / Hint / Share",
-
-    architectureImage: "",
 
     stack: [
       "TypeScript",
@@ -1238,8 +1605,6 @@ export const layerBProjects = [
 
     dataFlow: "Source Code → Python Tokenizer → Prolog Parser → AST Executor",
 
-    architectureImage: "",
-
     stack: [
       "Python",
       "SWI-Prolog",
@@ -1326,8 +1691,6 @@ export const layerBProjects = [
     dataFlow:
       "RDF Dataset → Fuseki → Flask SPARQL API → React Search / Graph UI",
 
-    architectureImage: "",
-
     stack: [
       "RDF/Turtle",
       "SPARQL",
@@ -1413,8 +1776,6 @@ export const layerBProjects = [
 
     dataFlow:
       "Simulation Setup → Role Assignment → Sprint / Story Lifecycle → JSON Persistence",
-
-    architectureImage: "",
 
     stack: [
       "Java 21",
@@ -1507,8 +1868,6 @@ export const layerBProjects = [
 
     dataFlow:
       "Client → WebSocket → Node.js Room Manager → Broadcast to Room Subscribers → React UI",
-
-    architectureImage: "",
 
     stack: [
       "TypeScript",

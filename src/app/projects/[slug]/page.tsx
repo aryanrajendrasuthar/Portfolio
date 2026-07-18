@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink, Layers3 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -154,23 +153,6 @@ export default async function ProjectDetailPage({
               <p className="mt-3 text-sm leading-7 text-muted-foreground">
                 {project.dataFlow}
               </p>
-
-              {project.architectureImage && (
-                <div className="mt-6">
-                  <p className="text-[11px] uppercase tracking-[0.25em] text-muted-foreground">
-                    Architecture Diagram
-                  </p>
-                  <div className="mt-3 overflow-hidden rounded-2xl border border-border bg-muted">
-                    <Image
-                      src={project.architectureImage}
-                      alt={`${project.title} architecture diagram`}
-                      width={1200}
-                      height={800}
-                      className="h-auto w-full object-contain"
-                    />
-                  </div>
-                </div>
-              )}
             </CardContent>
           </Card>
         </div>
