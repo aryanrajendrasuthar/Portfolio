@@ -45,9 +45,6 @@ export default async function ProjectDetailPage({
         <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
           <div>
             <div className="flex flex-wrap items-center gap-3">
-              <Badge className="rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-[10px] uppercase tracking-[0.35em] text-primary">
-                {project.type}
-              </Badge>
               {projectMeta.category && (
                 <Badge className="rounded-full border border-border bg-card text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
                   {projectMeta.category}
@@ -88,7 +85,7 @@ export default async function ProjectDetailPage({
                 Summary
               </p>
               <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                {project.recruiterSummary}
+                {project.engineeringSummary}
               </p>
             </div>
 

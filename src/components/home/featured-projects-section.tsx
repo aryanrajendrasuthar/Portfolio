@@ -43,9 +43,6 @@ export function FeaturedProjectsSection() {
               <div className="relative h-32 overflow-hidden border-b border-border bg-muted">
                 <div className="absolute inset-x-5 bottom-5 flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <Badge className="rounded-full border border-border bg-background/60 text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-                      {project.type}
-                    </Badge>
                     {"status" in project && project.status === "Live" && (
                       <span className="flex items-center gap-1.5 rounded-full border border-success/30 bg-success/10 px-2.5 py-1 text-[9px] uppercase tracking-[0.25em] text-success">
                         <span className="h-1.5 w-1.5 rounded-full bg-success" />

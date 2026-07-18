@@ -32,16 +32,16 @@ export default function ProjectsPage() {
             Engineering Project Archive
           </h1>
           <p className="mx-auto mt-4 max-w-3xl text-sm leading-7 text-muted-foreground md:text-base">
-            Layer A showcases flagship case-study projects with deeper system and
-            product storytelling. Layer B highlights additional engineering work
-            across compilers, semantic web, RAG systems, and software quality.
+            Flagship case studies with deeper system and product storytelling,
+            plus additional engineering work across compilers, semantic web,
+            RAG systems, and software quality.
           </p>
         </div>
 
         <section>
           <div className="mb-8">
             <p className="text-xs uppercase tracking-[0.35em] text-primary">
-              Layer A
+              Featured Work
             </p>
             <h2 className="mt-2 text-3xl font-semibold text-foreground">
               Flagship Case Studies
@@ -64,9 +64,6 @@ export default function ProjectsPage() {
                   <div className="relative h-28 overflow-hidden border-b border-border bg-muted">
                     <div className="absolute inset-x-5 bottom-5 flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <Badge className="rounded-full border border-border bg-muted text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-                          {project.type}
-                        </Badge>
                         {"status" in project && project.status === "Live" && (
                           <span className="flex items-center gap-1.5 rounded-full border border-success/30 bg-success/10 px-2.5 py-1 text-[9px] uppercase tracking-[0.25em] text-success">
                             <span className="h-1.5 w-1.5 rounded-full bg-success" />
@@ -144,7 +141,7 @@ export default function ProjectsPage() {
         <section className="mt-20">
           <div className="mb-8">
             <p className="text-xs uppercase tracking-[0.35em] text-primary">
-              Layer B
+              More Work
             </p>
             <h2 className="mt-2 text-3xl font-semibold text-foreground">
               Additional Engineering Work
@@ -167,10 +164,6 @@ export default function ProjectsPage() {
                     <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10">
                       <FolderKanban className="h-5 w-5 text-primary" />
                     </div>
-
-                    <Badge className="rounded-full border border-border bg-card text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-                      {project.type}
-                    </Badge>
                   </div>
 
                   <h3 className="text-xl font-semibold text-foreground">
@@ -188,7 +181,7 @@ export default function ProjectsPage() {
                   </div>
 
                   <p className="mt-4 break-words text-sm leading-7 text-muted-foreground">
-                    {project.recruiterSummary}
+                    {project.engineeringSummary}
                   </p>
 
                   <div className="mt-5 flex flex-wrap gap-2">

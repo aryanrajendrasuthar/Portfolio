@@ -226,9 +226,9 @@ export function ArchitectureSection() {
                 boundaries.
               </div>
               <div className="rounded-2xl border border-border bg-muted p-4">
-                This same systems thinking carries across flagship projects like
-                the AI Simulation Platform, AI Knowledge Assistant,
-                and SmartQuote ERP workflow automation.
+                This same systems thinking carries across flagship projects
+                like the Distributed AI Simulation Platform, AI Knowledge
+                Assistant, and SmartQuote ERP quotation management.
               </div>
             </div>
           </CardContent>

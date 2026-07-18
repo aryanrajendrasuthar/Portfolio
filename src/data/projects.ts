@@ -8,12 +8,6 @@ const layerAProjectsUnordered = [
     year: 2026,
     tagline: "Your personal trainer. Always ready. Always personalized.",
 
-    summary:
-      "A production-grade, offline-first fitness and physiotherapy web app with smart workout splits, AI coaching, rehab protocols, nutrition planning, achievements, and IndexedDB-backed persistence.",
-
-    recruiterSummary:
-      "Built My Gym Trainer v1.2.2, a production-ready offline-first fitness and physiotherapy web app. It combines 200+ evidence-based exercises, AI coaching with Llama 3.3 70B via Groq, phase-gated rehab protocols for 24 physiotherapy conditions, progressive overload tracking, TDEE/macro nutrition calculations, achievements, PWA installability, and IndexedDB persistence across 17 Zustand stores.",
-
     engineeringSummary:
       "Designed an offline-first Next.js 14 and TypeScript fitness platform where Zustand is the single source of truth, all 17 stores persist to IndexedDB, and API calls are fire-and-forget so the UI never blocks on network state. The system includes Supabase/PostgreSQL persistence, Express-backed services, Groq AI coaching, Framer Motion interactions, PWA support, and GitHub Actions TypeScript checks on every push.",
 
@@ -117,12 +111,6 @@ const layerAProjectsUnordered = [
     year: 2026,
     tagline: "Enterprise Occupational Health Intelligence Platform",
 
-    summary:
-      "Enterprise-grade SaaS platform that shifts workplace safety from reactive injury management to proactive prevention with RBAC, SSO, MFA, predictive risk scoring, OSHA reporting, background jobs, and real-time worker health monitoring.",
-
-    recruiterSummary:
-      "Building WorkSafe, an enterprise occupational health intelligence platform for proactive workplace safety. The platform includes 5 user roles with RBAC, SAML 2.0 SSO, TOTP MFA, predictive risk scoring, BullMQ background job processing, OSHA compliance reporting, and real-time worker health monitoring.",
-
     engineeringSummary:
       "Designed an enterprise full-stack architecture using React, NestJS, TypeScript, PostgreSQL, Redis, BullMQ, SAML SSO, and TOTP MFA. The system separates role-based access, health monitoring, risk scoring, compliance workflows, and asynchronous background processing into production-oriented service boundaries.",
 
@@ -219,12 +207,6 @@ const layerAProjectsUnordered = [
     status: "Live",
     tagline:
       "AI-powered courtroom simulator with multi-phase prompt orchestration and RAG retrieval over legal document corpora.",
-
-    summary:
-      "An AI-powered legal practice platform built for selfjustice.ca that lets self-represented litigants rehearse Canadian family law hearings against AI-driven judges and opposing counsel — using multi-phase LangChain prompt orchestration, RAG retrieval, and a Redis-backed event-driven state engine for concurrent sessions.",
-
-    recruiterSummary:
-      "Built a full-stack AI courtroom simulation platform for the Self-Justice initiative using Python, LangChain, FastAPI, React, and Redis Pub/Sub. Implemented multi-phase prompt orchestration for realistic legal rehearsal, RAG retrieval over legal document corpora, and an event-driven backend with FastAPI and Redis pub/sub for real-time simulation state management across concurrent sessions. Delivered sub-2s response latency deployed against real selfjustice.ca use-case scenarios.",
 
     engineeringSummary:
       "Architected an event-driven AI simulation backend using Python, FastAPI, LangChain, and Redis Pub/Sub. The system uses a strict multi-phase prompt flow, LangChain-orchestrated RAG retrieval over a vector database of legal documents, and Redis pub/sub channels for managing real-time simulation state across concurrent user sessions. The React frontend integrates voice input and structured intake flows.",
@@ -328,12 +310,6 @@ const layerAProjectsUnordered = [
     tagline:
       "Full-stack physiotherapy platform with personalized exercise routines, multi-role auth, and AI-powered rehabilitation tracking.",
 
-    summary:
-      "A production-deployed, multi-role physiotherapy web platform built as the ASU SER-517 capstone — combining personalized exercise routines, real-time session tracking, a body-metrics onboarding wizard, analytics, email integration, and a CI/CD-deployed backend on Vercel and Railway.",
-
-    recruiterSummary:
-      "Built PhysioApp, a full-stack physiotherapy and rehabilitation platform with patient, therapist, and admin roles. Designed a normalized relational schema supporting 12+ entity relationships, built a multi-step onboarding wizard with real-time boundary validation reducing onboarding friction by ~40%, integrated SES email and a FAQ/Help Center module, implemented a 30-second rest timer system and body metrics validation, and deployed the full stack with GitHub Actions CI/CD on Vercel and Railway.",
-
     engineeringSummary:
       "Architected a full-stack physiotherapy platform using Next.js, FastAPI, PostgreSQL, and Supabase. The system separates patient, therapist, and admin roles through JWT-based RBAC, normalizes rehabilitation data across 12+ entity relationships, and serves an analytics dashboard tracking weekly patient progress. GitHub Actions handles CI/CD for both the Next.js frontend on Vercel and the FastAPI backend on Railway.",
 
@@ -434,12 +410,6 @@ const layerAProjectsUnordered = [
     tagline:
       "Cloud-based quotation management system for fabrication and contracting workflows.",
 
-    summary:
-      "A full-stack quotation management platform built for Jayraj Fabrication to create, manage, export, and share professional fabrication quotations with branded PDFs, cloud storage, and admin-only workflow control.",
-
-    recruiterSummary:
-      "Built SmartQuote ERP, a cloud-based quotation management system for Jayraj Fabrication that digitizes real fabrication quotation workflows. Implemented secure admin authentication, client management, quote creation, structured line items, extra charges, branded PDF exports, cloud storage, email-ready workflows, and a free-tier deployment architecture using React, TypeScript, Tailwind CSS, Supabase, PostgreSQL, Edge Functions, and pdf-lib.",
-
     engineeringSummary:
       "Designed and implemented a full-stack quotation platform using React, Vite, TypeScript, Tailwind CSS, Supabase PostgreSQL, Supabase Auth, Supabase Storage, Edge Functions, and pdf-lib. The system supports admin-only access, normalized quotation data models, branded PDF generation aligned to real company quotation samples, storage-backed export history, and production-style cloud workflows optimized for free-tier deployment.",
 
@@ -539,12 +509,6 @@ const layerAProjectsUnordered = [
     type: "Layer A",
     tagline:
       "Real-time emergency alert app with OTP signup, GPS location, and SMS dispatch.",
-
-    summary:
-      "A real-time emergency alert application that lets users trigger a one-click SOS to pre-configured emergency contacts via SMS, including a live Google Maps location link, OTP-verified phone registration, and mobile-ready HTTPS support.",
-
-    recruiterSummary:
-      "Built a full-stack emergency alert web application using Node.js, Express, MongoDB Atlas, and Twilio. Users register with OTP-verified phone numbers, log in with credentials, and can trigger a one-click SOS alert from any device. On activation, the app captures real-time GPS coordinates via the browser Geolocation API and dispatches instant SMS messages to multiple emergency contacts, each containing a Google Maps link to the user's exact location. Includes HTTPS support and session-based auth for protected routes.",
 
     engineeringSummary:
       "Built a full-stack emergency alert app using Node.js, Express, MongoDB Atlas, EJS, Tailwind CSS, Twilio SMS, dotenv, and browser geolocation APIs. The application uses OTP-verified signup, session-based authentication, real-time client-side GPS capture, dynamic Google Maps deep-link generation, multi-contact SMS dispatch, and HTTPS-ready certificate infrastructure for secure mobile usage.",
@@ -647,12 +611,6 @@ const layerAProjectsUnordered = [
     tagline:
       "Late-fusion deep learning system combining computer vision and NLP for multimodal emotion classification.",
 
-    summary:
-      "A multimodal deep learning system that detects human emotions by fusing visual facial landmark features and speech embeddings via HuBERT through a late-fusion architecture, trained on 61,000+ samples and achieving 84% weighted F1-score across 7 emotion categories.",
-
-    recruiterSummary:
-      "Built EmoFusion, a late-fusion deep learning system combining computer vision (facial landmark detection via OpenCV) and NLP (speech embeddings via HuBERT + 1D-CNN) for multimodal emotion classification across 7 categories. Achieved 84% weighted F1-score on a benchmark dataset. Designed scalable ML data processing pipelines to handle 61,000+ training samples, and integrated MLflow for full experiment tracking, hyperparameter logging, and model versioning. The modular pipeline supports swapping vision and audio encoders independently for ablation studies.",
-
     engineeringSummary:
       "Designed a multimodal late-fusion architecture with separate computer vision and NLP feature extraction branches. The vision branch uses OpenCV for facial landmark detection; the NLP branch uses HuBERT embeddings processed through a 1D-CNN. Embeddings from both branches are fused before final emotion classification. Built scalable preprocessing pipelines for 61,000+ samples, trained PyTorch models to 84% weighted F1-score across 7 categories, and integrated MLflow for complete experiment lifecycle management.",
 
@@ -750,12 +708,6 @@ const layerAProjectsUnordered = [
     type: "Layer A",
     tagline:
       "Production-oriented Retrieval-Augmented Generation system for grounded document Q&A.",
-
-    summary:
-      "A full RAG system combining vector embeddings, hybrid retrieval with re-ranking, Redis caching, and LLM inference to deliver accurate document-grounded Q&A with source attribution and sub-300ms optimized response latency.",
-
-    recruiterSummary:
-      "Built a full Retrieval-Augmented Generation system using LangChain, OpenAI APIs, FastAPI, Redis, and a vector database. Implemented hybrid retrieval (dense + sparse) with re-ranking for improved answer accuracy on domain-specific corpora, document ingestion, semantic vector search, LLM orchestration, Redis response caching (60% latency reduction), session management, and source attribution — achieving sub-300ms average query response.",
 
     engineeringSummary:
       "Designed an end-to-end RAG pipeline: document chunking → embedding generation → vector indexing → hybrid retrieval with re-ranking → prompt grounding → LLM inference. FastAPI serves concurrent async requests, LangChain orchestrates retrieval and generation, and Redis caches embeddings, responses, and session state for low-latency multi-turn interactions with source attribution.",
@@ -856,12 +808,6 @@ const layerAProjectsUnordered = [
     tagline:
       "JARVIS-inspired voice AI for Windows with LLM Q&A, YouTube control, real-time Reminders sync, and system automation.",
 
-    summary:
-      "A fully voice-driven personal AI assistant built in Python for Windows. Combines wake-word detection, LLM-powered Q&A, YouTube automation via pywhatkit, real-time Apple Reminders sync, and OS-level system control — all through a single spoken interface.",
-
-    recruiterSummary:
-      "Built a production-grade voice AI assistant in Python combining speech recognition, LLM inference (OpenAI API), YouTube playback automation, real-time Apple Reminders integration, and Windows system control. Demonstrates LLM orchestration, multi-service integration, threaded event handling, and end-to-end voice pipeline design.",
-
     engineeringSummary:
       "Implemented a modular voice pipeline: wake-word detection → speech-to-text → intent classification → LLM inference or direct handler dispatch → text-to-speech response. Threaded background workers handle real-time Reminders sync and system event monitoring independently of the main speech loop.",
 
@@ -961,12 +907,6 @@ const layerAProjectsUnordered = [
     tagline:
       "Enterprise observability platform for distributed LLM workloads with Kafka-powered trace ingestion, anomaly detection, and cost analytics.",
 
-    summary:
-      "An enterprise-grade AI agent observability platform that ingests real-time execution traces from distributed LLM workloads via Apache Kafka, detects anomalies, tracks cost per inference, and surfaces p99 latency metrics across agent pipelines.",
-
-    recruiterSummary:
-      "Built NeuralOps, an enterprise AI agent observability platform using Apache Kafka for real-time trace ingestion, Python/FastAPI for the backend, PostgreSQL for metric storage, and React for dashboards. Features include anomaly detection on LLM agent executions, cost analytics per model/endpoint, and p99 latency monitoring for distributed LLM workloads.",
-
     engineeringSummary:
       "Designed a streaming observability pipeline: LLM agents emit structured traces → Kafka ingests at scale → a FastAPI consumer processes, aggregates, and stores metrics in PostgreSQL → a React dashboard surfaces anomaly alerts, cost breakdowns, and latency percentiles in real time.",
 
@@ -1064,12 +1004,6 @@ const layerAProjectsUnordered = [
     type: "Layer A",
     tagline:
       "Enterprise institutional memory platform ingesting Slack, GitHub, and Jira into a Neo4j knowledge graph with natural language Q&A.",
-
-    summary:
-      "An enterprise knowledge management platform that ingests organizational knowledge from Slack, GitHub, and Jira, builds a structured Neo4j knowledge graph with entity relationships, and answers natural language queries with full source attribution using LangChain-orchestrated RAG.",
-
-    recruiterSummary:
-      "Built ContextEngine, an enterprise institutional memory platform using Python, FastAPI, Neo4j, LangChain, and React. Ingests data from Slack, GitHub, and Jira APIs, constructs a knowledge graph of entities and relationships, and serves natural language queries via a RAG pipeline with source attribution — giving teams answers grounded in their actual organizational context.",
 
     engineeringSummary:
       "Designed a multi-source ingestion pipeline (Slack, GitHub, Jira) → entity extraction and relationship mapping → Neo4j knowledge graph → hybrid retrieval (graph traversal + vector similarity) → LangChain prompt orchestration → attributed natural language response. FastAPI serves queries; React renders the interactive knowledge explorer.",
@@ -1202,12 +1136,6 @@ export const layerBProjects = [
     year: 2026,
     tagline: "Semantic Word Guessing Game",
 
-    summary:
-      "A Wordle-inspired semantic word-guessing game powered by HuggingFace sentence-transformer embeddings, daily challenges, hints, leaderboards, share cards, embedding cache, and rate limiting.",
-
-    recruiterSummary:
-      "Built WordAura, a Wordle-inspired semantic word-guessing game using TypeScript, React, Express, HuggingFace, sentence-transformer embeddings, Vite, and Tailwind CSS. Players guess a secret word using 0-100% similarity scores from the all-MiniLM-L6-v2 model, with Daily Challenge mode, hints, leaderboard, share button, server-side embedding cache, and rate limiting.",
-
     engineeringSummary:
       "Designed a full-stack semantic game architecture where a React/Vite frontend submits guesses to an Express backend, the backend computes similarity with HuggingFace sentence-transformer embeddings, caches embeddings server-side, enforces rate limits, and returns interpretable 0-100% semantic scores.",
 
@@ -1299,12 +1227,6 @@ export const layerBProjects = [
     tagline:
       "Custom high-level language with Python tokenization and Prolog-based parsing/execution.",
 
-    summary:
-      "A fully implemented programming language and compiler pipeline built by a 4-person team, featuring Python lexical analysis, Prolog DCG parsing, and Prolog AST execution with support for variables, loops, functions, lists, dictionaries, and boolean logic.",
-
-    recruiterSummary:
-      "Co-designed and implemented a complete programming language and compiler toolchain for ASU SER-502. Built a Python tokenizer, a Prolog DCG-based parser, and a Prolog AST executor supporting variables, conditionals, ternary expressions, loops, functions, lists, dictionaries, and print statements. Delivered 7 sample programs covering all supported language features across macOS, Linux, and Windows.",
-
     engineeringSummary:
       "Built a 3-stage compiler pipeline: Python tokenizer → Prolog DCG parser → Prolog AST executor. Python handles lexical analysis and serializes typed tokens as Prolog facts; SWI-Prolog handles grammar parsing and direct AST interpretation using unification and backtracking, without a separate IR or code generation phase.",
 
@@ -1391,12 +1313,6 @@ export const layerBProjects = [
     type: "Layer B",
     tagline:
       "Semantic web application integrating artwork metadata from four museum collections.",
-
-    summary:
-      "A full-stack semantic web system that unifies artwork metadata from MET, MoMA, Tate, and NGA into a single RDF knowledge graph with search, faceted filtering, artwork detail inspection, and force-directed semantic visualization.",
-
-    recruiterSummary:
-      "Built a semantic web application integrating artwork metadata from four major museum collections into a unified RDF knowledge graph. Designed a lightweight ontology, loaded curated Turtle data into Apache Jena Fuseki, built a Flask backend that generates SPARQL queries from user filters, and implemented a React frontend with keyword search, faceted filters, detail inspection, and semantic graph visualization.",
 
     engineeringSummary:
       "Designed a 4-layer architecture: curated RDF dataset → Fuseki triplestore → Flask REST API → React frontend. SPARQL remains fully abstracted behind the backend, while the frontend handles keyword search, faceted filtering, detail views, and force-directed graph rendering using react-force-graph-2d.",
@@ -1485,12 +1401,6 @@ export const layerBProjects = [
     type: "Layer B",
     tagline:
       "Java desktop application for simulating Agile Scrum workflows and user story lifecycles.",
-
-    summary:
-      "A Java Swing Scrum simulation tool for educational and training use, featuring role-based participation, user story lifecycle management, sprint creation, JSON persistence, and a full code-quality CI pipeline.",
-
-    recruiterSummary:
-      "Co-developed a Java desktop Scrum simulation tool for ASU SER-515. Implemented user story lifecycle management with the State pattern, role creation with a Factory pattern, globally unique IDs with a Singleton store, multi-step Swing wizard flows, JSON persistence, and a rigorous quality engineering pipeline using SpotBugs, Checkstyle, JaCoCo, JUnit 5, and GitHub Actions CI.",
 
     engineeringSummary:
       "Built a layered Java 21 Swing desktop application structured across core, impl, state, and ui packages. Applied State, Factory, Singleton, and Wizard patterns to model Scrum concepts, persisted simulation state with Jackson JSON serialization, and enforced software quality with static analysis, coverage, and CI gating.",
@@ -1585,12 +1495,6 @@ export const layerBProjects = [
     status: "Complete",
     year: 2025,
     tagline: "WebSocket-powered real-time messaging with rooms, auth, and presence.",
-
-    summary:
-      "A real-time messaging application using WebSocket for live bi-directional communication, user authentication, chat rooms, message history, and online presence indicators.",
-
-    recruiterSummary:
-      "Built a real-time chat application using TypeScript, Node.js, WebSocket, Express, and React. Features include live messaging with WebSocket bi-directional communication, user authentication, named chat rooms, persisted message history, and online/offline presence indicators.",
 
     engineeringSummary:
       "Implemented a WebSocket server on Node.js/Express that manages rooms, broadcasts messages to room subscribers, and tracks online presence state. React client establishes a persistent WebSocket connection, handles reconnection, and renders live message streams with optimistic UI updates.",
