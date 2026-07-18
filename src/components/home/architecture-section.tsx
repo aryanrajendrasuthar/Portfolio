@@ -67,7 +67,7 @@ function AnimatedArchitectureGraph() {
           scale={0.9}
           delay={index * 80}
         >
-          <div className="w-28 -translate-x-1/2 -translate-y-1/2 rounded-[1.1rem] border border-border bg-popover p-3">
+          <div className="h-32 w-28 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-[1.1rem] border border-border bg-popover p-3">
             <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-[11px] font-semibold text-primary">
               0{index + 1}
             </div>
