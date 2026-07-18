@@ -16,51 +16,51 @@ export function EducationSection() {
         {education.map((item) => (
           <Card
             key={`${item.school}-${item.degree}`}
-            className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl"
+            className="rounded-[2rem] border-border bg-card backdrop-blur-xl"
           >
             <CardContent className="p-8">
               <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
                 <div>
                   <div className="mb-5 flex items-center gap-3">
-                    <GraduationCap className="h-6 w-6 text-sky-300" />
+                    <GraduationCap className="h-6 w-6 text-primary" />
                     <div>
-                      <p className="text-sm text-sky-300">{item.school}</p>
-                      <h3 className="text-2xl font-semibold text-white">
+                      <p className="text-sm text-primary">{item.school}</p>
+                      <h3 className="text-2xl font-semibold text-foreground">
                         {item.degree}
                       </h3>
                     </div>
                   </div>
 
-                  <p className="text-sm uppercase tracking-[0.25em] text-slate-500">
+                  <p className="text-sm uppercase tracking-[0.25em] text-muted-foreground">
                     {item.location} | {item.period}
                   </p>
 
-                  <div className="mt-6 rounded-2xl border border-white/8 bg-black/20 p-4 text-sm leading-7 text-slate-300">
-                    <span className="text-white">Capstone:</span>{" "}
+                  <div className="mt-6 rounded-2xl border border-border bg-muted p-4 text-sm leading-7 text-muted-foreground">
+                    <span className="text-foreground">Capstone:</span>{" "}
                     {item.capstone}
                   </div>
                 </div>
 
                 <div className="min-w-0 lg:w-[22rem]">
-                  <div className="rounded-2xl border border-white/8 bg-black/20 p-4">
-                    <p className="text-[11px] uppercase tracking-[0.25em] text-slate-500">
+                  <div className="rounded-2xl border border-border bg-muted p-4">
+                    <p className="text-[11px] uppercase tracking-[0.25em] text-muted-foreground">
                       GPA
                     </p>
-                    <p className="mt-2 text-2xl font-semibold text-white">
+                    <p className="mt-2 text-2xl font-semibold text-foreground">
                       {item.gpa}
                     </p>
                   </div>
 
-                  <div className="mt-4 rounded-2xl border border-white/8 bg-black/20 p-4">
-                    <div className="flex items-center gap-2 text-sm text-slate-200">
-                      <Layers3 className="h-4 w-4 text-violet-300" />
+                  <div className="mt-4 rounded-2xl border border-border bg-muted p-4">
+                    <div className="flex items-center gap-2 text-sm text-foreground">
+                      <Layers3 className="h-4 w-4 text-primary" />
                       Relevant coursework
                     </div>
                     <div className="mt-3 flex flex-wrap gap-2">
                       {item.coursework.map((course) => (
                         <span
                           key={course}
-                          className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[10px] uppercase tracking-[0.18em] text-slate-300"
+                          className="rounded-full border border-border bg-card px-3 py-1.5 text-[10px] uppercase tracking-[0.18em] text-muted-foreground"
                         >
                           {course}
                         </span>

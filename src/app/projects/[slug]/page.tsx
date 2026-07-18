@@ -30,12 +30,12 @@ export default async function ProjectDetailPage({
   };
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#030712] px-6 py-16 text-white">
+    <div className="min-h-screen overflow-x-hidden bg-background px-6 py-16 text-foreground">
       <div className="mx-auto w-full max-w-[calc(100vw-3rem)] min-w-0 md:max-w-7xl">
         <div className="mb-8">
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 text-sm text-slate-400 transition hover:text-white"
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground transition hover:text-foreground"
           >
             <ArrowLeft className="h-4 w-4" /> Back to projects
           </Link>
@@ -45,25 +45,25 @@ export default async function ProjectDetailPage({
         <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
           <div>
             <div className="flex flex-wrap items-center gap-3">
-              <Badge className="rounded-full border border-sky-400/20 bg-sky-400/10 px-4 py-2 text-[10px] uppercase tracking-[0.35em] text-sky-200">
+              <Badge className="rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-[10px] uppercase tracking-[0.35em] text-primary">
                 {project.type}
               </Badge>
               {projectMeta.category && (
-                <Badge className="rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.2em] text-slate-300">
+                <Badge className="rounded-full border border-border bg-card text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
                   {projectMeta.category}
                 </Badge>
               )}
               {projectMeta.status && (
                 <Badge className={`rounded-full border text-[10px] uppercase tracking-[0.2em] ${
                   projectMeta.status === "Live"
-                    ? "border-green-500/30 bg-green-500/10 text-green-300"
-                    : "border-white/10 bg-white/5 text-slate-300"
+                    ? "border-success/30 bg-success/10 text-success"
+                    : "border-border bg-card text-muted-foreground"
                 }`}>
                   {projectMeta.status}
                 </Badge>
               )}
               {projectMeta.year && (
-                <Badge className="rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.2em] text-slate-300">
+                <Badge className="rounded-full border border-border bg-card text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
                   {projectMeta.year}
                 </Badge>
               )}
@@ -73,9 +73,9 @@ export default async function ProjectDetailPage({
               {project.title}
             </h1>
 
-            <p className="mt-4 text-lg text-slate-200">{project.tagline}</p>
+            <p className="mt-4 text-lg text-foreground">{project.tagline}</p>
 
-            <div className="mt-4 flex flex-wrap gap-4 text-sm text-slate-400">
+            <div className="mt-4 flex flex-wrap gap-4 text-sm text-muted-foreground">
               {project.metrics?.map((metric, idx) => (
                 <span key={`${project.slug}-detail-metric-${idx}`}>
                   {metric}
@@ -83,16 +83,16 @@ export default async function ProjectDetailPage({
               ))}
             </div>
 
-            <div className="mt-6 rounded-2xl border border-white/8 bg-black/20 p-5">
-              <p className="text-[11px] uppercase tracking-[0.25em] text-slate-500">
+            <div className="mt-6 rounded-2xl border border-border bg-muted p-5">
+              <p className="text-[11px] uppercase tracking-[0.25em] text-muted-foreground">
                 Summary
               </p>
-              <p className="mt-3 text-sm leading-7 text-slate-300">
+              <p className="mt-3 text-sm leading-7 text-muted-foreground">
                 {project.recruiterSummary}
               </p>
             </div>
 
-            <p className="mt-6 max-w-3xl text-base leading-8 text-slate-300">
+            <p className="mt-6 max-w-3xl text-base leading-8 text-muted-foreground">
               {project.overview}
             </p>
 
@@ -100,7 +100,7 @@ export default async function ProjectDetailPage({
               {project.stack.map((tech, idx) => (
                 <Badge
                   key={`${project.slug}-stack-${tech}-${idx}`}
-                  className="rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.2em] text-slate-300"
+                  className="rounded-full border border-border bg-card text-[10px] uppercase tracking-[0.2em] text-muted-foreground"
                 >
                   {tech}
                 </Badge>
@@ -110,7 +110,7 @@ export default async function ProjectDetailPage({
             <div className="mt-8 flex flex-wrap gap-4">
               {projectMeta.liveUrl && (
                 <a href={projectMeta.liveUrl} target="_blank" rel="noreferrer">
-                  <Button className="min-h-11 rounded-full bg-white px-6 text-slate-950 hover:bg-slate-200">
+                  <Button className="min-h-11 rounded-full bg-primary px-6 text-primary-foreground hover:bg-primary/80">
                     <ExternalLink className="mr-2 h-4 w-4" />
                     Open Live App
                   </Button>
@@ -121,8 +121,8 @@ export default async function ProjectDetailPage({
                 <Button
                   className={`min-h-11 rounded-full px-6 ${
                     projectMeta.liveUrl
-                      ? "border-white/15 bg-white/5 text-white hover:bg-white/10"
-                      : "bg-white text-slate-950 hover:bg-slate-200"
+                      ? "border-border bg-card text-foreground hover:bg-muted"
+                      : "bg-primary text-primary-foreground hover:bg-primary/80"
                   }`}
                   variant={projectMeta.liveUrl ? "outline" : "default"}
                 >
@@ -134,7 +134,7 @@ export default async function ProjectDetailPage({
               <Link href="/notes">
                 <Button
                   variant="outline"
-                  className="min-h-11 rounded-full border-white/15 bg-white/5 px-6 text-white hover:bg-white/10"
+                  className="min-h-11 rounded-full border-border bg-card px-6 text-foreground hover:bg-muted"
                 >
                   Related Notes
                 </Button>
@@ -143,27 +143,27 @@ export default async function ProjectDetailPage({
           </div>
 
           {/* System flow card */}
-          <Card className="overflow-hidden rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
+          <Card className="overflow-hidden rounded-[2rem] border-border bg-card backdrop-blur-xl">
             <CardContent className="p-8">
               <div className="mb-4 flex items-center justify-between gap-4">
-                <Badge className="rounded-full border border-white/15 bg-black/40 text-[10px] uppercase tracking-[0.3em] text-slate-200">
+                <Badge className="rounded-full border border-border bg-muted text-[10px] uppercase tracking-[0.3em] text-foreground">
                   Case Study
                 </Badge>
-                <Layers3 className="h-5 w-5 text-sky-200" />
+                <Layers3 className="h-5 w-5 text-primary" />
               </div>
-              <p className="text-[11px] uppercase tracking-[0.25em] text-slate-500">
+              <p className="text-[11px] uppercase tracking-[0.25em] text-muted-foreground">
                 System Flow
               </p>
-              <p className="mt-3 text-sm leading-7 text-slate-300">
+              <p className="mt-3 text-sm leading-7 text-muted-foreground">
                 {project.dataFlow}
               </p>
 
               {project.architectureImage && (
                 <div className="mt-6">
-                  <p className="text-[11px] uppercase tracking-[0.25em] text-slate-500">
+                  <p className="text-[11px] uppercase tracking-[0.25em] text-muted-foreground">
                     Architecture Diagram
                   </p>
-                  <div className="mt-3 overflow-hidden rounded-2xl border border-white/8 bg-black/30">
+                  <div className="mt-3 overflow-hidden rounded-2xl border border-border bg-muted">
                     <Image
                       src={project.architectureImage}
                       alt={`${project.title} architecture diagram`}
@@ -180,19 +180,19 @@ export default async function ProjectDetailPage({
 
         {/* Problem / Solution */}
         <div className="mt-14 grid gap-8 lg:grid-cols-2">
-          <Card className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
+          <Card className="rounded-[2rem] border-border bg-card backdrop-blur-xl">
             <CardContent className="p-8">
-              <h2 className="text-2xl font-semibold text-white">Problem</h2>
-              <div className="mt-6 rounded-2xl border border-white/8 bg-black/20 p-4 text-sm leading-7 text-slate-300">
+              <h2 className="text-2xl font-semibold text-foreground">Problem</h2>
+              <div className="mt-6 rounded-2xl border border-border bg-muted p-4 text-sm leading-7 text-muted-foreground">
                 {project.problem}
               </div>
             </CardContent>
           </Card>
 
-          <Card className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
+          <Card className="rounded-[2rem] border-border bg-card backdrop-blur-xl">
             <CardContent className="p-8">
-              <h2 className="text-2xl font-semibold text-white">Solution</h2>
-              <div className="mt-6 rounded-2xl border border-white/8 bg-black/20 p-4 text-sm leading-7 text-slate-300">
+              <h2 className="text-2xl font-semibold text-foreground">Solution</h2>
+              <div className="mt-6 rounded-2xl border border-border bg-muted p-4 text-sm leading-7 text-muted-foreground">
                 {project.solution}
               </div>
             </CardContent>
@@ -201,13 +201,13 @@ export default async function ProjectDetailPage({
 
         {/* Architecture + Highlights/Learnings */}
         <div className="mt-14 grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-          <Card className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
+          <Card className="rounded-[2rem] border-border bg-card backdrop-blur-xl">
             <CardContent className="p-8">
-              <h2 className="text-2xl font-semibold text-white">
+              <h2 className="text-2xl font-semibold text-foreground">
                 Architecture Flow
               </h2>
 
-              <div className="mt-4 rounded-2xl border border-white/8 bg-black/20 p-4 text-sm text-slate-300">
+              <div className="mt-4 rounded-2xl border border-border bg-muted p-4 text-sm text-muted-foreground">
                 {project.dataFlow}
               </div>
 
@@ -215,9 +215,9 @@ export default async function ProjectDetailPage({
                 {project.architecture.map((step, index) => (
                   <div
                     key={`${project.slug}-architecture-${index}`}
-                    className="rounded-2xl border border-white/8 bg-black/20 p-4 text-sm leading-7 text-slate-300"
+                    className="rounded-2xl border border-border bg-muted p-4 text-sm leading-7 text-muted-foreground"
                   >
-                    <span className="mr-2 inline-flex h-6 w-6 items-center justify-center rounded-full border border-sky-400/20 bg-sky-400/10 text-xs text-sky-200">
+                    <span className="mr-2 inline-flex h-6 w-6 items-center justify-center rounded-full border border-primary/20 bg-primary/10 text-xs text-primary">
                       {index + 1}
                     </span>
                     {step}
@@ -228,16 +228,16 @@ export default async function ProjectDetailPage({
           </Card>
 
           <div className="space-y-8">
-            <Card className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
+            <Card className="rounded-[2rem] border-border bg-card backdrop-blur-xl">
               <CardContent className="p-8">
-                <h2 className="text-2xl font-semibold text-white">
+                <h2 className="text-2xl font-semibold text-foreground">
                   Highlights
                 </h2>
                 <div className="mt-6 space-y-4">
                   {project.highlights.map((item, index) => (
                     <div
                       key={`${project.slug}-highlight-${index}`}
-                      className="rounded-2xl border border-white/8 bg-black/20 p-4 text-sm leading-7 text-slate-300"
+                      className="rounded-2xl border border-border bg-muted p-4 text-sm leading-7 text-muted-foreground"
                     >
                       {item}
                     </div>
@@ -246,16 +246,16 @@ export default async function ProjectDetailPage({
               </CardContent>
             </Card>
 
-            <Card className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
+            <Card className="rounded-[2rem] border-border bg-card backdrop-blur-xl">
               <CardContent className="p-8">
-                <h2 className="text-2xl font-semibold text-white">
+                <h2 className="text-2xl font-semibold text-foreground">
                   What I Learned
                 </h2>
                 <div className="mt-6 space-y-4">
                   {project.learnings.map((item, index) => (
                     <div
                       key={`${project.slug}-learning-${index}`}
-                      className="rounded-2xl border border-white/8 bg-black/20 p-4 text-sm leading-7 text-slate-300"
+                      className="rounded-2xl border border-border bg-muted p-4 text-sm leading-7 text-muted-foreground"
                     >
                       {item}
                     </div>
@@ -268,16 +268,16 @@ export default async function ProjectDetailPage({
 
         {/* Engineering Decisions / Scaling */}
         <div className="mt-14 grid gap-8 lg:grid-cols-2">
-          <Card className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
+          <Card className="rounded-[2rem] border-border bg-card backdrop-blur-xl">
             <CardContent className="p-8">
-              <h2 className="text-2xl font-semibold text-white">
+              <h2 className="text-2xl font-semibold text-foreground">
                 Engineering Decisions
               </h2>
               <div className="mt-6 space-y-4">
                 {project.engineeringDecisions.map((item, index) => (
                   <div
                     key={`${project.slug}-decision-${index}`}
-                    className="rounded-2xl border border-white/8 bg-black/20 p-4 text-sm leading-7 text-slate-300"
+                    className="rounded-2xl border border-border bg-muted p-4 text-sm leading-7 text-muted-foreground"
                   >
                     {item}
                   </div>
@@ -286,16 +286,16 @@ export default async function ProjectDetailPage({
             </CardContent>
           </Card>
 
-          <Card className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
+          <Card className="rounded-[2rem] border-border bg-card backdrop-blur-xl">
             <CardContent className="p-8">
-              <h2 className="text-2xl font-semibold text-white">
+              <h2 className="text-2xl font-semibold text-foreground">
                 Scaling Strategy
               </h2>
               <div className="mt-6 space-y-4">
                 {project.scalingStrategy.map((item, index) => (
                   <div
                     key={`${project.slug}-scaling-${index}`}
-                    className="rounded-2xl border border-white/8 bg-black/20 p-4 text-sm leading-7 text-slate-300"
+                    className="rounded-2xl border border-border bg-muted p-4 text-sm leading-7 text-muted-foreground"
                   >
                     {item}
                   </div>
@@ -307,14 +307,14 @@ export default async function ProjectDetailPage({
 
         {/* Challenges / Outcome */}
         <div className="mt-14 grid gap-8 lg:grid-cols-2">
-          <Card className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
+          <Card className="rounded-[2rem] border-border bg-card backdrop-blur-xl">
             <CardContent className="p-8">
-              <h2 className="text-2xl font-semibold text-white">Challenges</h2>
+              <h2 className="text-2xl font-semibold text-foreground">Challenges</h2>
               <div className="mt-6 space-y-4">
                 {project.challenges.map((item, index) => (
                   <div
                     key={`${project.slug}-challenge-${index}`}
-                    className="rounded-2xl border border-white/8 bg-black/20 p-4 text-sm leading-7 text-slate-300"
+                    className="rounded-2xl border border-border bg-muted p-4 text-sm leading-7 text-muted-foreground"
                   >
                     {item}
                   </div>
@@ -323,16 +323,16 @@ export default async function ProjectDetailPage({
             </CardContent>
           </Card>
 
-          <Card className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
+          <Card className="rounded-[2rem] border-border bg-card backdrop-blur-xl">
             <CardContent className="p-8">
-              <h2 className="text-2xl font-semibold text-white">
+              <h2 className="text-2xl font-semibold text-foreground">
                 Outcome / Impact
               </h2>
               <div className="mt-6 space-y-4">
                 {project.outcome.map((item, index) => (
                   <div
                     key={`${project.slug}-outcome-${index}`}
-                    className="rounded-2xl border border-white/8 bg-black/20 p-4 text-sm leading-7 text-slate-300"
+                    className="rounded-2xl border border-border bg-muted p-4 text-sm leading-7 text-muted-foreground"
                   >
                     {item}
                   </div>

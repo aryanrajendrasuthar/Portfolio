@@ -62,16 +62,16 @@ export function AIAssistant() {
     <>
       <button
         onClick={() => setOpen((prev) => !prev)}
-        className="fixed bottom-6 right-6 z-[60] flex h-14 w-14 items-center justify-center rounded-full border border-sky-400/20 bg-white/10 text-white shadow-[0_0_30px_rgba(56,189,248,0.25)] backdrop-blur-xl transition hover:scale-105 hover:bg-white/15"
+        className="fixed bottom-6 right-6 z-[60] flex h-14 w-14 items-center justify-center rounded-full border border-border bg-card text-foreground shadow-lg backdrop-blur-xl transition hover:bg-muted"
       >
         {open ? <X className="h-5 w-5" /> : <Bot className="h-5 w-5" />}
       </button>
 
       {open && (
-        <div className="fixed bottom-24 right-6 z-[60] w-[22rem] overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#08111f]/95 shadow-[0_0_50px_rgba(56,189,248,0.15)] backdrop-blur-xl">
-          <div className="border-b border-white/10 px-4 py-4">
-            <p className="text-sm font-semibold text-white">Ask Aryan</p>
-            <p className="mt-1 text-xs text-slate-400">
+        <div className="fixed bottom-24 right-6 z-[60] w-[22rem] overflow-hidden rounded-[1.5rem] border border-border bg-popover shadow-xl backdrop-blur-xl">
+          <div className="border-b border-border px-4 py-4">
+            <p className="text-sm font-semibold text-foreground">Ask Aryan</p>
+            <p className="mt-1 text-xs text-muted-foreground">
               Ask about experience, projects, skills, or certifications
             </p>
           </div>
@@ -82,8 +82,8 @@ export function AIAssistant() {
                 key={index}
                 className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-6 ${
                   message.role === "user"
-                    ? "ml-auto bg-sky-500/20 text-sky-100"
-                    : "bg-white/5 text-slate-200"
+                    ? "ml-auto bg-primary/20 text-primary"
+                    : "bg-card text-foreground"
                 }`}
               >
                 {message.content}
@@ -91,13 +91,13 @@ export function AIAssistant() {
             ))}
 
             {loading && (
-              <div className="max-w-[85%] rounded-2xl bg-white/5 px-4 py-3 text-sm text-slate-300">
+              <div className="max-w-[85%] rounded-2xl bg-card px-4 py-3 text-sm text-muted-foreground">
                 Thinking...
               </div>
             )}
           </div>
 
-          <div className="flex items-center gap-2 border-t border-white/10 p-3">
+          <div className="flex items-center gap-2 border-t border-border p-3">
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
@@ -105,12 +105,12 @@ export function AIAssistant() {
                 if (e.key === "Enter") handleSend();
               }}
               placeholder="Ask about Kafka, projects, or experience..."
-              className="flex-1 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white outline-none placeholder:text-slate-500"
+              className="flex-1 rounded-full border border-border bg-card px-4 py-2 text-sm text-foreground outline-none placeholder:text-muted-foreground"
             />
             <Button
               onClick={handleSend}
               disabled={loading}
-              className="rounded-full bg-white text-slate-950 hover:bg-slate-200"
+              className="rounded-full bg-primary text-primary-foreground hover:bg-primary/80"
             >
               <Send className="h-4 w-4" />
             </Button>

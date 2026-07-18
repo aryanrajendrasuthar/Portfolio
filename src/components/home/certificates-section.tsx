@@ -21,27 +21,27 @@ export function CertificatesSection() {
         {featuredCertificates.map((certificate, index) => (
           <Card
             key={`${certificate.title}-${index}`}
-            className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl"
+            className="rounded-[2rem] border-border bg-card backdrop-blur-xl"
           >
             <CardContent className="p-6">
               <div className="mb-5 flex items-start justify-between gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-sky-400/20 bg-sky-400/10">
-                  <Award className="h-5 w-5 text-sky-300" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10">
+                  <Award className="h-5 w-5 text-primary" />
                 </div>
-                <Badge className="rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.25em] text-slate-300">
+                <Badge className="rounded-full border border-border bg-card text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
                   {certificate.category}
                 </Badge>
               </div>
 
-              <h3 className="text-lg font-semibold text-white">
+              <h3 className="text-lg font-semibold text-foreground">
                 {certificate.title}
               </h3>
 
-              <p className="mt-2 text-sm text-slate-400">
+              <p className="mt-2 text-sm text-muted-foreground">
                 {certificate.provider}
               </p>
 
-              <p className="mt-3 text-sm text-slate-500">
+              <p className="mt-3 text-sm text-muted-foreground">
                 {certificate.issueDate
                   ? `Issued: ${certificate.issueDate}`
                   : "Issue date to be updated"}
@@ -52,7 +52,7 @@ export function CertificatesSection() {
                   <a href={certificate.file} target="_blank" rel="noreferrer">
                     <Button
                       variant="outline"
-                      className="rounded-full border-white/15 bg-white/5 text-white hover:bg-white/10"
+                      className="rounded-full border-border bg-card text-foreground hover:bg-muted"
                     >
                       <ExternalLink className="mr-2 h-4 w-4" />
                       View Certificate
@@ -62,7 +62,7 @@ export function CertificatesSection() {
                   <Button
                     variant="outline"
                     disabled
-                    className="rounded-full border-white/15 bg-white/5 text-slate-400"
+                    className="rounded-full border-border bg-card text-muted-foreground"
                   >
                     Certificate Placeholder
                   </Button>
@@ -72,18 +72,18 @@ export function CertificatesSection() {
           </Card>
         ))}
 
-        <Card className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
+        <Card className="rounded-[2rem] border-border bg-card backdrop-blur-xl">
           <CardContent className="flex h-full min-h-[280px] flex-col justify-between p-6">
             <div>
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-violet-400/20 bg-violet-400/10">
-                <Award className="h-5 w-5 text-violet-300" />
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10">
+                <Award className="h-5 w-5 text-primary" />
               </div>
 
-              <h3 className="text-lg font-semibold text-white">
+              <h3 className="text-lg font-semibold text-foreground">
                 More Certificates
               </h3>
 
-              <p className="mt-3 text-sm leading-7 text-slate-300">
+              <p className="mt-3 text-sm leading-7 text-muted-foreground">
                 Explore the full certification archive including cloud, Java,
                 DevOps, testing, security, AI, and professional development credentials.
               </p>
@@ -91,7 +91,7 @@ export function CertificatesSection() {
 
             <div className="mt-6">
               <Link href="/certificates">
-                <Button className="rounded-full bg-white text-slate-950 hover:bg-slate-200">
+                <Button className="rounded-full bg-primary text-primary-foreground hover:bg-primary/80">
                   View All Certificates
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>

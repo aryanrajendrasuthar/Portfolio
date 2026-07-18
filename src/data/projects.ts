@@ -1173,6 +1173,14 @@ const resumeFeaturedProjectSlugs = [
   "ai-knowledge-assistant",
 ];
 
+// Edit this list to change which projects appear in the homepage Featured Projects section.
+export const homepageFeaturedSlugs = [
+  "physio-app",
+  "Real-Time-AI-Simulation-Tool",
+  "emofusion",
+  "ai-knowledge-assistant",
+];
+
 export const layerAProjects = [
   ...resumeFeaturedProjectSlugs
     .map((slug) => layerAProjectsUnordered.find((project) => project.slug === slug))

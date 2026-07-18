@@ -13,25 +13,25 @@ function getProjectMeta(project: (typeof layerAProjects)[number]) {
 
 export default function ProjectsPage() {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#030712] px-6 py-16 text-white">
+    <div className="min-h-screen overflow-x-hidden bg-background px-6 py-16 text-foreground">
       <div className="mx-auto w-full max-w-[calc(100vw-3rem)] min-w-0 md:max-w-7xl">
         <div className="mb-8">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm text-slate-400 transition hover:text-white"
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground transition hover:text-foreground"
           >
             <ArrowLeft className="h-4 w-4" /> Back to main page
           </Link>
         </div>
 
         <div className="mb-12 text-center">
-          <p className="mb-3 text-xs uppercase tracking-[0.4em] text-slate-400">
+          <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground">
             Projects
           </p>
           <h1 className="mx-auto max-w-[18rem] break-words text-3xl font-semibold tracking-tight sm:max-w-none md:text-6xl">
             Engineering Project Archive
           </h1>
-          <p className="mx-auto mt-4 max-w-3xl text-sm leading-7 text-slate-300 md:text-base">
+          <p className="mx-auto mt-4 max-w-3xl text-sm leading-7 text-muted-foreground md:text-base">
             Layer A showcases flagship case-study projects with deeper system and
             product storytelling. Layer B highlights additional engineering work
             across compilers, semantic web, RAG systems, and software quality.
@@ -40,13 +40,13 @@ export default function ProjectsPage() {
 
         <section>
           <div className="mb-8">
-            <p className="text-xs uppercase tracking-[0.35em] text-sky-300">
+            <p className="text-xs uppercase tracking-[0.35em] text-primary">
               Layer A
             </p>
-            <h2 className="mt-2 text-3xl font-semibold text-white">
+            <h2 className="mt-2 text-3xl font-semibold text-foreground">
               Flagship Case Studies
             </h2>
-            <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-300">
+            <p className="mt-3 max-w-3xl text-sm leading-7 text-muted-foreground">
               High-impact projects selected for deeper architecture, engineering,
               and business storytelling.
             </p>
@@ -59,33 +59,31 @@ export default function ProjectsPage() {
               return (
                 <Card
                   key={project.slug}
-                  className="relative h-full w-[calc(100vw-3rem)] max-w-full min-w-0 overflow-hidden rounded-[2rem] border-white/10 bg-white/5 md:w-full"
+                  className="relative h-full w-[calc(100vw-3rem)] max-w-full min-w-0 overflow-hidden rounded-[2rem] border-border bg-card md:w-full"
                 >
-                  <div className="relative h-28 overflow-hidden border-b border-white/10 bg-[linear-gradient(135deg,rgba(56,189,248,0.18),rgba(124,58,237,0.14),rgba(15,23,42,0.8))]">
-                    <div className="absolute inset-0 opacity-60 [background-image:radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.15),transparent_20%),linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] [background-size:auto,22px_22px,22px_22px]" />
-
+                  <div className="relative h-28 overflow-hidden border-b border-border bg-muted">
                     <div className="absolute inset-x-5 bottom-5 flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <Badge className="rounded-full border border-white/10 bg-black/30 text-[10px] uppercase tracking-[0.25em] text-slate-300">
+                        <Badge className="rounded-full border border-border bg-muted text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
                           {project.type}
                         </Badge>
                         {"status" in project && project.status === "Live" && (
-                          <span className="flex items-center gap-1.5 rounded-full border border-green-500/30 bg-green-500/10 px-2.5 py-1 text-[9px] uppercase tracking-[0.25em] text-green-300">
-                            <span className="h-1.5 w-1.5 rounded-full bg-green-400" />
+                          <span className="flex items-center gap-1.5 rounded-full border border-success/30 bg-success/10 px-2.5 py-1 text-[9px] uppercase tracking-[0.25em] text-success">
+                            <span className="h-1.5 w-1.5 rounded-full bg-success" />
                             Live
                           </span>
                         )}
                       </div>
-                      <Layers3 className="h-5 w-5 text-sky-200" />
+                      <Layers3 className="h-5 w-5 text-primary" />
                     </div>
                   </div>
 
                   <CardContent className="relative z-10 flex flex-col p-6">
-                    <h2 className="text-xl font-semibold text-white">
+                    <h2 className="text-xl font-semibold text-foreground">
                       {project.title}
                     </h2>
 
-                    <div className="mt-2 flex flex-wrap gap-3 text-xs text-slate-400">
+                    <div className="mt-2 flex flex-wrap gap-3 text-xs text-muted-foreground">
                       {project.metrics?.map((metric, idx) => (
                         <span key={`${project.slug}-projects-metric-${idx}`}>
                           {metric}
@@ -93,7 +91,7 @@ export default function ProjectsPage() {
                       ))}
                     </div>
 
-                    <p className="mt-3 text-sm leading-7 text-slate-300">
+                    <p className="mt-3 text-sm leading-7 text-muted-foreground">
                       {project.engineeringSummary}
                     </p>
 
@@ -101,7 +99,7 @@ export default function ProjectsPage() {
                       {project.stack.slice(0, 4).map((tech, idx) => (
                         <Badge
                           key={`${project.slug}-${tech}-${idx}`}
-                          className="rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.2em] text-slate-300"
+                          className="rounded-full border border-border bg-card text-[10px] uppercase tracking-[0.2em] text-muted-foreground"
                         >
                           {tech}
                         </Badge>
@@ -110,7 +108,7 @@ export default function ProjectsPage() {
 
                     <div className="mt-6 flex flex-wrap gap-3">
                       <Link href={`/projects/${project.slug}`}>
-                        <Button className="min-h-11 rounded-full bg-white text-slate-950 hover:bg-slate-200">
+                        <Button className="min-h-11 rounded-full bg-primary text-primary-foreground hover:bg-primary/80">
                           View Case Study
                         </Button>
                       </Link>
@@ -119,7 +117,7 @@ export default function ProjectsPage() {
                         <a href={projectMeta.liveUrl} target="_blank" rel="noreferrer">
                           <Button
                             variant="outline"
-                            className="min-h-11 rounded-full border-white/15 bg-white/5 text-white hover:bg-white/10"
+                            className="min-h-11 rounded-full border-border bg-card text-foreground hover:bg-muted"
                           >
                             Live
                           </Button>
@@ -129,7 +127,7 @@ export default function ProjectsPage() {
                       <a href={project.github} target="_blank" rel="noreferrer">
                         <Button
                           variant="outline"
-                          className="min-h-11 rounded-full border-white/15 bg-white/5 text-white hover:bg-white/10"
+                          className="min-h-11 rounded-full border-border bg-card text-foreground hover:bg-muted"
                         >
                           <ExternalLink className="mr-2 h-4 w-4" />
                           GitHub
@@ -145,13 +143,13 @@ export default function ProjectsPage() {
 
         <section className="mt-20">
           <div className="mb-8">
-            <p className="text-xs uppercase tracking-[0.35em] text-violet-300">
+            <p className="text-xs uppercase tracking-[0.35em] text-primary">
               Layer B
             </p>
-            <h2 className="mt-2 text-3xl font-semibold text-white">
+            <h2 className="mt-2 text-3xl font-semibold text-foreground">
               Additional Engineering Work
             </h2>
-            <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-300">
+            <p className="mt-3 max-w-3xl text-sm leading-7 text-muted-foreground">
               Supporting projects that demonstrate breadth across compilers,
               semantic web, RAG systems, Java desktop applications, and software
               engineering foundations.
@@ -162,34 +160,34 @@ export default function ProjectsPage() {
             {layerBProjects.map((project) => (
               <Card
                 key={project.slug}
-                className="h-full w-[calc(100vw-3rem)] max-w-full min-w-0 rounded-[2rem] border-white/10 bg-white/5 md:w-full"
+                className="h-full w-[calc(100vw-3rem)] max-w-full min-w-0 rounded-[2rem] border-border bg-card md:w-full"
               >
                 <CardContent className="p-6">
                   <div className="mb-5 flex items-start justify-between gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-violet-400/20 bg-violet-400/10">
-                      <FolderKanban className="h-5 w-5 text-violet-300" />
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10">
+                      <FolderKanban className="h-5 w-5 text-primary" />
                     </div>
 
-                    <Badge className="rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.25em] text-slate-300">
+                    <Badge className="rounded-full border border-border bg-card text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
                       {project.type}
                     </Badge>
                   </div>
 
-                  <h3 className="text-xl font-semibold text-white">
+                  <h3 className="text-xl font-semibold text-foreground">
                     {project.title}
                   </h3>
 
-                  <p className="mt-2 text-sm text-slate-400">
+                  <p className="mt-2 text-sm text-muted-foreground">
                     {project.tagline}
                   </p>
 
-                  <div className="mt-3 flex min-w-0 flex-wrap gap-3 text-sm text-slate-400">
+                  <div className="mt-3 flex min-w-0 flex-wrap gap-3 text-sm text-muted-foreground">
                     {project.metrics?.map((metric, idx) => (
                       <span key={`${project.slug}-metric-${idx}`}>{metric}</span>
                     ))}
                   </div>
 
-                  <p className="mt-4 break-words text-sm leading-7 text-slate-300">
+                  <p className="mt-4 break-words text-sm leading-7 text-muted-foreground">
                     {project.recruiterSummary}
                   </p>
 
@@ -197,7 +195,7 @@ export default function ProjectsPage() {
                     {project.stack.slice(0, 6).map((tech, idx) => (
                       <Badge
                         key={`${project.slug}-${tech}-${idx}`}
-                        className="rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.2em] text-slate-300"
+                        className="rounded-full border border-border bg-card text-[10px] uppercase tracking-[0.2em] text-muted-foreground"
                       >
                         {tech}
                       </Badge>
@@ -206,7 +204,7 @@ export default function ProjectsPage() {
 
                   <div className="mt-6 flex flex-wrap gap-3">
                     <Link href={`/projects/${project.slug}`}>
-                      <Button className="min-h-11 rounded-full bg-white text-slate-950 hover:bg-slate-200">
+                      <Button className="min-h-11 rounded-full bg-primary text-primary-foreground hover:bg-primary/80">
                         View Details
                       </Button>
                     </Link>
@@ -214,7 +212,7 @@ export default function ProjectsPage() {
                     <a href={project.github} target="_blank" rel="noreferrer">
                       <Button
                         variant="outline"
-                        className="min-h-11 rounded-full border-white/15 bg-white/5 text-white hover:bg-white/10"
+                        className="min-h-11 rounded-full border-border bg-card text-foreground hover:bg-muted"
                       >
                         <ExternalLink className="mr-2 h-4 w-4" />
                         GitHub

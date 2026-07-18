@@ -45,7 +45,7 @@ const architectureNodes = [
 
 function AnimatedArchitectureGraph() {
   return (
-    <div className="relative h-[28rem] overflow-hidden rounded-[1.75rem] border border-white/10 bg-black/20">
+    <div className="relative h-[28rem] overflow-hidden rounded-[1.75rem] border border-border bg-muted">
       <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] [background-size:28px_28px]" />
 
       <svg
@@ -151,15 +151,15 @@ function AnimatedArchitectureGraph() {
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="w-28 -translate-x-1/2 -translate-y-1/2 rounded-[1.1rem] border border-white/10 bg-[#0b1220]/90 p-3 backdrop-blur-xl"
+            className="w-28 -translate-x-1/2 -translate-y-1/2 rounded-[1.1rem] border border-border bg-popover p-3 backdrop-blur-xl"
           >
-            <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-xl border border-sky-400/20 bg-sky-400/10 text-[11px] font-semibold text-sky-200">
+            <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-[11px] font-semibold text-primary">
               0{index + 1}
             </div>
-            <h4 className="text-[13px] font-semibold text-white">
+            <h4 className="text-[13px] font-semibold text-foreground">
               {node.title}
             </h4>
-            <p className="mt-1 text-[11px] leading-4 text-slate-400">
+            <p className="mt-1 text-[11px] leading-4 text-muted-foreground">
               {node.subtitle}
             </p>
           </motion.div>
@@ -169,39 +169,31 @@ function AnimatedArchitectureGraph() {
   );
 }
 
-export function ArchitectureSection({
-  recruiterMode,
-}: {
-  recruiterMode: boolean;
-}) {
+export function ArchitectureSection() {
   return (
     <section id="architecture" className="mx-auto max-w-7xl px-6 py-20">
       <SectionTitle
         eyebrow="System Design"
         title="Interactive distributed systems architecture"
-        description={
-          recruiterMode
-            ? "A recruiter-friendly systems snapshot showing backend, event-driven, and scalable architecture thinking."
-            : "A visual systems flow that reinforces backend, cloud-native, and event-driven engineering depth."
-        }
+        description="A visual systems flow that reinforces backend, cloud-native, and event-driven engineering depth."
       />
 
       <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
-        <Card className="overflow-hidden rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
+        <Card className="overflow-hidden rounded-[2rem] border-border bg-card backdrop-blur-xl">
           <CardContent className="p-8">
             <div className="mb-8 flex items-center justify-between gap-4">
               <div>
-                <p className="text-sm text-sky-300">Architecture View</p>
-                <h3 className="mt-1 text-2xl font-semibold text-white">
+                <p className="text-sm text-primary">Architecture View</p>
+                <h3 className="mt-1 text-2xl font-semibold text-foreground">
                   Event-driven systems flow
                 </h3>
-                <p className="mt-2 text-sm leading-6 text-slate-400">
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">
                   A simplified view of the kind of backend architecture used in
                   scalable, production-minded systems.
                 </p>
               </div>
 
-              <Badge className="rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.3em] text-slate-300">
+              <Badge className="rounded-full border border-border bg-card text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
                 Distributed Systems
               </Badge>
             </div>
@@ -210,30 +202,30 @@ export function ArchitectureSection({
           </CardContent>
         </Card>
 
-        <Card className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
+        <Card className="rounded-[2rem] border-border bg-card backdrop-blur-xl">
           <CardContent className="p-8">
-            <p className="text-sm text-violet-300">Why this architecture matters</p>
-            <h3 className="mt-1 text-2xl font-semibold text-white">
+            <p className="text-sm text-primary">Why this architecture matters</p>
+            <h3 className="mt-1 text-2xl font-semibold text-foreground">
               Backend engineering depth, made visible
             </h3>
 
-            <div className="mt-6 space-y-4 text-sm leading-7 text-slate-300">
-              <div className="rounded-2xl border border-white/8 bg-black/20 p-4">
+            <div className="mt-6 space-y-4 text-sm leading-7 text-muted-foreground">
+              <div className="rounded-2xl border border-border bg-muted p-4">
                 Communicates real backend system design thinking beyond CRUD
                 applications by showing ingestion, asynchronous processing,
                 caching, and persistence as separate concerns.
               </div>
-              <div className="rounded-2xl border border-white/8 bg-black/20 p-4">
+              <div className="rounded-2xl border border-border bg-muted p-4">
                 Highlights event-driven architecture using Kafka-style pipelines,
                 worker-based execution, and durable storage patterns commonly
                 used in scalable systems.
               </div>
-              <div className="rounded-2xl border border-white/8 bg-black/20 p-4">
+              <div className="rounded-2xl border border-border bg-muted p-4">
                 Demonstrates production-oriented engineering choices such as
                 decoupling, performance optimization, and fault-tolerant service
                 boundaries.
               </div>
-              <div className="rounded-2xl border border-white/8 bg-black/20 p-4">
+              <div className="rounded-2xl border border-border bg-muted p-4">
                 This same systems thinking carries across flagship projects like
                 the AI Simulation Platform, AI Knowledge Assistant,
                 and SmartQuote ERP workflow automation.

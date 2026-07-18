@@ -5,7 +5,7 @@ import { Github, Linkedin, Mail, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { profile } from "@/data/profile";
 
-export function ContactSection({ recruiterMode }: { recruiterMode: boolean }) {
+export function ContactSection() {
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -65,27 +65,26 @@ export function ContactSection({ recruiterMode }: { recruiterMode: boolean }) {
 
   return (
     <section id="contact" className="mx-auto max-w-7xl px-6 py-20">
-      <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-[0_0_80px_rgba(56,189,248,0.08)] backdrop-blur-xl md:p-10">
+      <div className="overflow-hidden rounded-[2rem] border border-border bg-card p-8 md:p-10">
         <div className="grid gap-10 md:grid-cols-[1.05fr_0.95fr] md:items-stretch">
           <div className="flex h-full flex-col">
-            <p className="text-xs uppercase tracking-[0.4em] text-slate-400">
+            <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">
               Contact
             </p>
 
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white md:text-5xl">
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-foreground md:text-5xl">
               Interested in backend, distributed systems, or AI engineering
               opportunities?
             </h2>
 
-            <p className="mt-5 max-w-2xl text-base leading-8 text-slate-300">
-              {recruiterMode
-                ? "Open the resume, review featured projects, or reach out directly for backend, distributed systems, and software engineering opportunities."
-                : "Let’s build something scalable. Reach out directly through the form or connect through LinkedIn, GitHub, or email."}
+            <p className="mt-5 max-w-2xl text-base leading-8 text-muted-foreground">
+              Let’s build something scalable. Reach out directly through the
+              form or connect through LinkedIn, GitHub, or email.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
               <a href={`mailto:${profile.email}`}>
-                <Button className="rounded-full bg-white px-6 text-slate-950 hover:bg-slate-200">
+                <Button className="rounded-full bg-primary px-6 text-primary-foreground hover:bg-primary/80">
                   <Mail className="mr-2 h-4 w-4" />
                   Email Me
                 </Button>
@@ -94,7 +93,7 @@ export function ContactSection({ recruiterMode }: { recruiterMode: boolean }) {
               <a href={profile.linkedin} target="_blank" rel="noreferrer">
                 <Button
                   variant="outline"
-                  className="rounded-full border-white/15 bg-white/5 px-6 text-white hover:bg-white/10"
+                  className="rounded-full border-border bg-card px-6 text-foreground hover:bg-muted"
                 >
                   <Linkedin className="mr-2 h-4 w-4" />
                   LinkedIn
@@ -104,7 +103,7 @@ export function ContactSection({ recruiterMode }: { recruiterMode: boolean }) {
               <a href={profile.github} target="_blank" rel="noreferrer">
                 <Button
                   variant="outline"
-                  className="rounded-full border-white/15 bg-white/5 px-6 text-white hover:bg-white/10"
+                  className="rounded-full border-border bg-card px-6 text-foreground hover:bg-muted"
                 >
                   <Github className="mr-2 h-4 w-4" />
                   GitHub
@@ -112,31 +111,31 @@ export function ContactSection({ recruiterMode }: { recruiterMode: boolean }) {
               </a>
             </div>
 
-            <div className="mt-8 flex-1 rounded-[1.75rem] border border-white/10 bg-black/20 p-6">
+            <div className="mt-8 flex-1 rounded-[1.75rem] border border-border bg-muted p-6">
               <div className="mb-5 flex items-center gap-3">
-                <User className="h-5 w-5 text-sky-300" />
-                <h3 className="text-lg font-semibold text-white">
+                <User className="h-5 w-5 text-primary" />
+                <h3 className="text-lg font-semibold text-foreground">
                   Quick Contact Card
                 </h3>
               </div>
 
-              <div className="space-y-4 text-sm text-slate-300">
-                <div className="rounded-2xl border border-white/8 bg-white/[0.03] p-4">
+              <div className="space-y-4 text-sm text-muted-foreground">
+                <div className="rounded-2xl border border-border bg-muted p-4">
                   Email: {profile.email}
                 </div>
-                <div className="rounded-2xl border border-white/8 bg-white/[0.03] p-4">
+                <div className="rounded-2xl border border-border bg-muted p-4">
                   LinkedIn: aryanrajendrasuthar
                 </div>
-                <div className="rounded-2xl border border-white/8 bg-white/[0.03] p-4">
+                <div className="rounded-2xl border border-border bg-muted p-4">
                   GitHub: aryanrajendrasuthar
                 </div>
-                <div className="rounded-2xl border border-white/8 bg-white/[0.03] p-4">
+                <div className="rounded-2xl border border-border bg-muted p-4">
                   Resume:{" "}
                   <a
                     href={profile.resume}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-sky-300 hover:text-sky-200"
+                    className="text-primary hover:underline"
                   >
                     Open PDF
                   </a>
@@ -147,11 +146,11 @@ export function ContactSection({ recruiterMode }: { recruiterMode: boolean }) {
 
           <form
             onSubmit={handleSubmit}
-            className="flex h-full flex-col rounded-[1.75rem] border border-white/10 bg-black/20 p-6"
+            className="flex h-full flex-col rounded-[1.75rem] border border-border bg-muted p-6"
           >
-            <h3 className="text-xl font-semibold text-white">Send a message</h3>
+            <h3 className="text-xl font-semibold text-foreground">Send a message</h3>
 
-            <p className="mt-2 text-sm text-slate-400">
+            <p className="mt-2 text-sm text-muted-foreground">
               Fill this out and submit directly from the portfolio.
             </p>
 
@@ -163,7 +162,7 @@ export function ContactSection({ recruiterMode }: { recruiterMode: boolean }) {
                 onChange={(e) =>
                   setForm((prev) => ({ ...prev, name: e.target.value }))
                 }
-                className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-slate-500"
+                className="w-full rounded-2xl border border-border bg-card px-4 py-3 text-sm text-foreground outline-none placeholder:text-muted-foreground"
               />
 
               <input
@@ -173,7 +172,7 @@ export function ContactSection({ recruiterMode }: { recruiterMode: boolean }) {
                 onChange={(e) =>
                   setForm((prev) => ({ ...prev, email: e.target.value }))
                 }
-                className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-slate-500"
+                className="w-full rounded-2xl border border-border bg-card px-4 py-3 text-sm text-foreground outline-none placeholder:text-muted-foreground"
               />
 
               <textarea
@@ -183,13 +182,13 @@ export function ContactSection({ recruiterMode }: { recruiterMode: boolean }) {
                 onChange={(e) =>
                   setForm((prev) => ({ ...prev, message: e.target.value }))
                 }
-                className="min-h-[260px] w-full flex-1 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none placeholder:text-slate-500"
+                className="min-h-[260px] w-full flex-1 rounded-2xl border border-border bg-card px-4 py-3 text-sm text-foreground outline-none placeholder:text-muted-foreground"
               />
 
               <Button
                 type="submit"
                 disabled={loading}
-                className="mt-auto w-full rounded-full bg-white text-slate-950 hover:bg-slate-200"
+                className="mt-auto w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/80"
               >
                 {loading ? "Sending..." : "Send Message"}
               </Button>
@@ -198,8 +197,8 @@ export function ContactSection({ recruiterMode }: { recruiterMode: boolean }) {
                 <div
                   className={`rounded-2xl px-4 py-3 text-sm ${
                     status.type === "success"
-                      ? "border border-green-500/20 bg-green-500/10 text-green-300"
-                      : "border border-red-500/20 bg-red-500/10 text-red-300"
+                      ? "border border-success/20 bg-success/10 text-success"
+                      : "border border-destructive/20 bg-destructive/10 text-destructive"
                   }`}
                 >
                   {status.text}

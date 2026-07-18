@@ -12,37 +12,29 @@ const engineeringStrengths = [
   "Full-stack product delivery from system design through deployment with measurable outcomes",
 ];
 
-export function SupportingSkillsSection({
-  recruiterMode,
-}: {
-  recruiterMode: boolean;
-}) {
+export function SupportingSkillsSection() {
   return (
     <section id="systems" className="mx-auto max-w-7xl px-6 py-20">
       <SectionTitle
         eyebrow="Supporting Strengths"
         title="Professional skills that amplify technical execution"
-        description={
-          recruiterMode
-            ? "Professional strengths that support communication, collaboration, mentorship, and technical clarity."
-            : "People-facing strengths and engineering depth that reinforce the ability to build, explain, and deliver real systems."
-        }
+        description="People-facing strengths and engineering depth that reinforce the ability to build, explain, and deliver real systems."
       />
 
       <div className="grid gap-6 md:grid-cols-[1.1fr_0.9fr]">
-        <Card className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
+        <Card className="rounded-[2rem] border-border bg-card backdrop-blur-xl">
           <CardContent className="p-8">
             <div className="mb-6 flex items-center gap-3">
-              <GraduationCap className="h-6 w-6 text-sky-300" />
+              <GraduationCap className="h-6 w-6 text-primary" />
               <div>
-                <p className="text-sm text-sky-300">ASU Academic Support Network</p>
-                <h3 className="text-2xl font-semibold text-white">
+                <p className="text-sm text-primary">ASU Academic Support Network</p>
+                <h3 className="text-2xl font-semibold text-foreground">
                   Subject Area Tutor
                 </h3>
               </div>
             </div>
 
-            <p className="text-sm leading-7 text-slate-300">
+            <p className="text-sm leading-7 text-muted-foreground">
               Mentored students at ASU in mathematics, statistics, and
               programming by breaking down complex topics into structured,
               step-by-step explanations. This reinforced my ability to
@@ -56,7 +48,7 @@ export function SupportingSkillsSection({
               {tutoringSkills.map((skill) => (
                 <div
                   key={skill}
-                  className="rounded-2xl border border-white/8 bg-black/20 px-4 py-3 text-sm text-slate-200"
+                  className="rounded-2xl border border-border bg-muted px-4 py-3 text-sm text-foreground"
                 >
                   {skill}
                 </div>
@@ -65,23 +57,23 @@ export function SupportingSkillsSection({
           </CardContent>
         </Card>
 
-        <Card className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
+        <Card className="rounded-[2rem] border-border bg-card backdrop-blur-xl">
           <CardContent className="p-8">
             <div className="mb-6 flex items-center gap-3">
-              <Shield className="h-6 w-6 text-violet-300" />
+              <Shield className="h-6 w-6 text-primary" />
               <div>
-                <p className="text-sm text-violet-300">Engineering Strengths</p>
-                <h3 className="text-2xl font-semibold text-white">
+                <p className="text-sm text-primary">Engineering Strengths</p>
+                <h3 className="text-2xl font-semibold text-foreground">
                   Why this strengthens my profile
                 </h3>
               </div>
             </div>
 
-            <div className="space-y-4 text-sm leading-7 text-slate-300">
+            <div className="space-y-4 text-sm leading-7 text-muted-foreground">
               {engineeringStrengths.map((item) => (
                 <div
                   key={item}
-                  className="rounded-2xl border border-white/8 bg-black/20 p-4"
+                  className="rounded-2xl border border-border bg-muted p-4"
                 >
                   {item}
                 </div>
@@ -91,13 +83,13 @@ export function SupportingSkillsSection({
         </Card>
       </div>
 
-      <Card className="mt-6 rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
+      <Card className="mt-6 rounded-[2rem] border-border bg-card backdrop-blur-xl">
         <CardContent className="p-8">
           <div className="mb-6 flex items-center gap-3">
-            <Code2 className="h-6 w-6 text-sky-300" />
+            <Code2 className="h-6 w-6 text-primary" />
             <div>
-              <p className="text-sm text-sky-300">Technical Skills</p>
-              <h3 className="text-2xl font-semibold text-white">
+              <p className="text-sm text-primary">Technical Skills</p>
+              <h3 className="text-2xl font-semibold text-foreground">
                 Resume-aligned engineering stack
               </h3>
             </div>
@@ -107,16 +99,16 @@ export function SupportingSkillsSection({
             {technicalSkillGroups.map((group) => (
               <div
                 key={group.title}
-                className="rounded-2xl border border-white/8 bg-black/20 p-4"
+                className="rounded-2xl border border-border bg-muted p-4"
               >
-                <p className="text-sm font-semibold text-white">
+                <p className="text-sm font-semibold text-foreground">
                   {group.title}
                 </p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {group.skills.map((skill) => (
                     <span
                       key={`${group.title}-${skill}`}
-                      className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[10px] uppercase tracking-[0.18em] text-slate-300"
+                      className="rounded-full border border-border bg-card px-3 py-1.5 text-[10px] uppercase tracking-[0.18em] text-muted-foreground"
                     >
                       {skill}
                     </span>

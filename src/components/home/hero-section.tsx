@@ -14,13 +14,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { profile } from "@/data/profile";
 
-export function HeroSection({
-  recruiterMode,
-  setRecruiterMode,
-}: {
-  recruiterMode: boolean;
-  setRecruiterMode: (value: boolean) => void;
-}) {
+export function HeroSection() {
   return (
     <section
       id="home"
@@ -31,97 +25,50 @@ export function HeroSection({
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <div className="mb-6 inline-flex rounded-full border border-sky-400/20 bg-sky-400/10 px-4 py-2 text-[10px] uppercase tracking-[0.35em] text-sky-200">
+        <div className="mb-6 inline-flex rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-[10px] uppercase tracking-[0.35em] text-primary">
           4+ Years of Engineering Experience
         </div>
 
-        {recruiterMode && (
-          <div className="mb-6 inline-flex rounded-full border border-green-500/30 bg-green-500/10 px-4 py-2 text-[10px] uppercase tracking-[0.35em] text-green-300 shadow-[0_0_20px_rgba(34,197,94,0.25)]">
-            Recruiter Mode Active
-          </div>
-        )}
-
-        <h1 className="max-w-4xl text-4xl font-semibold leading-tight tracking-tight text-white md:text-6xl">
+        <h1 className="max-w-4xl text-4xl font-semibold leading-tight tracking-tight text-foreground md:text-6xl">
           {profile.name}
         </h1>
 
-        <p className="mt-6 max-w-4xl text-lg leading-8 text-slate-200 md:text-2xl md:leading-10">
+        <p className="mt-6 max-w-4xl text-lg leading-8 text-foreground md:text-2xl md:leading-10">
           {profile.headline}
         </p>
 
-        <p className="mt-3 text-sm uppercase tracking-[0.3em] text-slate-400">
+        <p className="mt-3 text-sm uppercase tracking-[0.3em] text-muted-foreground">
           {profile.subHeadline}
         </p>
 
-        <p className="mt-8 max-w-3xl text-base leading-8 text-slate-300 md:text-lg">
-          {recruiterMode
-            ? "Backend engineer specializing in distributed systems, cloud-native microservices, event-driven architectures, and AI-integrated search pipelines. Currently processing 2M+ daily transactions at Avnet."
-            : "Software engineer with 4+ years of experience across distributed systems, cloud-native microservices, event-driven architectures, and AI/ML applications."}
+        <p className="mt-8 max-w-3xl text-base leading-8 text-muted-foreground md:text-lg">
+          Software engineer with 4+ years of experience across distributed
+          systems, cloud-native microservices, event-driven architectures,
+          and AI/ML applications.
         </p>
-
-        {recruiterMode && (
-          <div className="mt-6 flex flex-wrap gap-3">
-            {["Java", "Spring Boot", "AWS", "Azure", "Kafka", "Kubernetes", "LangChain"].map((tag) => (
-              <span
-                key={tag}
-                className="rounded-full border border-green-500/30 bg-green-500/10 px-4 py-2 text-xs text-green-300"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
 
         <div className="mt-10 flex flex-wrap gap-4">
           <Link href="/projects">
-            <Button className="rounded-full bg-white px-6 text-slate-950 hover:bg-slate-200">
-              {recruiterMode ? "View Top Projects" : "Explore Projects"}
+            <Button className="rounded-full px-6">
+              Explore Projects
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </Link>
 
-          {recruiterMode ? (
-            <a href={profile.resume} target="_blank" rel="noreferrer">
-              <Button
-                variant="outline"
-                className="rounded-full border-white/15 bg-white/5 px-6 text-white hover:bg-white/10"
-              >
-                Open Resume
-              </Button>
-            </a>
-          ) : (
-            <a href="#experience">
-              <Button
-                variant="outline"
-                className="rounded-full border-white/15 bg-white/5 px-6 text-white hover:bg-white/10"
-              >
-                View Experience
-              </Button>
-            </a>
-          )}
-
-          {!recruiterMode && (
-            <Button
-              type="button"
-              onClick={() => setRecruiterMode(true)}
-              variant="outline"
-              className="rounded-full border-sky-400/20 bg-sky-400/10 px-6 text-sky-100 hover:bg-sky-400/20"
-            >
-              Open Recruiter Mode
+          <Link href="/resume">
+            <Button variant="outline" className="rounded-full px-6">
+              View Resume
             </Button>
-          )}
+          </Link>
 
           <a href={profile.resume} download target="_blank" rel="noreferrer">
-            <Button
-              variant="outline"
-              className="rounded-full border-white/15 bg-white/5 px-6 text-white hover:bg-white/10"
-            >
+            <Button variant="outline" className="rounded-full px-6">
               <Download className="mr-2 h-4 w-4" /> Download Resume
             </Button>
           </a>
         </div>
 
-        <div className="mt-10 flex flex-wrap items-center gap-6 text-sm text-slate-400">
+        <div className="mt-10 flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
             <MapPin className="h-4 w-4" /> {profile.location}
           </div>
@@ -130,7 +77,7 @@ export function HeroSection({
             href={profile.linkedin}
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-2 hover:text-white"
+            className="flex items-center gap-2 hover:text-foreground"
           >
             <Linkedin className="h-4 w-4" /> LinkedIn
           </a>
@@ -139,14 +86,14 @@ export function HeroSection({
             href={profile.github}
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-2 hover:text-white"
+            className="flex items-center gap-2 hover:text-foreground"
           >
             <Github className="h-4 w-4" /> GitHub
           </a>
 
           <a
             href={`mailto:${profile.email}`}
-            className="flex items-center gap-2 hover:text-white"
+            className="flex items-center gap-2 hover:text-foreground"
           >
             <Mail className="h-4 w-4" /> Email
           </a>
@@ -159,9 +106,8 @@ export function HeroSection({
         transition={{ duration: 0.7, delay: 0.1 }}
         className="relative mx-auto flex w-full max-w-xl items-center justify-center"
       >
-        <div className="absolute h-[28rem] w-[28rem] rounded-full border border-sky-400/15 bg-[radial-gradient(circle,rgba(56,189,248,0.22),rgba(99,102,241,0.1),rgba(0,0,0,0)_70%)] blur-2xl" />
-        <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-3 shadow-[0_0_100px_rgba(56,189,248,0.12)] backdrop-blur-xl">
-          <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(56,189,248,0.18),rgba(124,58,237,0.14),transparent)]" />
+        <div className="absolute h-96 w-96 rounded-full bg-primary/15 blur-3xl" />
+        <div className="relative overflow-hidden rounded-[2rem] border border-border bg-card p-3">
           <Image
             src={profile.heroImage}
             alt="Aryan Suthar"

@@ -6,20 +6,18 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { SectionTitle } from "@/components/layout/section-title";
-import { layerAProjects } from "@/data/projects";
+import { layerAProjects, homepageFeaturedSlugs } from "@/data/projects";
 import Link from "next/link";
 
-type Props = {
-  recruiterMode: boolean;
+type FeaturedProject = (typeof layerAProjects)[number] & {
+  liveUrl?: string;
 };
 
-function getProjectMeta(project: (typeof layerAProjects)[number]) {
-  return project as typeof project & {
-    liveUrl?: string;
-  };
-}
+const featuredProjects = homepageFeaturedSlugs
+  .map((slug) => layerAProjects.find((project) => project.slug === slug))
+  .filter((project): project is FeaturedProject => Boolean(project));
 
-export function FeaturedProjectsSection({ recruiterMode }: Props) {
+export function FeaturedProjectsSection() {
   return (
     <section
       id="projects"
@@ -27,174 +25,136 @@ export function FeaturedProjectsSection({ recruiterMode }: Props) {
     >
       <SectionTitle
         eyebrow="Featured Projects"
-        title={
-          recruiterMode
-            ? "Layer A project portfolio"
-            : "Flagship projects with product and systems depth"
-        }
-        description={
-          recruiterMode
-            ? "Recruiter Mode keeps the focus on your top projects, impact, and engineering range."
-            : "Layer A highlights the strongest engineering stories across distributed systems, AI applications, cloud-native products, and real-world software delivery."
-        }
+        title="Flagship projects with product and systems depth"
+        description="The strongest engineering stories across distributed systems, AI applications, cloud-native products, and real-world software delivery."
       />
 
       <div className="grid min-w-0 grid-cols-[minmax(0,1fr)] gap-8 md:grid-cols-2 xl:grid-cols-3">
-        {layerAProjects.map((project, idx) => {
-          const projectMeta = getProjectMeta(project);
-
-          return (
-            <motion.div
-              key={project.slug}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.45, delay: idx * 0.08 }}
-              className="w-full"
-            >
-              <Card className="relative flex h-full w-[calc(100vw-3rem)] max-w-full min-w-0 flex-col overflow-hidden rounded-[2rem] border-white/10 bg-white/5 md:w-full">
-                <div className="relative h-32 overflow-hidden border-b border-white/10 bg-[linear-gradient(135deg,rgba(56,189,248,0.18),rgba(124,58,237,0.14),rgba(15,23,42,0.8))]">
-                  <div className="absolute inset-0 opacity-60 [background-image:radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.15),transparent_20%),linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] [background-size:auto,22px_22px,22px_22px]" />
-
-                  <div className="absolute inset-x-5 bottom-5 flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <Badge className="rounded-full border border-white/15 bg-black/30 text-[10px] uppercase tracking-[0.3em] text-slate-200">
-                        {project.type}
-                      </Badge>
-                      {"status" in project && project.status === "Live" && (
-                        <span className="flex items-center gap-1.5 rounded-full border border-green-500/30 bg-green-500/10 px-2.5 py-1 text-[9px] uppercase tracking-[0.25em] text-green-300">
-                          <span className="h-1.5 w-1.5 rounded-full bg-green-400" />
-                          Live
-                        </span>
-                      )}
-                    </div>
-                    <Layers3 className="h-5 w-5 text-sky-200" />
+        {featuredProjects.map((project, idx) => (
+          <motion.div
+            key={project.slug}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.45, delay: idx * 0.08 }}
+            className="w-full"
+          >
+            <Card className="relative flex h-full w-[calc(100vw-3rem)] max-w-full min-w-0 flex-col overflow-hidden rounded-[2rem] border-border bg-card md:w-full">
+              <div className="relative h-32 overflow-hidden border-b border-border bg-muted">
+                <div className="absolute inset-x-5 bottom-5 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Badge className="rounded-full border border-border bg-background/60 text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+                      {project.type}
+                    </Badge>
+                    {"status" in project && project.status === "Live" && (
+                      <span className="flex items-center gap-1.5 rounded-full border border-success/30 bg-success/10 px-2.5 py-1 text-[9px] uppercase tracking-[0.25em] text-success">
+                        <span className="h-1.5 w-1.5 rounded-full bg-success" />
+                        Live
+                      </span>
+                    )}
                   </div>
+                  <Layers3 className="h-5 w-5 text-primary" />
+                </div>
+              </div>
+
+              <CardContent className="relative z-10 flex flex-grow flex-col p-6">
+                <h3 className="text-xl font-semibold text-foreground">
+                  {project.title}
+                </h3>
+
+                <div className="mt-2 flex min-w-0 flex-wrap gap-3 text-sm text-muted-foreground">
+                  {project.metrics?.map((metric, metricIdx) => (
+                    <span key={`${project.slug}-metric-${metricIdx}`}>
+                      {metric}
+                    </span>
+                  ))}
                 </div>
 
-                <CardContent className="relative z-10 flex flex-grow flex-col p-6">
-                  <h3 className="text-xl font-semibold text-white">
-                    {project.title}
-                  </h3>
+                <div className="mt-3 break-words rounded-2xl border border-border bg-muted px-3 py-2 text-sm leading-6 text-muted-foreground">
+                  {project.dataFlow}
+                </div>
 
-                  <div className="mt-2 flex min-w-0 flex-wrap gap-3 text-sm text-slate-400">
-                    {project.metrics?.map((metric, metricIdx) => (
-                      <span key={`${project.slug}-metric-${metricIdx}`}>
-                        {metric}
-                      </span>
-                    ))}
-                  </div>
+                <p className="mt-3 break-words text-sm leading-7 text-muted-foreground">
+                  {project.engineeringSummary}
+                </p>
 
-                  <div className="mt-3 break-words rounded-2xl border border-white/8 bg-black/20 px-3 py-2 text-sm leading-6 text-slate-400">
-                    {project.dataFlow}
-                  </div>
+                <div className="mt-5 flex min-w-0 flex-wrap gap-2">
+                  {project.stack.map((tech, techIdx) => (
+                    <Badge
+                      key={`${project.slug}-${tech}-${techIdx}`}
+                      className="rounded-full border border-border bg-card text-[10px] uppercase tracking-[0.2em] text-muted-foreground"
+                    >
+                      {tech}
+                    </Badge>
+                  ))}
+                </div>
 
-                  <p className="mt-3 break-words text-sm leading-7 text-slate-300">
-                    {recruiterMode
-                      ? project.recruiterSummary
-                      : project.engineeringSummary}
-                  </p>
+                <div className="mt-auto flex flex-wrap items-center gap-3 pt-8">
+                  <Link href={`/projects/${project.slug}`}>
+                    <Button size="sm" className="min-h-11 rounded-full">
+                      View Project
+                    </Button>
+                  </Link>
 
-                  <div className="mt-5 flex min-w-0 flex-wrap gap-2">
-                    {project.stack.map((tech, techIdx) => (
-                      <Badge
-                        key={`${project.slug}-${tech}-${techIdx}`}
-                        className="rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.2em] text-slate-300"
-                      >
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-
-                  <div className="mt-auto flex flex-wrap items-center gap-3 pt-8">
-                    <Link href={`/projects/${project.slug}`}>
-                      <Button
-                        size="sm"
-                        className="min-h-11 rounded-full bg-white text-slate-950 hover:bg-slate-200"
-                      >
-                        View Project
-                      </Button>
-                    </Link>
-
-                    {projectMeta.liveUrl && (
-                      <a href={projectMeta.liveUrl} target="_blank" rel="noreferrer">
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          className="min-h-11 rounded-full border-white/15 bg-white/5 text-white hover:bg-white/10"
-                        >
-                          Live
-                        </Button>
-                      </a>
-                    )}
-
-                    <a href={project.github} target="_blank" rel="noreferrer">
+                  {project.liveUrl && (
+                    <a href={project.liveUrl} target="_blank" rel="noreferrer">
                       <Button
                         size="sm"
                         variant="outline"
-                        className="min-h-11 rounded-full border-white/15 bg-white/5 text-white hover:bg-white/10"
+                        className="min-h-11 rounded-full"
                       >
-                        <ExternalLink className="mr-2 h-4 w-4" />
-                        GitHub
+                        Live
                       </Button>
                     </a>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          );
-        })}
+                  )}
+
+                  <a href={project.github} target="_blank" rel="noreferrer">
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="min-h-11 rounded-full"
+                    >
+                      <ExternalLink className="mr-2 h-4 w-4" />
+                      GitHub
+                    </Button>
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        ))}
 
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.45, delay: layerAProjects.length * 0.08 }}
+          transition={{ duration: 0.45, delay: featuredProjects.length * 0.08 }}
           className="w-full"
         >
-          <Card className="relative flex h-full w-[calc(100vw-3rem)] max-w-full min-w-0 flex-col overflow-hidden rounded-[2rem] border-white/10 bg-white/5 md:w-full">
-            <div className="relative h-32 overflow-hidden border-b border-white/10 bg-[linear-gradient(135deg,rgba(139,92,246,0.18),rgba(56,189,248,0.12),rgba(15,23,42,0.8))]">
-              <div className="absolute inset-0 opacity-60 [background-image:radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.15),transparent_20%),linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] [background-size:auto,22px_22px,22px_22px]" />
-
+          <Card className="relative flex h-full w-[calc(100vw-3rem)] max-w-full min-w-0 flex-col overflow-hidden rounded-[2rem] border-border bg-card md:w-full">
+            <div className="relative h-32 overflow-hidden border-b border-border bg-muted">
               <div className="absolute inset-x-5 bottom-5 flex items-center justify-between">
-                <Badge className="rounded-full border border-white/15 bg-black/30 text-[10px] uppercase tracking-[0.3em] text-slate-200">
+                <Badge className="rounded-full border border-border bg-background/60 text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
                   More
                 </Badge>
-                <FolderOpen className="h-5 w-5 text-violet-300" />
+                <FolderOpen className="h-5 w-5 text-primary" />
               </div>
             </div>
 
             <CardContent className="flex flex-grow flex-col p-6">
-              <h3 className="text-xl font-semibold text-white">
+              <h3 className="text-xl font-semibold text-foreground">
                 Explore All Projects
               </h3>
 
-              <div className="mt-2 flex flex-wrap gap-4 text-xs text-slate-400">
-                <span>📂 Full archive</span>
-                <span>🧠 Layer A + Layer B</span>
-                <span>🔍 Case studies</span>
-              </div>
-
-              <p className="mt-3 text-sm leading-7 text-slate-300">
+              <p className="mt-3 text-sm leading-7 text-muted-foreground">
                 Open the full projects page to explore the complete project
                 archive, deeper case studies, and additional engineering work
                 beyond the featured flagship builds.
               </p>
 
-              <div className="mt-5 flex flex-wrap gap-2">
-                {["Layer A", "Layer B", "Case Studies", "Archive"].map((tag) => (
-                  <Badge
-                    key={tag}
-                    className="rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.2em] text-slate-300"
-                  >
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
-
               <div className="mt-auto flex flex-wrap items-center gap-3 pt-8">
                 <Link href="/projects">
-                  <Button className="min-h-11 rounded-full bg-white text-slate-950 hover:bg-slate-200">
+                  <Button className="min-h-11 rounded-full">
                     View All Projects
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>

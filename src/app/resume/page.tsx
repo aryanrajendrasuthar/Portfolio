@@ -71,12 +71,12 @@ const achievements = [
 
 export default function ResumePage() {
   return (
-    <div className="min-h-screen bg-[#030712] px-6 py-16 text-white">
+    <div className="min-h-screen bg-background px-6 py-16 text-foreground">
       <div className="mx-auto max-w-7xl">
         <div className="mb-8">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm text-slate-400 transition hover:text-white"
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground transition hover:text-foreground"
           >
             <ArrowLeft className="h-4 w-4" /> Back to main page
           </Link>
@@ -84,7 +84,7 @@ export default function ResumePage() {
 
         <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
           <div>
-            <p className="text-xs uppercase tracking-[0.4em] text-slate-400">
+            <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">
               Resume
             </p>
 
@@ -92,7 +92,7 @@ export default function ResumePage() {
               Aryan R Suthar
             </h1>
 
-            <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-300">
+            <p className="mt-4 max-w-3xl text-lg leading-8 text-muted-foreground">
               Backend and distributed systems engineer with 4+ years delivering
               high-throughput microservices platforms — specializing in
               event-driven architecture, cloud-native deployments, and
@@ -103,7 +103,7 @@ export default function ResumePage() {
               {strengthBadges.map((badge) => (
                 <span
                   key={badge}
-                  className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[10px] uppercase tracking-[0.2em] text-slate-300"
+                  className="rounded-full border border-border bg-card px-4 py-2 text-[10px] uppercase tracking-[0.2em] text-muted-foreground"
                 >
                   {badge}
                 </span>
@@ -112,7 +112,7 @@ export default function ResumePage() {
 
             <div className="mt-8 flex flex-wrap gap-4">
               <a href={profile.resume} target="_blank" rel="noreferrer">
-                <Button className="rounded-full bg-white px-6 text-slate-950 hover:bg-slate-200">
+                <Button className="rounded-full bg-primary px-6 text-primary-foreground hover:bg-primary/80">
                   <FileText className="mr-2 h-4 w-4" />
                   Open Resume
                 </Button>
@@ -121,12 +121,20 @@ export default function ResumePage() {
               <a href={profile.resume} download>
                 <Button
                   variant="outline"
-                  className="rounded-full border-white/15 bg-white/5 px-6 text-white hover:bg-white/10"
+                  className="rounded-full border-border bg-card px-6 text-foreground hover:bg-muted"
                 >
                   <Download className="mr-2 h-4 w-4" />
                   Download PDF
                 </Button>
               </a>
+            </div>
+
+            <div className="mt-8 overflow-hidden rounded-[1.5rem] border border-border bg-card">
+              <iframe
+                src={`${profile.resume}#view=FitH`}
+                title="Aryan Suthar Resume"
+                className="h-[70vh] w-full"
+              />
             </div>
 
             <div className="mt-10 grid gap-4 md:grid-cols-3">
@@ -135,16 +143,16 @@ export default function ResumePage() {
                 return (
                   <Card
                     key={item.title}
-                    className="rounded-[1.5rem] border-white/10 bg-white/5 backdrop-blur-xl"
+                    className="rounded-[1.5rem] border-border bg-card backdrop-blur-xl"
                   >
                     <CardContent className="p-6">
-                      <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl border border-sky-400/20 bg-sky-400/10">
-                        <Icon className="h-5 w-5 text-sky-300" />
+                      <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10">
+                        <Icon className="h-5 w-5 text-primary" />
                       </div>
-                      <h3 className="text-lg font-semibold text-white">
+                      <h3 className="text-lg font-semibold text-foreground">
                         {item.title}
                       </h3>
-                      <p className="mt-3 text-sm leading-7 text-slate-300">
+                      <p className="mt-3 text-sm leading-7 text-muted-foreground">
                         {item.text}
                       </p>
                     </CardContent>
@@ -153,20 +161,20 @@ export default function ResumePage() {
               })}
             </div>
 
-            <Card className="mt-8 rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
+            <Card className="mt-8 rounded-[2rem] border-border bg-card backdrop-blur-xl">
               <CardContent className="p-8">
                 <div className="mb-2 flex items-center gap-2">
-                  <Zap className="h-4 w-4 text-violet-300" />
-                  <p className="text-sm text-violet-300">Recruiter Snapshot</p>
+                  <Zap className="h-4 w-4 text-primary" />
+                  <p className="text-sm text-primary">Recruiter Snapshot</p>
                 </div>
-                <h2 className="mt-1 text-2xl font-semibold text-white">
+                <h2 className="mt-1 text-2xl font-semibold text-foreground">
                   Why this resume stands out
                 </h2>
                 <div className="mt-6 space-y-4">
                   {resumeSignals.map((item, index) => (
                     <div
                       key={index}
-                      className="rounded-2xl border border-white/8 bg-black/20 p-4 text-sm leading-7 text-slate-300"
+                      className="rounded-2xl border border-border bg-muted p-4 text-sm leading-7 text-muted-foreground"
                     >
                       {item}
                     </div>
@@ -175,13 +183,13 @@ export default function ResumePage() {
               </CardContent>
             </Card>
 
-            <Card className="mt-8 rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
+            <Card className="mt-8 rounded-[2rem] border-border bg-card backdrop-blur-xl">
               <CardContent className="p-8">
                 <div className="mb-2 flex items-center gap-2">
-                  <Code2 className="h-4 w-4 text-sky-300" />
-                  <p className="text-sm text-sky-300">Technical Skills</p>
+                  <Code2 className="h-4 w-4 text-primary" />
+                  <p className="text-sm text-primary">Technical Skills</p>
                 </div>
-                <h2 className="mt-1 text-2xl font-semibold text-white">
+                <h2 className="mt-1 text-2xl font-semibold text-foreground">
                   Resume stack coverage
                 </h2>
 
@@ -189,16 +197,16 @@ export default function ResumePage() {
                   {technicalSkillGroups.map((group) => (
                     <div
                       key={group.title}
-                      className="rounded-2xl border border-white/8 bg-black/20 p-4"
+                      className="rounded-2xl border border-border bg-muted p-4"
                     >
-                      <p className="text-sm font-semibold text-white">
+                      <p className="text-sm font-semibold text-foreground">
                         {group.title}
                       </p>
                       <div className="mt-3 flex flex-wrap gap-2">
                         {group.skills.map((skill) => (
                           <span
                             key={`${group.title}-${skill}`}
-                            className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[10px] uppercase tracking-[0.18em] text-slate-300"
+                            className="rounded-full border border-border bg-card px-3 py-1.5 text-[10px] uppercase tracking-[0.18em] text-muted-foreground"
                           >
                             {skill}
                           </span>
@@ -212,16 +220,16 @@ export default function ResumePage() {
           </div>
 
           <div className="space-y-6">
-            <Card className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
+            <Card className="rounded-[2rem] border-border bg-card backdrop-blur-xl">
               <CardContent className="p-8">
-                <p className="text-sm text-sky-300">Resume Access</p>
-                <h2 className="mt-2 text-2xl font-semibold text-white">
+                <p className="text-sm text-primary">Resume Access</p>
+                <h2 className="mt-2 text-2xl font-semibold text-foreground">
                   Quick actions
                 </h2>
 
                 <div className="mt-6 space-y-3">
                   <a href={profile.resume} target="_blank" rel="noreferrer">
-                    <Button className="w-full rounded-full bg-white text-slate-950 hover:bg-slate-200">
+                    <Button className="w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/80">
                       <FileText className="mr-2 h-4 w-4" />
                       Open Resume
                     </Button>
@@ -230,7 +238,7 @@ export default function ResumePage() {
                   <a href={profile.resume} download>
                     <Button
                       variant="outline"
-                      className="w-full rounded-full border-white/15 bg-white/5 text-white hover:bg-white/10"
+                      className="w-full rounded-full border-border bg-card text-foreground hover:bg-muted"
                     >
                       <Download className="mr-2 h-4 w-4" />
                       Download PDF
@@ -240,7 +248,7 @@ export default function ResumePage() {
                   <a href={`mailto:${profile.email}`}>
                     <Button
                       variant="outline"
-                      className="w-full rounded-full border-white/15 bg-white/5 text-white hover:bg-white/10"
+                      className="w-full rounded-full border-border bg-card text-foreground hover:bg-muted"
                     >
                       <Mail className="mr-2 h-4 w-4" />
                       Email
@@ -250,7 +258,7 @@ export default function ResumePage() {
                   <a href={profile.linkedin} target="_blank" rel="noreferrer">
                     <Button
                       variant="outline"
-                      className="w-full rounded-full border-white/15 bg-white/5 text-white hover:bg-white/10"
+                      className="w-full rounded-full border-border bg-card text-foreground hover:bg-muted"
                     >
                       <Linkedin className="mr-2 h-4 w-4" />
                       LinkedIn
@@ -260,7 +268,7 @@ export default function ResumePage() {
                   <a href={profile.github} target="_blank" rel="noreferrer">
                     <Button
                       variant="outline"
-                      className="w-full rounded-full border-white/15 bg-white/5 text-white hover:bg-white/10"
+                      className="w-full rounded-full border-border bg-card text-foreground hover:bg-muted"
                     >
                       <Github className="mr-2 h-4 w-4" />
                       GitHub
@@ -270,13 +278,13 @@ export default function ResumePage() {
               </CardContent>
             </Card>
 
-            <Card className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
+            <Card className="rounded-[2rem] border-border bg-card backdrop-blur-xl">
               <CardContent className="p-8">
                 <div className="mb-2 flex items-center gap-2">
-                  <GraduationCap className="h-4 w-4 text-sky-300" />
-                  <p className="text-sm text-sky-300">Education</p>
+                  <GraduationCap className="h-4 w-4 text-primary" />
+                  <p className="text-sm text-primary">Education</p>
                 </div>
-                <h2 className="mt-2 text-2xl font-semibold text-white">
+                <h2 className="mt-2 text-2xl font-semibold text-foreground">
                   Academic background
                 </h2>
 
@@ -284,26 +292,26 @@ export default function ResumePage() {
                   {education.map((item) => (
                     <div
                       key={`${item.school}-${item.degree}`}
-                      className="rounded-2xl border border-white/8 bg-black/20 p-4"
+                      className="rounded-2xl border border-border bg-muted p-4"
                     >
-                      <p className="text-sm font-semibold text-white">
+                      <p className="text-sm font-semibold text-foreground">
                         {item.degree}
                       </p>
-                      <p className="mt-2 text-sm leading-7 text-slate-300">
+                      <p className="mt-2 text-sm leading-7 text-muted-foreground">
                         {item.school}, {item.location}
                       </p>
-                      <p className="mt-1 text-xs uppercase tracking-[0.22em] text-slate-500">
+                      <p className="mt-1 text-xs uppercase tracking-[0.22em] text-muted-foreground">
                         {item.period} | GPA: {item.gpa}
                       </p>
-                      <p className="mt-4 text-sm leading-7 text-slate-300">
-                        <span className="text-white">Capstone:</span>{" "}
+                      <p className="mt-4 text-sm leading-7 text-muted-foreground">
+                        <span className="text-foreground">Capstone:</span>{" "}
                         {item.capstone}
                       </p>
                       <div className="mt-4 flex flex-wrap gap-2">
                         {item.coursework.map((course) => (
                           <span
                             key={course}
-                            className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[10px] uppercase tracking-[0.18em] text-slate-300"
+                            className="rounded-full border border-border bg-card px-3 py-1.5 text-[10px] uppercase tracking-[0.18em] text-muted-foreground"
                           >
                             {course}
                           </span>
@@ -315,13 +323,13 @@ export default function ResumePage() {
               </CardContent>
             </Card>
 
-            <Card className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
+            <Card className="rounded-[2rem] border-border bg-card backdrop-blur-xl">
               <CardContent className="p-8">
                 <div className="mb-2 flex items-center gap-2">
-                  <Award className="h-4 w-4 text-violet-300" />
-                  <p className="text-sm text-violet-300">Achievements</p>
+                  <Award className="h-4 w-4 text-primary" />
+                  <p className="text-sm text-primary">Achievements</p>
                 </div>
-                <h2 className="mt-2 text-2xl font-semibold text-white">
+                <h2 className="mt-2 text-2xl font-semibold text-foreground">
                   Resume achievements
                 </h2>
 
@@ -329,7 +337,7 @@ export default function ResumePage() {
                   {achievements.map((achievement) => (
                     <div
                       key={achievement}
-                      className="rounded-2xl border border-white/8 bg-black/20 p-4 text-sm leading-7 text-slate-300"
+                      className="rounded-2xl border border-border bg-muted p-4 text-sm leading-7 text-muted-foreground"
                     >
                       {achievement}
                     </div>
@@ -338,36 +346,36 @@ export default function ResumePage() {
               </CardContent>
             </Card>
 
-            <Card className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
+            <Card className="rounded-[2rem] border-border bg-card backdrop-blur-xl">
               <CardContent className="p-8">
-                <p className="text-sm text-violet-300">Portfolio Alignment</p>
-                <h2 className="mt-2 text-2xl font-semibold text-white">
+                <p className="text-sm text-primary">Portfolio Alignment</p>
+                <h2 className="mt-2 text-2xl font-semibold text-foreground">
                   Best matching sections
                 </h2>
 
                 <div className="mt-6 space-y-4">
                   <Link
                     href="/projects"
-                    className="block rounded-2xl border border-white/8 bg-black/20 p-4 transition hover:border-sky-400/30"
+                    className="block rounded-2xl border border-border bg-muted p-4 transition hover:border-primary/30"
                   >
-                    <div className="flex items-center gap-3 text-white">
-                      <Layers3 className="h-4 w-4 text-sky-300" />
+                    <div className="flex items-center gap-3 text-foreground">
+                      <Layers3 className="h-4 w-4 text-primary" />
                       Projects archive
                     </div>
-                    <p className="mt-2 text-sm leading-7 text-slate-300">
+                    <p className="mt-2 text-sm leading-7 text-muted-foreground">
                       View Layer A case studies and additional engineering work.
                     </p>
                   </Link>
 
                   <Link
                     href="/notes"
-                    className="block rounded-2xl border border-white/8 bg-black/20 p-4 transition hover:border-sky-400/30"
+                    className="block rounded-2xl border border-border bg-muted p-4 transition hover:border-primary/30"
                   >
-                    <div className="flex items-center gap-3 text-white">
-                      <BrainCircuit className="h-4 w-4 text-sky-300" />
+                    <div className="flex items-center gap-3 text-foreground">
+                      <BrainCircuit className="h-4 w-4 text-primary" />
                       Engineering notes
                     </div>
-                    <p className="mt-2 text-sm leading-7 text-slate-300">
+                    <p className="mt-2 text-sm leading-7 text-muted-foreground">
                       Review systems, backend, caching, security, and design
                       notes.
                     </p>
@@ -375,13 +383,13 @@ export default function ResumePage() {
 
                   <Link
                     href="/certificates"
-                    className="block rounded-2xl border border-white/8 bg-black/20 p-4 transition hover:border-sky-400/30"
+                    className="block rounded-2xl border border-border bg-muted p-4 transition hover:border-primary/30"
                   >
-                    <div className="flex items-center gap-3 text-white">
-                      <Briefcase className="h-4 w-4 text-sky-300" />
+                    <div className="flex items-center gap-3 text-foreground">
+                      <Briefcase className="h-4 w-4 text-primary" />
                       Certificates
                     </div>
-                    <p className="mt-2 text-sm leading-7 text-slate-300">
+                    <p className="mt-2 text-sm leading-7 text-muted-foreground">
                       Explore technical and professional learning credentials.
                     </p>
                   </Link>

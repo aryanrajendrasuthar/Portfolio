@@ -35,7 +35,7 @@ export async function GitHubSection() {
 
       <div className="mb-8 flex justify-center">
         <a href={githubConfig.profileUrl} target="_blank" rel="noreferrer">
-          <Button className="rounded-full bg-white px-6 text-slate-950 hover:bg-slate-200">
+          <Button className="rounded-full bg-primary px-6 text-primary-foreground hover:bg-primary/80">
             <Github className="mr-2 h-4 w-4" />
             View GitHub Profile
           </Button>
@@ -47,28 +47,28 @@ export async function GitHubSection() {
           {topRepos.map((repo) => (
             <Card
               key={repo.id}
-              className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl"
+              className="rounded-[2rem] border-border bg-card backdrop-blur-xl"
             >
               <CardContent className="p-6">
                 <div className="mb-5 flex items-start justify-between gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-sky-400/20 bg-sky-400/10">
-                    <Github className="h-5 w-5 text-sky-300" />
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10">
+                    <Github className="h-5 w-5 text-primary" />
                   </div>
 
                   {repo.language && (
-                    <Badge className="rounded-full border border-white/10 bg-white/5 text-[10px] uppercase tracking-[0.25em] text-slate-300">
+                    <Badge className="rounded-full border border-border bg-card text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
                       {repo.language}
                     </Badge>
                   )}
                 </div>
 
-                <h3 className="text-lg font-semibold text-white">{repo.name}</h3>
+                <h3 className="text-lg font-semibold text-foreground">{repo.name}</h3>
 
-                <p className="mt-3 min-h-[72px] text-sm leading-6 text-slate-300">
+                <p className="mt-3 min-h-[72px] text-sm leading-6 text-muted-foreground">
                   {repo.description || "Repository description will appear here from GitHub."}
                 </p>
 
-                <div className="mt-4 flex items-center gap-4 text-sm text-slate-400">
+                <div className="mt-4 flex items-center gap-4 text-sm text-muted-foreground">
                   <div className="flex items-center gap-1">
                     <Star className="h-4 w-4" />
                     {repo.stargazers_count}
@@ -80,7 +80,7 @@ export async function GitHubSection() {
                   <a href={repo.html_url} target="_blank" rel="noreferrer">
                     <Button
                       variant="outline"
-                      className="rounded-full border-white/15 bg-white/5 text-white hover:bg-white/10"
+                      className="rounded-full border-border bg-card text-foreground hover:bg-muted"
                     >
                       <ExternalLink className="mr-2 h-4 w-4" />
                       Open Repository
@@ -92,8 +92,8 @@ export async function GitHubSection() {
           ))}
         </div>
       ) : (
-        <Card className="rounded-[2rem] border-white/10 bg-white/5 backdrop-blur-xl">
-          <CardContent className="p-8 text-center text-slate-300">
+        <Card className="rounded-[2rem] border-border bg-card backdrop-blur-xl">
+          <CardContent className="p-8 text-center text-muted-foreground">
             GitHub repositories could not be loaded right now. The rest of the portfolio is still working correctly.
           </CardContent>
         </Card>
