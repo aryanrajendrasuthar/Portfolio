@@ -1081,7 +1081,7 @@ const layerAProjectsUnordered = [
     slug: "coresuite",
     title: "CoreSuite — Enterprise Business Management Platform",
     category: "Enterprise / Full-Stack",
-    status: "In Development",
+    status: "Live",
     year: 2026,
     tagline:
       "Clean-room enterprise platform unifying product catalog, CRM, inventory, and order operations behind one API gateway.",
@@ -1284,8 +1284,8 @@ const layerAProjectsUnordered = [
 
     metrics: [
       "🧠 7 modules on one shared intelligence graph",
-      "💵 Free → $1,999/mo Platform tier",
-      "🎯 Targeting 3+ paying customers, $3K+ MRR",
+      "☁️ Multi-cloud: AWS primary + Azure secondary",
+      "⚙️ 3 backend runtimes unified over Kafka",
     ],
 
     dataFlow:
@@ -1356,8 +1356,8 @@ const layerAProjectsUnordered = [
 
     outcome: [
       "Shipped a 7-module platform in production, all writing into one shared intelligence graph.",
-      "Built a tiered pricing model from free up to a $1,999/mo Platform tier.",
-      "Actively working toward 3+ paying customers and $3K+ MRR ahead of a YC W27 application.",
+      "Deployed across a dual-cloud footprint (AWS primary, Azure secondary) for resilience and failover.",
+      "Unified three backend runtimes (FastAPI, Spring Boot 3, Node.js) around one Kafka event contract without forcing a single-stack rewrite.",
     ],
 
     highlights: [
@@ -1365,8 +1365,6 @@ const layerAProjectsUnordered = [
       "API contract inference, cost-per-tenant intelligence, decision knowledge graphs, code-drift detection, self-healing pipelines, zero-downtime migrations, LLM token governance",
       "Multi-cloud: AWS primary, Azure secondary, via Terraform + Helm on Kubernetes",
       "OpenAI + Claude 3.5 Sonnet powering the AI layer",
-      "Pricing from free to $1,999/mo Platform tier",
-      "Roadmap: 3+ paying customers and $3K+ MRR ahead of a YC W27 application",
     ],
 
     learnings: [
