@@ -12,7 +12,7 @@ export const tutoringSkills = [
 export const technicalSkillGroups = [
   {
     title: "Languages",
-    skills: ["Java", "Python", "TypeScript", "JavaScript", "SQL", "C#", "Bash", "Go"],
+    skills: ["Java", "Python", "TypeScript", "JavaScript", "SQL", "C#", "C++", "Bash", "Go"],
   },
   {
     title: "Backend & APIs",

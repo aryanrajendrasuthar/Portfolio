@@ -14,6 +14,7 @@ export const assistantKnowledge = {
     "React",
     "SQL",
     "C#",
+    "C++",
     "Bash",
     "Go",
     "AWS (EC2, Lambda, S3, SNS, SES)",
