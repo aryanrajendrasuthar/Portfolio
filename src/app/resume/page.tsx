@@ -25,24 +25,24 @@ const highlightCards = [
   {
     icon: Briefcase,
     title: "Backend & Distributed Systems",
-    text: "4+ years building high-throughput microservices at Avnet and Orion Technolab — Java, Spring Boot, Python, Django, FastAPI, Kafka, Kubernetes, and event-driven pipelines processing 2M+ daily transactions.",
+    text: "4+ years building microservices and distributed data pipelines at Avnet and Orion Technolab — Python, Flask, Java, Spring Boot, Apache Kafka, GraphQL aggregation, and event-driven pipelines processing 2M+ daily transactions.",
   },
   {
     icon: Cloud,
     title: "Cloud-Native Engineering",
-    text: "Production deployments across AWS (EC2, Lambda, S3) and Azure (AKS, Service Bus) with Kubernetes, Docker, CI/CD via GitHub Actions, and 99.98% uptime.",
+    text: "Production deployments across AWS (Lambda, S3, SQS) and Azure (AKS, Blob Storage, Virtual Machines, Functions), with Docker containerization and CI/CD via Jenkins and GitHub Actions.",
   },
   {
     icon: BrainCircuit,
-    title: "AI / ML & RAG Systems",
-    text: "Shipped AI-driven semantic search with LangChain-based RAG pipelines and vector databases at Avnet, plus TensorFlow/MLflow model integration at Orion Technolab and multimodal ML systems across personal projects.",
+    title: "AI / ML Applications",
+    text: "Shipped AI-powered data validation and generative AI techniques for anomaly detection in production at Avnet, plus RAG pipelines, vector search, and multimodal ML systems across personal projects with LangChain, PyTorch, and MLflow.",
   },
 ];
 
 const resumeSignals = [
-  "2M+ daily transactions on Kafka-based microservices at Avnet — 45% scalability improvement under peak load",
-  "27% infrastructure cost reduction and 38% API latency improvement across AWS and Azure at Avnet",
-  "AI-driven semantic search with LangChain RAG pipelines at Avnet — 33% search relevance improvement",
+  "GraphQL aggregation layer at Avnet unifying SQL Server and MongoDB — 60% frontend page load reduction",
+  "Contributing to a Java, Spring Boot, and Apache Kafka event-driven pipeline at Avnet — 2M+ daily transactions in a cloud-native Azure AKS environment",
+  "25% infrastructure cost reduction migrating Orion Technolab to Azure, while cutting API response times by 50%",
   "PhysioApp — multi-role rehabilitation platform with 12+ entity relationships, deployed Vercel + Railway",
   "Distributed AI Simulation Platform — sub-2s response, LangChain + Redis pub/sub, selfjustice.ca",
   "EmoFusion — 84% weighted F1-score multimodal emotion detection with HuBERT + OpenCV",

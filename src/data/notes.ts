@@ -67,7 +67,7 @@ export const notes: Note[] = [
     content: [
       "Kafka enables asynchronous communication between services using event streams. Producers publish events, and consumers process them independently without tight coupling.",
       "This allows systems to handle spikes in traffic by buffering events and processing them later. It also enables multiple consumers to react to the same event stream.",
-      "Event-driven systems are especially useful for pipelines, analytics, and distributed processing workloads. At Avnet, Kafka-backed data pipelines increased ingestion throughput by 3.2× and eliminated bottlenecks in real-time analytics workflows.",
+      "Event-driven systems are especially useful for pipelines, analytics, and distributed processing workloads. At Avnet, an ongoing event-driven workstream uses Kafka to support reliable asynchronous processing and horizontal scalability for a high-throughput pipeline handling 2M+ daily transactions in a cloud-native Azure AKS environment.",
     ],
     bullets: [
       "Decouples services",
@@ -75,7 +75,7 @@ export const notes: Note[] = [
       "Improves resilience",
     ],
     whereUsed:
-      "Used at Avnet to decouple event-driven data pipelines from downstream analytics consumers, increasing ingestion throughput by 3.2×. Also used in the Distributed AI Simulation Platform to decouple API ingestion from worker processing via Redis pub/sub.",
+      "Used at Avnet in an ongoing event-driven workstream (Java, Spring Boot, Kafka) supporting a high-throughput pipeline of 2M+ daily transactions. Also used in the Distributed AI Simulation Platform to decouple API ingestion from worker processing via Redis pub/sub.",
     tradeoffs: [
       "Harder debugging due to asynchronous flow",
       "Message ordering is not guaranteed without careful partitioning",
@@ -105,7 +105,7 @@ export const notes: Note[] = [
     content: [
       "Redis is an in-memory data store used to cache frequently accessed data. It reduces latency and avoids repeated expensive operations such as LLM inference calls, database queries, and embedding generation.",
       "Caching works best when read operations are frequent and the underlying data is expensive to compute or fetch. Common strategies include cache-aside, write-through, and TTL-based expiration.",
-      "At Orion Technolab, Redis distributed caching decreased database load by 37% and improved application response time during high concurrency. In the AI Knowledge Assistant, Redis caching of embeddings and repeated LLM responses reduced response latency by 60% to sub-300ms.",
+      "In the AI Knowledge Assistant, Redis caching of embeddings and repeated LLM responses reduced response latency by 60% to sub-300ms. The Distributed AI Simulation Platform uses the same in-memory pattern with Redis pub/sub for real-time session state instead of request caching.",
     ],
     bullets: [
       "Reduces latency",
@@ -113,7 +113,7 @@ export const notes: Note[] = [
       "Improves throughput",
     ],
     whereUsed:
-      "Applied in the AI Knowledge Assistant to cache embeddings, repeated LLM responses, and session state — achieving 60% latency reduction to sub-300ms. Also used at Orion Technolab to decrease database load by 37% under high-concurrency traffic, and in the Distributed AI Simulation Platform for real-time session state management.",
+      "Applied in the AI Knowledge Assistant to cache embeddings, repeated LLM responses, and session state — achieving 60% latency reduction to sub-300ms. Also used in the Distributed AI Simulation Platform for real-time session state management via Redis pub/sub.",
     tradeoffs: [
       "Cache invalidation complexity",
       "Stale data risk if not managed properly",
@@ -142,8 +142,8 @@ export const notes: Note[] = [
       "Designing scalable backend services with clear boundaries and API contracts.",
     content: [
       "Microservices split applications into smaller, independent services with defined responsibilities. Each service owns its data and exposes APIs for communication.",
-      "Good API design ensures that services remain loosely coupled and independently deployable. RESTful and gRPC APIs both have roles — REST for external clients, gRPC for low-latency internal service-to-service calls.",
-      "At Avnet, low-latency RESTful and gRPC APIs built with Node.js and .NET Core reduced average response time by 38% and enabled seamless cross-service communication across distributed systems. The challenge is avoiding over-fragmentation and maintaining clear service boundaries.",
+      "Good API design ensures that services remain loosely coupled and independently deployable. REST is the default for external clients, while an aggregation layer in front of several services can eliminate multiple round-trips for a single frontend view.",
+      "At Avnet, a GraphQL aggregation layer unifying several backend microservices (SQL Server, MongoDB) let frontend clients fetch complete datasets in one call instead of many REST round-trips, cutting page load times by 60%. The challenge is avoiding over-fragmentation and maintaining clear service boundaries.",
     ],
     bullets: [
       "Loose coupling",
@@ -151,7 +151,7 @@ export const notes: Note[] = [
       "Independent scaling",
     ],
     whereUsed:
-      "Applied in PhysioApp through separation of controllers, services, and data layers across patient, therapist, and admin roles. Also central to the Avnet microservices platform, where low-latency gRPC APIs enable seamless cross-service communication across distributed systems.",
+      "Applied in PhysioApp through separation of controllers, services, and data layers across patient, therapist, and admin roles. Also central to the Avnet platform, where a GraphQL aggregation layer sits in front of 7+ backend microservices to give frontend clients a single query surface.",
     tradeoffs: [
       "Increased operational complexity",
       "Network overhead between services",
@@ -181,7 +181,7 @@ export const notes: Note[] = [
     content: [
       "Backend security includes authentication, authorization, encryption, and input validation. Authentication verifies identity, while authorization controls what authenticated users can access.",
       "HTTPS is essential for protecting user data and enabling browser APIs like geolocation. OAuth2 and JWT are the dominant standards for API authentication across modern distributed systems.",
-      "At Orion Technolab, implementing OAuth2 and JWT-based authentication reduced unauthorized access incidents by 60% and ensured compliance with security standards. Role-Based Access Control (RBAC) takes this further, ensuring users can only access the resources and operations appropriate to their role — implemented in PhysioApp with three distinct roles (patient, therapist, admin).",
+      "Role-Based Access Control (RBAC) ensures users can only access the resources and operations appropriate to their role — implemented in PhysioApp with three distinct roles (patient, therapist, admin) enforced at the API layer.",
     ],
     bullets: [
       "Auth vs AuthZ",
@@ -189,7 +189,7 @@ export const notes: Note[] = [
       "Server-side validation",
     ],
     whereUsed:
-      "Implemented in Emergency SOS with session-based authentication and HTTPS support for secure geolocation access. Applied at Orion Technolab with OAuth2/JWT authentication across production APIs — reducing unauthorized access incidents by 60% — and in PhysioApp with three-role RBAC (patient, therapist, admin).",
+      "Implemented in Emergency SOS with session-based authentication and HTTPS support for secure geolocation access. Also applied in PhysioApp with OAuth2/JWT and three-role RBAC (patient, therapist, admin) enforced across every protected API route.",
     tradeoffs: [
       "Additional complexity in auth flows",
       "Performance overhead from encryption",
@@ -223,7 +223,7 @@ export const notes: Note[] = [
       "Cache embeddings and responses",
     ],
     whereUsed:
-      "Used in the AI Knowledge Assistant with hybrid retrieval (dense + sparse), re-ranking, and Redis caching — achieving sub-300ms query response and 60% latency reduction. Also shipped AI-driven semantic search at Avnet using vector databases and LangChain-based RAG pipelines, improving search relevance by 33%. The same hybrid-retrieval pattern (FAISS/Qdrant benchmarked against an Elasticsearch/BM25 baseline) is evaluated in the RAG Incident Resolution research project.",
+      "Used in the AI Knowledge Assistant with hybrid retrieval (dense + sparse), re-ranking, and Redis caching — achieving sub-300ms query response and 60% latency reduction. The same hybrid-retrieval pattern (FAISS/Qdrant benchmarked against an Elasticsearch/BM25 baseline) is evaluated in the RAG Incident Resolution research project.",
     tradeoffs: [
       "Retrieval quality directly limits answer quality — garbage in, garbage out",
       "Chunking strategy is non-obvious and significantly impacts recall",
@@ -253,7 +253,7 @@ export const notes: Note[] = [
       "Designing normalized schemas, applying indexing strategies, and tuning queries for high-throughput production systems.",
     content: [
       "Good database design begins with normalization — organizing data to eliminate redundancy and enforce data integrity through entity relationships. A well-normalized schema defines clear ownership boundaries between entities, which directly maps to maintainable service and API design.",
-      "Indexing is the most impactful query optimization lever. Composite indexes on frequently filtered columns, partial indexes on subsets of rows, and covering indexes that satisfy a query entirely from the index all significantly reduce query plan cost. At Avnet, advanced PostgreSQL and MongoDB indexing strategies improved query performance by 41% and reduced data retrieval latency for large-scale datasets.",
+      "Indexing is the most impactful query optimization lever. Composite indexes on frequently filtered columns, partial indexes on subsets of rows, and covering indexes that satisfy a query entirely from the index all significantly reduce query plan cost. At Avnet, transactional data lives in SQL Server with optimized queries and stored procedures, while MongoDB holds unstructured data — unified for frontend consumption through a GraphQL aggregation layer rather than exposing both databases directly to clients.",
       "Beyond indexing, query optimization involves understanding execution plans (EXPLAIN ANALYZE in PostgreSQL), avoiding N+1 query patterns, using connection pooling (PgBouncer), batching writes, and choosing between normalization and strategic denormalization based on access patterns.",
     ],
     bullets: [
@@ -262,7 +262,7 @@ export const notes: Note[] = [
       "Read EXPLAIN ANALYZE",
     ],
     whereUsed:
-      "Applied in PhysioApp designing a normalized schema supporting 12+ entity relationships across patients, therapists, admins, exercise routines, and analytics. Also used at Avnet designing advanced PostgreSQL and MongoDB schemas with optimized indexing strategies — improving query performance by 41%.",
+      "Applied in PhysioApp designing a normalized schema supporting 12+ entity relationships across patients, therapists, admins, exercise routines, and analytics. Also used at Avnet, writing optimized SQL Server stored procedures and queries for transactional order and inventory data.",
     tradeoffs: [
       "Heavy normalization reduces write complexity but increases join complexity for reads",
       "Indexes speed up reads but slow down writes and consume storage",
@@ -292,7 +292,7 @@ export const notes: Note[] = [
       "Building automated pipelines for testing, building, and deploying software with zero-downtime strategies.",
     content: [
       "Continuous Integration (CI) automatically runs tests and quality checks on every code push, catching regressions before they reach production. Continuous Deployment (CD) automates the release process so that passing builds are deployed without manual intervention — reducing release risk and increasing deployment frequency.",
-      "GitHub Actions is the dominant CI/CD platform for modern projects. A typical pipeline runs type checking, unit tests, integration tests, linting, and security scanning in parallel, then builds a container image, pushes to a registry, and triggers a deployment on the target platform. At Orion Technolab, GitHub Actions and Bash-scripted CI/CD pipelines reduced manual deployment effort by 40%, while Docker and Kubernetes deployments achieved zero-downtime releases and improved deployment frequency by 2.5×.",
+      "GitHub Actions is the dominant CI/CD platform for modern projects. A typical pipeline runs type checking, unit tests, integration tests, linting, and security scanning in parallel, then builds a container image, pushes to a registry, and triggers a deployment on the target platform. At Orion Technolab, standardized GitHub Actions pipelines reduced failed deployments and maintained 98%+ uptime for production releases; at Avnet, Docker containerization and Jenkins pipelines automate builds, tests, and deployments across the backend microservices platform.",
       "Blue/green deployments maintain two identical environments — blue (current) and green (new). Traffic is switched from blue to green instantly after validation, allowing immediate rollback if issues appear. Kubernetes rolling updates and canary releases are complementary strategies that shift traffic gradually to reduce blast radius.",
     ],
     bullets: [
@@ -301,7 +301,7 @@ export const notes: Note[] = [
       "Fast feedback loops",
     ],
     whereUsed:
-      "Built GitHub Actions CI/CD pipelines for PhysioApp with type checking, automated tests, and deployment to Vercel and Railway. Automated similar GitHub Actions and Bash-scripted pipelines at Orion Technolab, reducing manual deployment effort by 40% and achieving zero-downtime releases via Docker and Kubernetes.",
+      "Built GitHub Actions CI/CD pipelines for PhysioApp with type checking, automated tests, and deployment to Vercel and Railway. Standardized similar GitHub Actions pipelines at Orion Technolab, and Jenkins pipelines at Avnet, for automated builds, tests, and deployments.",
     tradeoffs: [
       "Pipeline setup time is an upfront investment",
       "Complex pipelines can become bottlenecks if not parallelized",
@@ -329,7 +329,7 @@ export const notes: Note[] = [
       "Designing systems that fully exploit cloud platforms — autoscaling, managed services, cost optimization, and high availability.",
     content: [
       "Cloud-native architecture means designing systems to exploit cloud capabilities rather than simply lifting and shifting on-premise patterns. This includes using managed services (RDS, Lambda, AKS), horizontal autoscaling, infrastructure-as-code, and pay-per-use compute — rather than over-provisioning static servers.",
-      "AWS and Azure each have strong managed service ecosystems. On AWS: EC2 for compute, Lambda for serverless event processing, S3 for object storage, SNS/SQS for messaging, and SES for email. On Azure: AKS for managed Kubernetes, Service Bus for enterprise messaging, Blob Storage, Functions for serverless, and Cognitive Search for AI-powered search. At Avnet, combining AWS (EC2, Lambda, S3) and Azure (AKS, Service Bus) deployments cut infrastructure costs by 27% while maintaining 99.98% system uptime.",
+      "AWS and Azure each have strong managed service ecosystems. On AWS: EC2 for compute, Lambda for serverless event processing, S3 for object storage, SNS/SQS for messaging, and SES for email. On Azure: AKS for managed Kubernetes, Service Bus for enterprise messaging, Blob Storage, Functions for serverless, and Cognitive Search for AI-powered search. At Orion Technolab, migrating to Azure (Blob Storage, Virtual Machines, Azure Functions) cut monthly infrastructure spend by 25%. At Avnet, AWS (SQS, S3, Lambda) handles messaging, storage, and serverless data validation, while an ongoing Kafka workstream runs in a cloud-native Azure AKS environment.",
       "Kubernetes autoscaling is a core cloud-native primitive. Horizontal Pod Autoscaler (HPA) scales pod replicas based on CPU/memory or custom metrics. Combined with node autoscaling, this allows systems to handle 10× traffic spikes and scale back to baseline during off-peak hours — directly reducing infrastructure costs.",
     ],
     bullets: [
@@ -338,7 +338,7 @@ export const notes: Note[] = [
       "Design for multi-region failure",
     ],
     whereUsed:
-      "Applied at Avnet combining AWS and Azure deployments — cutting infrastructure costs by 27% while maintaining 99.98% uptime. Also used in WorkSafe for enterprise-grade cloud-native deployment with autoscaling and role-aware SaaS infrastructure.",
+      "Applied at Orion Technolab migrating infrastructure to Azure — cutting infrastructure spend by 25% while maintaining 98%+ production uptime. Also used in WorkSafe for enterprise-grade cloud-native deployment with autoscaling and role-aware SaaS infrastructure.",
     tradeoffs: [
       "Cloud-native systems are harder to run locally and test end-to-end",
       "Vendor lock-in risk when relying on proprietary managed services",
@@ -368,7 +368,7 @@ export const notes: Note[] = [
     content: [
       "OAuth2 is the industry standard authorization framework for delegated access. It separates authentication (proving identity) from authorization (granting access to resources) via access tokens. The Authorization Code flow with PKCE is the secure standard for web applications. JWTs (JSON Web Tokens) are commonly used as the token format — self-contained, signed tokens that carry claims about the user without requiring a database lookup on every request.",
       "Role-Based Access Control (RBAC) assigns permissions to roles rather than individual users. Users are then assigned one or more roles. This makes permission management scalable — adding a new permission means updating the role definition, not every user. In PhysioApp, three distinct roles (patient, therapist, admin) controlled access to exercises, patient records, scheduling, and analytics with different permission sets.",
-      "In distributed microservices, JWTs enable stateless authentication — each service can verify the token signature independently without calling a central auth server. Token expiry and refresh flows (short-lived access tokens + longer-lived refresh tokens) balance security with user experience. At Orion Technolab, OAuth2 and JWT-based authentication reduced unauthorized access incidents by 60% and ensured compliance with security standards.",
+      "In distributed microservices, JWTs enable stateless authentication — each service can verify the token signature independently without calling a central auth server. Token expiry and refresh flows (short-lived access tokens + longer-lived refresh tokens) balance security with user experience. In PhysioApp, JWT-based RBAC across three roles (patient, therapist, admin) enforces this at the middleware level before any handler logic runs.",
     ],
     bullets: [
       "JWT for stateless auth",
@@ -376,7 +376,7 @@ export const notes: Note[] = [
       "Short-lived tokens + refresh",
     ],
     whereUsed:
-      "Implemented in PhysioApp with three RBAC roles (patient, therapist, admin) controlling access to all platform features. Applied at Orion Technolab across production APIs using OAuth2 and JWT — reducing unauthorized access incidents by 60%.",
+      "Implemented in PhysioApp with three RBAC roles (patient, therapist, admin) controlling access to all platform features, with JWT-based authentication enforced at the middleware level across every protected API route.",
     tradeoffs: [
       "JWTs cannot be revoked before expiry without a blocklist",
       "RBAC can become rigid for fine-grained permission scenarios",
@@ -406,7 +406,7 @@ export const notes: Note[] = [
     content: [
       "Automated testing exists to catch regressions before they reach production, but the value depends entirely on what's actually being tested. Unit tests should isolate a single unit of logic; anything that reaches a database, network call, or external service needs to be stubbed or mocked so the test stays fast and deterministic.",
       "Stubs return canned responses so a test can exercise a code path without depending on the real dependency being available. Mocks go further — they also assert that specific calls happened with specific arguments, which is useful for verifying a service correctly delegates work without duplicating the dependency's own test suite.",
-      "Test-Driven Development (TDD) writes the failing test first, then the minimum code to pass it, then refactors. The real benefit isn't the tests themselves — it's that TDD forces you to think through a function's contract and edge cases before implementation, which tends to produce cleaner interfaces. CoreSuite builds this same quality discipline directly into CI, running automated dependency and secret scanning (OWASP Dependency-Check, TruffleHog, CodeQL) on every push instead of relying on manual review.",
+      "Test-Driven Development (TDD) writes the failing test first, then the minimum code to pass it, then refactors. The real benefit isn't the tests themselves — it's that TDD forces you to think through a function's contract and edge cases before implementation, which tends to produce cleaner interfaces. At Avnet, a comprehensive PyTest suite with stubbed and mocked service dependencies, built around TDD, supports reliability across a 7+ service backend.",
     ],
     bullets: [
       "Stub dependencies, don't skip tests",
@@ -414,7 +414,7 @@ export const notes: Note[] = [
       "Fast, deterministic tests catch regressions early",
     ],
     whereUsed:
-      "Applied in CoreSuite's CI pipeline, which runs automated dependency and secret scanning (OWASP Dependency-Check, TruffleHog, CodeQL) on every push — the same discipline of catching problems before they reach production that stubbed, mocked, TDD-driven unit tests apply at the code level.",
+      "Applied at Avnet, where a comprehensive PyTest suite — with stubs and mocks isolating service components — supports test-driven development across the backend microservices platform. The same quality rigor (automated dependency and secret scanning via OWASP Dependency-Check, TruffleHog, and CodeQL) is built into CoreSuite's CI pipeline.",
     tradeoffs: [
       "Over-mocking can make tests pass while the real integration is broken — some integration-level coverage is still necessary",
       "TDD has a learning curve and can feel slower initially, even though it usually pays off in fewer production bugs",
@@ -443,7 +443,7 @@ export const notes: Note[] = [
     content: [
       "SQS decouples producers from consumers — a service publishes a message and moves on, without waiting for whatever processes it downstream. This absorbs traffic spikes and means a slow or temporarily-down consumer doesn't block the producer.",
       "Messages that fail processing shouldn't be silently dropped or retried forever. A retry policy with a bounded number of attempts, combined with a dead-letter queue (DLQ) that captures messages after repeated failures, keeps the main queue healthy while preserving failed messages for inspection instead of losing them.",
-      "SupplyForge applies this pattern for its async, AI-assisted ingestion pipeline — incoming records flow through SQS rather than being validated synchronously on the request path, keeping the AI validation worker decoupled from the services producing events.",
+      "At Avnet, SQS handles reliable message queuing between services for the data ingestion platform. SupplyForge applies a similar pattern for its async, AI-assisted ingestion pipeline, keeping validation off the request path entirely.",
     ],
     bullets: [
       "Decouples producers from consumers",
@@ -451,7 +451,7 @@ export const notes: Note[] = [
       "DLQ preserves failed messages for inspection",
     ],
     whereUsed:
-      "Applied in SupplyForge, where incoming records flow through SQS into an async pipeline instead of being validated synchronously on the request path — keeping the AI validation worker decoupled from the services producing events.",
+      "Used at Avnet for reliable inter-service messaging via SQS. Applied the same way in SupplyForge, where incoming records flow through SQS into an async pipeline instead of being validated synchronously on the request path.",
     tradeoffs: [
       "Asynchronous processing means the producer can't know immediately whether a message succeeded",
       "DLQs need active monitoring — a growing DLQ is a silent failure if nobody's watching it",
