@@ -16,12 +16,12 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Aryan Suthar — Software Engineer",
   description:
-    "Backend and distributed systems engineer with 4+ years building high-throughput microservices, cloud-native deployments, and AI-integrated search pipelines.",
+    "Backend-focused software engineer with 4+ years building distributed, cloud-native applications and AI-integrated data platforms — event-driven architecture, microservices, and data pipelines across AWS and Azure.",
   metadataBase: new URL("https://aryan-suthar-portfolio.vercel.app"),
   openGraph: {
     title: "Aryan Suthar — Software Engineer",
     description:
-      "Backend and distributed systems engineer with 4+ years building high-throughput microservices, cloud-native deployments, and AI-integrated search pipelines.",
+      "Backend-focused software engineer with 4+ years building distributed, cloud-native applications and AI-integrated data platforms — event-driven architecture, microservices, and data pipelines across AWS and Azure.",
     url: "https://aryan-suthar-portfolio.vercel.app",
     siteName: "Aryan Suthar Portfolio",
     images: [
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Aryan Suthar — Software Engineer",
     description:
-      "Backend and distributed systems engineer with 4+ years building high-throughput microservices, cloud-native deployments, and AI-integrated search pipelines.",
+      "Backend-focused software engineer with 4+ years building distributed, cloud-native applications and AI-integrated data platforms — event-driven architecture, microservices, and data pipelines across AWS and Azure.",
     images: ["/images/profile/aryan-profile-themed.png"],
   },
 };

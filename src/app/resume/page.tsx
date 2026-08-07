@@ -93,10 +93,10 @@ export default function ResumePage() {
             </h1>
 
             <p className="mt-4 max-w-3xl text-lg leading-8 text-muted-foreground">
-              Backend and distributed systems engineer with 4+ years delivering
-              high-throughput microservices platforms — specializing in
-              event-driven architecture, cloud-native deployments, and
-              AI-integrated search pipelines.
+              Backend-focused software engineer with 4+ years building
+              distributed, cloud-native applications and AI-integrated data
+              platforms — skilled in event-driven architecture, microservices,
+              and scaling data pipelines across AWS and Azure.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
